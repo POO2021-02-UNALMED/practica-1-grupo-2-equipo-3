@@ -1,16 +1,33 @@
 package gestorAplicacion.obras;
 
-public class Publicacion {
-	private long codigo;
-	private String nombre;
-	private short año;
-	private short ejemplar;
-	private static enum Estados  {CIRCULACION, PRESTADO, PERDIDO};
-	private Estados estado;
+public abstract class Publicacion {
+	//ATRIBUTOS DE CLASE
+	static protected int numeroPublicaciones;
+	protected static enum Estados  {CIRCULACION, PRESTADO, PERDIDO};
+	
+	//ATRIBUTOS INSTANCIA
+	protected long codigo;
+	protected String nombre;
+	protected short año;
+	protected short ejemplar;
+	protected Estados estado;
+	protected String holi="sokdsf";
+	
+	//CONSTRUCTORES
+	public Publicacion() {
+		
+	}
+	public Publicacion (long codigo, String nombre, short año, short ejemplar,Estados estado) {
+	this.codigo= codigo;
+	this.nombre=nombre;
+	this.año= año;
+	this.ejemplar=ejemplar;
+	this.estado=estado;
+	
+	}
 	
 	
-	
-	
+	//GETTERS Y SETTERS
 	public long getCodigo() {
 		return codigo;
 	}
@@ -40,5 +57,11 @@ public class Publicacion {
 	}
 	public void setEstado(Estados estado) {
 		this.estado = estado;
+	}
+	public static int getNumeroPublicaciones() {
+		return numeroPublicaciones;
+	}
+	public static void setNumeroPublicaciones(int numeroPublicaciones) {
+		Publicacion.numeroPublicaciones = numeroPublicaciones;
 	}
 }
