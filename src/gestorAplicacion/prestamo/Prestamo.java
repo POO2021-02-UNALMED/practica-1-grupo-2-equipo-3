@@ -6,13 +6,17 @@ import java.util.ArrayList;
 public class Prestamo {
 	
 	//ATRIBUTOS DE CLASE
-	public static ArrayList<Prestamo> lista = new ArrayList<>();
+	private static ArrayList<Prestamo> lista = new ArrayList<>();
+	
+	
+	
 	//ATRIBUTOS DE INSTANCIA
 	private int id;
 	private LocalDate inicio;
 	private LocalDate fin;
 	private int multa;
 	
+	//CONSTRUCTORES
 	
 	
 	//GETTERS SETTERS
@@ -23,6 +27,6 @@ public class Prestamo {
 		Prestamo.lista = lista;
 	}
 	
-	//CONSTRUCTORES
+	
 
 }

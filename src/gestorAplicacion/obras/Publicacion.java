@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public abstract class Publicacion {
 	//ATRIBUTOS DE CLASE
-	public static ArrayList<Publicacion> lista = new ArrayList<>();
+	private static ArrayList<Publicacion> lista = new ArrayList<>();
 	static protected int numeroPublicaciones;
 	protected static enum Estados  {CIRCULACION, PRESTADO, PERDIDO};
 	
