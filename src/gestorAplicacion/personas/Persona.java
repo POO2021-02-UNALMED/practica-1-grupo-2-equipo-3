@@ -2,8 +2,6 @@ package gestorAplicacion.personas;
 
 import java.util.ArrayList;
 
-import gestorAplicacion.obras.Publicacion;
-
 abstract class Persona {
 	
 	//ATRIBUTOS DE CLASE
