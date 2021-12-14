@@ -6,8 +6,12 @@ import java.util.ArrayList;
 
 public abstract class Publicacion implements Serializable {
 	//ATRIBUTOS DE CLASE
+<<<<<<< HEAD
 	private static final long serialVersionUID = 1L;
 	public static ArrayList<Publicacion> lista = new ArrayList<>();
+=======
+	private static ArrayList<Publicacion> lista = new ArrayList<>();
+>>>>>>> cc796543ec93be6e18b9c28347a92786c90c500f
 	static protected int numeroPublicaciones;
 	protected static enum Estados  {CIRCULACION, PRESTADO, PERDIDO};
 	
@@ -21,10 +25,7 @@ public abstract class Publicacion implements Serializable {
 	
 	
 	//CONSTRUCTORES
-	public Publicacion() {
-		
-	}
-	public Publicacion (int codigo, String nombre, short año, short ejemplar,Estados estado) {
+	Publicacion (int codigo, String nombre, short año, short ejemplar,Estados estado) {
 	this.codigo= codigo;
 	this.nombre=nombre;
 	this.año= año;
