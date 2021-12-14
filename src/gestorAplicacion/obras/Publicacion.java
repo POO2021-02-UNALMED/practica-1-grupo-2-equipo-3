@@ -1,6 +1,6 @@
 package gestorAplicacion.obras;
 
- abstract class Publicacion {
+public abstract class Publicacion {
 	//ATRIBUTOS DE CLASE
 	static protected int numeroPublicaciones;
 	protected static enum Estados  {CIRCULACION, PRESTADO, PERDIDO};
