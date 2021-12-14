@@ -8,6 +8,7 @@ import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 
 import gestorAplicacion.obras.*;
+import gestorAplicacion.personas.*;
 
 
 public class Serializador {
@@ -15,17 +16,16 @@ public class Serializador {
 	
 	
 	// Método para serializar todas las publicaciones creadas
-	public static void serializar(Publicacion publicacion) {
+	public static void serializarPublicaciones() {
 		FileOutputStream fos;
 		ObjectOutputStream oos;
 		
-		FileOutputStream fileOut;
 		try {
 			fos = new FileOutputStream(System.getProperty("user.dir") + "\\tmp\\publicaciones.txt");
 			
 			oos = new ObjectOutputStream(fos);
 			
-			for (Publicacion publicacion : lista) {
+			for (Publicacion publicacion : Publicacion.lista) {
 				oos.writeObject(publicacion);
 			}
 			
@@ -44,7 +44,30 @@ public class Serializador {
 	
 	
 	// Método para serializar todas las personas creadas
+	public static void serializarPersonas() {
+		FileOutputStream fos;
+		ObjectOutputStream oos;
 
+		try {
+			fos = new FileOutputStream(System.getProperty("user.dir") + "\\tmp\\personas.txt");
+			
+			oos = new ObjectOutputStream(fos);
+			
+			for (Persona persona : Persona.lista) {
+				oos.writeObject(publicacion);
+			}
+			
+			oos.close();
+			fos.close();
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	
 	// Método para serializar todas las estanterias creadas
