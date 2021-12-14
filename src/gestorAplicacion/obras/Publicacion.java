@@ -1,9 +1,12 @@
 package gestorAplicacion.obras;
 
+import java.io.Serializable;
+
 import java.util.ArrayList;
 
-public abstract class Publicacion {
+public abstract class Publicacion implements Serializable {
 	//ATRIBUTOS DE CLASE
+	private static final long serialVersionUID = 1L;
 	public static ArrayList<Publicacion> lista = new ArrayList<>();
 	static protected int numeroPublicaciones;
 	protected static enum Estados  {CIRCULACION, PRESTADO, PERDIDO};
