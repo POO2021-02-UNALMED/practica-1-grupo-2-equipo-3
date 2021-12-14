@@ -1,5 +1,7 @@
 package uiMain;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import baseDatos.*; 
@@ -61,16 +63,42 @@ public class bibliotecario {
 				switch(opcion2) {
 					case 1: System.out.println("Ingrese los datos de la Estantería:");
 					
-					System.out.println("Número:");
-					System.out.println("Piso:");
-					System.out.println("Límte inferior:");
-					System.out.println("Límite superior:");
-				
+					System.out.println("Número:"); short n = (short) readLong();
+					System.out.println("Piso:"); short p = (short) readLong();
+					System.out.println("Límte inferior:"); String li = readLn();
+					System.out.println("Límite superior:"); String ls = readLn();
+					String[] l = {li,ls};
+					new Estanteria(n, p, l);
 					break;
-					case 2: System.out.println(" Menú con tipo de publicacion: ");break;
-					case 3: System.out.println(" Se llena con constructor de autor");break;
-					case 4: System.out.println(" Menú con tipo de usuario: ");break;
-					case 5: System.out.println(" Se llena con constructor de autor");break;
+					
+					case 2: System.out.println(" Menú con tipo de publicacion: ");
+					break;
+					
+					case 3: System.out.println("Ingrese kis datos del autor");
+					
+					System.out.println("¿Está vivo el autor?:");
+					System.out.println("Responda SI O NO"); String v = readLn();
+					System.out.println("Nombre:"); String nautor = readLn();
+					System.out.println("Fecha de nacimiento en formato AAAA-MM-DD"); String nacimiento = readLn();
+					System.out.println("País de Origen"); String pais = readLn();
+	
+					boolean vivo;
+					if (v == "SI") {vivo = true;
+					}else {vivo = false;}
+					
+					 new Autor (nautor,LocalDate.parse(nacimiento), pais,vivo);
+					
+					break;
+					
+					case 4: System.out.println(" Menú con tipo de usuario: ");
+					break;
+					
+					case 5: System.out.println("Ingrese los datos del Prestamo:");
+					
+					
+					
+					
+					break;
 					case 6: break;
 				}
 			} while (opcion2 !=6);
