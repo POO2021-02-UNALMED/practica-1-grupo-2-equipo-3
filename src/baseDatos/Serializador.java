@@ -6,7 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
-import gestorAplicacion.obras.Publicacion;
+import gestorAplicacion.obras.*;
 import gestorAplicacion.personas.Persona;
 import gestorAplicacion.prestamo.Prestamo;
 
