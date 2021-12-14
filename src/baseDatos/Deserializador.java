@@ -15,32 +15,31 @@ import gestorAplicacion.personas.Persona;
 import gestorAplicacion.prestamo.Prestamo;
 
 public class Deserializador {
-	//private static File rutaTemp = new File("src\\baseDatos\\temp");
 	private static File rutaTemp = new File("src\\baseDAtos\\temp");
-	private static File publicaciones = new File(rutaTemp + "\\publicaciones.txt");
-	
 	
 	// Método para deserializar todas las publicaciones creadas
-	private static void deserializarPublicaciones() {
+	public static void deserializarPublicaciones() {
 		FileInputStream fis;
 		ObjectInputStream ois;
 		
 		try {
-			fis = new FileInputStream(publicaciones);
+			fis = new FileInputStream(rutaTemp + "\\publicaciones.txt");
 			ois = new ObjectInputStream(fis);
 			
 			ArrayList<Publicacion> listado =  new ArrayList<>();
 			
 			try {
 				Object obj = ois.readObject();
-				
+	
 				while(obj != null) {
 					listado.add((Publicacion)obj);
+					
 					obj = ois.readObject();
 				}
 			} catch (EOFException e) {
 				// TODO Auto-generated catch block
 			}
+			
 			
 			Publicacion.setLista(listado);
 			
