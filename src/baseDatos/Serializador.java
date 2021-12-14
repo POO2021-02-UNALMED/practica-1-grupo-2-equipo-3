@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 
 import gestorAplicacion.obras.*;
 import gestorAplicacion.personas.*;
+import gestorAplicacion.prestamo.Prestamo;
 
 
 public class Serializador {
@@ -16,7 +17,7 @@ public class Serializador {
 	
 	
 	// Método para serializar todas las publicaciones creadas
-	public static void serializarPublicaciones() {
+	static void serializarPublicaciones() {
 		FileOutputStream fos;
 		ObjectOutputStream oos;
 		
@@ -44,7 +45,7 @@ public class Serializador {
 	
 	
 	// Método para serializar todas las personas creadas
-	public static void serializarPersonas() {
+	static void serializarPersonas() {
 		FileOutputStream fos;
 		ObjectOutputStream oos;
 
@@ -71,7 +72,7 @@ public class Serializador {
 	
 	
 	// Método para serializar todas las estanterias creadas
-	public static void serializarEstanterias() {
+	static void serializarEstanterias() {
 		FileOutputStream fos;
 		ObjectOutputStream oos;
 
@@ -98,6 +99,37 @@ public class Serializador {
 	
 	
 	// Método para serializar todas los prestamos creados
+	static void serializarPrestamos() {
+		FileOutputStream fos;
+		ObjectOutputStream oos;
 
+		try {
+			fos = new FileOutputStream(System.getProperty("user.dir") + "\\tmp\\prestamos.txt");
+			
+			oos = new ObjectOutputStream(fos);
+			
+			for (Prestamo prestamo : Prestamo.lista) {
+				oos.writeObject(prestamo);
+			}
+			
+			oos.close();
+			fos.close();
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	// Método para serializar todos los objetos creados y garantizar persistencia
+	public static void serializar() {
+		serializarPublicaciones();
+		serializarPersonas();
+		serializarEstanterias();
+		serializarPrestamos();
+	}
 
 }
