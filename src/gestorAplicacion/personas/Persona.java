@@ -2,7 +2,7 @@ package gestorAplicacion.personas;
 
 import java.util.ArrayList;
 
-abstract class Persona {
+public abstract class Persona {
 	
 	//ATRIBUTOS DE CLASE
 	public static ArrayList<Persona> lista = new ArrayList<>();
