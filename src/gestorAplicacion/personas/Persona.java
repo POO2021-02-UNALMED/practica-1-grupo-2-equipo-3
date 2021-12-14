@@ -1,11 +1,14 @@
 package gestorAplicacion.personas;
+
+import java.io.Serializable;
 import java.time.*;
 
 import java.util.ArrayList;
 
-public abstract class Persona {
-	
+public abstract class Persona implements Serializable{
+
 	//ATRIBUTOS DE CLASE
+	private static final long serialVersionUID = 1L;
 	private static ArrayList<Persona> lista = new ArrayList<>();
 
 	
