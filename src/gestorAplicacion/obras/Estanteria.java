@@ -2,7 +2,7 @@ package gestorAplicacion.obras;
 
 import java.util.ArrayList;
 
-class Estanteria {
+public class Estanteria {
 	//ATRIBUTOS DE CLASE
 	public static ArrayList<Estanteria> lista = new ArrayList<>();
 	 static protected int numeroEstanterias;
