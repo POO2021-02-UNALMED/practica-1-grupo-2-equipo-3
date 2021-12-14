@@ -15,7 +15,9 @@ import gestorAplicacion.personas.Persona;
 import gestorAplicacion.prestamo.Prestamo;
 
 public class Deserializador {
-	private static File rutaTemp = new File("src\\baseDatos\\temp");
+	//private static File rutaTemp = new File("src\\baseDatos\\temp");
+	private static File rutaTemp = new File(System.getProperty("user.dir") + "\\src\\temp");
+	private static File publicaciones = new File("publicaciones.txt");
 	
 	
 	// Método para deserializar todas las publicaciones creadas
@@ -24,7 +26,7 @@ public class Deserializador {
 		ObjectInputStream ois;
 		
 		try {
-			fis = new FileInputStream(rutaTemp + "\\publicaciones.txt");
+			fis = new FileInputStream(publicaciones);
 			ois = new ObjectInputStream(fis);
 			
 			ArrayList<Publicacion> listado =  new ArrayList<>();
