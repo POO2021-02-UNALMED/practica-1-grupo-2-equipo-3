@@ -31,6 +31,15 @@ public abstract class Publicacion implements Serializable {
 	}
 	
 	
+	//METODOS ABSTRACTOS
+	public abstract String mostrarInfo ();
+	public abstract String mostrarUbicacion();
+	
+	
+	//METODOS NORMALES
+	
+	
+	
 	//GETTERS Y SETTERS
 	public long getCodigo() {
 		return codigo;
