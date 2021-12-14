@@ -7,6 +7,7 @@ public abstract class Persona {
 	
 	//ATRIBUTOS DE CLASE
 	private static ArrayList<Persona> lista = new ArrayList<>();
+
 	
 	//ATRIBUTOS INSTANCIA
 	protected String nombre;
