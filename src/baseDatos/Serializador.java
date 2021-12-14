@@ -26,7 +26,7 @@ public class Serializador {
 			
 			oos = new ObjectOutputStream(fos);
 			
-			for (Publicacion publicacion : Publicacion.lista) {
+			for (Publicacion publicacion : Publicacion.getLista()) {
 				oos.writeObject(publicacion);
 			}
 			
@@ -54,7 +54,7 @@ public class Serializador {
 			
 			oos = new ObjectOutputStream(fos);
 			
-			for (Persona persona : Persona.lista) {
+			for (Persona persona : Persona.getLista()) {
 				oos.writeObject(persona);
 			}
 			
@@ -81,7 +81,7 @@ public class Serializador {
 			
 			oos = new ObjectOutputStream(fos);
 			
-			for (Estanteria estanteria : Estanteria.lista) {
+			for (Estanteria estanteria : Estanteria.getLista()) {
 				oos.writeObject(estanteria);
 			}
 			
@@ -108,7 +108,7 @@ public class Serializador {
 			
 			oos = new ObjectOutputStream(fos);
 			
-			for (Prestamo prestamo : Prestamo.lista) {
+			for (Prestamo prestamo : Prestamo.getLista()) {
 				oos.writeObject(prestamo);
 			}
 			
