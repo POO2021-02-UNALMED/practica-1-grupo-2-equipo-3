@@ -5,34 +5,34 @@ import java.util.ArrayList;
 public class Libro extends Publicacion {
 	//ATRIBUTOS DE CLASE
 	static public ArrayList<Libro>libros= new ArrayList();
-	
+	static private enum tipoLibro {COLECCION_GENERAL,RESERVA,INVESTIGACION,SEMINARIO,TESIS};
 	
 	//ATRIBUTOS INSTANCIA
-	private String tipo;
+	private tipoLibro tipo;
 	private String referencia;
 	private short volumen;
 	
 	//CONSTRUCTORES
 	public Libro() {
-		System.out.println(holi);
 		Publicacion.numeroPublicaciones++;
 	}
-	public Libro (long codigo, String nombre, short año, short ejemplar, Estados estado, String tipo,String referencia, short volumen) {
+	public Libro (long codigo, String nombre, short año, short ejemplar, Estados estado, tipoLibro tipo,String referencia, short volumen, Estanteria estanteria) {
 		super(codigo,nombre,año,ejemplar,estado);
 		this.tipo=tipo;
 		this.referencia=referencia;
 		this.volumen=volumen;
+		super.estanteria=estanteria;
 		libros.add(this);
 		Publicacion.numeroPublicaciones++;
 	}
 	
 	
 	//GETTERS Y SETTERS
-	public String getTipo() {
+	public tipoLibro getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(String tipo) {
+	public void setTipo(tipoLibro tipo) {
 		this.tipo = tipo;
 	}
 

@@ -16,11 +16,12 @@ public class Revista extends Publicacion {
 	public Revista () {
 		Publicacion.numeroPublicaciones++;
 	}
-	public Revista (long codigo, String nombre, short año, short ejemplar,  Estados estado, short numero,Meses mes, String temporada) {
+	public Revista (long codigo, String nombre, short año, short ejemplar,  Estados estado, short numero,Meses mes, String temporada, Estanteria estanteria) {
 		super(codigo,nombre,año,ejemplar,estado);
 		this.numero=numero;
 		this.mes=mes;
 		this.temporada=temporada;
+		super.estanteria=estanteria;
 		revistas.add(this);
 		Publicacion.numeroPublicaciones++;
 	}

@@ -11,7 +11,7 @@ public abstract class Publicacion {
 	protected short año;
 	protected short ejemplar;
 	protected Estados estado;
-	protected String holi="sokdsf";
+	protected Estanteria estanteria;
 	
 	//CONSTRUCTORES
 	public Publicacion() {
