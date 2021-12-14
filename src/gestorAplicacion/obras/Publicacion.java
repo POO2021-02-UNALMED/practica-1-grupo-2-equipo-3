@@ -1,23 +1,24 @@
 package gestorAplicacion.obras;
 
-public abstract class Publicacion {
+ abstract class Publicacion {
 	//ATRIBUTOS DE CLASE
 	static protected int numeroPublicaciones;
 	protected static enum Estados  {CIRCULACION, PRESTADO, PERDIDO};
 	
 	//ATRIBUTOS INSTANCIA
-	protected long codigo;
+	protected int codigo;
 	protected String nombre;
 	protected short año;
 	protected short ejemplar;
 	protected Estados estado;
 	protected Estanteria estanteria;
 	
+	
 	//CONSTRUCTORES
 	public Publicacion() {
 		
 	}
-	public Publicacion (long codigo, String nombre, short año, short ejemplar,Estados estado) {
+	public Publicacion (int codigo, String nombre, short año, short ejemplar,Estados estado) {
 	this.codigo= codigo;
 	this.nombre=nombre;
 	this.año= año;
@@ -31,7 +32,7 @@ public abstract class Publicacion {
 	public long getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(long codigo) {
+	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 	public String getNombre() {

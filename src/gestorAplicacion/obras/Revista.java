@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Revista extends Publicacion {
 	//ATRIBUTOS DE CLASE
 	static private enum Meses { ENERO, FEBRERO,MARZO,ABRIL,MAYO,JUNIO,JULIO,AGOSTO,SEPTIEMBRE,OCTUBRE,NOVIEMBRE,DICIEMBRE};	
-	static public ArrayList<Revista>revistas= new ArrayList();
+	static private ArrayList<Revista>revistas;
 	
 	//ATRIBUTOS INSTANCIA
 	private short numero;
@@ -16,7 +16,7 @@ public class Revista extends Publicacion {
 	public Revista () {
 		Publicacion.numeroPublicaciones++;
 	}
-	public Revista (long codigo, String nombre, short año, short ejemplar,  Estados estado, short numero,Meses mes, String temporada, Estanteria estanteria) {
+	public Revista (int codigo, String nombre, short año, short ejemplar,  Estados estado, short numero,Meses mes, String temporada, Estanteria estanteria) {
 		super(codigo,nombre,año,ejemplar,estado);
 		this.numero=numero;
 		this.mes=mes;
@@ -50,6 +50,12 @@ public class Revista extends Publicacion {
 
 	public void setTemporada(String temporada) {
 		this.temporada = temporada;
+	}
+	public static ArrayList<Revista> getRevistas() {
+		return revistas;
+	}
+	public static void setRevistas(ArrayList<Revista> revistas) {
+		Revista.revistas = revistas;
 	}
 	
 

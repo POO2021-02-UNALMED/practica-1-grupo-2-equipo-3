@@ -1,5 +1,6 @@
 package gestorAplicacion.personas;
 
-public class Usuario {
-
+public abstract interface Usuario{
+	//METODOS POR DEFINIR
+	
 }

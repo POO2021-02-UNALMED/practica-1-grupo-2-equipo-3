@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Libro extends Publicacion {
 	//ATRIBUTOS DE CLASE
-	static public ArrayList<Libro>libros= new ArrayList();
+	static private ArrayList<Libro>libros;
 	static private enum tipoLibro {COLECCION_GENERAL,RESERVA,INVESTIGACION,SEMINARIO,TESIS};
 	
 	//ATRIBUTOS INSTANCIA
@@ -16,7 +16,7 @@ public class Libro extends Publicacion {
 	public Libro() {
 		Publicacion.numeroPublicaciones++;
 	}
-	public Libro (long codigo, String nombre, short año, short ejemplar, Estados estado, tipoLibro tipo,String referencia, short volumen, Estanteria estanteria) {
+	public Libro (int codigo, String nombre, short año, short ejemplar, Estados estado, tipoLibro tipo,String referencia, short volumen, Estanteria estanteria) {
 		super(codigo,nombre,año,ejemplar,estado);
 		this.tipo=tipo;
 		this.referencia=referencia;
@@ -50,6 +50,12 @@ public class Libro extends Publicacion {
 
 	public void setVolumen(short volumen) {
 		this.volumen = volumen;
+	}
+	public static ArrayList<Libro> getLibros() {
+		return libros;
+	}
+	public static void setLibros(ArrayList<Libro> libros) {
+		Libro.libros = libros;
 	}
 	
 }
