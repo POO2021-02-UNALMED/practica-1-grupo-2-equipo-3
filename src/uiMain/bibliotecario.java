@@ -17,7 +17,7 @@ public class bibliotecario {
 	public static void main(String[] args) {
 		
 		// Se almacenan en memoria ram todas las clases antes creadas
-		// Deserializador.deserializar();
+		Deserializador.deserializar();
 		
 		System.out.println("Hola!\nBienvenido al Sistema de Gestión de la Biblioteca");
 		
