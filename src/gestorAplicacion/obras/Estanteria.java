@@ -1,9 +1,12 @@
 package gestorAplicacion.obras;
 
+import java.io.Serializable;
+
 import java.util.ArrayList;
 
-public class Estanteria {
+public class Estanteria implements Serializable {
 	//ATRIBUTOS DE CLASE
+	private static final long serialVersionUID = 1L;
 	public static ArrayList<Estanteria> lista = new ArrayList<>();
 	 static protected int numeroEstanterias;
 	 
