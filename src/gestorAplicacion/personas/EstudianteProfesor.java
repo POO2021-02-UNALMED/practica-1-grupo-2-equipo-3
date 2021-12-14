@@ -31,6 +31,14 @@ public class EstudianteProfesor extends Persona implements Usuario {
 		return universidad;
 		
 	}
+
+	public int getDeudas() {
+		return deudas;
+	}
+
+	public void setDeudas(int deudas) {
+		this.deudas = deudas;
+	}
 	
 	
 	

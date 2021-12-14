@@ -27,7 +27,7 @@ public abstract class Publicacion {
 	this.año= año;
 	this.ejemplar=ejemplar;
 	this.estado=estado;
-	
+	lista.add(this);
 	}
 	
 	
@@ -67,5 +67,17 @@ public abstract class Publicacion {
 	}
 	public static void setNumeroPublicaciones(int numeroPublicaciones) {
 		Publicacion.numeroPublicaciones = numeroPublicaciones;
+	}
+	public static ArrayList<Publicacion> getLista() {
+		return lista;
+	}
+	public static void setLista(ArrayList<Publicacion> lista) {
+		Publicacion.lista = lista;
+	}
+	public Estanteria getEstanteria() {
+		return estanteria;
+	}
+	public void setEstanteria(Estanteria estanteria) {
+		this.estanteria = estanteria;
 	}
 }

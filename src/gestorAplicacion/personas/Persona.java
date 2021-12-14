@@ -45,12 +45,6 @@ public abstract class Persona {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public LocalDate getEdad() {
-		return nacimiento;
-	}
-	public void setEdad(LocalDate nacimiento) {
-		this.nacimiento = nacimiento;
-	}
 	public String getPaisOrigen() {
 		return paisOrigen;
 	}
@@ -86,5 +80,17 @@ public abstract class Persona {
 	}
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
+	}
+	public static ArrayList<Persona> getLista() {
+		return lista;
+	}
+	public static void setLista(ArrayList<Persona> lista) {
+		Persona.lista = lista;
+	}
+	public LocalDate getNacimiento() {
+		return nacimiento;
+	}
+	public void setNacimiento(LocalDate nacimiento) {
+		this.nacimiento = nacimiento;
 	}
 }

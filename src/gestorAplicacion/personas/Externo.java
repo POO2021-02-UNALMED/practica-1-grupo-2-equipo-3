@@ -10,6 +10,7 @@ public class Externo extends Persona implements Usuario {
 		
 	//ATRIBUTOS INSTANCIA
 		private String universidad= "No especificada";	
+		private int deudas;
 		
 	
 	//CONSTRUCTORES
@@ -37,6 +38,12 @@ public class Externo extends Persona implements Usuario {
 	}
 	public void setUniversidad(String universidad) {
 		this.universidad = universidad;
+	}
+	public int getDeudas() {
+		return deudas;
+	}
+	public void setDeudas(int deudas) {
+		this.deudas = deudas;
 	}
 
 }

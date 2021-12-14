@@ -40,7 +40,7 @@ public class Deserializador {
 				// TODO Auto-generated catch block
 			}
 			
-			Publicacion.setLista(lsitado);
+			Publicacion.setLista(listado);
 			
 	        ois.close();
 	        fis.close();

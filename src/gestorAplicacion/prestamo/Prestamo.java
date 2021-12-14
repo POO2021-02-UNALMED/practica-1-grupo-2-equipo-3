@@ -10,6 +10,8 @@ public class Prestamo {
 	//ATRIBUTOS DE INSTANCIA
 	private int id;
 	private LocalDate inicio;
+	private LocalDate fin;
+	private int multa;
 	
 	//CONSTRUCTORES
 
