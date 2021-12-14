@@ -17,7 +17,7 @@ public class Serializador {
 	
 	
 	// Método para serializar todas las publicaciones creadas
-	static void serializarPublicaciones() {
+	private static void serializarPublicaciones() {
 		FileOutputStream fos;
 		ObjectOutputStream oos;
 		
@@ -45,7 +45,7 @@ public class Serializador {
 	
 	
 	// Método para serializar todas las personas creadas
-	static void serializarPersonas() {
+	private static void serializarPersonas() {
 		FileOutputStream fos;
 		ObjectOutputStream oos;
 
@@ -72,7 +72,7 @@ public class Serializador {
 	
 	
 	// Método para serializar todas las estanterias creadas
-	static void serializarEstanterias() {
+	private static void serializarEstanterias() {
 		FileOutputStream fos;
 		ObjectOutputStream oos;
 
@@ -99,7 +99,7 @@ public class Serializador {
 	
 	
 	// Método para serializar todas los prestamos creados
-	static void serializarPrestamos() {
+	private static void serializarPrestamos() {
 		FileOutputStream fos;
 		ObjectOutputStream oos;
 
