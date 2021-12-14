@@ -34,7 +34,7 @@ public class bibliotecario {
 			switch(opcion) {
 			case 1: System.out.println("Está resgistrando ..."); break;
 			case 2: System.out.println("Está mostrando ...");
-			case 5: break;
+			case 5: Serializador.serializar(); break;
 			}
 			
 		} while (opcion !=5);
