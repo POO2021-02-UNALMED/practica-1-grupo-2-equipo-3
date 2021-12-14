@@ -1,11 +1,13 @@
 package gestorAplicacion.prestamo;
 
+import java.io.Serializable;
 import java.time.*;
 import java.util.ArrayList;
 
-public class Prestamo {
+public class Prestamo implements Serializable {
 	
 	//ATRIBUTOS DE CLASE
+	private static final long serialVersionUID = 1L;
 	private static ArrayList<Prestamo> lista = new ArrayList<>();
 	private final static LocalDate fechaActual= LocalDate.now();	
 	
