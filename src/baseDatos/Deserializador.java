@@ -45,7 +45,6 @@ public class Deserializador {
 	        ois.close();
 	        fis.close();
 			
-			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -65,19 +64,15 @@ public class Deserializador {
 		
 		try {
 			fis = new FileInputStream(rutaTemp + "\\personas.txt");
-			
 			ois = new ObjectInputStream(fis);
 			
 			ArrayList<Persona> listado =  new ArrayList<>();
-			
 			
 			try {
 				Object obj = ois.readObject();
 				
 				while(obj != null) {
-					
 					listado.add((Persona)obj);
-					
 					obj = ois.readObject();
 				}
 			} catch (EOFException e) {
@@ -88,7 +83,6 @@ public class Deserializador {
 			
 	        ois.close();
 	        fis.close();
-			
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -110,19 +104,15 @@ public class Deserializador {
 		
 		try {
 			fis = new FileInputStream(rutaTemp + "\\estanterias.txt");
-			
 			ois = new ObjectInputStream(fis);
 			
 			ArrayList<Estanteria> listado =  new ArrayList<>();
-			
 			
 			try {
 				Object obj = ois.readObject();
 				
 				while(obj != null) {
-					
 					listado.add((Estanteria)obj);
-					
 					obj = ois.readObject();
 				}
 			} catch (EOFException e) {
@@ -133,7 +123,6 @@ public class Deserializador {
 			
 	        ois.close();
 	        fis.close();
-			
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -154,19 +143,15 @@ public class Deserializador {
 		
 		try {
 			fis = new FileInputStream(rutaTemp + "\\prestamos.txt");
-			
 			ois = new ObjectInputStream(fis);
 			
 			ArrayList<Prestamo> listado =  new ArrayList<>();
-			
 			
 			try {
 				Object obj = ois.readObject();
 				
 				while(obj != null) {
-					
 					listado.add((Prestamo)obj);
-					
 					obj = ois.readObject();
 				}
 			} catch (EOFException e) {
@@ -177,7 +162,6 @@ public class Deserializador {
 			
 	        ois.close();
 	        fis.close();
-			
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
