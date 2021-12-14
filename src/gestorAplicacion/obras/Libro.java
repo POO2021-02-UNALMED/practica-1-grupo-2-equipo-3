@@ -2,25 +2,39 @@ package gestorAplicacion.obras;
 
 import java.util.ArrayList;
 
+import gestorAplicacion.personas.Autor;
+
 public class Libro extends Publicacion {
 	//ATRIBUTOS DE CLASE
-	static private ArrayList<Libro>libros;
-	static private enum tipoLibro {COLECCION_GENERAL,RESERVA,INVESTIGACION,SEMINARIO,TESIS};
+	static private ArrayList<Libro>libros=new ArrayList();
+	static public enum tipoLibro {COLECCION_GENERAL,RESERVA,INVESTIGACION,SEMINARIO,TESIS};
 	
 	//ATRIBUTOS INSTANCIA
 	private tipoLibro tipo;
 	private String referencia;
 	private short volumen;
+	private final Autor autor;
 	
 	//CONSTRUCTORES
-	public Libro (int codigo, String nombre, short año, short ejemplar, Estados estado, tipoLibro tipo,String referencia, short volumen, Estanteria estanteria) {
+	public Libro (int codigo, String nombre, short año, short ejemplar, Estados estado, Autor autor,tipoLibro tipo,String referencia, short volumen, Estanteria estanteria) {
 		super(codigo,nombre,año,ejemplar,estado);
+		this.autor=autor;
 		this.tipo=tipo;
 		this.referencia=referencia;
 		this.volumen=volumen;
 		super.estanteria=estanteria;
 		libros.add(this);
 		Publicacion.numeroPublicaciones++;
+	}
+	
+	//METODOS
+	public String mostrarInfo() {
+		return " INFORMACION DEL LIBRO " + "\n"+ "Nombre: "+ this.nombre + "\n" + "Autor: "+ this.autor.getNombre()+ "\n" +"Año: "+ this.año + "\n" + "Tipo: " + this.tipo
+				+ "\n" + "Vol: " + this.volumen + "\n" +"Codigo: "+ this.codigo + "\n" + "Ejemplar: "+this.ejemplar+ "\n" + "Estado: "+this.estado
+				+ "\n" + "Referencia: "+this.referencia;
+	}
+	public String mostrarUbicacion() {
+		return "Se localiza en -> "+this.estanteria.motrarInfo();
 	}
 	
 	

@@ -23,6 +23,7 @@ public abstract class Persona implements Serializable{
 	protected boolean vivo=true;
 	
 	//CONSTRUCTORES
+	Persona(){};
 	Persona (String nombre, LocalDate nacimiento, String paisOrigen){
 		this.nombre=nombre;
 		this.nacimiento=nacimiento;

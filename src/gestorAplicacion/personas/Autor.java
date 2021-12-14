@@ -11,12 +11,13 @@ public class Autor extends Persona {
 	private ArrayList<Libro>libros;
 	
 	//CONSTRUCTORES
-	Autor (String nombre, LocalDate nacimiento, String paisOrigen){
+	public Autor() {};
+	public Autor (String nombre, LocalDate nacimiento, String paisOrigen){
 		super(nombre,nacimiento,paisOrigen);
 		autores.add(this);
 		
 	}
-	Autor (String nombre,LocalDate nacimiento, String paisOrigen,boolean vivo){ //Constructor si el Autor no esta vivo
+	public Autor (String nombre,LocalDate nacimiento, String paisOrigen,boolean vivo){ //Constructor si el Autor no esta vivo
 		super(nombre, nacimiento, paisOrigen);
 		super.vivo=vivo;
 		autores.add(this);

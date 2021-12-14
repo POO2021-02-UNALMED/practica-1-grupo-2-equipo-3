@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Revista extends Publicacion {
 	//ATRIBUTOS DE CLASE
-	static private enum Meses { ENERO, FEBRERO,MARZO,ABRIL,MAYO,JUNIO,JULIO,AGOSTO,SEPTIEMBRE,OCTUBRE,NOVIEMBRE,DICIEMBRE};	
-	static private ArrayList<Revista>revistas;
+	static public enum Meses { ENERO, FEBRERO,MARZO,ABRIL,MAYO,JUNIO,JULIO,AGOSTO,SEPTIEMBRE,OCTUBRE,NOVIEMBRE,DICIEMBRE};	
+	static private ArrayList<Revista>revistas=new ArrayList();
 	
 	//ATRIBUTOS INSTANCIA
 	private short numero;
@@ -22,6 +22,18 @@ public class Revista extends Publicacion {
 		revistas.add(this);
 		Publicacion.numeroPublicaciones++;
 	}
+		
+	//METODOS
+	public String mostrarInfo() {
+		return " INFORMACION DE LA REVISTA " + "\n" + "Nombre: " + this.nombre + "\n" + "Año: " + this.año + "\n" 
+				+ "Mes: "+ this.mes + "\n"+ "Temporada: "+ this.temporada + "\n"
+				+ "Codigo: " + this.codigo + "\n" + "Ejemplar: " + this.ejemplar + "\n" + "Estado: " + this.estado;
+	}
+
+	public String mostrarUbicacion() {
+		return "Se localiza en -> " + this.estanteria.motrarInfo();
+	}
+	
 	
 	
 	//GETTERS Y SETTERS

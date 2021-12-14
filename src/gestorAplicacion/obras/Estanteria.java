@@ -20,7 +20,7 @@ public class Estanteria implements Serializable {
 	public Estanteria() {
 	}
 
-	Estanteria(short numero, short piso, String[] limites) {
+	public Estanteria(short numero, short piso, String[] limites) {
 		this.numero = numero;
 		this.piso = piso;
 		this.limites = limites;
@@ -29,18 +29,23 @@ public class Estanteria implements Serializable {
 	}
 
 	// METODOS
-	public ArrayList<Publicacion> getPublicaciones() {
-		return publicaciones;
+	public String motrarInfo() {
+		return "Estanteria número " + this.numero + " ubicada en el piso " + this.piso + " de la biblioteca.";
+	}
+	
+	public Publicacion getPublicaciones() {
+		for(int i=0;i<this.publicaciones.size();i++) {
+			return 
+		}
+		
 	}
 
-	public void agregarPublicaciones(Publicacion publicaciones) {
+	public void setPublicaciones(Publicacion publicaciones) {
 		this.publicaciones.add(publicaciones);
 	}
-
-	public String motrarInfo() {
-		return "Estanteria número " + this.numero + " ubicada en el piso " + this.piso + " de la biblioteca." + "/n";
-	}
-
+	
+	
+	//GETTERS SETTERS
 	public static ArrayList<Estanteria> getLista() {
 		return lista;
 	}

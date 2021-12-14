@@ -9,7 +9,7 @@ public abstract class Publicacion implements Serializable {
 	private static final long serialVersionUID = 1L;
 	public static ArrayList<Publicacion> lista = new ArrayList<>();
 	static protected int numeroPublicaciones;
-	protected static enum Estados  {CIRCULACION, PRESTADO, PERDIDO};
+	public static enum Estados  {CIRCULACION, PRESTADO, PERDIDO};
 	
 	//ATRIBUTOS INSTANCIA
 	protected int codigo;
