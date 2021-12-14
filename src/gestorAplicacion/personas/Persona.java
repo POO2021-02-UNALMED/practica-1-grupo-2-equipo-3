@@ -6,7 +6,8 @@ import java.util.ArrayList;
 public abstract class Persona {
 	
 	//ATRIBUTOS DE CLASE
-	public static ArrayList<Persona> lista = new ArrayList<>();
+	private static ArrayList<Persona> lista = new ArrayList<>();
+
 	
 	//ATRIBUTOS INSTANCIA
 	protected String nombre;
