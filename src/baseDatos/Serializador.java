@@ -21,7 +21,7 @@ public class Serializador {
 		ObjectOutputStream oos;
 		
 		try {
-			fos = new FileOutputStream(System.getProperty("user.dir") + "\\tmp\\publicaciones.txt");
+			fos = new FileOutputStream(rutaTemp + "\\publicaciones.txt");
 			
 			oos = new ObjectOutputStream(fos);
 			
@@ -49,7 +49,7 @@ public class Serializador {
 		ObjectOutputStream oos;
 
 		try {
-			fos = new FileOutputStream(System.getProperty("user.dir") + "\\tmp\\personas.txt");
+			fos = new FileOutputStream(rutaTemp + "\\personas.txt");
 			
 			oos = new ObjectOutputStream(fos);
 			
@@ -76,7 +76,7 @@ public class Serializador {
 		ObjectOutputStream oos;
 
 		try {
-			fos = new FileOutputStream(System.getProperty("user.dir") + "\\tmp\\estanterias.txt");
+			fos = new FileOutputStream(rutaTemp + "\\estanterias.txt");
 			
 			oos = new ObjectOutputStream(fos);
 			
@@ -103,7 +103,7 @@ public class Serializador {
 		ObjectOutputStream oos;
 
 		try {
-			fos = new FileOutputStream(System.getProperty("user.dir") + "\\tmp\\prestamos.txt");
+			fos = new FileOutputStream(rutaTemp + "\\prestamos.txt");
 			
 			oos = new ObjectOutputStream(fos);
 			
