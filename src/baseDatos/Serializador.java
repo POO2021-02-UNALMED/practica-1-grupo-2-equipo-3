@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 
-import gestorAplicacion.obras;
+import gestorAplicacion.obras.*;
 
 
 public class Serializador {
@@ -15,7 +15,31 @@ public class Serializador {
 	
 	
 	// Método para serializar todas las publicaciones creadas
-	public static void serializar(Publicacion publicacion) {}
+	public static void serializar(Publicacion publicacion) {
+		FileOutputStream fos;
+		ObjectOutputStream oos;
+		
+		FileOutputStream fileOut;
+		try {
+			fos = new FileOutputStream(System.getProperty("user.dir") + "\\tmp\\publicaciones.txt");
+			
+			oos = new ObjectOutputStream(fos);
+			
+			for (Publicacion publicacion : lista) {
+				oos.writeObject(publicacion);
+			}
+			
+			oos.close();
+			fos.close();
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	
 	
