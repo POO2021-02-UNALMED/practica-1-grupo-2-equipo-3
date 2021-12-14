@@ -13,8 +13,7 @@ import gestorAplicacion.prestamo.Prestamo;
 
 
 public class Serializador {
-	private static File rutaTemp = new File("src\\baseDatos\\temp");
-	
+	private static File rutaTemp = new File("src\\baseDAtos\\temp");
 	
 	// Método para serializar todas las publicaciones creadas
 	private static void serializarPublicaciones() {
@@ -22,8 +21,7 @@ public class Serializador {
 		ObjectOutputStream oos;
 		
 		try {
-			fos = new FileOutputStream(rutaTemp + "\\publicaciones.txt");
-			
+			fos = new FileOutputStream(new File(rutaTemp + "\\publicaciones.txt"));
 			oos = new ObjectOutputStream(fos);
 			
 			for (Publicacion publicacion : Publicacion.getLista()) {
