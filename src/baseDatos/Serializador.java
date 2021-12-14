@@ -54,7 +54,7 @@ public class Serializador {
 			oos = new ObjectOutputStream(fos);
 			
 			for (Persona persona : Persona.lista) {
-				oos.writeObject(publicacion);
+				oos.writeObject(persona);
 			}
 			
 			oos.close();
@@ -71,7 +71,30 @@ public class Serializador {
 	
 	
 	// Método para serializar todas las estanterias creadas
+	public static void serializarEstanterias() {
+		FileOutputStream fos;
+		ObjectOutputStream oos;
 
+		try {
+			fos = new FileOutputStream(System.getProperty("user.dir") + "\\tmp\\estanterias.txt");
+			
+			oos = new ObjectOutputStream(fos);
+			
+			for (Estanteria estanteria : Estanteria.lista) {
+				oos.writeObject(estanteria);
+			}
+			
+			oos.close();
+			fos.close();
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	
 	// Método para serializar todas los prestamos creados
