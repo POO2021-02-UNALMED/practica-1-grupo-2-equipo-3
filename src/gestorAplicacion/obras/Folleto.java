@@ -11,9 +11,6 @@ public class Folleto extends Publicacion {
 
 	
 	//CONSTRUCTORES
-	public Folleto() {
-		Publicacion.numeroPublicaciones++;
-	}
 	public Folleto(int codigo, String nombre, short año, short ejemplar, Estados estado,String referencia, Estanteria estanteria) {
 		super(codigo, nombre, año, ejemplar, estado);
 		this.referencia=referencia;	
