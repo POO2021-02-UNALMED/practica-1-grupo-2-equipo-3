@@ -13,6 +13,16 @@ public class Prestamo {
 	private LocalDate fin;
 	private int multa;
 	
+	
+	
+	//GETTERS SETTERS
+	public static ArrayList<Prestamo> getLista() {
+		return lista;
+	}
+	public static void setLista(ArrayList<Prestamo> lista) {
+		Prestamo.lista = lista;
+	}
+	
 	//CONSTRUCTORES
 
 }
