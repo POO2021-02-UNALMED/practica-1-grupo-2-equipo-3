@@ -25,26 +25,22 @@ public class Deserializador {
 		
 		try {
 			fis = new FileInputStream(rutaTemp + "\\publicaciones.txt");
-			
 			ois = new ObjectInputStream(fis);
 			
 			ArrayList<Publicacion> listado =  new ArrayList<>();
-			
 			
 			try {
 				Object obj = ois.readObject();
 				
 				while(obj != null) {
-					
 					listado.add((Publicacion)obj);
-					
 					obj = ois.readObject();
 				}
 			} catch (EOFException e) {
 				// TODO Auto-generated catch block
 			}
 			
-			//
+			Publicacion.setLista(lsitado);
 			
 	        ois.close();
 	        fis.close();
@@ -62,7 +58,7 @@ public class Deserializador {
 		}
 	}
 	
-	// Método para deserializar todas las personass creadas
+	// Método para deserializar todas las personas creadas
 	private static void deserializarPersonas() {
 		FileInputStream fis;
 		ObjectInputStream ois;
@@ -88,7 +84,7 @@ public class Deserializador {
 				// TODO Auto-generated catch block
 			}
 			
-			//
+			Persona.setLista(listado);
 			
 	        ois.close();
 	        fis.close();
@@ -133,7 +129,7 @@ public class Deserializador {
 				// TODO Auto-generated catch block
 			}
 			
-			//
+			Estanteria.setLista(listado);
 			
 	        ois.close();
 	        fis.close();
@@ -177,7 +173,7 @@ public class Deserializador {
 				// TODO Auto-generated catch block
 			}
 			
-			//
+			Prestamo.setLista(listado);
 			
 	        ois.close();
 	        fis.close();
