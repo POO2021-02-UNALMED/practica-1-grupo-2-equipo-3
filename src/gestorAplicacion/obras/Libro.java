@@ -13,9 +13,6 @@ public class Libro extends Publicacion {
 	private short volumen;
 	
 	//CONSTRUCTORES
-	public Libro() {
-		Publicacion.numeroPublicaciones++;
-	}
 	public Libro (int codigo, String nombre, short año, short ejemplar, Estados estado, tipoLibro tipo,String referencia, short volumen, Estanteria estanteria) {
 		super(codigo,nombre,año,ejemplar,estado);
 		this.tipo=tipo;
