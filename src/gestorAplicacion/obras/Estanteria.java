@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 class Estanteria {
 	//ATRIBUTOS DE CLASE
+	public static ArrayList<Estanteria> lista = new ArrayList<>();
 	 static protected int numeroEstanterias;
 	 
 	//ATRIBUTOS INSTANCIA
