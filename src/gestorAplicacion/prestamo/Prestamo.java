@@ -7,7 +7,7 @@ public class Prestamo {
 	
 	//ATRIBUTOS DE CLASE
 	private static ArrayList<Prestamo> lista = new ArrayList<>();
-	
+	private final static LocalDate fechaActual= LocalDate.now();	
 	
 	
 	//ATRIBUTOS DE INSTANCIA
@@ -25,6 +25,9 @@ public class Prestamo {
 	}
 	public static void setLista(ArrayList<Prestamo> lista) {
 		Prestamo.lista = lista;
+	}
+	public static LocalDate getFechaactual() {
+		return fechaActual;
 	}
 	
 	

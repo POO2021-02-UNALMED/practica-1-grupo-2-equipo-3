@@ -18,10 +18,7 @@ public abstract class Publicacion {
 	
 	
 	//CONSTRUCTORES
-	public Publicacion() {
-		
-	}
-	public Publicacion (int codigo, String nombre, short año, short ejemplar,Estados estado) {
+	Publicacion (int codigo, String nombre, short año, short ejemplar,Estados estado) {
 	this.codigo= codigo;
 	this.nombre=nombre;
 	this.año= año;
