@@ -1,8 +1,13 @@
 package gestorAplicacion.personas;
 
+import java.util.ArrayList;
+
+import gestorAplicacion.obras.Publicacion;
+
 abstract class Persona {
 	
 	//ATRIBUTOS DE CLASE
+	public static ArrayList<Persona> lista = new ArrayList<>();
 	
 	//ATRIBUTOS INSTANCIA
 	protected String nombre;
