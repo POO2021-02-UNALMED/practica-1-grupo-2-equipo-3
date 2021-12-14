@@ -176,7 +176,7 @@ public class Deserializador {
 	}
 	
 	
-	// Método para caragar en memoria ram todos los objetos almacenados en los archivos anteriores
+	// Método para cargar en memoria ram todos los objetos almacenados en los archivos anteriores
 	public static void deserializar() {
 		deserializarPublicaciones();
 		deserializarPersonas();
