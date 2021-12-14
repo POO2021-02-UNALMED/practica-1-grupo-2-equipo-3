@@ -1,4 +1,5 @@
 package gestorAplicacion.personas;
+import java.time.*;
 
 import java.util.ArrayList;
 
@@ -13,23 +14,23 @@ public abstract class Persona {
 	protected String correo;
 	protected short tel;
 	protected String direccion;
-	protected short edad;
+	protected LocalDate nacimiento;
 	protected String paisOrigen;
 	protected boolean vivo=true;
 	
 	//CONSTRUCTORES
-	Persona (String nombre, short edad, String paisOrigen){
+	Persona (String nombre, LocalDate nacimiento, String paisOrigen){
 		this.nombre=nombre;
-		this.edad=edad;
+		this.nacimiento=nacimiento;
 		this.paisOrigen=paisOrigen;
 	}
-	Persona(String nombre,int id,String correo,short tel,String direccion, short edad, String paisOrigen){
+	Persona(String nombre,int id,String correo,short tel,String direccion,LocalDate nacimiento, String paisOrigen){
 		this.nombre=nombre;
 		this.id=id;
 		this.correo=correo;
 		this.tel=tel;
 		this.direccion=direccion;
-		this.edad=edad;
+		this.nacimiento=nacimiento;
 		this.paisOrigen=paisOrigen;
 	}
 	
@@ -44,11 +45,11 @@ public abstract class Persona {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public short getEdad() {
-		return edad;
+	public LocalDate getEdad() {
+		return nacimiento;
 	}
-	public void setEdad(short edad) {
-		this.edad = edad;
+	public void setEdad(LocalDate nacimiento) {
+		this.nacimiento = nacimiento;
 	}
 	public String getPaisOrigen() {
 		return paisOrigen;

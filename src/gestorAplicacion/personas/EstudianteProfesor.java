@@ -1,5 +1,6 @@
 package gestorAplicacion.personas;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 
@@ -10,11 +11,11 @@ public class EstudianteProfesor extends Persona implements Usuario {
 	private static ArrayList<EstudianteProfesor>estudiantesyprofesores; 
 	
 	//ATRIBUTOS INSTANCIA
-	
+	private int deudas;
 	
 	//CONSTRUCTORES
-	EstudianteProfesor(String nombre,int id,String correo,short tel,String direccion, short edad, String paisOrigen){
-		super( nombre, id, correo, tel, direccion,  edad,  paisOrigen);
+	EstudianteProfesor(String nombre,int id,String correo,short tel,String direccion, LocalDate nacimiento, String paisOrigen){
+		super( nombre, id, correo, tel, direccion,  nacimiento,  paisOrigen);
 		estudiantesyprofesores.add(this);
 	}
 

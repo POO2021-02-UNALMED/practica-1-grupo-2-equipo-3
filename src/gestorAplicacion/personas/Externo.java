@@ -1,5 +1,6 @@
 package gestorAplicacion.personas;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Externo extends Persona implements Usuario {
@@ -12,12 +13,12 @@ public class Externo extends Persona implements Usuario {
 		
 	
 	//CONSTRUCTORES
-	Externo(String nombre,int id,String correo,short tel,String direccion, short edad, String paisOrigen){
-		super( nombre, id, correo, tel, direccion,  edad,  paisOrigen);
+	Externo(String nombre,int id,String correo,short tel,String direccion, LocalDate nacimiento, String paisOrigen){
+		super( nombre, id, correo, tel, direccion,  nacimiento,  paisOrigen);
 		usuariosExternos.add(this);
 	}
-	Externo(String nombre,int id,String correo,short tel,String direccion, short edad, String paisOrigen, String universidad){
-		super( nombre, id, correo, tel, direccion,  edad,  paisOrigen);
+	Externo(String nombre,int id,String correo,short tel,String direccion,LocalDate nacimiento, String paisOrigen, String universidad){
+		super( nombre, id, correo, tel, direccion, nacimiento,  paisOrigen);
 		this.universidad=universidad;
 		usuariosExternos.add(this);
 		// Constructor con el parametro opcional Universidad

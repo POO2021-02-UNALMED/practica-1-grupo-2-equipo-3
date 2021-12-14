@@ -1,4 +1,5 @@
 package gestorAplicacion.personas;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import gestorAplicacion.obras.Libro;
 
@@ -10,13 +11,13 @@ public class Autor extends Persona {
 	private ArrayList<Libro>libros;
 	
 	//CONSTRUCTORES
-	Autor (String nombre, short edad, String paisOrigen){
-		super(nombre,edad,paisOrigen);
+	Autor (String nombre, LocalDate nacimiento, String paisOrigen){
+		super(nombre,nacimiento,paisOrigen);
 		autores.add(this);
 		
 	}
-	Autor (String nombre,short edad, String paisOrigen,boolean vivo){ //Constructor si el Autor no esta vivo
-		super(nombre, edad, paisOrigen);
+	Autor (String nombre,LocalDate nacimiento, String paisOrigen,boolean vivo){ //Constructor si el Autor no esta vivo
+		super(nombre, nacimiento, paisOrigen);
 		super.vivo=vivo;
 		autores.add(this);
 	}

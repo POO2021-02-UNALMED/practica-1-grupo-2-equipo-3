@@ -11,10 +11,10 @@ public class Estanteria {
 	 short numero;
 	 short piso;
 	 String[] limites= new String[2];
-	 private ArrayList<Revista> publicaciones= new ArrayList();
+	 private ArrayList<Publicacion> publicaciones;
 	 
 	//CONSTRUCTORES
-	 Estanteria(short numero, short piso, String[] limites,ArrayList<Revista> publicaciones){
+	 Estanteria(short numero, short piso, String[] limites,ArrayList<Publicacion> publicaciones){
 		 this.numero=numero;
 		 this.piso=piso;
 		 this.limites=limites;
