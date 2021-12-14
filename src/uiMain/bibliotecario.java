@@ -74,7 +74,7 @@ public class bibliotecario {
 					case 2: System.out.println(" Menú con tipo de publicacion: ");
 					break;
 					
-					case 3: System.out.println("Ingrese kis datos del autor");
+					case 3: System.out.println("Ingrese los datos del autor");
 					
 					System.out.println("¿Está vivo el autor?:");
 					System.out.println("Responda SI O NO"); String v = readLn();
@@ -90,7 +90,52 @@ public class bibliotecario {
 					
 					break;
 					
-					case 4: System.out.println(" Menú con tipo de usuario: ");
+					case 4: // Menú de opciones para usuario
+						System.out.println("-------------------------");
+						System.out.println("Tipo de usuario: ");
+						System.out.println(" 1. Estudiante/profesor");
+						System.out.println(" 2. Externo");
+						System.out.println("-------------------------");
+						System.out.println("Teclee la opción: ");
+						int opcion4;
+						opcion4 = (int) readLong();
+						
+						switch (opcion4) {
+						case 1: System.out.println("Ingrese los datos del estudiante/profesor");
+						
+						System.out.println("Nombre:"); String nombre = readLn();
+						System.out.println("Id:"); short id = (short) readLong();
+						System.out.println("Correo:"); String correo = readLn();
+						System.out.println("Telefono:"); short tel = (short) readLong();
+						System.out.println("Direccion:"); String direccion = readLn();
+						System.out.println("Fecha de nacimiento en formato AAAA-MM-DD:"); String nac = readLn();
+						System.out.println("País de Origen:"); String origen = readLn();
+						
+						new EstudianteProfesor(nombre,id,correo,tel,direccion, LocalDate.parse(nac), origen);
+						break;
+						
+						case 2: System.out.println("Ingrese los datos del usaurio externo");
+						System.out.println("¿Pertenece a alguna Universidad?");
+						System.out.println("Responda SI O NO"); String u = readLn();
+						if (u == "SI") {
+							System.out.println("Universidad"); String uni = readLn();
+						}
+						System.out.println("Nombre:"); String nombre2 =  readLn();
+						System.out.println("Id:"); short id2 = (short) readLong();
+						System.out.println("Correo:"); String correo2 = readLn();
+						System.out.println("Telefono:"); short tel2 = (short) readLong();
+						System.out.println("Direccion:"); String direccion2 = readLn();
+						System.out.println("Fecha de nacimiento en formato AAAA-MM-DD:"); String nac2 = readLn();
+						System.out.println("País de Origen:"); String origen2 = readLn();
+						
+						new Externo(nombre2,id2,correo2,tel2,direccion2, LocalDate.parse(nac2), origen2);
+						break;
+						
+						default:
+							System.out.println("Opción no válida");break;
+						}
+						
+						
 					break;
 					
 					case 5: System.out.println("Ingrese los datos del Prestamo:");
