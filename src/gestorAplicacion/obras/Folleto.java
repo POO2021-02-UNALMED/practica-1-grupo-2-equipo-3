@@ -10,8 +10,8 @@ public class Folleto extends Publicacion {
 	private String referencia;
 
 	// CONSTRUCTORES
-	public Folleto(int codigo, String nombre, short año, short ejemplar, Estados estado, String referencia,Estanteria estanteria) {
-		super(codigo, nombre, año, ejemplar, estado);
+	public Folleto(int codigo, String nombre, short año, short ejemplar, String referencia,Estanteria estanteria) {
+		super(codigo, nombre, año, ejemplar);
 		this.referencia = referencia;
 		super.estanteria = estanteria;
 		folletos.add(this);

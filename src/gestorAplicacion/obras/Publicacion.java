@@ -9,19 +9,19 @@ public abstract class Publicacion implements Serializable {
 	private static final long serialVersionUID = 1L;
 	public static ArrayList<Publicacion> lista = new ArrayList<>();
 	static protected int numeroPublicaciones;
-	public static enum Estados  {CIRCULACION, PRESTADO, PERDIDO};
+	public static enum Estados  {CIRCULACION, PRESTADO};
 	
 	//ATRIBUTOS INSTANCIA
 	protected int codigo;
 	protected String nombre;
 	protected short año;
 	protected short ejemplar;
-	protected Estados estado;
+	protected Estados estado = Estados.CIRCULACION;
 	protected Estanteria estanteria;
 	
 	
 	//CONSTRUCTORES
-	Publicacion (int codigo, String nombre, short año, short ejemplar,Estados estado) {
+	Publicacion (int codigo, String nombre, short año, short ejemplar) {
 	this.codigo= codigo;
 	this.nombre=nombre;
 	this.año= año;

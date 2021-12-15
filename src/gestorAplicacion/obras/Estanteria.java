@@ -14,7 +14,7 @@ public class Estanteria implements Serializable {
 	short numero;
 	short piso;
 	String[] limites = new String[2];
-	private ArrayList<Publicacion> publicaciones;
+	private ArrayList<Publicacion> publicaciones= new ArrayList();
 
 	// CONSTRUCTORES
 	public Estanteria() {
@@ -33,11 +33,12 @@ public class Estanteria implements Serializable {
 		return "Estanteria número " + this.numero + " ubicada en el piso " + this.piso + " de la biblioteca.";
 	}
 	
-	public Publicacion getPublicaciones() {
+	public String getPublicaciones() {
+		String c= "";
 		for(int i=0;i<this.publicaciones.size();i++) {
-			return 
+			c= c+ this.publicaciones.get(i).nombre+ "/n";
 		}
-		
+		return c;
 	}
 
 	public void setPublicaciones(Publicacion publicaciones) {

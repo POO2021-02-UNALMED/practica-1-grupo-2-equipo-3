@@ -16,8 +16,8 @@ public class Libro extends Publicacion {
 	private final Autor autor;
 	
 	//CONSTRUCTORES
-	public Libro (int codigo, String nombre, short año, short ejemplar, Estados estado, Autor autor,tipoLibro tipo,String referencia, short volumen, Estanteria estanteria) {
-		super(codigo,nombre,año,ejemplar,estado);
+	public Libro (int codigo, String nombre, short año, short ejemplar,Autor autor,tipoLibro tipo,String referencia, short volumen, Estanteria estanteria) {
+		super(codigo,nombre,año,ejemplar);
 		this.autor=autor;
 		this.tipo=tipo;
 		this.referencia=referencia;
