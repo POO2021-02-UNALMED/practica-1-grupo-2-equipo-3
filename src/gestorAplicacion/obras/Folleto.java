@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Folleto extends Publicacion {
 	// ATRIBUTOS DE CLASE
-	static private ArrayList<Folleto> folletos = new ArrayList();
+	static private ArrayList<Folleto> folletos = new ArrayList<Folleto>();
 
 	// ATRIBUTOS INSTANCIA
 	private String referencia;
