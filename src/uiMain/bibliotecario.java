@@ -1,6 +1,7 @@
 package uiMain;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Scanner;
 import baseDatos.*; 
 import gestorAplicacion.obras.*;
@@ -132,11 +133,14 @@ public class bibliotecario {
 						
 						case 2: System.out.println("Ingrese los datos de la Revista");
 						
-						Revista.Meses mes = null;
-						System.out.println("Mes en español y en Mayúsculas:"); String m = readLn();
-						if (Meses.valueOf(m) == null) {
-							System.out.println("Mes inválido");
-						}
+						// Valores del enumerado Meses en una lista de Strings
+						ArrayList<String> list = new ArrayList<String>();
+						for (Revista.Meses mes : Revista.Meses.values()) {
+							String m = mes.toString();
+							list.add(m);}
+						System.out.println("Mes en español y en Mayúsculas:"); String mes = readLn();
+						if (list.contains(mes) == false) {System.out.println("Mes inválido");}
+						
 						System.out.println("Código:"); cod = (int) readLong();readLn();
 						System.out.println("Nombre:"); nombre2 = readLn();
 						System.out.println("Año:"); aa = (short) readLong();
