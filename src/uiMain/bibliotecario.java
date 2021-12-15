@@ -89,8 +89,8 @@ public class bibliotecario {
 		
 						System.out.println("Código:"); int cod = (int) readLong();
 						System.out.println("Nombre:"); String nombre2 = readLn();
-						System.out.println("Año:"); int aa = (short) readLong();
-						System.out.println("Ejemplar:"); int ejemplar = (short) readLong();
+						System.out.println("Año:"); short aa = (short) readLong();
+						System.out.println("Ejemplar:"); short ejemplar = (short) readLong();
 						System.out.println("Tipo :"); String tipo= readLn();
 						System.out.println("Referencia :"); String ref= readLn();
 						System.out.println("Volumen:"); short vol = (short) readLong();
@@ -116,7 +116,7 @@ public class bibliotecario {
 						System.out.println("Ejemplar:"); ejemplar = (short) readLong();
 						System.out.println("Número:"); short numero = (short) readLong();
 						System.out.println("Mes en esañol y en Mayúsculas:"); String mes = readLn();
-						System.out.println("Temporada:"); short temporada = (short) readLong();
+						System.out.println("Temporada:"); String temporada = readLn();
 						System.out.println("Número de Estantería:");  nes = (short) readLong();
 						for (Estanteria e: Estanteria.getLista()) {
 							if (e.getNumero() == nes) {estanteria = e;}
@@ -151,6 +151,7 @@ public class bibliotecario {
 					
 					System.out.println("¿Está vivo el autor?:");
 					System.out.println("Responda SI O NO"); String v = readLn();
+					System.out.println("ID:"); int id = (int)readLong();
 					System.out.println("Nombre:"); String nautor = readLn();
 					System.out.println("Fecha de nacimiento en formato AAAA-MM-DD"); String nacimiento = readLn();
 					System.out.println("País de Origen"); String pais = readLn();
@@ -159,7 +160,7 @@ public class bibliotecario {
 					if (v == "SI") {vivo = true;
 					}else {vivo = false;}
 					
-					 new Autor (nautor,LocalDate.parse(nacimiento), pais,vivo);
+					 new Autor (id, nautor,LocalDate.parse(nacimiento), pais,vivo);
 					
 					break;
 					
