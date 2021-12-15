@@ -7,7 +7,7 @@ public class Externo extends Persona implements Usuario {
 	
 	//ATRIBUTOS DE CLASE
 	private static final long serialVersionUID = 1L;
-	private static ArrayList<Externo> usuariosExternos ; 
+	private static ArrayList<Externo> usuariosExternos = new ArrayList<Externo>(); 
 		
 	//ATRIBUTOS INSTANCIA
 	private String universidad= "No especificada";	
