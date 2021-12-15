@@ -77,8 +77,7 @@ public class bibliotecario {
 				System.out.println(" 2. Publicación");
 				System.out.println(" 3. Autor");
 				System.out.println(" 4. Usuario");
-				System.out.println(" 5. Prestamo");
-				System.out.println(" 6. Volver al menú principal");
+				System.out.println(" 5. Volver al menú principal");
 				System.out.println("-------------------------");
 				
 				System.out.println("Teclee la opción: ");
@@ -331,16 +330,20 @@ public class bibliotecario {
 						
 					break;
 					
-					case 5: System.out.println("Ingrese los datos del Prestamo:");
-					
 					
 					
 					
 					break;
-					case 6: break;
+					case 5: break;
 				} // cierre switch - registro de datos
-			} while (opcion !=6);
+			} while (opcion !=5);
 			break;
+			       //////////
+			          ///////
+			             /// 
+			         ///////
+			      //////////
+			
 			
 			
 			
@@ -354,6 +357,17 @@ public class bibliotecario {
 			
 			
 			
+		      //////////
+	            ///////
+	                /// 
+	            ///////
+	         //////////
+			
+			
+			
+			
+			
+			
 			
 			
 			//////////
@@ -362,13 +376,105 @@ public class bibliotecario {
 			///////
 			//////////
 			case 3: System.out.println("Está eliminando ..."); break;
-			case 4: System.out.println("Se está implementando la Funcionalidad A");break;
-			case 5: System.out.println("Se está implementando la Funcionalidad B");break;
-			case 6: System.out.println("Se está implementando la Funcionalidad C");break;
-			case 7: System.out.println("Se está implementando la Funcionalidad D");break;
-			case 8: System.out.println("Se está implementando la Funcionalidad E");break;
-			case 9: break;
 			
+			
+		     //////////
+               ///////
+                   /// 
+              ///////
+           //////////
+			
+			
+			
+			
+			
+			//////////
+			///////
+			/// Menú de opciones para A
+			///////
+			//////////
+			case 4: System.out.println("Se está implementando la Funcionalidad A");break;
+			
+			
+		     //////////
+            ///////
+                /// 
+           ///////
+        //////////
+			
+			
+			
+			
+			//////////
+			///////
+			/// Menú de opciones para B
+			///////
+			//////////
+			case 5: System.out.println("Se está implementando la Funcionalidad B");break;
+			
+		     //////////
+            ///////
+                /// 
+           ///////
+        //////////
+			
+			
+			
+			
+			
+			//////////
+			///////
+			/// Menú de opciones para C
+			///////
+			//////////
+			case 6: System.out.println("Se está implementando la Funcionalidad C");break;
+			
+		     //////////
+            ///////
+                /// 
+           ///////
+        //////////
+			
+			
+			
+			
+			
+			
+			//////////
+			///////
+			/// Menú de opciones para D
+			///////
+			//////////
+			case 7: System.out.println("Se está implementando la Funcionalidad D");break;
+			
+			  //////////
+				///////
+					/// 
+				///////
+			//////////
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			//////////
+			///////
+			/// Menú de opciones para E
+			///////
+			//////////
+			case 8: System.out.println("Se está implementando la Funcionalidad E");break;
+			
+		     //////////
+            ///////
+                /// 
+           ///////
+        //////////
+			case 9: break;
+
 			} //cierre del switch - menú principal
 		
 		
@@ -377,14 +483,7 @@ public class bibliotecario {
 	
 		
 		
-		
-		
-		
-		
 	Serializador.serializar();
-	
-	
-	
 	} // cierre del método main
 
 	
