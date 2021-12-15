@@ -6,11 +6,12 @@ import java.util.ArrayList;
 public class Externo extends Persona implements Usuario {
 	
 	//ATRIBUTOS DE CLASE
-		private static ArrayList<Externo> usuariosExternos ; 
+	private static final long serialVersionUID = 1L;
+	private static ArrayList<Externo> usuariosExternos ; 
 		
 	//ATRIBUTOS INSTANCIA
-		private String universidad= "No especificada";	
-		private int deudas;
+	private String universidad= "No especificada";	
+	private int deudas;
 		
 	
 	//CONSTRUCTORES
