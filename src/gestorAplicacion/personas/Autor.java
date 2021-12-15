@@ -39,11 +39,11 @@ public class Autor extends Persona {
 			c = "El autor es anonimo.";
 		} else {
 			if (this.isVivo() == true) {
-				c = "El autor se llama " + this.nombre + ", originario de " + this.paisOrigen + ", nacio el "
-						+ this.nacimiento + " y aun vive.";
+				c = "INFORMACION DEL AUTOR :"+"\n" +"Nombre:  " + this.nombre +"\n"+ "Pais de Origen: " + this.paisOrigen +"\n"+ "Fecha de Nacimiento: "
+						+ this.nacimiento + "\n"+ " Vivo: "+"Si";
 			} else {
-				c = "El autor se llama " + this.nombre + ", originario de " + this.paisOrigen + ", nacio el "
-						+ this.nacimiento + " y ya no esta vivo.";
+				c = "INFORMACION DEL AUTOR :"+"\n" +"Nombre:  " + this.nombre +"\n"+ "Pais de Origen: " + this.paisOrigen +"\n"+ "Fecha de Nacimiento: "
+						+ this.nacimiento + "\n"+ " Vivo: "+"No";
 			}
 		}
 		return c;
