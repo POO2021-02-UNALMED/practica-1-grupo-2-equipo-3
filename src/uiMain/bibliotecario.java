@@ -430,7 +430,8 @@ public class bibliotecario {
 						System.out.println("Ingrese el número de la estanteria (N):");
 						int registro_es = (int) readLong();readLn();
 						for (Estanteria es : Estanteria.getLista()) {
-							if (es.getNumero() == registro_es) {Estanteria.eliminarEstanteria(es);}
+							if (es.getNumero() == registro_es) {Estanteria.eliminarEstanteria(es);
+							System.out.println("Estantería Eliminada !!");}
 						} break;
 						
 					case 3: break;
@@ -454,7 +455,8 @@ public class bibliotecario {
 						System.out.println("Ingrese el codigo de la publicacion (N):");
 						int registro_publi = (int) readLong();readLn();
 						for (Publicacion publi : Publicacion.getLista()) {
-							if (publi.getCodigo() == registro_publi) {Publicacion.eliminarPublicacion(publi);}
+							if (publi.getCodigo() == registro_publi) {Publicacion.eliminarPublicacion(publi);
+							System.out.println("Publicación Eliminada !!");}
 						} break;
 						
 					case 3: break;
@@ -478,7 +480,8 @@ public class bibliotecario {
 						System.out.println("Ingrese el ID de la persona (N):");
 						int registro_per = (int) readLong();readLn();
 						for (Persona per : Persona.getLista()) {
-							if (per.getId() == registro_per) {Persona.eliminarPersona(per);}
+							if (per.getId() == registro_per) {Persona.eliminarPersona(per);
+							System.out.println("Persona Eliminada !!");}
 						} break;
 						
 					case 3: break;
