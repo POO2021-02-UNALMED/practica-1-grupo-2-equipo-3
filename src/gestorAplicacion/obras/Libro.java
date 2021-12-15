@@ -6,6 +6,7 @@ import gestorAplicacion.personas.Autor;
 
 public class Libro extends Publicacion {
 	//ATRIBUTOS DE CLASE
+	private static final long serialVersionUID = 1L;
 	static private ArrayList<Libro>libros=new ArrayList<Libro>();
 	static public enum tipoLibro {COLECCION_GENERAL,RESERVA,INVESTIGACION,SEMINARIO,TESIS};
 	
