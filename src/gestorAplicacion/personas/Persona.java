@@ -5,8 +5,6 @@ import java.time.*;
 
 import java.util.ArrayList;
 
-import gestorAplicacion.obras.Publicacion;
-
 public abstract class Persona implements Serializable{
 
 	//ATRIBUTOS DE CLASE
@@ -42,7 +40,7 @@ public abstract class Persona implements Serializable{
 	}
 	
 	//METODOS
-	public static void eliminarPersona(Persona p) { // elimina un registro de Publicacion
+	public static void eliminarPersona(Persona p) { // elimina un registro de Persona
 		lista.remove(lista.indexOf(p));
 	}
 		
