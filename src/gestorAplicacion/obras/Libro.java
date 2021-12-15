@@ -24,6 +24,7 @@ public class Libro extends Publicacion {
 		this.volumen=volumen;
 		super.estanteria=estanteria;
 		libros.add(this);
+		estanteria.getPublicaciones().add(this);
 		Publicacion.numeroPublicaciones++;
 	}
 	

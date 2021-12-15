@@ -15,6 +15,7 @@ public class Folleto extends Publicacion {
 		this.referencia = referencia;
 		super.estanteria = estanteria;
 		folletos.add(this);
+		estanteria.getPublicaciones().add(this);
 		Publicacion.numeroPublicaciones++;
 	}
 

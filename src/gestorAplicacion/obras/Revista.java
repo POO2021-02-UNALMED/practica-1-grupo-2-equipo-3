@@ -20,6 +20,7 @@ public class Revista extends Publicacion {
 		this.temporada=temporada;
 		super.estanteria=estanteria;
 		revistas.add(this);
+		estanteria.getPublicaciones().add(this);
 		Publicacion.numeroPublicaciones++;
 	}
 		
