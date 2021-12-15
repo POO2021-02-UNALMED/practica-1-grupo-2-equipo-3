@@ -8,7 +8,7 @@ public class Estanteria implements Serializable {
 	
 	// ATRIBUTOS DE CLASE
 	private static final long serialVersionUID = 1L;
-	public static ArrayList<Estanteria> lista = new ArrayList<>();
+	public static ArrayList<Estanteria> lista = new ArrayList<Estanteria>();
 	static protected int numeroEstanterias;
 
 	// ATRIBUTOS INSTANCIA
