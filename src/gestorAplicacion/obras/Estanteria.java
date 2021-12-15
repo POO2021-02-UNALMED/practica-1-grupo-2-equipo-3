@@ -36,7 +36,7 @@ public class Estanteria implements Serializable {
 	public String mostrarContenido() {
 		String c = "";
 		for (int i = 0; i < this.publicaciones.size(); i++) {
-			c = c + this.publicaciones.get(i).nombre + "\n";
+			c = c + this.publicaciones.get(i).nombre + "  Codigo "+ this.publicaciones.get(i).codigo+ "\n";
 		}
 		if (this.publicaciones.isEmpty()) {
 			c= "Estanteria vacia";
