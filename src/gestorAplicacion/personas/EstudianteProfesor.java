@@ -14,7 +14,7 @@ public class EstudianteProfesor extends Persona implements Usuario {
 	private int deudas;
 	
 	//CONSTRUCTORES
-	EstudianteProfesor(String nombre,int id,String correo,short tel,String direccion, LocalDate nacimiento, String paisOrigen){
+	public EstudianteProfesor(String nombre,int id,String correo,short tel,String direccion, LocalDate nacimiento, String paisOrigen){
 		super( nombre, id, correo, tel, direccion,  nacimiento,  paisOrigen);
 		estudiantesyprofesores.add(this);
 	}
