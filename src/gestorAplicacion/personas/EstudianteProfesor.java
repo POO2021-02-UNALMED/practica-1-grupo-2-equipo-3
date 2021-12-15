@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class EstudianteProfesor extends Persona implements Usuario {
 	
 	//ATRIBUTOS DE CLASE
+	private static final long serialVersionUID = 1L;
 	private final static String universidad= "Universidad Nacional Sede Medellin";
 	private static ArrayList<EstudianteProfesor>estudiantesyprofesores; 
 	
