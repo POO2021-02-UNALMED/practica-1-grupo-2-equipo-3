@@ -260,11 +260,11 @@ public class bibliotecario {
 		} while (opcion !=4); // cierre del do - menú principal
 
 	
+	Serializador.serializar();
 	
 	
 	
-	
-	}
+	} // cierre del método main
 
 	
 	
