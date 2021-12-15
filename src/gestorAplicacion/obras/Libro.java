@@ -36,7 +36,7 @@ public class Libro extends Publicacion {
 				+ "\n" + "Referencia: "+this.referencia;
 	}
 	public String mostrarUbicacion() {
-		return "Se localiza en -> "+this.estanteria.motrarInfo();
+		return "Se localiza en -> "+this.estanteria.mostrarInfo();
 	}
 	
 	

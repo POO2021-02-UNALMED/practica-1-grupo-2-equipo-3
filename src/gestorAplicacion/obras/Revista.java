@@ -33,7 +33,7 @@ public class Revista extends Publicacion {
 	}
 
 	public String mostrarUbicacion() {
-		return "Se localiza en -> " + this.estanteria.motrarInfo();
+		return "Se localiza en -> " + this.estanteria.mostrarInfo();
 	}
 	
 	
