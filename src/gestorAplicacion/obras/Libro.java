@@ -6,7 +6,7 @@ import gestorAplicacion.personas.Autor;
 
 public class Libro extends Publicacion {
 	//ATRIBUTOS DE CLASE
-	static private ArrayList<Libro>libros=new ArrayList();
+	static private ArrayList<Libro>libros=new ArrayList<Libro>();
 	static public enum tipoLibro {COLECCION_GENERAL,RESERVA,INVESTIGACION,SEMINARIO,TESIS};
 	
 	//ATRIBUTOS INSTANCIA
