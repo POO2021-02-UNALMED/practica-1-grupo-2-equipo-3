@@ -27,7 +27,7 @@ public class Externo extends Persona implements Usuario {
 	
 	//METODOS 
 	public String infoPersonal() {
-		return "DATOS PERSONALES :"+"\n" +"Nombre:  " + this.nombre +"\n"+ "\n"+ "ID: "+ this.id 
+		return "DATOS PERSONALES :"+"\n" +"Nombre:  " + this.nombre + "\n"+ "ID: "+ this.id 
 				+ "\n"+"Universidad: " + this.universidad +"\n"+  "Correo: "+ this.correo +"\n"+ "Telefono: "+this.tel
 				+"\n"+"Direccion: "+ this.direccion +"\n"+"Pais de Origen"+ this.paisOrigen +"\n"+ "Fecha de Nacimiento: "+ this.nacimiento;
 	}

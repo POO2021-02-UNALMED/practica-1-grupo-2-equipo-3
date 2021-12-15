@@ -5,6 +5,10 @@ import java.time.*;
 
 import java.util.ArrayList;
 
+import gestorAplicacion.obras.Folleto;
+import gestorAplicacion.obras.Libro;
+import gestorAplicacion.obras.Revista;
+
 public abstract class Persona implements Serializable{
 
 	//ATRIBUTOS DE CLASE
@@ -42,6 +46,15 @@ public abstract class Persona implements Serializable{
 	//METODOS
 	public static void eliminarPersona(Persona p) { // elimina un registro de Persona
 		lista.remove(lista.indexOf(p));
+	}
+	public static String mostrarRegistros() {
+		String c="Personas creadas: "+"\n";
+		for (int i = 0; i < lista.size(); i++) {
+			if(lista.get(i) instanceof Autor ) {c = c + i+"."+"Autor "+ lista.get(i).nombre + "  ID "+ lista.get(i).id+ "\n";	}
+			else if(lista.get(i) instanceof EstudianteProfesor) {c = c + i+"."+"Usuario de la Universidad "+ lista.get(i).nombre + "  ID "+ lista.get(i).id+ "\n";}
+			else if(lista.get(i) instanceof Externo) {c = c + i+"."+"Usuario externo de la Universidad "+ lista.get(i).nombre + "  ID "+ lista.get(i).id+ "\n";}
+		}
+		return c;
 	}
 	
 	public abstract String infoPersonal ();
