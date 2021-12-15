@@ -1,9 +1,7 @@
 /bin/
 
-
 # Ignora todos los archivos de texto
 *.txt
-
 
 # Ignoro el main donde probamos cosas
 MainPruebas.java
