@@ -19,12 +19,19 @@ public class bibliotecario {
 	public static void main(String[] args) {
 		
 		// Se eliminan todos los objetos creados para trabajar solamente con los de los arcvhivos
-		Deserializador.resetarMemoria();
+		//Deserializador.resetarMemoria();
 		Deserializador.deserializar();
 		
-		// Se almacenan en memoria ram todas las clases antes creadas
-		//Deserializador.deserializar();
-		//Deserializador.deserializarPublicaciones();;
+		// Crear autor anónimo y estantería vacía si no oestán ya creados
+		
+		ArrayList<Integer> autores_id = new ArrayList<Integer>();
+		for(Autor autor : Autor.getAutores()) {autores_id.add(autor.getId());}
+		if (autores_id.contains(0) == false) {new Autor();}
+		
+		ArrayList<Short> estanterias_numeros = new ArrayList<Short>();
+		for(Estanteria estanteria : Estanteria.getLista()) {estanterias_numeros.add(estanteria.getNumero());}
+		if (estanterias_numeros.contains(0) == false) {new Estanteria();}
+
 		
 		System.out.println("Hola!\nBienvenido al Sistema de Gestión de la Biblioteca");
 		
