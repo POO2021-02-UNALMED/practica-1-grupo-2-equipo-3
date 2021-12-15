@@ -17,8 +17,8 @@ public class Serializador {
 	
 	// Método para serializar todas las publicaciones creadas
 	private static void serializarPublicaciones() {
-		if (Publicacion.getLista() != null) {return;} // solo serializan publicaciones si se crearon objetos de esta clase
-		else {
+		if (Publicacion.getLista() == null) {return; // solo serializan publicaciones si se crearon objetos de esta clase
+		}else {
 		
 		FileOutputStream fos;
 		ObjectOutputStream oos;
@@ -47,8 +47,8 @@ public class Serializador {
 	
 	// Método para serializar todas las personas creadas
 	private static void serializarPersonas() {
-		if (Persona.getLista() != null) {return;} // solo serializan personas si se crearon objetos de esta clase
-		else {
+		if (Persona.getLista() == null) {return; // solo serializan personas si se crearon objetos de esta clase
+		}else {
 		FileOutputStream fos;
 		ObjectOutputStream oos;
 
@@ -76,8 +76,8 @@ public class Serializador {
 	
 	// Método para serializar todas las estanterias creadas
 	private static void serializarEstanterias() {
-		if (Estanteria.getLista() != null) {return;} // solo serializan estanterias si se crearon objetos de esta clase
-		else {
+		if (Estanteria.getLista() == null) {return; // solo serializan estanterias si se crearon objetos de esta clase
+		}else {
 		FileOutputStream fos;
 		ObjectOutputStream oos;
 
@@ -105,8 +105,8 @@ public class Serializador {
 	
 	// Método para serializar todas los prestamos creados
 	private static void serializarPrestamos() {
-		if (Prestamo.getLista() != null) {return;} // solo serializan prestamos si se crearon objetos de esta clase
-		else {
+		if (Prestamo.getLista() == null) {return; // solo serializan prestamos si se crearon objetos de esta clase
+		}else {
 		FileOutputStream fos;
 		ObjectOutputStream oos;
 
