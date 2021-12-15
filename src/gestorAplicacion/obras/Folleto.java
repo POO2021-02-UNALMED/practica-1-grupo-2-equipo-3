@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Folleto extends Publicacion {
 	// ATRIBUTOS DE CLASE
+	private static final long serialVersionUID = 1L;
 	static private ArrayList<Folleto> folletos = new ArrayList<Folleto>();
 
 	// ATRIBUTOS INSTANCIA
