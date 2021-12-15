@@ -19,6 +19,7 @@ public class Estanteria implements Serializable {
 
 	// CONSTRUCTORES
 	public Estanteria() {
+		this.numero = 0;
 		lista.add(this);
 	}
 	public Estanteria(short numero, short piso, String[] limites) {
