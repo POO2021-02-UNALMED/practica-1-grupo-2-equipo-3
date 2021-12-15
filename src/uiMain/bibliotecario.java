@@ -8,6 +8,7 @@ import baseDatos.*;
 import gestorAplicacion.obras.*;
 import gestorAplicacion.obras.Libro.tipoLibro;
 import gestorAplicacion.obras.Publicacion.Estados;
+import gestorAplicacion.obras.Revista.Meses;
 import gestorAplicacion.personas.*;
 import gestorAplicacion.prestamo.*;
 
@@ -80,27 +81,48 @@ public class bibliotecario {
 						System.out.println(" 2. Revista");
 						System.out.println(" 3. Folleto");
 						System.out.println("-------------------------");
+						Estanteria estanteria = null;
 						System.out.println("Teclee la opción: ");
 						int opcion3;
 						opcion3 = (int) readLong();
 						
 						switch (opcion3) {
 						case 1: System.out.println("Ingrese los datos del Libro");
+						
 		
+						Libro.tipoLibro tipo = null;
+						System.out.println("-------------------------");
+						System.out.println("Tipo de libro: ");
+						System.out.println(" 1. Coleccion General");
+						System.out.println(" 2. Reserva");
+						System.out.println(" 3. Investigacion");
+						System.out.println(" 4. Seminario");
+						System.out.println(" 5. Tesis");
+						System.out.println("-------------------------");
+						System.out.println("Teclee la opción: ");
+						opcion = (int) readLong();
+						
+						switch(opcion) {
+						case 1: tipo = Libro.tipoLibro.COLECCION_GENERAL;break;
+						case 2: tipo = Libro.tipoLibro.RESERVA;break;
+						case 3: tipo = Libro.tipoLibro.INVESTIGACION;break;
+						case 4: tipo = Libro.tipoLibro.SEMINARIO;break;
+						case 5: tipo = Libro.tipoLibro.TESIS;break;
+						default: System.out.println("Tipo de libro inválido");break;
+						}
+
 						System.out.println("Código:"); int cod = (int) readLong();
 						System.out.println("Nombre:"); String nombre2 = readLn();
 						System.out.println("Año:"); short aa = (short) readLong();
 						System.out.println("Ejemplar:"); short ejemplar = (short) readLong();
-						System.out.println("Tipo :"); String tipo= readLn();
 						System.out.println("Referencia :"); String ref= readLn();
 						System.out.println("Volumen:"); short vol = (short) readLong();
 						System.out.println("ID del autor:"); short nautor = (short) readLong();
-						Autor autor;
+						Autor autor = null;
 						for (Persona a: Persona.getLista()) {
 							if (a.getId() == nautor) {autor = (Autor) a;}
 						}
 						System.out.println("Número de Estantería:"); short nes = (short) readLong();
-						Estanteria estanteria;
 						for (Estanteria e: Estanteria.getLista()) {
 							if (e.getNumero() == nes) {estanteria = e;}
 						}
@@ -109,13 +131,17 @@ public class bibliotecario {
 						break;
 						
 						case 2: System.out.println("Ingrese los datos de la Revista");
-	
+						
+						Revista.Meses mes = null;
+						System.out.println("Mes en español y en Mayúsculas:"); String m = readLn();
+						if (Meses.valueOf(m) == null) {
+							System.out.println("Mes inválido");
+						}
 						System.out.println("Código:"); cod = (int) readLong();
 						System.out.println("Nombre:"); nombre2 = readLn();
 						System.out.println("Año:"); aa = (short) readLong();
 						System.out.println("Ejemplar:"); ejemplar = (short) readLong();
 						System.out.println("Número:"); short numero = (short) readLong();
-						System.out.println("Mes en esañol y en Mayúsculas:"); String mes = readLn();
 						System.out.println("Temporada:"); String temporada = readLn();
 						System.out.println("Número de Estantería:");  nes = (short) readLong();
 						for (Estanteria e: Estanteria.getLista()) {
@@ -178,7 +204,7 @@ public class bibliotecario {
 						case 1: System.out.println("Ingrese los datos del estudiante/profesor");
 						
 						System.out.println("Nombre:"); String nombre = readLn();
-						System.out.println("Id:"); short id = (short) readLong();
+						System.out.println("Id:"); id = (short) readLong();
 						System.out.println("Correo:"); String correo = readLn();
 						System.out.println("Telefono:"); short tel = (short) readLong();
 						System.out.println("Direccion:"); String direccion = readLn();
