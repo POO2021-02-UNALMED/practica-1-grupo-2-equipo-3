@@ -14,11 +14,11 @@ public class Externo extends Persona implements Usuario {
 		
 	
 	//CONSTRUCTORES
-	Externo(String nombre,int id,String correo,short tel,String direccion, LocalDate nacimiento, String paisOrigen){
+	public Externo(String nombre,int id,String correo,short tel,String direccion, LocalDate nacimiento, String paisOrigen){
 		super( nombre, id, correo, tel, direccion,  nacimiento,  paisOrigen);
 		usuariosExternos.add(this);
 	}
-	Externo(String nombre,int id,String correo,short tel,String direccion,LocalDate nacimiento, String paisOrigen, String universidad){
+	public Externo(String nombre,int id,String correo,short tel,String direccion,LocalDate nacimiento, String paisOrigen, String universidad){
 		super( nombre, id, correo, tel, direccion, nacimiento,  paisOrigen);
 		this.universidad=universidad;
 		usuariosExternos.add(this);
