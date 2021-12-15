@@ -40,12 +40,11 @@ public class bibliotecario {
 			System.out.println("-------------------------");
 		
 			System.out.println("Teclee la opción: ");
-			opcion = (int) readLong();
+			opcion = (int) readLong();readLn();
 			
 			switch(opcion) {
 			
 			case 1: // Menú de opciones para registrar 
-				int opcion2;
 			do {
 				System.out.println("\nREGISTRO DE DATOS");
 				System.out.println("¿Qué desea registrar?");
@@ -60,9 +59,9 @@ public class bibliotecario {
 				System.out.println("-------------------------");
 				
 				System.out.println("Teclee la opción: ");
-				opcion2 = (int) readLong();
+				opcion = (int) readLong();readLn();
 				
-				switch(opcion2) {
+				switch(opcion) {
 					case 1: System.out.println("Ingrese los datos de la Estantería:");
 					
 					System.out.println("Número:"); short n = (short) readLong();
@@ -83,14 +82,16 @@ public class bibliotecario {
 						System.out.println(" 3. Folleto");
 						System.out.println("-------------------------");
 						Estanteria estanteria = null;
+						ArrayList<Short> numeros_estanterias = new ArrayList<Short>();
+						for (Estanteria e: Estanteria.getLista()) {
+							numeros_estanterias.add( e.getNumero() );}
 						System.out.println("Teclee la opción: ");
 						int opcion3;
 						opcion3 = (int) readLong();
 						
 						switch (opcion3) {
 						case 1: System.out.println("Ingrese los datos del Libro");
-						
-		
+
 						Libro.tipoLibro tipo = null;
 						System.out.println("-------------------------");
 						System.out.println("Tipo de libro: ");
@@ -124,9 +125,12 @@ public class bibliotecario {
 							if (a.getId() == nautor) {autor = (Autor) a;}
 						}
 						System.out.println("Número de Estantería:"); short nes = (short) readLong();readLn();
-						for (Estanteria e: Estanteria.getLista()) {
-							if (e.getNumero() == nes) {estanteria = e;}
-						}
+						if (numeros_estanterias.contains(nes) == false) {
+							System.out.println("Estantería inválida");
+						}else {
+							for (Estanteria e: Estanteria.getLista()) {
+								if (e.getNumero() == nes) {estanteria = e;}}
+							}
 						
 						new Libro (cod,nombre2,aa,ejemplar,autor,tipo,ref,vol,estanteria);
 						break;
@@ -138,6 +142,7 @@ public class bibliotecario {
 						for (Revista.Meses mes : Revista.Meses.values()) {
 							String m = mes.toString();
 							list.add(m);}
+						readLn();
 						System.out.println("Mes en español y en Mayúsculas:"); String m = readLn();
 						if (list.contains(m) == false) {System.out.println("Mes inválido");}
 						Revista.Meses mes = Revista.Meses.valueOf(m);
@@ -147,34 +152,40 @@ public class bibliotecario {
 						System.out.println("Ejemplar:"); ejemplar = (short) readLong();
 						System.out.println("Número:"); short numero = (short) readLong();readLn();
 						System.out.println("Temporada:"); String temporada = readLn();
-						System.out.println("Número de Estantería:");  nes = (short) readLong();
-						for (Estanteria e: Estanteria.getLista()) {
-							if (e.getNumero() == nes) {estanteria = e;}
-						}
+						System.out.println("Número de Estantería:");  short es = (short) readLong();readLn();
+						if (numeros_estanterias.contains(es) == false) {
+							System.out.println("Estantería inválida");
+						}else {
+							for (Estanteria e: Estanteria.getLista()) {
+								if (e.getNumero() == es) {estanteria = e;}}
+							}
 						
 						new Revista (cod,nombre2,aa,ejemplar,numero,mes,temporada,estanteria);
 						break;
 						
 						case 3: System.out.println("Ingrese los datos del Folleto");
 						
+						readLn();
 						System.out.println("Código:"); cod = (int) readLong();readLn();
 						System.out.println("Nombre:"); nombre2 = readLn();
 						System.out.println("Año:"); aa = (short) readLong();
 						System.out.println("Ejemplar:"); ejemplar = (short) readLong();readLn();
 						System.out.println("Referencia:"); ref = readLn();
 						System.out.println("Número de Estantería:");  nes = (short) readLong();
-						for (Estanteria e: Estanteria.getLista()) {
-							if (e.getNumero() == nes) {estanteria = e;}
-						}
+						if (numeros_estanterias.contains(nes) == false) {
+							System.out.println("Estantería inválida");
+						}else {
+							for (Estanteria e: Estanteria.getLista()) {
+								if (e.getNumero() == nes) {estanteria = e;}}
+							}
 						
 						new Folleto (cod,nombre2,aa,ejemplar,ref,estanteria);
 						break;
 						
 						default: 
 							System.out.println("Opción no válida");break;
-						}
-						
-						
+						} // cierre del switch de registrar publicacion
+
 					break;
 					
 					case 3: System.out.println("Ingrese los datos del autor");
@@ -201,7 +212,7 @@ public class bibliotecario {
 						System.out.println(" 2. Externo");
 						System.out.println("-------------------------");
 						System.out.println("Teclee la opción: ");
-						int opcion4;
+						int opcion4;readLn();
 						opcion4 = (int) readLong();readLn();
 						
 						switch (opcion4) {
@@ -249,8 +260,8 @@ public class bibliotecario {
 					
 					break;
 					case 6: break;
-				}
-			} while (opcion2 !=6);
+				} // cierre switch - registro de datos
+			} while (opcion !=6);
 			break;
 			
 			
