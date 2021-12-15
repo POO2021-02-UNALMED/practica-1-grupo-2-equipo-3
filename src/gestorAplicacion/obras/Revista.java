@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Revista extends Publicacion {
 	//ATRIBUTOS DE CLASE
+	private static final long serialVersionUID = 1L;
 	static public enum Meses { ENERO, FEBRERO,MARZO,ABRIL,MAYO,JUNIO,JULIO,AGOSTO,SEPTIEMBRE,OCTUBRE,NOVIEMBRE,DICIEMBRE};	
 	static private ArrayList<Revista>revistas=new ArrayList<Revista>();
 	
