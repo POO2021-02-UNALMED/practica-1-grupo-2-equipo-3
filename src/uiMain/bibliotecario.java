@@ -18,7 +18,7 @@ public class bibliotecario {
 
 	public static void main(String[] args) {
 		
-		// Se eliminan todos los objetos creados para trabajar solamente con los de los arcvhivos
+		// Se eliminan todos los objetos creados para trabajar solamente con los de los archivos almacenados
 		//Deserializador.resetarMemoria();
 		Deserializador.deserializar();
 		
@@ -33,6 +33,10 @@ public class bibliotecario {
 		if (estanterias_numeros.contains((short) 0) == false) {new Estanteria();}
 
 		
+		
+		  ///////////////////////////
+		 /// INICIO DEL SISTEMA ////
+		///////////////////////////
 		System.out.println("Hola!\nBienvenido al Sistema de Gestión de la Biblioteca");
 		
 		// Menú de opciones principal
@@ -53,7 +57,7 @@ public class bibliotecario {
 			System.out.println(" 9. Guardar datos y salir del sistema");
 			System.out.println("-------------------------");
 		
-			System.out.println("Teclee la opción: ");
+			System.out.println("Teclee la opción(N): ");
 			opcion = (int) readLong();readLn();
 			
 			switch(opcion) {
@@ -80,17 +84,17 @@ public class bibliotecario {
 				System.out.println(" 5. Volver al menú principal");
 				System.out.println("-------------------------");
 				
-				System.out.println("Teclee la opción: ");
+				System.out.println("Teclee la opción(N): ");
 				opcion = (int) readLong();readLn();
 				
 				switch(opcion) {
 					case 1: System.out.println("Ingrese los datos de la Estantería:");
 					
-					System.out.println("Número:"); short n = (short) readLong();
-					System.out.println("Piso:"); short p = (short) readLong();readLn();
-					System.out.println("Límte inferior:"); 
+					System.out.println("Número (N):"); short n = (short) readLong();
+					System.out.println("Piso (N):"); short p = (short) readLong();readLn();
+					System.out.println("Límte inferior (S):"); 
 					String li = readLn();
-					System.out.println("Límite superior:"); 
+					System.out.println("Límite superior (S):"); 
 					String ls = readLn();
 					String[] l = new String[]{li,ls};
 					new Estanteria(n, p, l);
@@ -108,7 +112,7 @@ public class bibliotecario {
 						ArrayList<Short> numeros_estanterias = new ArrayList<Short>();
 						for (Estanteria e: Estanteria.getLista()) {
 							numeros_estanterias.add( e.getNumero() );}
-						System.out.println("Teclee la opción: ");
+						System.out.println("Teclee la opción (N): ");
 						int opcion3;
 						opcion3 = (int) readLong();
 						
@@ -128,7 +132,7 @@ public class bibliotecario {
 						System.out.println(" 5. Tesis");
 						System.out.println(" 6. Volver al Menú de Registro");
 						System.out.println("-------------------------");
-						System.out.println("Teclee la opción: ");
+						System.out.println("Teclee la opción (N): ");
 						opcion2 = (int) readLong();
 						
 						switch(opcion2) {
@@ -143,29 +147,29 @@ public class bibliotecario {
 						
 						if(opcion2 != 6) {
 
-						System.out.println("Código:"); int cod = (int) readLong();readLn();
-						System.out.println("Nombre:"); String nombre2 = readLn();
-						System.out.println("Año:"); short aa = (short) readLong();
-						System.out.println("Ejemplar:"); short ejemplar = (short) readLong();readLn();
-						System.out.println("Referencia :"); String ref= readLn();
-						System.out.println("Volumen:"); short vol = (short) readLong();
-						System.out.println("ID del autor:"); short nautor = (short) readLong();readLn();
+						System.out.println("Código (N):"); int cod = (int) readLong();readLn();
+						System.out.println("Nombre (S):"); String nombre2 = readLn();
+						System.out.println("Año: (N)"); short aa = (short) readLong();
+						System.out.println("Ejemplar (N):"); short ejemplar = (short) readLong();readLn();
+						System.out.println("Referencia (S):"); String ref= readLn();
+						System.out.println("Volumen (N):"); short vol = (short) readLong();
+						System.out.println("ID del autor (N):"); short nautor = (short) readLong();readLn();
 						Autor autor = null;
-						for (Persona a: Persona.getLista()) {
-							if (a.getId() == nautor) {autor = (Autor) a;}
+						for (Autor a: Autor.getAutores()) {
+							if (a.getId() == nautor) {autor = a;}
 						}
-						System.out.println("Número de Estantería:"); short nes = (short) readLong();readLn();
-						if (numeros_estanterias.contains(nes) == false) {
-							System.out.println("Estantería inválida");
-						}else {
-							for (Estanteria e: Estanteria.getLista()) {
-								if (e.getNumero() == nes) {estanteria = e;}}
-							}
+						System.out.println("Número de Estantería (N):"); short nes = (short) readLong();readLn();
+						Estanteria estanteria = null;
+						for (Estanteria e: Estanteria.getLista()) {
+							if (e.getNumero() == nes) {estanteria = e;}
+						}
+							
 						
 						tipoLibro tipo = null;
 						new Libro (cod,nombre2,aa,ejemplar,autor,tipo,ref,vol,estanteria);
+			
 						 System.out.println("Libro registrado con éxito");
-						}
+	
 						break;
 						
 						case 2: System.out.println("Ingrese los datos de la Revista");
@@ -176,26 +180,24 @@ public class bibliotecario {
 							String m = mes.toString();
 							list.add(m);}
 						readLn();
-						System.out.println("Mes en español y en Mayúsculas:"); String m = readLn();
+						System.out.println("Mes en español y en Mayúsculas (N):"); String m = readLn();
 						if (list.contains(m) == false) {System.out.println("Mes inválido");
-						System.out.println("Devuela al Menú de Registro de Datos");break;}
+						System.out.println("De vuelta al Menú de Registro de Datos");break;}
 						Revista.Meses mes = Revista.Meses.valueOf(m);
-						System.out.println("Código:"); int cod = (int) readLong();readLn();
-						System.out.println("Nombre:"); String nombre2 = readLn();
-						System.out.println("Año:");short aa = (short) readLong();
-						System.out.println("Ejemplar:"); short ejemplar = (short) readLong();
-						System.out.println("Número:"); short numero = (short) readLong();readLn();
-						System.out.println("Temporada:"); String temporada = readLn();
-						System.out.println("Número de Estantería:");  short es = (short) readLong();readLn();
+						System.out.println("Código (N):"); int cod = (int) readLong();readLn();
+						System.out.println("Nombre (S):"); String nombre2 = readLn();
+						System.out.println("Año (N):");short aa = (short) readLong();
+						System.out.println("Ejemplar (N):"); short ejemplar = (short) readLong();
+						System.out.println("Número (N):"); short numero = (short) readLong();readLn();
+						System.out.println("Temporada (S):"); String temporada = readLn();
+						System.out.println("Número de Estantería (N):");  short es = (short) readLong();readLn();
 						if (numeros_estanterias.contains(es) == false) {
 							System.out.println("Estantería inválida");
 						}else {
 							for (Estanteria e: Estanteria.getLista()) {
 								if (e.getNumero() == es) {estanteria = e;}}
-							}
-						
 						new Revista (cod,nombre2,aa,ejemplar,numero,mes,temporada,estanteria);
-						 System.out.println("Revista registrada con éxito");
+						 System.out.println("Revista registrada con éxito");}
 						break;
 						
 						case 3: System.out.println("Ingrese los datos del Folleto");
@@ -331,9 +333,7 @@ public class bibliotecario {
 					break;
 					
 					
-					
-					
-					break;
+	
 					case 5: break;
 				} // cierre switch - registro de datos
 			} while (opcion !=5);
