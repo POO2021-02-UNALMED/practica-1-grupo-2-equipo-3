@@ -14,7 +14,7 @@ public class Estanteria implements Serializable {
 	short numero;
 	short piso;
 	String[] limites = new String[2];
-	private ArrayList<Publicacion> publicaciones = new ArrayList();
+	private ArrayList<Publicacion> publicaciones = new ArrayList<Publicacion>();
 
 	// CONSTRUCTORES
 	public Estanteria() {
