@@ -24,7 +24,7 @@ public abstract class Persona implements Serializable{
 	
 	//CONSTRUCTORES
 	Persona(){};
-	Persona (String nombre, LocalDate nacimiento, String paisOrigen){
+	Persona (int id,String nombre, LocalDate nacimiento, String paisOrigen){
 		this.nombre=nombre;
 		this.nacimiento=nacimiento;
 		this.paisOrigen=paisOrigen;
