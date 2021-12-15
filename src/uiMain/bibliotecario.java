@@ -109,23 +109,38 @@ public class bibliotecario {
 						break;
 						
 						case 2: System.out.println("Ingrese los datos de la Revista");
-						System.out.println("Código:"); int cod = (int) readLong();
-						System.out.println("Nombre:"); String nombre2 = readLn();
-						System.out.println("Año:"); int aa = (short) readLong();
-						System.out.println("Ejemplar:"); int ejemplar = (short) readLong();
-						System.out.println("Tipo :"); String tipo= readLn();
-						System.out.println("Referencia :"); String ref= readLn();
-						System.out.println("Volumen:"); short vol = (short) readLong();
-						System.out.println("Número de Estantería:"); short nes = (short) readLong();
-						Estanteria estanteria;
+	
+						System.out.println("Código:"); cod = (int) readLong();
+						System.out.println("Nombre:"); nombre2 = readLn();
+						System.out.println("Año:"); aa = (short) readLong();
+						System.out.println("Ejemplar:"); ejemplar = (short) readLong();
+						System.out.println("Número:"); short numero = (short) readLong();
+						System.out.println("Mes en esañol y en Mayúsculas:"); String mes = readLn();
+						System.out.println("Temporada:"); short temporada = (short) readLong();
+						System.out.println("Número de Estantería:");  nes = (short) readLong();
 						for (Estanteria e: Estanteria.getLista()) {
 							if (e.getNumero() == nes) {estanteria = e;}
 						}
 						
-						new Libro (cod,nombre2,aa,ejemplar,autor,tipo,ref,vol,estanteria);
+						new Revista (cod,nombre2,aa,ejemplar,numero,mes,temporada,estanteria);
 						break;
 						
-						default:
+						case 3: System.out.println("Ingrese los datos del Folleto");
+						
+						System.out.println("Código:"); cod = (int) readLong();
+						System.out.println("Nombre:"); nombre2 = readLn();
+						System.out.println("Año:"); aa = (short) readLong();
+						System.out.println("Ejemplar:"); ejemplar = (short) readLong();
+						System.out.println("Referencia:"); ref = readLn();
+						System.out.println("Número de Estantería:");  nes = (short) readLong();
+						for (Estanteria e: Estanteria.getLista()) {
+							if (e.getNumero() == nes) {estanteria = e;}
+						}
+						
+						new Folleto (cod,nombre2,aa,ejemplar,ref,estanteria);
+						break;
+						
+						default: 
 							System.out.println("Opción no válida");break;
 						}
 						
