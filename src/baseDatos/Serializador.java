@@ -106,6 +106,7 @@ public class Serializador {
 	// Método para serializar todas los prestamos creados
 	private static void serializarPrestamos() {
 		if (Prestamo.getLista() != null) {return;} // solo serializan prestamos si se crearon objetos de esta clase
+		else {
 		FileOutputStream fos;
 		ObjectOutputStream oos;
 
@@ -128,7 +129,7 @@ public class Serializador {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
+	}}
 	
 	// Método para serializar todos los objetos creados y garantizar persistencia
 	public static void serializar() {
