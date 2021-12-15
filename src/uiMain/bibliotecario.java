@@ -70,7 +70,7 @@ public class bibliotecario {
 					String li = (String) sc.nextLine();
 					System.out.println("Límite superior:"); 
 					String ls = (String) sc.nextLine();
-					String[] l = {li,ls};
+					String[] l = new String[]{li,ls};
 					new Estanteria(n, p, l);
 					break;
 					
