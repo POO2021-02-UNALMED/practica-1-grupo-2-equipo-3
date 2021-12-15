@@ -1,16 +1,11 @@
 package uiMain;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Scanner;
-
 import baseDatos.*; 
 import gestorAplicacion.obras.*;
-import gestorAplicacion.obras.Libro.tipoLibro;
-import gestorAplicacion.obras.Publicacion.Estados;
 import gestorAplicacion.obras.Revista.Meses;
 import gestorAplicacion.personas.*;
-import gestorAplicacion.prestamo.*;
 
 
 public class bibliotecario {
@@ -20,6 +15,9 @@ public class bibliotecario {
 	
 
 	public static void main(String[] args) {
+		
+		// Se eliminan todos los objetos creados para trabajar solamente con los de los arcvhivos
+		Deserializador.resetarMemoria();
 		
 		// Se almacenan en memoria ram todas las clases antes creadas
 		//Deserializador.deserializar();
