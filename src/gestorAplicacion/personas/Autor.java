@@ -15,6 +15,7 @@ public class Autor extends Persona {
 	// CONSTRUCTORES
 	public Autor() { // Constructor para anonimos
 		super.nombre= "Anonimo";
+		super.id = 0;
 		autores.add(this);
 	}
 
