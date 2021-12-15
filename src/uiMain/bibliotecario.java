@@ -45,7 +45,12 @@ public class bibliotecario {
 			System.out.println(" 1. Añadir Registros");
 			System.out.println(" 2. Mostrar registros");
 			System.out.println(" 3. Eliminar registros");
-			System.out.println(" 4. Guardar datos y salir del sistema");
+			System.out.println(" 4. Funcionalidad A");
+			System.out.println(" 5. Funcionalidad B");
+			System.out.println(" 6. Funcionalidad C");
+			System.out.println(" 7. Funcionalidad D");
+			System.out.println(" 8. Funcionalidad E");
+			System.out.println(" 9. Guardar datos y salir del sistema");
 			System.out.println("-------------------------");
 		
 			System.out.println("Teclee la opción: ");
@@ -357,12 +362,17 @@ public class bibliotecario {
 			///////
 			//////////
 			case 3: System.out.println("Está eliminando ..."); break;
-			case 4: break;
+			case 4: System.out.println("Se está implementando la Funcionalidad A");break;
+			case 5: System.out.println("Se está implementando la Funcionalidad B");break;
+			case 6: System.out.println("Se está implementando la Funcionalidad C");break;
+			case 7: System.out.println("Se está implementando la Funcionalidad D");break;
+			case 8: System.out.println("Se está implementando la Funcionalidad E");break;
+			case 9: break;
 			
 			} //cierre del switch - menú principal
 		
 		
-		} while (opcion !=4); // cierre del do - menú principal
+		} while (opcion !=9); // cierre del do - menú principal
 
 	
 		
