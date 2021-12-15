@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import baseDatos.*; 
 import gestorAplicacion.obras.*;
-import gestorAplicacion.obras.Revista.Meses;
 import gestorAplicacion.personas.*;
 
 
@@ -234,17 +233,30 @@ public class bibliotecario {
 						System.out.println("Responda SI O NO"); String u = readLn();
 						if (u == "SI") {
 							System.out.println("Universidad"); String uni = readLn();
+							System.out.println("Nombre:"); String nombre2 =  readLn();
+							System.out.println("Id:"); short id2 = (short) readLong();readLn();
+							System.out.println("Correo:"); String correo2 = readLn();
+							System.out.println("Telefono:"); short tel2 = (short) readLong();readLn();
+							System.out.println("Direccion:"); String direccion2 = readLn();
+							System.out.println("Fecha de nacimiento en formato AAAA-MM-DD:"); String nac2 = readLn();
+							System.out.println("País de Origen:"); String origen2 = readLn();
+							
+							new Externo(nombre2,id2,correo2,tel2,direccion2, LocalDate.parse(nac2), origen2,uni);
+							break;
+						}else {
+							System.out.println("Nombre:"); String nombre2 =  readLn();
+							System.out.println("Id:"); short id2 = (short) readLong();readLn();
+							System.out.println("Correo:"); String correo2 = readLn();
+							System.out.println("Telefono:"); short tel2 = (short) readLong();readLn();
+							System.out.println("Direccion:"); String direccion2 = readLn();
+							System.out.println("Fecha de nacimiento en formato AAAA-MM-DD:"); String nac2 = readLn();
+							System.out.println("País de Origen:"); String origen2 = readLn();
+							
+							new Externo(nombre2,id2,correo2,tel2,direccion2, LocalDate.parse(nac2), origen2);
+							break;
+							
 						}
-						System.out.println("Nombre:"); String nombre2 =  readLn();
-						System.out.println("Id:"); short id2 = (short) readLong();readLn();
-						System.out.println("Correo:"); String correo2 = readLn();
-						System.out.println("Telefono:"); short tel2 = (short) readLong();readLn();
-						System.out.println("Direccion:"); String direccion2 = readLn();
-						System.out.println("Fecha de nacimiento en formato AAAA-MM-DD:"); String nac2 = readLn();
-						System.out.println("País de Origen:"); String origen2 = readLn();
-						
-						new Externo(nombre2,id2,correo2,tel2,direccion2, LocalDate.parse(nac2), origen2);
-						break;
+
 						
 						default:
 							System.out.println("Opción no válida");break;
