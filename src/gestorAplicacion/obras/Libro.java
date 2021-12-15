@@ -70,5 +70,9 @@ public class Libro extends Publicacion {
 	public static void setLibros(ArrayList<Libro> libros) {
 		Libro.libros = libros;
 	}
+
+	public Autor getAutor() {
+		return autor;
+	}
 	
 }

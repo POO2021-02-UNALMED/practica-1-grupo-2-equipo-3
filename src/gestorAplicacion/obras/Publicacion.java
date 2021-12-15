@@ -36,7 +36,9 @@ public abstract class Publicacion implements Serializable {
 	
 	
 	//METODOS NORMALES
-	
+	public static void eliminarPublicacion(Publicacion p) { // elimina un registro de Publicacion
+		lista.remove(lista.indexOf(p));
+	}
 	
 	
 	//GETTERS Y SETTERS
