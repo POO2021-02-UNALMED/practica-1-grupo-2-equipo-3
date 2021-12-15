@@ -193,7 +193,6 @@ public class Deserializador {
 		Publicacion.getLista().clear();
 		Revista.getRevistas().clear();
 		
-
 		Autor.getAutores().clear();
 		EstudianteProfesor.getEstudiantesyprofesores().clear();
 		Externo.getUsuariosExternos().clear();
