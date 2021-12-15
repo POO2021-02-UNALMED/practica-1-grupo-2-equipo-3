@@ -14,7 +14,6 @@ public class bibliotecario {
 	static Scanner sc = new Scanner(System.in);
 	static long readLong() {return sc.nextLong();}
 	static String readLn() {return sc.nextLine();}
-	private static String[] SINO = new String[] {"SI","NO"};
 	
 
 	public static void main(String[] args) {
