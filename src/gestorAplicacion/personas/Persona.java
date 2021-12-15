@@ -43,6 +43,8 @@ public abstract class Persona implements Serializable{
 	public static void eliminarPersona(Persona p) { // elimina un registro de Persona
 		lista.remove(lista.indexOf(p));
 	}
+	
+	public abstract String infoPersonal ();
 		
 		
 	//GETTERS SETTERS

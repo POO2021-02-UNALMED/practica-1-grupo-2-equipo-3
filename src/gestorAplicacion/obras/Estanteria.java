@@ -18,7 +18,9 @@ public class Estanteria implements Serializable {
 	private ArrayList<Publicacion> publicaciones = new ArrayList<Publicacion>();
 
 	// CONSTRUCTORES
-
+	public Estanteria() {
+		lista.add(this);
+	}
 	public Estanteria(short numero, short piso, String[] limites) {
 		
 		this.numero = numero;
