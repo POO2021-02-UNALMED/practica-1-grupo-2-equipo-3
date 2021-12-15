@@ -65,7 +65,7 @@ public class bibliotecario {
 					case 1: System.out.println("Ingrese los datos de la Estantería:");
 					
 					System.out.println("Número:"); short n = (short) readLong();
-					System.out.println("Piso:"); short p = (short) readLong();
+					System.out.println("Piso:"); short p = (short) readLong();readLn();
 					System.out.println("Límte inferior:"); 
 					String li = (String) sc.nextLine();
 					System.out.println("Límite superior:"); 
@@ -111,18 +111,18 @@ public class bibliotecario {
 						default: System.out.println("Tipo de libro inválido");break;
 						}
 
-						System.out.println("Código:"); int cod = (int) readLong();
+						System.out.println("Código:"); int cod = (int) readLong();readLn();
 						System.out.println("Nombre:"); String nombre2 = readLn();
 						System.out.println("Año:"); short aa = (short) readLong();
-						System.out.println("Ejemplar:"); short ejemplar = (short) readLong();
+						System.out.println("Ejemplar:"); short ejemplar = (short) readLong();readLn();
 						System.out.println("Referencia :"); String ref= readLn();
 						System.out.println("Volumen:"); short vol = (short) readLong();
-						System.out.println("ID del autor:"); short nautor = (short) readLong();
+						System.out.println("ID del autor:"); short nautor = (short) readLong();readLn();
 						Autor autor = null;
 						for (Persona a: Persona.getLista()) {
 							if (a.getId() == nautor) {autor = (Autor) a;}
 						}
-						System.out.println("Número de Estantería:"); short nes = (short) readLong();
+						System.out.println("Número de Estantería:"); short nes = (short) readLong();readLn();
 						for (Estanteria e: Estanteria.getLista()) {
 							if (e.getNumero() == nes) {estanteria = e;}
 						}
@@ -137,11 +137,11 @@ public class bibliotecario {
 						if (Meses.valueOf(m) == null) {
 							System.out.println("Mes inválido");
 						}
-						System.out.println("Código:"); cod = (int) readLong();
+						System.out.println("Código:"); cod = (int) readLong();readLn();
 						System.out.println("Nombre:"); nombre2 = readLn();
 						System.out.println("Año:"); aa = (short) readLong();
 						System.out.println("Ejemplar:"); ejemplar = (short) readLong();
-						System.out.println("Número:"); short numero = (short) readLong();
+						System.out.println("Número:"); short numero = (short) readLong();readLn();
 						System.out.println("Temporada:"); String temporada = readLn();
 						System.out.println("Número de Estantería:");  nes = (short) readLong();
 						for (Estanteria e: Estanteria.getLista()) {
@@ -153,10 +153,10 @@ public class bibliotecario {
 						
 						case 3: System.out.println("Ingrese los datos del Folleto");
 						
-						System.out.println("Código:"); cod = (int) readLong();
+						System.out.println("Código:"); cod = (int) readLong();readLn();
 						System.out.println("Nombre:"); nombre2 = readLn();
 						System.out.println("Año:"); aa = (short) readLong();
-						System.out.println("Ejemplar:"); ejemplar = (short) readLong();
+						System.out.println("Ejemplar:"); ejemplar = (short) readLong();readLn();
 						System.out.println("Referencia:"); ref = readLn();
 						System.out.println("Número de Estantería:");  nes = (short) readLong();
 						for (Estanteria e: Estanteria.getLista()) {
@@ -177,7 +177,7 @@ public class bibliotecario {
 					
 					System.out.println("¿Está vivo el autor?:");
 					System.out.println("Responda SI O NO"); String v = readLn();
-					System.out.println("ID:"); int id = (int)readLong();
+					System.out.println("ID:"); int id = (int)readLong();readLn();
 					System.out.println("Nombre:"); String nautor = readLn();
 					System.out.println("Fecha de nacimiento en formato AAAA-MM-DD"); String nacimiento = readLn();
 					System.out.println("País de Origen"); String pais = readLn();
@@ -198,15 +198,15 @@ public class bibliotecario {
 						System.out.println("-------------------------");
 						System.out.println("Teclee la opción: ");
 						int opcion4;
-						opcion4 = (int) readLong();
+						opcion4 = (int) readLong();readLn();
 						
 						switch (opcion4) {
 						case 1: System.out.println("Ingrese los datos del estudiante/profesor");
 						
 						System.out.println("Nombre:"); String nombre = readLn();
-						System.out.println("Id:"); id = (short) readLong();
+						System.out.println("Id:"); id = (short) readLong();readLn();
 						System.out.println("Correo:"); String correo = readLn();
-						System.out.println("Telefono:"); short tel = (short) readLong();
+						System.out.println("Telefono:"); short tel = (short) readLong();readLn();
 						System.out.println("Direccion:"); String direccion = readLn();
 						System.out.println("Fecha de nacimiento en formato AAAA-MM-DD:"); String nac = readLn();
 						System.out.println("País de Origen:"); String origen = readLn();
@@ -221,9 +221,9 @@ public class bibliotecario {
 							System.out.println("Universidad"); String uni = readLn();
 						}
 						System.out.println("Nombre:"); String nombre2 =  readLn();
-						System.out.println("Id:"); short id2 = (short) readLong();
+						System.out.println("Id:"); short id2 = (short) readLong();readLn();
 						System.out.println("Correo:"); String correo2 = readLn();
-						System.out.println("Telefono:"); short tel2 = (short) readLong();
+						System.out.println("Telefono:"); short tel2 = (short) readLong();readLn();
 						System.out.println("Direccion:"); String direccion2 = readLn();
 						System.out.println("Fecha de nacimiento en formato AAAA-MM-DD:"); String nac2 = readLn();
 						System.out.println("País de Origen:"); String origen2 = readLn();
