@@ -66,7 +66,7 @@ public class bibliotecario {
 					
 					System.out.println("Número:"); short n = (short) readLong();
 					System.out.println("Piso:"); short p = (short) readLong();
-					System.out.println("Límte inferior:"); String li = readLn();
+					System.out.println("Límte inferior:"); String li = sc.nextLine();
 					System.out.println("Límite superior:"); String ls = readLn();
 					String[] l = {li,ls};
 					new Estanteria(n, p, l);
