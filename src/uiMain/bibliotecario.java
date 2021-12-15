@@ -414,9 +414,78 @@ public class bibliotecario {
 				
 				
 				switch(opcion) {
-				case 1: System.out.println(Estanteria.mostrarRegistros()); break;
-				case 2: System.out.println(Publicacion.mostrarRegistros()); break;
-				case 3: System.out.println(Persona.mostrarRegistros()); break;
+				case 1:do {
+					System.out.println("\nBORRADO DE ESTANTERIAS");
+					System.out.println("-------------------------");
+					System.out.println("Menú de opciones: ");
+					System.out.println(" 1. Mostrar registros");
+					System.out.println(" 2. Tengo el número de la estanteria");
+					System.out.println(" 3. Volver al menú principal");
+					System.out.println("-------------------------");
+					System.out.println("Teclee la opción (N): ");
+					opcion = (int) readLong();readLn();
+					switch (opcion){
+					case 1: System.out.println(Estanteria.mostrarRegistros()); break;
+					case 2: 
+						System.out.println("Ingrese el número de la estanteria (N):");
+						int registro_es = (int) readLong();readLn();
+						for (Estanteria es : Estanteria.getLista()) {
+							if (es.getNumero() == registro_es) {Estanteria.eliminarEstanteria(es);}
+						} break;
+						
+					case 3: break;
+					}}while (opcion != 2 & opcion != 3);
+					
+					break;
+					
+				case 2: do {
+					System.out.println("\nBORRADO DE PUBLICACIONES");
+					System.out.println("-------------------------");
+					System.out.println("Menú de opciones: ");
+					System.out.println(" 1. Mostrar registros");
+					System.out.println(" 2. Tengo el codigo de la publicacion");
+					System.out.println(" 3. Volver al menú principal");
+					System.out.println("-------------------------");
+					System.out.println("Teclee la opción (N): ");
+					opcion = (int) readLong();readLn();
+					switch (opcion){
+					case 1: System.out.println(Publicacion.mostrarRegistros()); break;
+					case 2: 
+						System.out.println("Ingrese el codigo de la publicacion (N):");
+						int registro_publi = (int) readLong();readLn();
+						for (Publicacion publi : Publicacion.getLista()) {
+							if (publi.getCodigo() == registro_publi) {Publicacion.eliminarPublicacion(publi);}
+						} break;
+						
+					case 3: break;
+					}}while (opcion != 2 & opcion != 3);
+
+					break;
+					
+				case 3: do {
+					System.out.println("\nBORRADO DE PERSONAS");
+					System.out.println("-------------------------");
+					System.out.println("Menú de opciones: ");
+					System.out.println(" 1. Mostrar registros");
+					System.out.println(" 2. Tengo el ID de la persona");
+					System.out.println(" 3. Volver al menú principal");
+					System.out.println("-------------------------");
+					System.out.println("Teclee la opción (N): ");
+					opcion = (int) readLong();readLn();
+					switch (opcion){
+					case 1: System.out.println(Persona.mostrarRegistros()); break;
+					case 2: 
+						System.out.println("Ingrese el ID de la persona (N):");
+						int registro_per = (int) readLong();readLn();
+						for (Persona per : Persona.getLista()) {
+							if (per.getId() == registro_per) {Persona.eliminarPersona(per);}
+						} break;
+						
+					case 3: break;
+					}}while (opcion != 2 & opcion != 3);
+					
+					break;
+					
 				case 4: break;
 				default: System.out.println("\nOpción no válida\nIntente otra vez");
 				}}while (opcion != 1 & opcion != 2 & opcion != 3 & opcion != 4);
