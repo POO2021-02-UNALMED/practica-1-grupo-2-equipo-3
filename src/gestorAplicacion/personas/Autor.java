@@ -6,7 +6,7 @@ import gestorAplicacion.obras.Libro;
 public class Autor extends Persona {
 	//ATRIBUTOS DE CLASE
 	private static final long serialVersionUID = 1L;
-	static private ArrayList<Autor>autores;
+	static private ArrayList<Autor>autores = new ArrayList<Autor>();
 	
 	//ATRIBUTOS INSTANCIA
 	private ArrayList<Libro>libros;
