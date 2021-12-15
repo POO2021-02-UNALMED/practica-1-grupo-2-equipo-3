@@ -9,9 +9,8 @@ import java.io.ObjectInputStream;
 
 import java.util.ArrayList;
 
-import gestorAplicacion.obras.Publicacion;
-import gestorAplicacion.obras.Estanteria;
-import gestorAplicacion.personas.Persona;
+import gestorAplicacion.obras.*;
+import gestorAplicacion.personas.*;
 import gestorAplicacion.prestamo.Prestamo;
 
 public class Deserializador {
@@ -183,6 +182,24 @@ public class Deserializador {
 		deserializarPersonas();
 		deserializarEstanterias();
 		deserializarPrestamos();
+	}
+	
+	
+	// Método para borrar todos los objetos de la ram y usar solo los almacenados en archivos
+	public static void resetarMemoria() {
+		Estanteria.setLista(null);
+		Folleto.setLista(null);
+		Libro.setLista(null);
+		Publicacion.setLista(null);
+		Revista.setLista(null);
+		
+		Autor.setLista(null);
+		EstudianteProfesor.setLista(null);
+		Externo.setLista(null);
+		Persona.setLista(null);
+		
+		Prestamo.setLista(null);
+		
 	}
 	
 	
