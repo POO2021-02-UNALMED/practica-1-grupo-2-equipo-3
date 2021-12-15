@@ -35,7 +35,7 @@ public class Estanteria implements Serializable {
 		lista.remove(lista.indexOf(e));
 	}
 	public String mostrarInfo() { //muestra informacion general de la estanteria
-		return "Estanteria número " + this.numero + " con limites ["+ this.limites[0]+","+this.limites[1] +"] ubicada en el piso " + this.piso + " de la biblioteca.";
+		return "INFORMACION DE ESTANTERIA" + "\n"+ "Numero: " + this.numero +"\n"+ "Limites : ["+ this.limites[0]+","+this.limites[1] +"]" +"\n"+"Piso: " + this.piso ;
 	}
 	public String mostrarContenido() { // muestra las publicaciones que hay en la estanteria
 		String c = "";

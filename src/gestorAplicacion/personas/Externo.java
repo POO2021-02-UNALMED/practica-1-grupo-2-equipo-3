@@ -19,11 +19,17 @@ public class Externo extends Persona implements Usuario {
 		super( nombre, id, correo, tel, direccion,  nacimiento,  paisOrigen);
 		usuariosExternos.add(this);
 	}
-	public Externo(String nombre,int id,String correo,short tel,String direccion,LocalDate nacimiento, String paisOrigen, String universidad){
+	public Externo(String nombre,int id,String correo,short tel,String direccion,LocalDate nacimiento, String paisOrigen, String universidad){// Constructor con el parametro opcional Universidad
 		super( nombre, id, correo, tel, direccion, nacimiento,  paisOrigen);
 		this.universidad=universidad;
 		usuariosExternos.add(this);
-		// Constructor con el parametro opcional Universidad
+	}
+	
+	//METODOS 
+	public String infoPersonal() {
+		return "DATOS PERSONALES :"+"\n" +"Nombre:  " + this.nombre +"\n"+ "\n"+ "ID: "+ this.id 
+				+ "\n"+"Universidad: " + this.universidad +"\n"+  "Correo: "+ this.correo +"\n"+ "Telefono: "+this.tel
+				+"\n"+"Direccion: "+ this.direccion +"\n"+"Pais de Origen"+ this.paisOrigen +"\n"+ "Fecha de Nacimiento: "+ this.nacimiento;
 	}
 	
 	
