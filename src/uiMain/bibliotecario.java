@@ -2,7 +2,6 @@ package uiMain;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 import baseDatos.*; 
 import gestorAplicacion.obras.*;
