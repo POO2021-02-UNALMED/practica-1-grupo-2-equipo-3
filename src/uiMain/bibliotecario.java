@@ -2,6 +2,7 @@ package uiMain;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 import baseDatos.*; 
 import gestorAplicacion.obras.*;
@@ -12,6 +13,7 @@ public class bibliotecario {
 	static Scanner sc = new Scanner(System.in);
 	static long readLong() {return sc.nextLong();}
 	static String readLn() {return sc.nextLine();}
+	private static String[] SINO = new String[] {"SI","NO"};
 	
 
 	public static void main(String[] args) {
@@ -143,7 +145,8 @@ public class bibliotecario {
 							list.add(m);}
 						readLn();
 						System.out.println("Mes en español y en Mayúsculas:"); String m = readLn();
-						if (list.contains(m) == false) {System.out.println("Mes inválido");}
+						if (list.contains(m) == false) {System.out.println("Mes inválido");
+						System.out.println("Devuela al Menú de Registro de Datos");break;}
 						Revista.Meses mes = Revista.Meses.valueOf(m);
 						System.out.println("Código:"); cod = (int) readLong();readLn();
 						System.out.println("Nombre:"); nombre2 = readLn();
@@ -182,7 +185,7 @@ public class bibliotecario {
 						break;
 						
 						default: 
-							System.out.println("Opción no válida");break;
+							System.out.println("Opción no válida\nDevuelta al Menú de Registro");break;
 						} // cierre del switch de registrar publicacion
 
 					break;
@@ -191,16 +194,23 @@ public class bibliotecario {
 					
 					System.out.println("¿Está vivo el autor?:");
 					System.out.println("Responda SI O NO"); String v = readLn();
+					if(Arrays.asList(SINO).contains(v) == false) {
+						System.out.println("No digitó una respuesta correcta\nDevuelta al Menú de Registro");
+					break;}
+					System.out.println(Arrays.asList(SINO).get(0) == v);
 					System.out.println("ID:"); int id = (int)readLong();readLn();
 					System.out.println("Nombre:"); String nautor = readLn();
 					System.out.println("Fecha de nacimiento en formato AAAA-MM-DD"); String nacimiento = readLn();
 					System.out.println("País de Origen"); String pais = readLn();
 	
 					boolean vivo;
-					if (v == "SI") {vivo = true;
-					}else {vivo = false;}
+					if (v == Arrays.asList(SINO).get(0)) {vivo = true;System.out.println("Está vivo");
+					}else{vivo = false;}
+					
 					
 					 new Autor (id, nautor,LocalDate.parse(nacimiento), pais,vivo);
+					 
+					 System.out.println("Autor registrado con éxito");
 					
 					break;
 					
@@ -211,7 +221,7 @@ public class bibliotecario {
 						System.out.println(" 2. Externo");
 						System.out.println("-------------------------");
 						System.out.println("Teclee la opción: ");
-						int opcion4;readLn();
+						int opcion4;
 						opcion4 = (int) readLong();readLn();
 						
 						switch (opcion4) {
@@ -226,11 +236,16 @@ public class bibliotecario {
 						System.out.println("País de Origen:"); String origen = readLn();
 						
 						new EstudianteProfesor(nombre,id,correo,tel,direccion, LocalDate.parse(nac), origen);
+						System.out.println("Estudiante o Profesor registrado con éxito!");
+						
 						break;
 						
 						case 2: System.out.println("Ingrese los datos del usuario externo");
 						System.out.println("¿Pertenece a alguna Universidad?");
 						System.out.println("Responda SI O NO"); String u = readLn();
+						if(u != "SI" & u!="NO") {
+							System.out.println("No digitó una respuesta correcta\nDevuelta al Menú de Registro");
+							break;}
 						if (u == "SI") {
 							System.out.println("Universidad"); String uni = readLn();
 							System.out.println("Nombre:"); String nombre2 =  readLn();
@@ -242,7 +257,9 @@ public class bibliotecario {
 							System.out.println("País de Origen:"); String origen2 = readLn();
 							
 							new Externo(nombre2,id2,correo2,tel2,direccion2, LocalDate.parse(nac2), origen2,uni);
+							System.out.println("Usuario Externo registrado con éxito!");
 							break;
+							
 						}else {
 							System.out.println("Nombre:"); String nombre2 =  readLn();
 							System.out.println("Id:"); short id2 = (short) readLong();readLn();
@@ -253,6 +270,7 @@ public class bibliotecario {
 							System.out.println("País de Origen:"); String origen2 = readLn();
 							
 							new Externo(nombre2,id2,correo2,tel2,direccion2, LocalDate.parse(nac2), origen2);
+							System.out.println("Usuario Externo registrado con éxito!");
 							break;
 							
 						}
