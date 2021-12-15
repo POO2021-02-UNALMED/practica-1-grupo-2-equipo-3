@@ -138,9 +138,9 @@ public class bibliotecario {
 						for (Revista.Meses mes : Revista.Meses.values()) {
 							String m = mes.toString();
 							list.add(m);}
-						System.out.println("Mes en español y en Mayúsculas:"); String mes = readLn();
-						if (list.contains(mes) == false) {System.out.println("Mes inválido");}
-						
+						System.out.println("Mes en español y en Mayúsculas:"); String m = readLn();
+						if (list.contains(m) == false) {System.out.println("Mes inválido");}
+						Revista.Meses mes = Revista.Meses.valueOf(m);
 						System.out.println("Código:"); cod = (int) readLong();readLn();
 						System.out.println("Nombre:"); nombre2 = readLn();
 						System.out.println("Año:"); aa = (short) readLong();
