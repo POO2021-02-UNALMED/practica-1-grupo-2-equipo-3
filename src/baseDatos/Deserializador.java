@@ -187,18 +187,18 @@ public class Deserializador {
 	
 	// Método para borrar todos los objetos de la ram y usar solo los almacenados en archivos
 	public static void resetarMemoria() {
-		Estanteria.setLista(null);
-		Folleto.setLista(null);
-		Libro.setLista(null);
-		Publicacion.setLista(null);
-		Revista.setLista(null);
+		Estanteria.setLista(new ArrayList<Estanteria>());
+		Folleto.setFolletos(new ArrayList<Folleto>());
+		Libro.setLibros(new ArrayList<Libro>());
+		Publicacion.setLista(new ArrayList<Publicacion>());
+		Revista.setRevistas(new ArrayList<Revista>());
 		
-		Autor.setLista(null);
-		EstudianteProfesor.setLista(null);
-		Externo.setLista(null);
-		Persona.setLista(null);
+		Autor.setAutores(new ArrayList<Autor>());
+		EstudianteProfesor.setEstudiantesyprofesores(new ArrayList<EstudianteProfesor>());
+		Externo.setUsuariosExternos(new ArrayList<Externo>());
+		Persona.setLista(new ArrayList<Persona>());
 		
-		Prestamo.setLista(null);
+		Prestamo.setLista(new ArrayList<Prestamo>());
 		
 	}
 	
