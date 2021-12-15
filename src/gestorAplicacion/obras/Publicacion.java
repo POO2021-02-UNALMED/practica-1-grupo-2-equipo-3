@@ -39,6 +39,15 @@ public abstract class Publicacion implements Serializable {
 	public static void eliminarPublicacion(Publicacion p) { // elimina un registro de Publicacion
 		lista.remove(lista.indexOf(p));
 	}
+	public static String mostrarRegistros() {
+		String c="Publicaciones creadas: "+"\n";
+		for (int i = 0; i < lista.size(); i++) {
+			if(lista.get(i) instanceof Libro ) {c = c + i+"."+"Libro "+ lista.get(i).nombre + "  Codigo "+ lista.get(i).codigo+ "\n";	}
+			else if(lista.get(i) instanceof Revista) {c = c + i+"."+"Revista "+ lista.get(i).nombre + "  Codigo "+ lista.get(i).codigo+ "\n";}
+			else if(lista.get(i) instanceof Folleto) {c = c + i+"."+"Folleto "+ lista.get(i).nombre + "  Codigo "+ lista.get(i).codigo+ "\n";}
+		}
+		return c;
+	}
 	
 	
 	//GETTERS Y SETTERS

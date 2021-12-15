@@ -35,6 +35,14 @@ public class Estanteria implements Serializable {
 	public static void eliminarEstanteria(Estanteria e) { // elimina un registro de Estanteria
 		lista.remove(lista.indexOf(e));
 	}
+	public static String mostrarRegistros() {
+		String c="Estanterias creadas: "+"\n";
+		for (int i = 0; i < lista.size(); i++) {
+			c = c + i+"."+"Estanteria #"+ lista.get(i).numero + "  Piso # "+ lista.get(i).piso+ "\n";
+		}
+		return c;
+	}
+	
 	public String mostrarInfo() { //muestra informacion general de la estanteria
 		return "INFORMACION DE ESTANTERIA" + "\n"+ "Numero: " + this.numero +"\n"+ "Limites : ["+ this.limites[0]+","+this.limites[1] +"]" +"\n"+"Piso: " + this.piso ;
 	}
