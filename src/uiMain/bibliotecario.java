@@ -20,6 +20,7 @@ public class bibliotecario {
 		
 		// Se eliminan todos los objetos creados para trabajar solamente con los de los arcvhivos
 		Deserializador.resetarMemoria();
+		Deserializador.deserializar();
 		
 		// Se almacenan en memoria ram todas las clases antes creadas
 		//Deserializador.deserializar();
@@ -45,7 +46,16 @@ public class bibliotecario {
 			
 			switch(opcion) {
 			
-			case 1: // Menú de opciones para registrar 
+			
+
+			
+			
+			//////////
+			///////
+			/// Menú de opciones para registrar 
+			///////
+			//////////		
+			case 1: 
 			do {
 				System.out.println("\nREGISTRO DE DATOS");
 				System.out.println("¿Qué desea registrar?");
@@ -321,7 +331,24 @@ public class bibliotecario {
 			break;
 			
 			
+			
+			
+			//////////
+			///////
+			/// Menú de opciones para mostrar
+			///////
+			//////////
 			case 2: System.out.println("Está mostrando ..."); break;
+			
+			
+			
+			
+			
+			//////////
+			///////
+			/// Menú de opciones para eliminar
+			///////
+			//////////
 			case 3: System.out.println("Está eliminando ..."); break;
 			case 4: break;
 			
@@ -331,6 +358,12 @@ public class bibliotecario {
 		} while (opcion !=4); // cierre del do - menú principal
 
 	
+		
+		
+		
+		
+		
+		
 	Serializador.serializar();
 	
 	
