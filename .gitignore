@@ -3,8 +3,12 @@
 # Ignora todos los archivos de texto
 *.txt
 
-# Ignoro el main donde probamos cosas
+# Ignora el main donde probamos cosas
 MainPruebas.java
 
-# Ignoro el main donde probamos cosas
+# Ignora el main donde probamos cosas
 ma.java
+
+
+# Ignoro el .jar y el .bat
+/ejecutables/
