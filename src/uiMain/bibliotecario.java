@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import baseDatos.*; 
 import gestorAplicacion.obras.*;
+import gestorAplicacion.obras.Libro.tipoLibro;
 import gestorAplicacion.personas.*;
 
 
@@ -68,11 +69,12 @@ public class bibliotecario {
 					System.out.println("Número:"); short n = (short) readLong();
 					System.out.println("Piso:"); short p = (short) readLong();readLn();
 					System.out.println("Límte inferior:"); 
-					String li = (String) sc.nextLine();
+					String li = readLn();
 					System.out.println("Límite superior:"); 
-					String ls = (String) sc.nextLine();
+					String ls = readLn();
 					String[] l = new String[]{li,ls};
 					new Estanteria(n, p, l);
+					System.out.println("Estanteria registrada con éxito");
 					break;
 					
 					case 2:// Menú de opciones para publicacion
@@ -91,7 +93,10 @@ public class bibliotecario {
 						opcion3 = (int) readLong();
 						
 						switch (opcion3) {
-						case 1: System.out.println("Ingrese los datos del Libro");
+						case 1:
+						int opcion2;
+						do {
+						System.out.println("Ingrese los datos del Libro");
 
 						Libro.tipoLibro tipo = null;
 						System.out.println("-------------------------");
@@ -101,18 +106,22 @@ public class bibliotecario {
 						System.out.println(" 3. Investigacion");
 						System.out.println(" 4. Seminario");
 						System.out.println(" 5. Tesis");
+						System.out.println(" 6. Volver al Menú de Registro");
 						System.out.println("-------------------------");
 						System.out.println("Teclee la opción: ");
-						opcion = (int) readLong();
+						opcion2 = (int) readLong();
 						
-						switch(opcion) {
+						switch(opcion2) {
 						case 1: tipo = Libro.tipoLibro.COLECCION_GENERAL;break;
 						case 2: tipo = Libro.tipoLibro.RESERVA;break;
 						case 3: tipo = Libro.tipoLibro.INVESTIGACION;break;
 						case 4: tipo = Libro.tipoLibro.SEMINARIO;break;
 						case 5: tipo = Libro.tipoLibro.TESIS;break;
+						case 6: break;
 						default: System.out.println("Tipo de libro inválido");break;
-						}
+						}}while(opcion2 !=1 & opcion2 != 2 & opcion2 != 3 & opcion2 != 4 & opcion2 != 5 & opcion2 != 6);
+						
+						if(opcion2 != 6) {
 
 						System.out.println("Código:"); int cod = (int) readLong();readLn();
 						System.out.println("Nombre:"); String nombre2 = readLn();
@@ -133,7 +142,10 @@ public class bibliotecario {
 								if (e.getNumero() == nes) {estanteria = e;}}
 							}
 						
+						tipoLibro tipo = null;
 						new Libro (cod,nombre2,aa,ejemplar,autor,tipo,ref,vol,estanteria);
+						 System.out.println("Libro registrado con éxito");
+						}
 						break;
 						
 						case 2: System.out.println("Ingrese los datos de la Revista");
@@ -148,10 +160,10 @@ public class bibliotecario {
 						if (list.contains(m) == false) {System.out.println("Mes inválido");
 						System.out.println("Devuela al Menú de Registro de Datos");break;}
 						Revista.Meses mes = Revista.Meses.valueOf(m);
-						System.out.println("Código:"); cod = (int) readLong();readLn();
-						System.out.println("Nombre:"); nombre2 = readLn();
-						System.out.println("Año:"); aa = (short) readLong();
-						System.out.println("Ejemplar:"); ejemplar = (short) readLong();
+						System.out.println("Código:"); int cod = (int) readLong();readLn();
+						System.out.println("Nombre:"); String nombre2 = readLn();
+						System.out.println("Año:");short aa = (short) readLong();
+						System.out.println("Ejemplar:"); short ejemplar = (short) readLong();
 						System.out.println("Número:"); short numero = (short) readLong();readLn();
 						System.out.println("Temporada:"); String temporada = readLn();
 						System.out.println("Número de Estantería:");  short es = (short) readLong();readLn();
@@ -163,6 +175,7 @@ public class bibliotecario {
 							}
 						
 						new Revista (cod,nombre2,aa,ejemplar,numero,mes,temporada,estanteria);
+						 System.out.println("Revista registrada con éxito");
 						break;
 						
 						case 3: System.out.println("Ingrese los datos del Folleto");
@@ -172,8 +185,8 @@ public class bibliotecario {
 						System.out.println("Nombre:"); nombre2 = readLn();
 						System.out.println("Año:"); aa = (short) readLong();
 						System.out.println("Ejemplar:"); ejemplar = (short) readLong();readLn();
-						System.out.println("Referencia:"); ref = readLn();
-						System.out.println("Número de Estantería:");  nes = (short) readLong();
+						System.out.println("Referencia:"); String ref = readLn();
+						System.out.println("Número de Estantería:");  short nes = (short) readLong();
 						if (numeros_estanterias.contains(nes) == false) {
 							System.out.println("Estantería inválida");
 						}else {
@@ -182,6 +195,7 @@ public class bibliotecario {
 							}
 						
 						new Folleto (cod,nombre2,aa,ejemplar,ref,estanteria);
+						 System.out.println("Folleto registrado con éxito");
 						break;
 						
 						default: 
@@ -190,28 +204,38 @@ public class bibliotecario {
 
 					break;
 					
-					case 3: System.out.println("Ingrese los datos del autor");
+					case 3: int v;
+					boolean vivo = false;
+					do {	
+					System.out.println("\nIngrese los datos del autor");
 					
 					System.out.println("¿Está vivo el autor?:");
-					System.out.println("Responda SI O NO"); String v = readLn();
-					if(Arrays.asList(SINO).contains(v) == false) {
-						System.out.println("No digitó una respuesta correcta\nDevuelta al Menú de Registro");
-					break;}
-					System.out.println(Arrays.asList(SINO).get(0) == v);
+					System.out.println("-------------------------");
+					System.out.println(" 1. Si");
+					System.out.println(" 2. No");
+					System.out.println(" 3. Volver al Menú de Registro");
+					System.out.println("-------------------------");
+					System.out.println("Teclee la opción: ");
+					v = (int) readLong();
+					switch(v){
+					case 1: vivo = true; break;
+					case 3: break;
+					default: 
+						System.out.println("Opción no válida\nIntente otra vez");break;
+						}
+					} while (v !=1 & v !=2 & v !=3);
+					
+					if (v !=3) {
 					System.out.println("ID:"); int id = (int)readLong();readLn();
 					System.out.println("Nombre:"); String nautor = readLn();
 					System.out.println("Fecha de nacimiento en formato AAAA-MM-DD"); String nacimiento = readLn();
 					System.out.println("País de Origen"); String pais = readLn();
 	
-					boolean vivo;
-					if (v == Arrays.asList(SINO).get(0)) {vivo = true;System.out.println("Está vivo");
-					}else{vivo = false;}
-					
-					
-					 new Autor (id, nautor,LocalDate.parse(nacimiento), pais,vivo);
+
+					new Autor (id, nautor,LocalDate.parse(nacimiento), pais,vivo);
 					 
 					 System.out.println("Autor registrado con éxito");
-					
+					}
 					break;
 					
 					case 4: // Menú de opciones para usuario
@@ -219,6 +243,7 @@ public class bibliotecario {
 						System.out.println("Tipo de usuario: ");
 						System.out.println(" 1. Estudiante/profesor");
 						System.out.println(" 2. Externo");
+						System.out.println(" 3. Volver al Menú de Registro");
 						System.out.println("-------------------------");
 						System.out.println("Teclee la opción: ");
 						int opcion4;
@@ -228,7 +253,7 @@ public class bibliotecario {
 						case 1: System.out.println("Ingrese los datos del estudiante/profesor");
 						
 						System.out.println("Nombre:"); String nombre = readLn();
-						System.out.println("Id:"); id = (short) readLong();readLn();
+						System.out.println("Id:"); short id = (short) readLong();readLn();
 						System.out.println("Correo:"); String correo = readLn();
 						System.out.println("Telefono:"); short tel = (short) readLong();readLn();
 						System.out.println("Direccion:"); String direccion = readLn();
@@ -274,10 +299,12 @@ public class bibliotecario {
 							break;
 							
 						}
+						
+						case 3: break;
 
 						
 						default:
-							System.out.println("Opción no válida");break;
+							System.out.println("Opción no válida\nDevuelta al Menú de Registro");break;
 						}
 						
 						
