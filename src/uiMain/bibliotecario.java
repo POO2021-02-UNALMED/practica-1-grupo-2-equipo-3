@@ -30,7 +30,7 @@ public class bibliotecario {
 		
 		ArrayList<Short> estanterias_numeros = new ArrayList<Short>();
 		for(Estanteria estanteria : Estanteria.getLista()) {estanterias_numeros.add(estanteria.getNumero());}
-		if (estanterias_numeros.contains(0) == false) {new Estanteria();}
+		if (estanterias_numeros.contains((short) 0) == false) {new Estanteria();}
 
 		
 		System.out.println("Hola!\nBienvenido al Sistema de Gestión de la Biblioteca");
