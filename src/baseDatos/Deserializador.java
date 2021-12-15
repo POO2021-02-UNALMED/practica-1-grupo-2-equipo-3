@@ -199,7 +199,7 @@ public class Deserializador {
 		Persona.getLista().clear();
 		
 
-		Prestamo.getLista().clear();
+		Persona.getLista().clear();
 		
 	}
 	
