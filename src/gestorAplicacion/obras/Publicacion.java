@@ -26,7 +26,6 @@ public abstract class Publicacion implements Serializable {
 	this.nombre=nombre;
 	this.año= año;
 	this.ejemplar=ejemplar;
-	this.estado=estado;
 	lista.add(this);
 	}
 	
