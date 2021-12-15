@@ -356,10 +356,29 @@ public class bibliotecario {
 			/// Menú de opciones para mostrar
 			///////
 			//////////
-			case 2: System.out.println("Está mostrando ..."); break;
+			case 2:do { 
+			System.out.println("\nMUESTRA DE DATOS");
+			System.out.println("¿A cuáles registros desea acceder?");
+			System.out.println("-------------------------");
+			System.out.println("Menú de opciones: ");
+			System.out.println(" 1. Estanterías");
+			System.out.println(" 2. Publicaciones");
+			System.out.println(" 3. Personas");
+			System.out.println(" 4. Volver al menú principal");
+			System.out.println("-------------------------");
+			System.out.println("Teclee la opción(N): ");
+			opcion = (int) readLong();readLn();
 			
 			
+			switch(opcion) {
+			case 1: System.out.println(Estanteria.mostrarRegistros()); break;
+			case 2: System.out.println(Publicacion.mostrarRegistros()); break;
+			case 3: System.out.println(Persona.mostrarRegistros()); break;
+			case 4: break;
+			default: System.out.println("\nOpción no válida\nIntente otra vez");
+			}}while (opcion != 1 & opcion != 2 & opcion != 3 & opcion != 4);
 			
+			break;
 		      //////////
 	            ///////
 	                /// 
@@ -373,14 +392,36 @@ public class bibliotecario {
 			
 			
 			
+			
+			
 			//////////
 			///////
 			/// Menú de opciones para eliminar
 			///////
 			//////////
-			case 3: System.out.println("Está eliminando ..."); break;
+			case 3: do { 
+				System.out.println("\nBORRADO DE DATOS");
+				System.out.println("¿Qué tipo de dato desea eliminar?");
+				System.out.println("-------------------------");
+				System.out.println("Menú de opciones: ");
+				System.out.println(" 1. Estanterías");
+				System.out.println(" 2. Publicaciones");
+				System.out.println(" 3. Personas");
+				System.out.println(" 4. Volver al menú principal");
+				System.out.println("-------------------------");
+				System.out.println("Teclee la opción(N): ");
+				opcion = (int) readLong();readLn();
+				
+				
+				switch(opcion) {
+				case 1: System.out.println(Estanteria.mostrarRegistros()); break;
+				case 2: System.out.println(Publicacion.mostrarRegistros()); break;
+				case 3: System.out.println(Persona.mostrarRegistros()); break;
+				case 4: break;
+				default: System.out.println("\nOpción no válida\nIntente otra vez");
+				}}while (opcion != 1 & opcion != 2 & opcion != 3 & opcion != 4);
 			
-			
+			break;
 		     //////////
                ///////
                    /// 
