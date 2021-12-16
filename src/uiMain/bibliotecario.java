@@ -52,11 +52,11 @@ public class bibliotecario {
 			System.out.println(" 2. Mostrar registros");
 			System.out.println(" 3. Eliminar registros");
 			System.out.println(" 4. Realizar Préstamos");
-			System.out.println(" 5. Funcionalidad B");
-			System.out.println(" 6. Funcionalidad C");
-			System.out.println(" 7. Funcionalidad D");
-			System.out.println(" 8. Funcionalidad E");
-			System.out.println(" 9. Guardar datos y salir del sistema");
+			System.out.println(" 5. Realizar una Renovación");
+			//System.out.println(" 6. Funcionalidad C");
+			//System.out.println(" 7. Funcionalidad D");
+			//System.out.println(" 8. Funcionalidad E");
+			System.out.println(" 6. Guardar datos y salir del sistema");
 			System.out.println("-------------------------");
 		
 			System.out.println("Teclee la opción(N): ");
@@ -590,7 +590,7 @@ public class bibliotecario {
 				
 				//LocalDate.parse(nacimiento)
 				//System.out.println("Fecha de nacimiento en formato AAAA-MM-DD (S):"); String nac = readLn();
-				int nprestamos;
+				int nprestamos = 3;
 				do {
 				System.out.println("MENÚ DE PRESTAMOS");
 				System.out.println("-------------------------");
@@ -602,9 +602,10 @@ public class bibliotecario {
 				System.out.println("Teclee la opción (N): ");
 				opcion = (int) readLong();
 				
+				if(opcion != 3) {
 				System.out.println("¿Cuántos préstamos desea realizar?");
 				nprestamos = (int) readLong();readLn();
-				
+				}
 				
 			
 				int codigo;
@@ -624,7 +625,7 @@ public class bibliotecario {
 					
 					for (int i =0 ; i < nprestamos; i++) {
 						Publicacion pp = null; // Publicación a prestar
-						System.out.println("Prestamo"+(i+1));
+						System.out.println("\n--------------------------\nPrestamo "+(i+1)+" :");
 						System.out.println("Código de a publicación (N):"); codigo =(int) readLong();readLn();
 						System.out.println("ID del préstamo (N):"); idprestamo =(int) readLong();readLn();
 						System.out.println("Fecha en formato AAAA-MM-DD (S):"); fecha = readLn();
@@ -650,7 +651,7 @@ public class bibliotecario {
 					
 					for (int i =0 ; i < nprestamos; i++) {
 						Publicacion pp = null; // Publicación a prestar
-						System.out.println("Prestamo"+(i+1));
+						System.out.println("\n--------------------------\nPrestamo "+(i+1)+" :");
 						System.out.println("Código de a publicación (N):"); codigo =(int) readLong();readLn();
 						System.out.println("ID del préstamo (N):"); idprestamo =(int) readLong();readLn();
 						System.out.println("Fecha en formato AAAA-MM-DD (S):"); fecha = readLn();
@@ -689,7 +690,63 @@ public class bibliotecario {
 			/// Menú de opciones para B
 			///////
 			//////////
-			case 5: System.out.println("Se está implementando la Funcionalidad B");break;
+			case 5: 
+			int opcion_renovacion;
+			int idprestamo;
+			int u_renovar;
+			EstudianteProfesor interno_r = null;
+			Externo externo_r = null;
+			do {
+			System.out.println("MENÚ DE RENOVACIONES");
+			System.out.println("-------------------------");
+			System.out.println("¿Qué tipo de usuario realizará la renovación?: ");
+			System.out.println(" 1. De la comunidad Univesitaria");
+			System.out.println(" 2. Externo");
+			System.out.println(" 3. Volver al menú principal");
+			System.out.println("-------------------------");
+			System.out.println("Teclee la opción (N): ");
+			opcion_renovacion = (int) readLong();
+			}while(opcion_renovacion !=1 & opcion_renovacion !=2 & opcion_renovacion !=3);
+			
+			if(opcion != 3) {
+
+			}
+
+			switch(opcion_renovacion) {
+			case 1:
+				System.out.println("\nRenovando Interno");
+				
+				System.out.println("Ingrese el ID del usuario (N):");
+				u_renovar = (int) readLong();readLn();
+				// Enlazar el usuario con uno registrado
+				for(EstudianteProfesor item : EstudianteProfesor.getEstudiantesyprofesores() ) {
+					if (item.getId() == u_renovar) {interno_r = item;}
+				}
+				System.out.println("Ingrese el código de préstamo a renovar (N):");
+				idprestamo = (int) readLong();readLn();
+				System.out.println(interno_r.renovar(idprestamo));
+				
+				break;
+				
+			case 2: 
+				System.out.println("\nRenovando Externo");
+				
+				System.out.println("Ingrese el ID del usuario (N):");
+				u_renovar = (int) readLong();readLn();
+				// Enlazar el usuario con uno registrado
+				for(Externo item : Externo.getUsuariosExternos() ) {
+					if (item.getId() == u_renovar) {externo_r = item;}
+				}
+				System.out.println("Ingrese el código de préstamo a renovar (N):");
+				idprestamo = (int) readLong();readLn();
+				System.out.println(externo_r.renovar(idprestamo));
+				
+				break;
+			default: break;
+			}
+			
+			
+			break;
 			
 		     //////////
             ///////
@@ -700,64 +757,13 @@ public class bibliotecario {
 			
 			
 			
-			
-			//////////
-			///////
-			/// Menú de opciones para C
-			///////
-			//////////
-			case 6: System.out.println("Se está implementando la Funcionalidad C");break;
-			
-		     //////////
-            ///////
-                /// 
-           ///////
-        //////////
-			
-			
-			
-			
-			
-			
-			//////////
-			///////
-			/// Menú de opciones para D
-			///////
-			//////////
-			case 7: System.out.println("Se está implementando la Funcionalidad D");break;
-			
-			  //////////
-				///////
-					/// 
-				///////
-			//////////
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			//////////
-			///////
-			/// Menú de opciones para E
-			///////
-			//////////
-			case 8: System.out.println("Se está implementando la Funcionalidad E");break;
-			
-		     //////////
-            ///////
-                /// 
-           ///////
-        //////////
-			case 9: break;
+
+			case 6: break;
 
 			} //cierre del switch - menú principal
 		
 		
-		} while (opcion !=9); // cierre del do - menú principal
+		} while (opcion !=6); // cierre del do - menú principal
 
 	
 		

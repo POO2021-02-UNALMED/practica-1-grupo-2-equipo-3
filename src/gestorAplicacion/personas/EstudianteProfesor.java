@@ -71,7 +71,9 @@ public class EstudianteProfesor extends Persona implements Usuario {
 		String c = "";
 		Publicacion publicacion = prestamo.getPublicacion();
 		LocalDateTime fechaActual= LocalDate.now().atTime(LocalTime.of(12, 0));
-		if (prestamo.getFin().compareTo(fechaActual) > 3) {
+		if (prestamo.getFin().compareTo(fechaActual) > 3
+				//dias de diferencia - (Cambiar)
+				) {
 			c += "Error!!  Aún debe esperar algunos días para renovar\nEste proceso solo se puede realizar faltando máximo 3 días para la fecha de entrega" ;
 			}else { // Si faltan menos de 3 días actualizar la fecha de fin de prestamo
 				if (publicacion instanceof Libro) {
@@ -79,7 +81,7 @@ public class EstudianteProfesor extends Persona implements Usuario {
 				}else if(publicacion instanceof Revista) {
 					prestamo.determinarFin(this, (Revista) publicacion);
 				}
-				c += "Renovación exitosa";}
+				c += "\nRenovación exitosa !";}
 		
 		
 		if (publicacion instanceof Libro) {
@@ -88,13 +90,14 @@ public class EstudianteProfesor extends Persona implements Usuario {
 			prestamo.determinarFin(this, (Revista) publicacion);
 			}
 			return c;}
+	
+	
 	public String renovar(int idprestamo) {
 		Prestamo prestamo = null;
 		String c = "";
 		for(Prestamo prest : Prestamo.getLista()) {
 			if (prest.getId() == idprestamo){
-				prestamo = prest;c ="\nPrestamo encontrado";
-				this.renovar(prest);}} 
+				prestamo = prest;c ="\nPrestamo encontrado" + this.renovar(prest) ;}} 
 		if (prestamo == null) {c= "\nPrestamo no encontrado";}
 		return c;
 		}

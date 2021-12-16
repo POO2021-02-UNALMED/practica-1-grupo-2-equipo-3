@@ -1,6 +1,8 @@
 package gestorAplicacion.personas;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 import gestorAplicacion.obras.Libro;
@@ -62,6 +64,44 @@ public class Externo extends Persona implements Usuario {
 	
 		return c;
 	}
+	
+	
+	//Funcionalidad Renovar
+		public String renovar(Prestamo prestamo) {
+			String c = "";
+			Publicacion publicacion = prestamo.getPublicacion();
+			LocalDateTime fechaActual= LocalDate.now().atTime(LocalTime.of(12, 0));
+			if (prestamo.getFin().compareTo(fechaActual) > 3
+					//dias de diferencia - (Cambiar)
+					) {
+				c += "Error!!  Aún debe esperar algunos días para renovar\nEste proceso solo se puede realizar faltando máximo 3 días para la fecha de entrega" ;
+				}else { // Si faltan menos de 3 días actualizar la fecha de fin de prestamo
+					if (publicacion instanceof Libro) {
+						prestamo.determinarFin(this, (Libro) publicacion);
+					}else if(publicacion instanceof Revista) {
+						prestamo.determinarFin(this, (Revista) publicacion);
+					}
+					c += "\nRenovación exitosa !";}
+			
+			
+			if (publicacion instanceof Libro) {
+				prestamo.determinarFin(this, (Libro) publicacion);
+			}else if(publicacion instanceof Revista) {
+				prestamo.determinarFin(this, (Revista) publicacion);
+				}
+				return c;}
+		
+		
+		public String renovar(int idprestamo) {
+			Prestamo prestamo = null;
+			String c = "";
+			for(Prestamo prest : Prestamo.getLista()) {
+				if (prest.getId() == idprestamo){
+					prestamo = prest;c ="\nPrestamo encontrado" + this.renovar(prest) ;}} 
+			if (prestamo == null) {c= "\nPrestamo no encontrado";}
+			return c;
+			}
+		//Fin funcionalidad Renovar
 	
 	
 	
