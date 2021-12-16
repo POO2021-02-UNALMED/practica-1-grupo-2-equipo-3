@@ -29,8 +29,6 @@ public class Autor extends Persona {
 	public Autor(int id, String nombre, LocalDate nacimiento, String paisOrigen, boolean vivo) { // Constructor si el Autor no esta vivo
 		this(id,nombre, nacimiento, paisOrigen);
 		super.vivo = vivo;
-		autores.add(this);
-		Persona.lista.add(this);
 	}
 
 	// METODOS
