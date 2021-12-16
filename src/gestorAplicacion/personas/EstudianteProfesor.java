@@ -69,20 +69,17 @@ public class EstudianteProfesor extends Persona implements Usuario {
 	
 	//Funcionalidad Renovar
 	
-	static String diasParaVencimiento(LocalDateTime fin) {
+	public long diasParaVencimiento(LocalDateTime fin) {
 		LocalDate fin2 =fin.toLocalDate();
 		long diferencia= Math.abs(ChronoUnit.DAYS.between(fin2, LocalDate.now()));
-		return "" + diferencia ;
+		return diferencia ;
 		
 	}
 
 	public String renovar(Prestamo prestamo) {
 		String c = "";
 		Publicacion publicacion = prestamo.getPublicacion();
-		LocalDateTime fechaActual= LocalDate.now().atTime(LocalTime.of(12, 0));
-		if (prestamo.getFin().compareTo(fechaActual) > 3
-				//dias de diferencia - (Cambiar)
-				) {
+		if (diasParaVencimiento(prestamo.getFin()) > 3 ) {
 			c += "Error!!  Aún debe esperar algunos días para renovar\nEste proceso solo se puede realizar faltando máximo 3 días para la fecha de entrega" ;
 			}else { // Si faltan menos de 3 días actualizar la fecha de fin de prestamo
 				if (publicacion instanceof Libro) {
