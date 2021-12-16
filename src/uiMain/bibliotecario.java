@@ -197,7 +197,7 @@ public class bibliotecario {
 							}
 						}while(asignar_autor_existente == 2 & puedo_salir == false);
 		
-						if (asignar_autor_existente != 1) {
+						//if (asignar_autor_existente != 1) {}
 						//CREacion de un autor         -----------------------------------
 						int v;
 						boolean vivo = true;
@@ -221,6 +221,7 @@ public class bibliotecario {
 							}
 							
 							} while (v !=1 & v !=2 & v !=3);
+						
 						
 						if(v != 3) {
 							
