@@ -86,6 +86,10 @@ public class Prestamo implements Serializable {
 		return fechaActual;
 	}
 	
+	public int getId() {
+		return this.id;
+	}
+	
 	
 
 }
