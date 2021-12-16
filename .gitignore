@@ -3,8 +3,9 @@
 # Ignora todos los archivos de texto
 *.txt
 
-# Ignora el main donde probamos cosas
+# Ignora archivos de prueba
 MainPruebas.java
+Prueba.java
 
 # Ignora el main donde probamos cosas
 ma.java
