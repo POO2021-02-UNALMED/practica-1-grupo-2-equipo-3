@@ -612,7 +612,7 @@ public class bibliotecario {
 				String fecha;
 				int idusuario;
 				EstudianteProfesor interno = null;
-				Externo externo;
+				Externo externo = null;
 				switch (opcion){
 				
 				case 1:  
@@ -660,7 +660,7 @@ public class bibliotecario {
 							if (ppp.getCodigo() == codigo) {pp = ppp;}
 						}
 						// Se ejecuta el método
-						interno.prestar(pp, idprestamo, LocalDate.parse(fecha));
+						externo.prestar(pp, idprestamo, LocalDate.parse(fecha));
 						
 					}// Para el numero de prestamos que se quieran
 
