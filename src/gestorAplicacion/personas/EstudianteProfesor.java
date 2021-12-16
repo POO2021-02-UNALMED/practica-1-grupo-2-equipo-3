@@ -64,12 +64,14 @@ public class EstudianteProfesor extends Persona implements Usuario {
 	
 	//public String renovar(Prestamo prestamo, LocalDate )
 	
-	/*
+	
 	public String renovar(Prestamo prestamo) {
+		prestamo.ge
 		String c ="";
-		prestamo.
-		c = "Error!!  Aún debe esperar "+"días para renovar" ;
-		c = "Renovación exitosa";
+		
+		
+		c += "Error!!  Aún debe esperar "+"días para renovar" ;
+		c += "Renovación exitosa";
 		
 		
 		if (publicacion instanceof Libro) {
@@ -81,12 +83,11 @@ public class EstudianteProfesor extends Persona implements Usuario {
 		
 		
 		return c;
-	}*/
+	}
 
 	
 	public String renovar(int idprestamo) {
 
-		
 		Prestamo prestamo = null;
 		String c = "Prestamo ";
 		for(Prestamo prest : Prestamo.getLista()) {
