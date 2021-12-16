@@ -7,6 +7,7 @@ import baseDatos.*;
 import gestorAplicacion.obras.*;
 import gestorAplicacion.obras.Libro.tipoLibro;
 import gestorAplicacion.personas.*;
+import gestorAplicacion.personas.EstudianteProfesor.Rol;
 
 
 public class bibliotecario {
@@ -120,8 +121,6 @@ public class bibliotecario {
 						case 1: 
 						int opcion2;
 						tipo = null;						
-						
-						
 						do {
 						System.out.println("Ingrese los datos del Libro");
 
@@ -132,7 +131,6 @@ public class bibliotecario {
 						System.out.println(" 3. Investigacion");
 						System.out.println(" 4. Seminario");
 						System.out.println(" 5. Tesis");
-						System.out.println(" 6. Volver al Menú de Registro");
 						System.out.println("-------------------------");
 						System.out.println("Teclee la opción (N): ");
 						opcion2 = (int) readLong();
@@ -145,9 +143,7 @@ public class bibliotecario {
 						case 5: tipo = tipoLibro.TESIS;break;
 						case 6: break;
 						default:; System.out.println("Tipo de libro inválido");break;
-						}}while(opcion2 !=1 & opcion2 != 2 & opcion2 != 3 & opcion2 != 4 & opcion2 != 5 & opcion2 != 6);
-						
-						if(opcion2 != 6) {}
+						}}while(opcion2 !=1 & opcion2 != 2 & opcion2 != 3 & opcion2 != 4 & opcion2 != 5);
 
 						System.out.println("Código (N):"); int cod = (int) readLong();readLn();
 						System.out.println("Nombre (S):"); String nombre2 = readLn();
@@ -352,7 +348,45 @@ public class bibliotecario {
 						opcion4 = (int) readLong();readLn();
 						
 						switch (opcion4) {
-						case 1: System.out.println("Ingrese los datos del estudiante/profesor");
+						case 1:
+						
+						
+						
+						//////// -----------------------------------------
+						
+						int opcion_rol;
+						Rol rol = null;					
+						do {
+						System.out.println("Ingrese los datos del estudiante/profesor");
+
+						System.out.println("-------------------------");
+						System.out.println("Rol: ");
+						System.out.println(" 1. Estudiante");
+						System.out.println(" 2. Profesor");
+						System.out.println(" 3. Otro");
+
+						System.out.println(" 4. Volver al Menú de Registro");
+						System.out.println("-------------------------");
+						System.out.println("Teclee la opción (N): ");
+						opcion_rol = (int) readLong();
+						
+						switch(opcion_rol) {
+						case 1: rol = Rol.ESTUDIANTE;break;
+						case 2: rol = Rol.PROFESOR;break;
+						case 3: rol = Rol.OTRO;break;
+						case 4: break;
+						default:; System.out.println("Tipo de libro inválido");break;
+						}}while(opcion_rol !=1 & opcion_rol != 2 & opcion_rol != 3 & opcion_rol != 4);
+						
+						
+						if (opcion_rol !=4) {
+						
+						////// -----------------------------------------
+						
+						
+						
+						
+						
 						
 						System.out.println("Nombre (S):"); String nombre = readLn();
 						System.out.println("Id (N):"); short id = (short) readLong();readLn();
@@ -362,9 +396,9 @@ public class bibliotecario {
 						System.out.println("Fecha de nacimiento en formato AAAA-MM-DD (S):"); String nac = readLn();
 						System.out.println("País de Origen (S):"); String origen = readLn();
 						
-						new EstudianteProfesor(nombre,id,correo,tel,direccion, LocalDate.parse(nac), origen);
+						new EstudianteProfesor(nombre,id,rol,correo,tel,direccion, LocalDate.parse(nac), origen);
 						System.out.println("Estudiante o Profesor registrado con éxito!");
-						
+						}
 						break;
 						
 						case 2: System.out.println("Ingrese los datos del usuario externo");
