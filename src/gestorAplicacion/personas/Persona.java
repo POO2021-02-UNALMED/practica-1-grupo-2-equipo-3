@@ -44,8 +44,8 @@ public abstract class Persona implements Serializable{
 		String c="Personas creadas: "+"\n";
 		for (int i = 0; i < lista.size(); i++) {
 			if(lista.get(i) instanceof Autor ) {c = c + i+"."+"Autor "+ lista.get(i).nombre + "  ID "+ lista.get(i).id+ "\n";	}
-			else if(lista.get(i) instanceof EstudianteProfesor) {c = c + i+"."+"Usuario de la Universidad "+ lista.get(i).nombre + "  ID (CP) "+ lista.get(i).id+ "\n";}
-			else if(lista.get(i) instanceof Externo) {c = c + i+"."+"Usuario externo de la Universidad "+ lista.get(i).nombre + "  ID (CP)"+ lista.get(i).id+ "\n";}
+			else if(lista.get(i) instanceof EstudianteProfesor) {c = c + i+"."+"Usuario de la Universidad "+ lista.get(i).nombre + "  ID (CP) "+ lista.get(i).getId()+ "\n";}
+			else if(lista.get(i) instanceof Externo) {c = c + i+"."+"Usuario externo de la Universidad "+ lista.get(i).nombre + "  ID (CP)"+ lista.get(i).getId()+ "\n";}
 		}
 		return c;
 	}
