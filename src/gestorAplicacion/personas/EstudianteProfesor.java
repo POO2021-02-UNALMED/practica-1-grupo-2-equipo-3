@@ -1,6 +1,8 @@
 package gestorAplicacion.personas;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import gestorAplicacion.obras.Libro;
 import gestorAplicacion.obras.Revista;
@@ -66,13 +68,17 @@ public class EstudianteProfesor extends Persona implements Usuario {
 	
 	
 	public String renovar(Prestamo prestamo) {
+		String c = "";
 		Publicacion publicacion = prestamo.getPublicacion();
-		prestamo.getFin(); Prestamo.
-		String c ="";
+		LocalDateTime fechaActual= LocalDate.now().atTime(LocalTime.of(12, 0));
+		if (prestamo.getFin().compareTo(fechaActual) > 3) {
+			c += "Error!!  Aún debe esperar "+"días para renovar" ;
+			}else {//sentencia de cambio de fin
+				c += "Renovación exitosa";}
+			}
+			
+
 		
-		
-		c += "Error!!  Aún debe esperar "+"días para renovar" ;
-		c += "Renovación exitosa";
 		
 		
 		if (publicacion instanceof Libro) {
