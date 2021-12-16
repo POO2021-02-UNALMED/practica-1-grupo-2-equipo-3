@@ -53,9 +53,6 @@ public class bibliotecario {
 			System.out.println(" 3. Eliminar registros");
 			System.out.println(" 4. Realizar Préstamos");
 			System.out.println(" 5. Realizar una Renovación");
-			//System.out.println(" 6. Funcionalidad C");
-			//System.out.println(" 7. Funcionalidad D");
-			//System.out.println(" 8. Funcionalidad E");
 			System.out.println(" 6. Guardar datos y salir del sistema");
 			System.out.println("-------------------------");
 		
