@@ -3,6 +3,7 @@ package gestorAplicacion.personas;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import gestorAplicacion.obras.Libro;
 import gestorAplicacion.obras.Revista;
@@ -67,6 +68,14 @@ public class EstudianteProfesor extends Persona implements Usuario {
 	
 	
 	//Funcionalidad Renovar
+	
+	static String diasParaVencimiento(LocalDateTime fin) {
+		LocalDate fin2 =fin.toLocalDate();
+		long diferencia= Math.abs(ChronoUnit.DAYS.between(fin2, LocalDate.now()));
+		return "" + diferencia ;
+		
+	}
+
 	public String renovar(Prestamo prestamo) {
 		String c = "";
 		Publicacion publicacion = prestamo.getPublicacion();
