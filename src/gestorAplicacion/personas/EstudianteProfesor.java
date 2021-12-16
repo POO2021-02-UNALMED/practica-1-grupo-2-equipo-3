@@ -62,11 +62,12 @@ public class EstudianteProfesor extends Persona implements Usuario {
 		return c;
 	}
 	
-	//public String renovar(Prestamo prestamo, LocalDate )
+
 	
 	
 	public String renovar(Prestamo prestamo) {
 		Publicacion publicacion = prestamo.getPublicacion();
+		prestamo.getFin(); Prestamo.
 		String c ="";
 		
 		
@@ -87,14 +88,13 @@ public class EstudianteProfesor extends Persona implements Usuario {
 
 	
 	public String renovar(int idprestamo) {
-
 		Prestamo prestamo = null;
-		String c = "Prestamo ";
+		String c = "";
 		for(Prestamo prest : Prestamo.getLista()) {
 			if (prest.getId() == idprestamo){
-				prestamo = prest;c ="encontrado";
+				prestamo = prest;c ="Prestamo encontrado";
 				this.renovar(prest);}} 
-		if (prestamo == null) {c= "no encontrado";}
+		if (prestamo == null) {c= "Prestamo encontrado";}
 		return c;
 		}
 	
