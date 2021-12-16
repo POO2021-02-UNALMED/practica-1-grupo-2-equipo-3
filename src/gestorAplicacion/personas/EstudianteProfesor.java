@@ -83,7 +83,7 @@ public class EstudianteProfesor extends Persona implements Usuario {
 		return c;
 	}*/
 
-	/*
+	
 	public String renovar(int idprestamo) {
 
 		
@@ -95,7 +95,7 @@ public class EstudianteProfesor extends Persona implements Usuario {
 				this.renovar(prest);}} 
 		if (prestamo == null) {c= "no encontrado";}
 		return c;
-		}*/
+		}
 	
 	//GETTERS SETTERS 
 
