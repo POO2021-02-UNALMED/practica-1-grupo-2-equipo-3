@@ -64,6 +64,39 @@ public class EstudianteProfesor extends Persona implements Usuario {
 	
 	//public String renovar(Prestamo prestamo, LocalDate )
 	
+	/*
+	public String renovar(Prestamo prestamo) {
+		String c ="";
+		prestamo.
+		c = "Error!!  Aún debe esperar "+"días para renovar" ;
+		c = "Renovación exitosa";
+		
+		
+		if (publicacion instanceof Libro) {
+			prestamo.determinarFin(this, (Libro) publicacion);
+		}else if(publicacion instanceof Revista) {
+			prestamo.determinarFin(this, (Revista) publicacion);
+		}
+		
+		
+		
+		return c;
+	}*/
+
+	/*
+	public String renovar(int idprestamo) {
+
+		
+		Prestamo prestamo = null;
+		String c = "Prestamo ";
+		for(Prestamo prest : Prestamo.getLista()) {
+			if (prest.getId() == idprestamo){
+				prestamo = prest;c ="encontrado";
+				this.renovar(prest);}} 
+		if (prestamo == null) {c= "no encontrado";}
+		return c;
+		}*/
+	
 	//GETTERS SETTERS 
 
 	public static ArrayList<EstudianteProfesor> getEstudiantesyprofesores() {
