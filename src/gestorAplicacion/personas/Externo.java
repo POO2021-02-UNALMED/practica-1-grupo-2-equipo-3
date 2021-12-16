@@ -2,7 +2,6 @@ package gestorAplicacion.personas;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
@@ -80,7 +79,6 @@ public class Externo extends Persona implements Usuario {
 		public String renovar(Prestamo prestamo) {
 			String c = "";
 			Publicacion publicacion = prestamo.getPublicacion();
-			LocalDateTime fechaActual= LocalDate.now().atTime(LocalTime.of(12, 0));
 			if (diasParaVencimiento(prestamo.getFin()) > 3 ) {
 				c += "Error!!  Aún debe esperar algunos días para renovar\nEste proceso solo se puede realizar faltando máximo 3 días para la fecha de entrega" ;
 				}else { // Si faltan menos de 3 días actualizar la fecha de fin de prestamo
