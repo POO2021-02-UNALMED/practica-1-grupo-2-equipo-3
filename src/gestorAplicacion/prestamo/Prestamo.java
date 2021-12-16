@@ -90,6 +90,10 @@ public class Prestamo implements Serializable {
 		return this.id;
 	}
 	
+	public Publicacion getPublicacion() {
+		return this.publicacion;
+	}
+	
 	
 
 }
