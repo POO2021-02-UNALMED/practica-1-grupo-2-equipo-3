@@ -81,9 +81,8 @@ public class bibliotecario {
 				System.out.println("Menú de opciones: ");
 				System.out.println(" 1. Estantería");
 				System.out.println(" 2. Publicación");
-				//System.out.println(" 3. Autor");
-				System.out.println(" 4. Usuario");
-				System.out.println(" 5. Volver al menú principal");
+				System.out.println(" 3. Usuario");
+				System.out.println(" 4. Volver al menú principal");
 				System.out.println("-------------------------");
 				
 				System.out.println("Teclee la opción(N): ");
@@ -302,41 +301,8 @@ public class bibliotecario {
 
 					break;
 					
-					case 3: int v;
-					boolean vivo = true;
-					do {	
-					System.out.println("\nIngrese los datos del autor");
 					
-					System.out.println("¿Está vivo el autor?:");
-					System.out.println("-------------------------");
-					System.out.println(" 1. Si");
-					System.out.println(" 2. No");
-					System.out.println(" 3. Volver al Menú de Registro");
-					System.out.println("-------------------------");
-					System.out.println("Teclee la opción (N): ");
-					v = (int) readLong();
-					switch(v){
-					case 1: break;
-					case 2: vivo = false; break;
-					case 3: break;
-					default: 
-						System.out.println("Opción no válida\nIntente otra vez");break;
-						}
-					} while (v !=1 & v !=2 & v !=3);
-					
-					if (v !=3) {
-					System.out.println("ID (N):"); int id = (int)readLong();readLn();
-					System.out.println("Nombre (S):"); String nautor = readLn();
-					System.out.println("Fecha de nacimiento en formato AAAA-MM-DD (S)"); String nacimiento = readLn();
-					System.out.println("País de Origen (S)"); String pais = readLn();
-	
-					new Autor (id, nautor,LocalDate.parse(nacimiento), pais,vivo);
-					 
-					 System.out.println("Autor registrado con éxito");
-					}
-					break;
-					
-					case 4: // Menú de opciones para usuario
+					case 3: // Menú de opciones para usuario
 						System.out.println("-------------------------");
 						System.out.println("Tipo de usuario: ");
 						System.out.println(" 1. Estudiante/profesor");
@@ -350,10 +316,6 @@ public class bibliotecario {
 						switch (opcion4) {
 						case 1:
 						
-						
-						
-						//////// -----------------------------------------
-						
 						int opcion_rol;
 						Rol rol = null;					
 						do {
@@ -364,7 +326,6 @@ public class bibliotecario {
 						System.out.println(" 1. Estudiante");
 						System.out.println(" 2. Profesor");
 						System.out.println(" 3. Otro");
-
 						System.out.println(" 4. Volver al Menú de Registro");
 						System.out.println("-------------------------");
 						System.out.println("Teclee la opción (N): ");
@@ -380,14 +341,6 @@ public class bibliotecario {
 						
 						
 						if (opcion_rol !=4) {
-						
-						////// -----------------------------------------
-						
-						
-						
-						
-						
-						
 						System.out.println("Nombre (S):"); String nombre = readLn();
 						System.out.println("Id (N):"); short id = (short) readLong();readLn();
 						System.out.println("Correo (S):"); String correo = readLn();
@@ -460,9 +413,9 @@ public class bibliotecario {
 					
 					
 	
-					case 5: break;
+					case 4: break;
 				} // cierre switch - registro de datos
-			} while (opcion !=5);
+			} while (opcion !=4);
 			break;
 			       //////////
 			          ///////
