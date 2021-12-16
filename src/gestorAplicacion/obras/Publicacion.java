@@ -45,9 +45,9 @@ public abstract class Publicacion implements Serializable {
 	public static String mostrarRegistros() {   // muestra todos los registros creados de publicacion
 		String c="Publicaciones creadas: "+"\n";
 		for (int i = 0; i < lista.size(); i++) {
-			if(lista.get(i) instanceof Libro ) {c = c + i+"."+"Libro "+ lista.get(i).nombre + "  Codigo "+ lista.get(i).codigo+ "\n";	}
-			else if(lista.get(i) instanceof Revista) {c = c + i+"."+"Revista "+ lista.get(i).nombre + "  Codigo "+ lista.get(i).codigo+ "\n";}
-			else if(lista.get(i) instanceof Folleto) {c = c + i+"."+"Folleto "+ lista.get(i).nombre + "  Codigo "+ lista.get(i).codigo+ "\n";}
+			if(lista.get(i) instanceof Libro ) {c = c + i+"."+"Libro "+ lista.get(i).nombre + "  Codigo (CP) "+ lista.get(i).codigo+ "\n";	}
+			else if(lista.get(i) instanceof Revista) {c = c + i+"."+"Revista "+ lista.get(i).nombre + "  Codigo (CP) "+ lista.get(i).codigo+ "\n";}
+			else if(lista.get(i) instanceof Folleto) {c = c + i+"."+"Folleto "+ lista.get(i).nombre + "  Codigo (CP) "+ lista.get(i).codigo+ "\n";}
 		}
 		return c;
 	}
