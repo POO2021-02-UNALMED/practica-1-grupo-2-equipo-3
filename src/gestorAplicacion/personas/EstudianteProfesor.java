@@ -66,7 +66,7 @@ public class EstudianteProfesor extends Persona implements Usuario {
 	
 	
 	public String renovar(Prestamo prestamo) {
-		prestamo.ge
+		Publicacion publicacion = prestamo.getPublicacion();
 		String c ="";
 		
 		
