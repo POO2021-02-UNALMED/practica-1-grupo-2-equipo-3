@@ -32,9 +32,12 @@ public abstract class Publicacion implements Serializable {
 	lista.add(this);
 	}
 	
+	public  String mostrarInfo () {
+		return "Informacion perteneciente a la publicacion " + this.nombre ;
+	}
 	
 	//METODOS ABSTRACTOS
-	public abstract String mostrarInfo ();  // muestra informacion detallada de la publicacion, es decir sus atributos
+	  // muestra informacion detallada de la publicacion, es decir sus atributos
 	public abstract String mostrarUbicacion();  //muestra la estanteria y con ello la ubicacion donde se encuentra la publicacion
 	
 	
