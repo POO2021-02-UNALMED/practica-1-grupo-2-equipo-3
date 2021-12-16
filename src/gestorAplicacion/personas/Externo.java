@@ -26,7 +26,7 @@ public class Externo extends Persona implements Usuario {
 		Persona.getLista().add(this);
 	}
 	public Externo(String nombre,int id,String correo,int tel,String direccion,LocalDate nacimiento, String paisOrigen, String universidad){// Constructor con el parametro opcional Universidad
-		super( nombre, id, correo, tel, direccion, nacimiento,  paisOrigen);
+		this( nombre, id, correo, tel, direccion,  nacimiento,  paisOrigen);
 		this.universidad=universidad;
 		//usuariosExternos.add(this);
 		Persona.getLista().add(this);
