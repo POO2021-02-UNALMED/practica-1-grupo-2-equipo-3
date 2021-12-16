@@ -38,7 +38,7 @@ public class Estanteria implements Serializable { //Clase estanteria que represe
 	public static String mostrarRegistros() {
 		String c="Estanterias creadas: "+"\n";
 		for (int i = 0; i < lista.size(); i++) {
-			c = c + i+"."+"Estanteria #"+ lista.get(i).numero + "  Piso # "+ lista.get(i).piso+ "\n";
+			c = c + i+"."+"Estanteria (CP)#"+ lista.get(i).numero + "  Piso # "+ lista.get(i).piso+ "\n";
 		}
 		return c;
 	}
