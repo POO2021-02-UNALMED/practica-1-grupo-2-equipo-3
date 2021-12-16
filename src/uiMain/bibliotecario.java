@@ -51,7 +51,7 @@ public class bibliotecario {
 			System.out.println(" 1. Añadir Registros");
 			System.out.println(" 2. Mostrar registros");
 			System.out.println(" 3. Eliminar registros");
-			System.out.println(" 4. Funcionalidad A");
+			System.out.println(" 4. Realizar Préstamos");
 			System.out.println(" 5. Funcionalidad B");
 			System.out.println(" 6. Funcionalidad C");
 			System.out.println(" 7. Funcionalidad D");
@@ -585,14 +585,101 @@ public class bibliotecario {
 			/// Menú de opciones para A
 			///////
 			//////////
-			case 4: System.out.println("Se está implementando la Funcionalidad A");break;
+			case 4: 
+				
+				
+				//LocalDate.parse(nacimiento)
+				//System.out.println("Fecha de nacimiento en formato AAAA-MM-DD (S):"); String nac = readLn();
+				int nprestamos;
+				do {
+				System.out.println("MENÚ DE PRESTAMOS");
+				System.out.println("-------------------------");
+				System.out.println("¿Qué tipo de usuario realizará el préstamo?: ");
+				System.out.println(" 1. De la comunidad Univesitaria");
+				System.out.println(" 2. Externo");
+				System.out.println(" 3. Volver al menú principal");
+				System.out.println("-------------------------");
+				System.out.println("Teclee la opción (N): ");
+				opcion = (int) readLong();
+				
+				System.out.println("¿Cuántos préstamos desea realizar?");
+				nprestamos = (int) readLong();readLn();
+				
+				
 			
-			
+				int codigo;
+				int idprestamo;
+				String fecha;
+				int idusuario;
+				EstudianteProfesor interno = null;
+				Externo externo;
+				switch (opcion){
+				
+				case 1:  
+					System.out.println("ID del usuario que desea prestar (N)");idusuario =(int) readLong();readLn();
+					for(EstudianteProfesor inter: EstudianteProfesor.getEstudiantesyprofesores()) {
+						if (inter.getId() == idusuario) {interno = inter;}
+					}
+					
+					
+					for (int i =0 ; i < nprestamos; i++) {
+						Publicacion pp = null; // Publicación a prestar
+						System.out.println("Prestamo"+(i+1));
+						System.out.println("Código de a publicación (N):"); codigo =(int) readLong();readLn();
+						System.out.println("ID del préstamo (N):"); idprestamo =(int) readLong();readLn();
+						System.out.println("Fecha en formato AAAA-MM-DD (S):"); fecha = readLn();
+						
+						
+						for (Publicacion ppp : Publicacion.getLista()) {
+							if (ppp.getCodigo() == codigo) {pp = ppp;}
+						}
+						// Se ejecuta el método
+						interno.prestar(pp, idprestamo, LocalDate.parse(fecha));
+						
+					}// Para el numero de prestamos que se quieran
+
+					
+					break;
+				
+				case 2:  
+					System.out.println("ID del usuario que desea prestar (N)");idusuario =(int) readLong();readLn();
+					for(Externo exter: Externo.getUsuariosExternos()) {
+						if (exter.getId() == idusuario) {externo = exter;}
+					}
+					
+					
+					for (int i =0 ; i < nprestamos; i++) {
+						Publicacion pp = null; // Publicación a prestar
+						System.out.println("Prestamo"+(i+1));
+						System.out.println("Código de a publicación (N):"); codigo =(int) readLong();readLn();
+						System.out.println("ID del préstamo (N):"); idprestamo =(int) readLong();readLn();
+						System.out.println("Fecha en formato AAAA-MM-DD (S):"); fecha = readLn();
+						
+						
+						for (Publicacion ppp : Publicacion.getLista()) {
+							if (ppp.getCodigo() == codigo) {pp = ppp;}
+						}
+						// Se ejecuta el método
+						interno.prestar(pp, idprestamo, LocalDate.parse(fecha));
+						
+					}// Para el numero de prestamos que se quieran
+
+					
+					break;
+					
+				default: break;
+				}
+				}while (nprestamos != 1 & nprestamos != 2 & nprestamos !=3);
+				
+				break;
 		     //////////
             ///////
                 /// 
            ///////
         //////////
+			
+			
+			
 			
 			
 			
