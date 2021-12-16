@@ -2,7 +2,6 @@ package gestorAplicacion.personas;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-
 import gestorAplicacion.obras.Libro;
 import gestorAplicacion.obras.Revista;
 import gestorAplicacion.obras.Publicacion;
@@ -27,7 +26,9 @@ public class EstudianteProfesor extends Persona implements Usuario {
 	public EstudianteProfesor(String nombre,int id,Rol rol,String correo,int tel,String direccion, LocalDate nacimiento, String paisOrigen){
 		super( nombre, id, correo, tel, direccion,  nacimiento,  paisOrigen);
 		this.rol=rol;
-		estudiantesyprofesores.add(this);
+		//estudiantesyprofesores.add(this);
+		Persona.lista.add(this);
+		
 	}
 	
 	//METODOS
@@ -37,7 +38,7 @@ public class EstudianteProfesor extends Persona implements Usuario {
 				+"\n"+"Direccion: "+ this.direccion +"\n"+"Pais de Origen: "+ this.paisOrigen +"\n"+ "Fecha de Nacimiento: "+ this.nacimiento;
 	}
 	
-	public String prestar( Publicacion publicacion,int id,LocalDate inicio) {
+	public String prestar( Publicacion publicacion,int id,LocalDate inicio) { // Metodo para prestar un material
 		String c ="";
 		if(publicacion.verificarPrestado() == false) { // verifica si el libro no esta prestado
 			c= "El material se encuentra disponible para prestamo \n \n";
@@ -60,9 +61,8 @@ public class EstudianteProfesor extends Persona implements Usuario {
 	
 		return c;
 	}
-	public void prestamoVigente() {
-		
-	}
+	
+	//public String renovar(Prestamo prestamo, LocalDate )
 	
 	//GETTERS SETTERS 
 

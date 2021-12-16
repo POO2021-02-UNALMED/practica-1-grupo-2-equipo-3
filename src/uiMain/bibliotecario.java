@@ -329,7 +329,7 @@ public class bibliotecario {
 						System.out.println(" 4. Volver al Menú de Registro");
 						System.out.println("-------------------------");
 						System.out.println("Teclee la opción (N): ");
-						opcion_rol = (int) readLong();
+						opcion_rol = (int) readLong();readLn();
 						
 						switch(opcion_rol) {
 						case 1: rol = Rol.ESTUDIANTE;break;
@@ -342,9 +342,9 @@ public class bibliotecario {
 						
 						if (opcion_rol !=4) {
 						System.out.println("Nombre (S):"); String nombre = readLn();
-						System.out.println("Id (N):"); short id = (short) readLong();readLn();
+						System.out.println("Id (N):"); int id = (int) readLong();readLn();
 						System.out.println("Correo (S):"); String correo = readLn();
-						System.out.println("Telefono (N):"); short tel = (short) readLong();readLn();
+						System.out.println("Telefono (N):"); int tel = (int) readLong();readLn();
 						System.out.println("Direccion (S):"); String direccion = readLn();
 						System.out.println("Fecha de nacimiento en formato AAAA-MM-DD (S):"); String nac = readLn();
 						System.out.println("País de Origen (S):"); String origen = readLn();
@@ -370,9 +370,9 @@ public class bibliotecario {
 							//CONSTRUCTOR CON UNI
 							System.out.println("Universidad (S)"); String uni = readLn();
 							System.out.println("Nombre (S):"); String nombre2 =  readLn();
-							System.out.println("Id (N):"); short id2 = (short) readLong();readLn();
+							System.out.println("Id (N):"); int id2 = (int) readLong();readLn();
 							System.out.println("Correo (S):"); String correo2 = readLn();
-							System.out.println("Telefono (N):"); short tel2 = (short) readLong();readLn();
+							System.out.println("Telefono (N):"); int tel2 = (int) readLong();readLn();
 							System.out.println("Direccion (S):"); String direccion2 = readLn();
 							System.out.println("Fecha de nacimiento en formato AAAA-MM-DD (S):"); String nac2 = readLn();
 							System.out.println("País de Origen (S):"); String origen2 = readLn();
@@ -384,9 +384,9 @@ public class bibliotecario {
 							case 2: 
 							// CONTRUCTOR SIN UNI
 							System.out.println("Nombre (S):"); nombre2 =  readLn();
-							System.out.println("Id (N):"); id2 = (short) readLong();readLn();
+							System.out.println("Id (N):"); id2 = (int) readLong();readLn();
 							System.out.println("Correo (S):");correo2 = readLn();
-							System.out.println("Telefono (N):"); tel2 = (short) readLong();readLn();
+							System.out.println("Telefono (N):"); tel2 = (int) readLong();readLn();
 							System.out.println("Direccion (S):"); direccion2 = readLn();
 							System.out.println("Fecha de nacimiento en formato AAAA-MM-DD (S):"); nac2 = readLn();
 							System.out.println("País de Origen (S):"); origen2 = readLn();

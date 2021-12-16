@@ -9,7 +9,7 @@ public abstract class Persona implements Serializable{
 
 	//ATRIBUTOS DE CLASE
 	private static final long serialVersionUID = 1L;
-	private static ArrayList<Persona> lista = new ArrayList<>();
+	protected static ArrayList<Persona> lista = new ArrayList<>();
 
 	
 	//ATRIBUTOS INSTANCIA
