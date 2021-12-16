@@ -80,7 +80,7 @@ public class bibliotecario {
 				System.out.println("Menú de opciones: ");
 				System.out.println(" 1. Estantería");
 				System.out.println(" 2. Publicación");
-				System.out.println(" 3. Autor");
+				//System.out.println(" 3. Autor");
 				System.out.println(" 4. Usuario");
 				System.out.println(" 5. Volver al menú principal");
 				System.out.println("-------------------------");
@@ -112,12 +112,16 @@ public class bibliotecario {
 						
 						System.out.println("Teclee la opción (N): ");
 						int opcion3;
-						opcion3 = (int) readLong();
+						opcion3 = (int) readLong();readLn();
 						
 						switch (opcion3) {
-						case 1:
+						
+						// Registro de libro
+						case 1: 
 						int opcion2;
-						tipo = null;
+						tipo = null;						
+						
+						
 						do {
 						System.out.println("Ingrese los datos del Libro");
 
@@ -143,7 +147,7 @@ public class bibliotecario {
 						default:; System.out.println("Tipo de libro inválido");break;
 						}}while(opcion2 !=1 & opcion2 != 2 & opcion2 != 3 & opcion2 != 4 & opcion2 != 5 & opcion2 != 6);
 						
-						if(opcion2 != 6) {
+						if(opcion2 != 6) {}
 
 						System.out.println("Código (N):"); int cod = (int) readLong();readLn();
 						System.out.println("Nombre (S):"); String nombre2 = readLn();
@@ -151,22 +155,104 @@ public class bibliotecario {
 						System.out.println("Ejemplar (N):"); short ejemplar = (short) readLong();readLn();
 						System.out.println("Referencia (S):"); String ref= readLn();
 						System.out.println("Volumen (N):"); short vol = (short) readLong();
-						System.out.println("ID del autor (N):"); short nautor = (short) readLong();readLn();
-						autor = null;
-						for (Autor a: Autor.getAutores()) {
-							if (a.getId() == nautor) {autor = a;}
-						}
-						System.out.println("Número de Estantería (N):"); short nes = (short) readLong();readLn();
-						estanteria = null;
-						for (Estanteria e: Estanteria.getLista()) {
-							if (e.getNumero() == nes) {estanteria = e;}
-						}
 						
-						new Libro (cod,nombre2,aa,ejemplar,autor,tipo,ref,vol,estanteria);
+						ArrayList<Integer> id_autores = new ArrayList<Integer>();
+						//Almaceno una lista con todos los id de autores
+						for(Autor autor1: Autor.getAutores()) {id_autores.add(autor1.getId());}
+						int idautor;
+						boolean puedo_salir;
+						int asignar_autor_existente = 0;
+						do {
+						System.out.println("ID del autor (N):"); idautor = (int) readLong();readLn();
+						puedo_salir = true;
+						//Comprobación si autor ya está registrado
+						Autor autor2 = null; // autor que tiene el mismo id que el digitado
+						if(id_autores.contains(idautor)) {
+							puedo_salir = false;
+							System.out.println("Ya existe un autor con este código");
+							//Buscamos quien es el autor con ese código
+							for(Autor autor1 : Autor.getAutores()) {
+								if(autor1.getId() == idautor)  {
+									autor2 = autor1;
+								}
+							}
+							// Información del autor que encontramos
+							System.out.println(autor2.infoPersonal());
+							do {
+							System.out.println("¿Desea asignar este autor al libro que está registrando?");
+							System.out.println("-------------------------");
+							System.out.println(" 1. Si");
+							System.out.println(" 2. No");
+							System.out.println("-------------------------");
+							System.out.println("Teclee la opción (N): ");
+							asignar_autor_existente = (int) readLong();readLn();
+							
+							switch(asignar_autor_existente){
+							case 1:autor = autor2;break;//Asignacion de autor existente
+							case 2: System.out.println("Ingrese un código diferente");
+							default: System.out.println("Opción no válida\nIntente otra vez");
+							}
+							}while(asignar_autor_existente != 1 & asignar_autor_existente != 2);
+
+							}
+						}while(asignar_autor_existente == 2 & puedo_salir == false);
+		
+						
+						//CREacion de un autor         -----------------------------------
+						int v;
+						boolean vivo = true;
+						do {	
+							System.out.println("\nIngrese los datos del autor");	
+							System.out.println("¿Está vivo el autor?:");
+							System.out.println("-------------------------");
+							System.out.println(" 1. Si");
+							System.out.println(" 2. No");
+							System.out.println(" 3. Volver al Menú de Registro");
+							System.out.println("-------------------------");
+							System.out.println("Teclee la opción (N): ");
+							v = (int) readLong();readLn();
+							
+							// Se asigna a la variable vivo un booleano
+							switch(v){
+							case 1: break;
+							case 2: vivo = false; break;
+							case 3: break;
+							default: System.out.println("Opción no válida\nIntente otra vez");break;
+							}
+							
+							} while (v !=1 & v !=2 & v !=3);
+						
+						if(v != 3) {
+							
+							System.out.println("ID (N):"); int id = (int)readLong();readLn();
+							System.out.println("Nombre (S):"); String nautor = readLn();
+							System.out.println("Fecha de nacimiento en formato AAAA-MM-DD (S)"); String nacimiento = readLn();
+							System.out.println("País de Origen (S)"); String pais = readLn();
 			
-						 System.out.println("Libro registrado con éxito");
-	
-						break;}
+							new Autor (id, nautor,LocalDate.parse(nacimiento), pais,vivo);
+							 
+							 System.out.println("Autor registrado con éxito");
+						//Fin creacion de un autor          -----------------------------------
+						
+						
+						
+						
+						//Inicio de instrucciones sin autor
+							
+							System.out.println("Número de Estantería (N):"); short nes = (short) readLong();readLn();
+							estanteria = null;
+							for (Estanteria e: Estanteria.getLista()) {
+								if (e.getNumero() == nes) {estanteria = e;}
+							}
+							
+							new Libro (cod,nombre2,aa,ejemplar,autor,tipo,ref,vol,estanteria);
+				
+							 System.out.println("Libro registrado con éxito");
+							
+							
+							} // hasta aqui se salta a menu de registro desde vivo autor
+						
+						break; // cierre de creacion de libro
 						
 						case 2: System.out.println("Ingrese los datos de la Revista");
 						
@@ -613,4 +699,4 @@ public class bibliotecario {
 	
 	
 	
-}
+} // cierre de la clase bibliotecario 
