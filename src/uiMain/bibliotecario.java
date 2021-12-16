@@ -17,7 +17,7 @@ public class bibliotecario {
 	public static void main(String[] args) {
 		//Inicializadores para algunos atributos
 		tipoLibro tipo;
-		Autor autor;
+		Autor autor = null;
 		Estanteria estanteria;
 		
 		// Se eliminan todos los objetos creados para trabajar solamente con los de los archivos almacenados
@@ -112,7 +112,7 @@ public class bibliotecario {
 						
 						System.out.println("Teclee la opción (N): ");
 						int opcion3;
-						opcion3 = (int) readLong();readLn();
+						opcion3 = (int) readLong();
 						
 						switch (opcion3) {
 						
@@ -197,7 +197,7 @@ public class bibliotecario {
 							}
 						}while(asignar_autor_existente == 2 & puedo_salir == false);
 		
-						
+						if (asignar_autor_existente != 1) {
 						//CREacion de un autor         -----------------------------------
 						int v;
 						boolean vivo = true;
@@ -224,12 +224,11 @@ public class bibliotecario {
 						
 						if(v != 3) {
 							
-							System.out.println("ID (N):"); int id = (int)readLong();readLn();
 							System.out.println("Nombre (S):"); String nautor = readLn();
 							System.out.println("Fecha de nacimiento en formato AAAA-MM-DD (S)"); String nacimiento = readLn();
 							System.out.println("País de Origen (S)"); String pais = readLn();
 			
-							new Autor (id, nautor,LocalDate.parse(nacimiento), pais,vivo);
+							new Autor (idautor, nautor,LocalDate.parse(nacimiento), pais,vivo);
 							 
 							 System.out.println("Autor registrado con éxito");
 						//Fin creacion de un autor          -----------------------------------
@@ -266,17 +265,17 @@ public class bibliotecario {
 						if (list.contains(m) == false) {System.out.println("Mes inválido");
 						System.out.println("De vuelta al Menú de Registro de Datos");break;}
 						Revista.Meses mes = Revista.Meses.valueOf(m);
-						System.out.println("Código (N):"); int cod = (int) readLong();readLn();
-						System.out.println("Nombre (S):"); String nombre2 = readLn();
-						System.out.println("Año (N):");short aa = (short) readLong();
-						System.out.println("Ejemplar (N):"); short ejemplar = (short) readLong();
+						System.out.println("Código (N):"); int cod2 = (int) readLong();readLn();
+						System.out.println("Nombre (S):"); String nombre3 = readLn();
+						System.out.println("Año (N):");short aa4 = (short) readLong();
+						System.out.println("Ejemplar (N):"); short ejemplar1 = (short) readLong();
 						System.out.println("Número (N):"); short numero = (short) readLong();readLn();
 						System.out.println("Temporada (S):"); String temporada = readLn();
 						System.out.println("Número de Estantería (N):");  short es = (short) readLong();readLn();
 						estanteria = null;
 						for (Estanteria e: Estanteria.getLista()) {
 							if (e.getNumero() == es) {estanteria = e;}}
-						new Revista (cod,nombre2,aa,ejemplar,numero,mes,temporada,estanteria);
+						new Revista (cod2,nombre3,aa4,ejemplar1,numero,mes,temporada,estanteria);
 						 System.out.println("Revista registrada con éxito");
 						break;
 						
@@ -287,13 +286,13 @@ public class bibliotecario {
 						System.out.println("Nombre (S):"); nombre2 = readLn();
 						System.out.println("Año (N):"); aa = (short) readLong();
 						System.out.println("Ejemplar (N):"); ejemplar = (short) readLong();readLn();
-						System.out.println("Referencia (S):"); String ref = readLn();
+						System.out.println("Referencia (S):"); String ref2 = readLn();
 						System.out.println("Número de Estantería (N):");  short nes = (short) readLong();
 						estanteria = null;
 						for (Estanteria e: Estanteria.getLista()) {
 							if (e.getNumero() == nes) {estanteria = e;}
 							}
-						new Folleto (cod,nombre2,aa,ejemplar,ref,estanteria);
+						new Folleto (cod,nombre2,aa,ejemplar,ref2,estanteria);
 						 System.out.println("Folleto registrado con éxito");
 						break;
 						
