@@ -17,11 +17,13 @@ public class Autor extends Persona {
 		super.nombre= "Anonimo";
 		super.id = 0;
 		autores.add(this);
+		Persona.lista.add(this);
 	}
 
 	public Autor(int id, String nombre, LocalDate nacimiento, String paisOrigen) {
 		super(id, nombre, nacimiento, paisOrigen);
 		autores.add(this);
+		Persona.lista.add(this);
 	}
 
 	public Autor(int id, String nombre, LocalDate nacimiento, String paisOrigen, boolean vivo) { // Constructor si el Autor no esta vivo
