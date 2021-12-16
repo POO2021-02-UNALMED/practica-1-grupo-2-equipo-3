@@ -30,6 +30,7 @@ public class Autor extends Persona {
 																									// vivo
 		super(id, nombre, nacimiento, paisOrigen);
 		super.vivo = vivo;
+		
 		autores.add(this);
 	}
 

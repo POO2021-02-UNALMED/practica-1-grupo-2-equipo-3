@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import java.util.ArrayList;
 
+import gestorAplicacion.prestamo.Prestamo;
+
 public abstract class Publicacion implements Serializable {
 	//ATRIBUTOS DE CLASE
 	private static final long serialVersionUID = 1L;
@@ -18,6 +20,7 @@ public abstract class Publicacion implements Serializable {
 	protected short ejemplar;
 	protected Estados estado = Estados.CIRCULACION;
 	protected Estanteria estanteria;
+	protected Prestamo prestamo;
 	
 	
 	//CONSTRUCTORES
@@ -31,15 +34,15 @@ public abstract class Publicacion implements Serializable {
 	
 	
 	//METODOS ABSTRACTOS
-	public abstract String mostrarInfo ();
-	public abstract String mostrarUbicacion();
+	public abstract String mostrarInfo ();  // muestra informacion detallada de la publicacion, es decir sus atributos
+	public abstract String mostrarUbicacion();  //muestra la estanteria y con ello la ubicacion donde se encuentra la publicacion
 	
 	
 	//METODOS NORMALES
 	public static void eliminarPublicacion(Publicacion p) { // elimina un registro de Publicacion
 		lista.remove(lista.indexOf(p));
 	}
-	public static String mostrarRegistros() {
+	public static String mostrarRegistros() {   // muestra todos los registros creados de publicacion
 		String c="Publicaciones creadas: "+"\n";
 		for (int i = 0; i < lista.size(); i++) {
 			if(lista.get(i) instanceof Libro ) {c = c + i+"."+"Libro "+ lista.get(i).nombre + "  Codigo "+ lista.get(i).codigo+ "\n";	}
@@ -48,6 +51,16 @@ public abstract class Publicacion implements Serializable {
 		}
 		return c;
 	}
+	
+	public boolean verificarPrestado() {
+		boolean b= true;                                            //Verifica que la publicacion este en circulacion es decir no prestada, arroja true si esta prestado
+		if(this.getEstado()== Publicacion.Estados.CIRCULACION) {
+			 b= false;
+		}
+		return b;
+	}
+	
+
 	
 	
 	//GETTERS Y SETTERS

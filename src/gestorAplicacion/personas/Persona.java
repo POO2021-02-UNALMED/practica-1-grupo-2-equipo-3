@@ -2,12 +2,8 @@ package gestorAplicacion.personas;
 
 import java.io.Serializable;
 import java.time.*;
-
 import java.util.ArrayList;
 
-import gestorAplicacion.obras.Folleto;
-import gestorAplicacion.obras.Libro;
-import gestorAplicacion.obras.Revista;
 
 public abstract class Persona implements Serializable{
 
@@ -20,7 +16,7 @@ public abstract class Persona implements Serializable{
 	protected String nombre;
 	protected int id;
 	protected String correo;
-	protected short tel;
+	protected int tel;
 	protected String direccion;
 	protected LocalDate nacimiento;
 	protected String paisOrigen;
@@ -33,7 +29,7 @@ public abstract class Persona implements Serializable{
 		this.nacimiento=nacimiento;
 		this.paisOrigen=paisOrigen;
 	}
-	Persona(String nombre,int id,String correo,short tel,String direccion,LocalDate nacimiento, String paisOrigen){
+	Persona(String nombre,int id,String correo,int tel,String direccion,LocalDate nacimiento, String paisOrigen){
 		this.nombre=nombre;
 		this.id=id;
 		this.correo=correo;
@@ -57,6 +53,7 @@ public abstract class Persona implements Serializable{
 		return c;
 	}
 	
+	//METODO ABSTRACTO
 	public abstract String infoPersonal ();
 		
 		
@@ -92,10 +89,10 @@ public abstract class Persona implements Serializable{
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-	public short getTel() {
+	public int getTel() {
 		return tel;
 	}
-	public void setTel(short tel) {
+	public void setTel(int tel) {
 		this.tel = tel;
 	}
 	public String getDireccion() {
