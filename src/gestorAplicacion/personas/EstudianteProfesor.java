@@ -66,9 +66,7 @@ public class EstudianteProfesor extends Persona implements Usuario {
 	
 	
 	
-//Funcionalidad Renovar
-	
-	
+	//Funcionalidad Renovar
 	public String renovar(Prestamo prestamo) {
 		String c = "";
 		Publicacion publicacion = prestamo.getPublicacion();
@@ -90,21 +88,16 @@ public class EstudianteProfesor extends Persona implements Usuario {
 			prestamo.determinarFin(this, (Revista) publicacion);
 			}
 			return c;}
-
-
-	
 	public String renovar(int idprestamo) {
 		Prestamo prestamo = null;
 		String c = "";
 		for(Prestamo prest : Prestamo.getLista()) {
 			if (prest.getId() == idprestamo){
-				prestamo = prest;c ="Prestamo encontrado";
+				prestamo = prest;c ="\nPrestamo encontrado";
 				this.renovar(prest);}} 
-		if (prestamo == null) {c= "Prestamo encontrado";}
+		if (prestamo == null) {c= "\nPrestamo no encontrado";}
 		return c;
 		}
-	
-	
 	//Fin funcionalidad Renovar
 	
 	//GETTERS SETTERS 
