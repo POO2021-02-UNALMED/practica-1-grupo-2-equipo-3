@@ -9,7 +9,7 @@ public abstract interface Usuario{
 	
 	public abstract String prestar(Publicacion publicacion,int id,LocalDate inicio); // metodo abstracto para el usuario prestar un libro
 	long diasParaVencimiento(LocalDateTime fin);
-	String Renovar(Prestamo prestamo);
-	String Renovar(int idprestamo);
+	String renovar(Prestamo prestamo);
+	String renovar(int idprestamo);
 	
 }
