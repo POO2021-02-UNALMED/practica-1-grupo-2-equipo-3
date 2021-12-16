@@ -26,7 +26,6 @@ public class Prestamo implements Serializable {
 	private Publicacion publicacion;
 	private Persona usuario;
 	private int multa;
-	//reserva?
 	
 	//CONSTRUCTORES
 	public Prestamo(EstudianteProfesor usuario, Publicacion publicacion,int id,LocalDate inicio) { // constructor para los usuarios de la universidad
