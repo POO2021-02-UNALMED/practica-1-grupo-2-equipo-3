@@ -1,18 +1,18 @@
-package gestorAplicacion.obras;
+package gestorAplicacion.obras; //Paquete Obras que almacena las clases representativas a las publicaciones o tipo de materiales, ademas las estanterias
 
+//librerias 
 import java.io.Serializable;
-
 import java.util.ArrayList;
 
-public class Estanteria implements Serializable {
+public class Estanteria implements Serializable { //Clase estanteria que representa las estanterias fisicas de la biblioteca donde se almacenan las publicaciones
 	
 	// ATRIBUTOS DE CLASE
-	private static final long serialVersionUID = 1L;
-	private static ArrayList<Estanteria> lista = new ArrayList<Estanteria>();
-	static protected int numeroEstanterias;
+	private static final long serialVersionUID = 1L; //Serial
+	private static ArrayList<Estanteria> lista = new ArrayList<Estanteria>(); //Lista dinamica donde se almacenan todas las estanterias creadaas
+	static private int numeroEstanterias; //contador del total de estanterias creadas
 
 	// ATRIBUTOS INSTANCIA
-	short numero;
+	short numero; //
 	short piso;
 	String[] limites = new String[2];
 	private ArrayList<Publicacion> publicaciones = new ArrayList<Publicacion>();
