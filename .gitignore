@@ -13,3 +13,7 @@ ma.java
 
 # Ignoro el .jar y el .bat
 /ejecutables/
+
+
+# Ignoramos Memoria Escrita local
+Memoria Escrita local.docx
