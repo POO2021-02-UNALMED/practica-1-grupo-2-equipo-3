@@ -93,6 +93,10 @@ public class Prestamo implements Serializable {
 		return this.publicacion;
 	}
 	
+	public LocalDateTime getFin() {
+		return this.fin;
+	}
+	
 	
 
 }
