@@ -161,6 +161,7 @@ public class bibliotecario {
 						for(Autor autor1: Autor.getAutores()) {id_autores.add(autor1.getId());}
 						int idautor;
 						boolean puedo_salir;
+						boolean vivo = true;
 						int asignar_autor_existente = 0;
 						do {
 						System.out.println("ID del autor (N):"); idautor = (int) readLong();readLn();
@@ -197,10 +198,10 @@ public class bibliotecario {
 							}
 						}while(asignar_autor_existente == 2 & puedo_salir == false);
 		
-						//if (asignar_autor_existente != 1) {}
+						int v = 0;
+						if (asignar_autor_existente != 1) {
 						//CREacion de un autor         -----------------------------------
-						int v;
-						boolean vivo = true;
+						vivo = true;
 						do {	
 							System.out.println("\nIngrese los datos del autor");	
 							System.out.println("¿Está vivo el autor?:");
@@ -221,9 +222,9 @@ public class bibliotecario {
 							}
 							
 							} while (v !=1 & v !=2 & v !=3);
+						}
 						
-						
-						if(v != 3) {
+						if(v != 3 & asignar_autor_existente != 1) {
 							
 							System.out.println("Nombre (S):"); String nautor = readLn();
 							System.out.println("Fecha de nacimiento en formato AAAA-MM-DD (S)"); String nacimiento = readLn();
@@ -236,9 +237,11 @@ public class bibliotecario {
 						
 						
 						
-						
+						}
 						//Inicio de instrucciones sin autor
-							
+						
+						
+						if(v != 3) {
 							System.out.println("Número de Estantería (N):"); short nes = (short) readLong();readLn();
 							estanteria = null;
 							for (Estanteria e: Estanteria.getLista()) {
