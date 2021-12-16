@@ -67,30 +67,23 @@ public class EstudianteProfesor extends Persona implements Usuario {
 
 	
 	
-	public String renovar(Prestamo prestamo) {
+	/*public String renovar(Prestamo prestamo) {
 		String c = "";
 		Publicacion publicacion = prestamo.getPublicacion();
 		LocalDateTime fechaActual= LocalDate.now().atTime(LocalTime.of(12, 0));
 		if (prestamo.getFin().compareTo(fechaActual) > 3) {
 			c += "Error!!  Aún debe esperar "+"días para renovar" ;
-			}else {//sentencia de cambio de fin
+			}else { prestamo.setFin(prestamo.getFin());
 				c += "Renovación exitosa";}
-			}
-			
-
-		
 		
 		
 		if (publicacion instanceof Libro) {
 			prestamo.determinarFin(this, (Libro) publicacion);
 		}else if(publicacion instanceof Revista) {
 			prestamo.determinarFin(this, (Revista) publicacion);
-		}
-		
-		
-		
-		return c;
-	}
+			}
+			return c;}
+*/
 
 	
 	public String renovar(int idprestamo) {
