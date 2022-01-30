@@ -1,5 +1,4 @@
 from tkinter import *
-#from imagenes import cambioImagenes
 
 StartWindow = Tk()
 #StartWindow.geometry("500x400")
@@ -61,17 +60,17 @@ imagen3 = PhotoImage(file="Imagenes/imagen3.jpg")
 imagen4 = PhotoImage(file="Imagenes/imagen4.jpg")
 imagen5 = PhotoImage(file="Imagenes/imagen5.jpeg")
 '''
-
+''''
 labelimagen = Label(p4)
 #imagen1 = PhotoImage(file="Imagenes/imagen1.png")
-imagen = PhotoImage(file="imagen1.png")
+imagen = PhotoImage(file='imagen1.png')
 img = "imagen1"
 labelimagen['image'] = imagen
 labelimagen.pack()
 
 ingresar = Button(p4,text="Ingresar al Sistema")
 ingresar.pack()
-
+'''
 
 
 
