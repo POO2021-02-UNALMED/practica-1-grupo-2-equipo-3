@@ -37,25 +37,10 @@ if __name__ == "__main__":
     imagen3 = PhotoImage(file="src/Ventanas/Imagenes/imagen3.png")
     imagen4 = PhotoImage(file="src/Ventanas/Imagenes/imagen4.png")
     imagen5 = PhotoImage(file="src/Ventanas/Imagenes/imagen5.png")
-
-
-    '''
-    p4 = Frame(master=frameA,width=250,height=400)
-    p4.pack(side=BOTTOM)
- 
-
-
-    labelimagen = Label(p4)
-    imagen = imagen1
-    ima = "imagen 1"
-    labelimagen['image'] = imagen
-    labelimagen.pack()
     
-    
-    ingresar = Button(p4,text="Ingresar al Sistema")
-    ingresar.pack()'''
-
     p4 = Imagen(frameA,imagen1)
+    ingresar = Button(p4,text="Ingresar al Sistema")
+    ingresar.pack()
     p4.pack(side=BOTTOM)
 
 
