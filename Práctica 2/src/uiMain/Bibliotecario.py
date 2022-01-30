@@ -37,7 +37,7 @@ p4 = Frame(master=frameA,width=250,height=400,bg="yellow")
 p4.pack(side=BOTTOM)
 
 labelimagen = Label(p4)
-imagen = PhotoImage(file="imagen1.png",width=200,height=200)
+imagen = PhotoImage(file="imagen1.png")
 labelimagen['image'] = imagen
 
 labelimagen.pack()
