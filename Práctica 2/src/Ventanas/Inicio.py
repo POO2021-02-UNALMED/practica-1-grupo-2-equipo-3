@@ -1,5 +1,5 @@
 from tkinter import *
-from Imagenes import *
+from p4 import Imagen
 
 if __name__ == "__main__":
     StartWindow = Tk()
@@ -32,24 +32,31 @@ if __name__ == "__main__":
 
 
     #p4
-    p4 = Frame(master=frameA,width=250,height=400)
-    p4.pack(side=BOTTOM)
-
-
     imagen1 = PhotoImage(file="src/Ventanas/Imagenes/imagen1.png")
-    '''imagen2 = PhotoImage(file="src/Ventanas/Imagenes/imagen2.png")
+    imagen2 = PhotoImage(file="src/Ventanas/Imagenes/imagen2.png")
     imagen3 = PhotoImage(file="src/Ventanas/Imagenes/imagen3.png")
     imagen4 = PhotoImage(file="src/Ventanas/Imagenes/imagen4.png")
-    imagen5 = PhotoImage(file="src/Ventanas/Imagenes/imagen5.png")'''
-    
+    imagen5 = PhotoImage(file="src/Ventanas/Imagenes/imagen5.png")
+
+
+    '''
+    p4 = Frame(master=frameA,width=250,height=400)
+    p4.pack(side=BOTTOM)
+ 
+
+
     labelimagen = Label(p4)
     imagen = imagen1
-    img = "imagen 1"
+    ima = "imagen 1"
     labelimagen['image'] = imagen
     labelimagen.pack()
     
+    
     ingresar = Button(p4,text="Ingresar al Sistema")
-    ingresar.pack()
+    ingresar.pack()'''
+
+    p4 = Imagen(frameA,imagen1)
+    p4.pack(side=BOTTOM)
 
 
 
