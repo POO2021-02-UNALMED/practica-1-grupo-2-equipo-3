@@ -1,133 +1,75 @@
 from tkinter import *
+from Imagenes import *
 
-StartWindow = Tk()
-#StartWindow.geometry("500x400")
-StartWindow.title("Ventana de Inicio")
+if __name__ == "__main__":
+    StartWindow = Tk()
+    StartWindow.title("Ventana de Inicio")
 
-# Manejo del menú
-StartWindow.option_add('*tearOff', False)
-menubar = Menu(StartWindow)
-inicio = Menu(menubar)
-menubar.add_cascade(menu=inicio, label='Inicio')
-inicio.add_command(label="Descripción")
-inicio.add_command(label="Salir")
+    # Manejo del menú
+    StartWindow.option_add('*tearOff', False)
+    menubar = Menu(StartWindow)
+    inicio = Menu(menubar)
+    menubar.add_cascade(menu=inicio, label='Inicio')
+    inicio.add_command(label="Descripción")
+    inicio.add_command(label="Salir")
 
-StartWindow['menu'] = menubar
-
-
-# Manejo de frames
-frameA = Frame(master=StartWindow)
-frameA.pack(side=LEFT)
-
-frameB = Frame(master=StartWindow)
-frameB.pack(side=RIGHT)
-
-#p3
-p3 = Frame(master=frameA,width=250,height=200,bg="red")
-p3.pack(side=TOP)
-
-label1 = Label(p3,text="Bienvenido al\nSistema de Información\nBibliotecario")
-label1.pack()
-
-#p4
-p4 = Frame(master=frameA,width=250,height=400,bg="yellow")
-p4.pack(side=BOTTOM)
+    StartWindow['menu'] = menubar
 
 
-'''
-def cambioImagenes():
-    if img == "imagen1":
-        imagen = imagen2
-        img = "imagen2"
-    elif img == "imagen2":
-        imagen = imagen3
-        img = "imagen3"
-    elif img == "imagen3":
-        imagen = imagen4
-        img = "imagen4"
-    elif img == "imagen4":
-        imagen = imagen5
-        img = "imagen5"
-    elif img == "imagen5":
-        imagen = imagen1
-        img = "imagen1"
-'''
+    # Manejo de frames
+    frameA = Frame(master=StartWindow)
+    frameA.pack(side=LEFT)
+
+    frameB = Frame(master=StartWindow)
+    frameB.pack(side=RIGHT)
+
+    #p3
+    p3 = Frame(master=frameA,width=250,height=200,bg="red")
+    p3.pack(side=TOP)
+
+    label1 = Label(p3,text="Bienvenido al\nSistema de Información\nBibliotecario")
+    label1.pack()
 
 
-#imagen1 = PhotoImage(file="Imagenes/imagen1.png")
-'''imagen2 = PhotoImage(file="Imagenes/imagen2.jpg")
-imagen3 = PhotoImage(file="Imagenes/imagen3.jpg")
-imagen4 = PhotoImage(file="Imagenes/imagen4.jpg")
-imagen5 = PhotoImage(file="Imagenes/imagen5.jpeg")
-'''
-''''
-labelimagen = Label(p4)
-#imagen1 = PhotoImage(file="Imagenes/imagen1.png")
-imagen = PhotoImage(file='imagen1.png')
-img = "imagen1"
-labelimagen['image'] = imagen
-labelimagen.pack()
+    #p4
+    p4 = Frame(master=frameA,width=250,height=400)
+    p4.pack(side=BOTTOM)
 
-ingresar = Button(p4,text="Ingresar al Sistema")
-ingresar.pack()
-'''
+
+    imagen1 = PhotoImage(file="src/Ventanas/Imagenes/imagen1.png")
+    '''imagen2 = PhotoImage(file="src/Ventanas/Imagenes/imagen2.png")
+    imagen3 = PhotoImage(file="src/Ventanas/Imagenes/imagen3.png")
+    imagen4 = PhotoImage(file="src/Ventanas/Imagenes/imagen4.png")
+    imagen5 = PhotoImage(file="src/Ventanas/Imagenes/imagen5.png")'''
+    
+    labelimagen = Label(p4)
+    imagen = imagen1
+    img = "imagen 1"
+    labelimagen['image'] = imagen
+    labelimagen.pack()
+    
+    ingresar = Button(p4,text="Ingresar al Sistema")
+    ingresar.pack()
 
 
 
 
-#p5
-p5 = Frame(master=frameB,width=250,height=200,bg="green")
-p5.pack(side=TOP)
-
-hojavida = Text(p5, font="Georgia")
-hojavida.insert(INSERT,"Desarrollador:\n\n\
-Nombre: Nelson Andrés Salinas Zapata\n\
-Profesión: Estudiante de Pregrado\n\
-Carrera: Ingeniería de Sistemas e Informática\n\
-Institución: Universidad Nacional de Colombia sede Medellín")
-hojavida.pack()
 
 
 
-#p6
-p6 = Frame(master=frameB,width=250,height=400,bg="blue")
 
 
-framefoto1 = Frame(master=p6)
-
-labelfoto1 = Label(framefoto1)
-foto1 = PhotoImage(file="Imagenes/foto1.png")
-labelfoto1['image'] = foto1
-labelfoto1.pack()
-framefoto1.grid(row=1,column=1)
 
 
-framefoto2 = Frame(master=p6)
-
-labelfoto2 = Label(framefoto2)
-foto2 = PhotoImage(file="Imagenes/foto1.png")
-labelfoto2['image'] = foto2
-labelfoto2.pack()
-framefoto2.grid(row=1,column=2)
-
-framefoto3 = Frame(master=p6)
-
-labelfoto3 = Label(framefoto3)
-foto3 = PhotoImage(file="Imagenes/foto1.png")
-labelfoto3['image'] = foto3
-labelfoto3.pack()
-framefoto3.grid(row=2,column=1)
-
-framefoto4 = Frame(master=p6)
-
-labelfoto4 = Label(framefoto4)
-foto4 = PhotoImage(file="Imagenes/foto1.png")
-labelfoto4['image'] = foto4
-labelfoto4.pack()
-framefoto4.grid(row=2,column=2)
 
 
-p6.pack(side=BOTTOM)
 
 
-StartWindow.mainloop()
+
+
+
+
+
+
+
+    StartWindow.mainloop()
