@@ -29,7 +29,7 @@ frameB.pack(side=RIGHT)
 p3 = Frame(master=frameA,width=250,height=200,bg="red")
 p3.pack(side=TOP)
 
-label1 = Label(p3,text="Bienvenido al \nSistema de Información Bibliotecario")
+label1 = Label(p3,text="Bienvenido al\nSistema de Información\nBibliotecario")
 label1.pack()
 
 #p4
@@ -39,8 +39,10 @@ p4.pack(side=BOTTOM)
 labelimagen = Label(p4)
 imagen = PhotoImage(file="imagen1.png")
 labelimagen['image'] = imagen
-
 labelimagen.pack()
+
+ingresar = Button(p4,text="Ingresar al Sistema")
+ingresar.pack()
 
 
 
