@@ -1,10 +1,10 @@
-import enum
- 
-class Estado(enum.Enum):
+from enum import Enum
+
+class Estado(Enum):
     circulacion = "CIRCULACION"
     prestado = "PRESTADO"
 
-class Publicacion: #serializacion ?
+class Publicacion : 
     # serialversion ?
 
     #Atributos de clase
@@ -12,14 +12,14 @@ class Publicacion: #serializacion ?
     numeroPublicaciones = 0
 
     #Constructor
-    def __init__(self, codigo=0,nombre="...",año=0,ejemplar=0,estado=Estado.circulacion,estanteria=None,prestamo=None) :
+    def __init__(self, codigo=0,nombre="...",año=0,ejemplar=0,estado=Estado.circulacion) :
         self.codigo = codigo
         self.nombre = nombre
         self.año= año
         self.ejemplar = ejemplar
         self.estado = estado
-        self.estanteria = estanteria
-        self.prestamo = prestamo
+        #self.estanteria=None
+        #self.prestamo=None
         Publicacion.numeroPublicaciones+=1
         Publicacion._lista.append(self)
 
@@ -34,6 +34,7 @@ class Publicacion: #serializacion ?
 
     @classmethod
     def mostrarRegistros(cls):
+        from Libro import Libro
         c = "Publicaciones creadas "+ "\n"
         for x in Publicacion._lista :
             if isinstance(x,Libro):
@@ -96,3 +97,4 @@ class Publicacion: #serializacion ?
         return self.estanteria
     def setEstanteria(self, a):
         self.estanteria = a
+

@@ -1,5 +1,6 @@
 class Estanteria: #serializacion ?
     # serialversion ?
+
     #atributos de clase
     _lista = []
     _numeroEstanterias = 0
@@ -18,6 +19,8 @@ class Estanteria: #serializacion ?
             self._publicaciones = publicaciones
         Estanteria._numeroEstanterias+=1
         Estanteria._lista.append(self)
+        
+            
 
     #Metodos
     @classmethod
@@ -72,3 +75,8 @@ class Estanteria: #serializacion ?
         return self.limites
     def setLimites(self,a):
         self.limites= a
+
+    def getPublicaciones(self):
+        return self._publicaciones
+    def setPublicaciones(self,a):
+        self._publicaciones = a
