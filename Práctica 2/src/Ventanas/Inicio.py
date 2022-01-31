@@ -85,7 +85,7 @@ if __name__ == "__main__":
     
     #p5
     p5 = Frame(master=frameB,width=500,height=150)
-    hojavida = Text(p5, font="Georgia",width=45,height=7,relief=GROOVE, borderwidth=4)
+    hojavida = Text(p5, font=("Georgia",12),width=45,height=7,relief=GROOVE, borderwidth=4)
     hojavida.insert(1.0,"Desarrollador 1:\n\
 (Click en el texto para ver más desarrolladores)\n\n\
 Nombre:       Nelson Andrés Salinas Zapata\n\
@@ -186,18 +186,6 @@ Institución:  Universidad Nacional de Colombia sede Medellín")
     hojavida.bind('<ButtonPress-1>',frameB_2)
 
     
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
