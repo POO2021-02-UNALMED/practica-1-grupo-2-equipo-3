@@ -18,8 +18,8 @@ class Publicacion :
         self.año= año
         self.ejemplar = ejemplar
         self.estado = estado
-        #self.estanteria=None
-        #self.prestamo=None
+        self.estanteria=None
+        self.prestamo=None
         Publicacion.numeroPublicaciones+=1
         Publicacion._lista.append(self)
 
@@ -35,6 +35,8 @@ class Publicacion :
     @classmethod
     def mostrarRegistros(cls):
         from Libro import Libro
+        from Revista import Revista
+        from Folleto import Folleto
         c = "Publicaciones creadas "+ "\n"
         for x in Publicacion._lista :
             if isinstance(x,Libro):
@@ -97,4 +99,9 @@ class Publicacion :
         return self.estanteria
     def setEstanteria(self, a):
         self.estanteria = a
+
+    def getPrestamo(self):
+        return self.prestamo
+    def setPrestamo(self,p):
+        self.prestamo = p
 

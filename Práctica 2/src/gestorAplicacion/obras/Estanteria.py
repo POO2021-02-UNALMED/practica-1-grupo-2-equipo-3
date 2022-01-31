@@ -56,6 +56,7 @@ class Estanteria: #serializacion ?
     
     def agregarPublicacion(self,p):
         self._publicaciones.append(p)
+        p.setEstanteria(self)
     
     @classmethod
     def getLista(cls):
