@@ -1,17 +1,27 @@
 from tkinter import *
 from functools import partial
+from tkinter import font
 from Principal import ingreso
 
 if __name__ == "__main__":
     StartWindow = Tk()
     StartWindow.title("Ventana de Inicio")
 
+    def descripcion():
+        p3.pack_forget()
+        label1.place_forget()
+        desc = "Descripción:\n\nEste es un Sistema de Información\nbibliotecario por medio \
+del cual se\npodrá tener un registro del material\ndisponible y del estado de los\npréstamos."
+        label2 = Label(p3,text=desc, font=("Georgia",10))
+        label2.place(x=6,y=10)
+        p3.pack(side=TOP)
+
     # Manejo del menú
     StartWindow.option_add('*tearOff', False)
     menubar = Menu(StartWindow)
     inicio = Menu(menubar)
     menubar.add_cascade(menu=inicio, label='Inicio')
-    inicio.add_command(label="Descripción")
+    inicio.add_command(label="Descripción", command=descripcion)
     inicio.add_command(label="Salir", command=StartWindow.destroy)
 
     StartWindow['menu'] = menubar
