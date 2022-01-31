@@ -1,7 +1,10 @@
+from email import message
 from tkinter import *
+from tkinter import messagebox
 
 def ingreso(start):
     window = Toplevel()
+    window.geometry("450x300")
     window.title("Sistema de Información Bibliotecario")
     start.iconify()
 
@@ -9,12 +12,23 @@ def ingreso(start):
         start.deiconify()
         window.destroy()
 
+    def acerca():
+        messagebox.showinfo(title="Acerca de",
+        message="Autores:",
+        detail="- Nelson Andrés Salinas Zapata\n- Luis Felipe Marín Buitrago")
+
+    def aplicacion():
+        messagebox.showinfo(title="Aplicación",
+        message="Sistema de infomración Bibliotecario:",
+        detail="Por medio de esta aplicación usted podrá tener un registro del material disponible y del estado de los préstamos.")
+
+    #Manejo de menús
     window.option_add('*tearOff', False)
     menubar = Menu(window)
 
     archivo = Menu(menubar)
     menubar.add_cascade(menu=archivo, label='Archivo')
-    archivo.add_command(label="Aplicación")
+    archivo.add_command(label="Aplicación", command=aplicacion)
     archivo.add_command(label="Salir", command=inicio)
 
     procesos = Menu(menubar)
@@ -24,6 +38,11 @@ def ingreso(start):
 
     ayuda = Menu(menubar)
     menubar.add_cascade(menu=ayuda, label ="Ayuda")
-    ayuda.add_command(label="Acerca de")
+    ayuda.add_command(label="Acerca de", command=acerca)
 
     window['menu'] = menubar
+
+
+    #Frame inicial
+    principal = Frame(master=window,width=450,height=300)
+    Label
