@@ -22,11 +22,11 @@ if __name__ == "__main__":
     frameA.pack(side=LEFT)
 
     #p3
-    p3 = Frame(master=frameA,width=250,height=200,bg="red")
+    p3 = Frame(master=frameA,width=250,height=150,relief=GROOVE, borderwidth=4)
     p3.pack(side=TOP)
 
     label1 = Label(p3,text="Bienvenido al\nSistema de Información\nBibliotecario")
-    label1.pack()
+    label1.place(x=58,y=48)
 
 
     #p4
@@ -37,13 +37,13 @@ if __name__ == "__main__":
     imagen5 = PhotoImage(file="src/Ventanas/Imagenes/imagen5.png")
 
     # Estado incial del frame
-    p4 = Frame(frameA,width=250,height=200)   
+    p4 = Frame(frameA,width=250,height=215)   
     label = Label(p4)
     label['image'] = imagen1
-    label.pack()
+    label.place(x=25,y=20)
     
     ingresar = Button(p4,text="Ingresar al Sistema", command=partial(ingreso,StartWindow))
-    ingresar.pack()
+    ingresar.place(x=68,y=170)
     p4.pack(side=BOTTOM)  
 
     def p4_1(e):
@@ -84,15 +84,15 @@ if __name__ == "__main__":
     frameB = Frame(master=StartWindow)
     
     #p5
-    p5 = Frame(master=frameB)
-    hojavida = Text(p5, font="Georgia",width=45,height=7)
+    p5 = Frame(master=frameB,width=500,height=150)
+    hojavida = Text(p5, font="Georgia",width=45,height=7,relief=GROOVE, borderwidth=4)
     hojavida.insert(1.0,"Desarrollador 1:\n\
 (Click en el texto para ver más desarrolladores)\n\n\
 Nombre:       Nelson Andrés Salinas Zapata\n\
 Profesión:     Estudiante de Pregrado\n\
 Carrera:        Ingeniería de Sistemas e Informática\n\
 Institución:  Universidad Nacional de Colombia sede Medellín")
-    hojavida.pack()
+    hojavida.place(x=20,y=5)
     p5.pack(side=TOP)
 
     frameB.pack(side=RIGHT)
@@ -104,7 +104,7 @@ Institución:  Universidad Nacional de Colombia sede Medellín")
     foto1 = PhotoImage(file="src/Ventanas/Imagenes/foto1.png")  
     foto2 = PhotoImage(file="src/Ventanas/Imagenes/foto2.png")
     foto3 = PhotoImage(file="src/Ventanas/Imagenes/foto3.png")
-    foto4 = PhotoImage(file="src/Ventanas/Imagenes/foto1.png")
+    foto4 = PhotoImage(file="src/Ventanas/Imagenes/foto4.png")
     foto5 = PhotoImage(file="src/Ventanas/Imagenes/foto5.png")
     foto6 = PhotoImage(file="src/Ventanas/Imagenes/foto6.png")
     foto7 = PhotoImage(file="src/Ventanas/Imagenes/foto7.png")
@@ -150,7 +150,7 @@ Nombre:       Nelson Andrés Salinas Zapata\n\
 Profesión:     Estudiante de Pregrado\n\
 Carrera:        Ingeniería de Sistemas e Informática\n\
 Institución:  Universidad Nacional de Colombia sede Medellín")
-        hojavida.pack()
+        hojavida.place(x=20,y=5)
 
         p6.pack_forget()
         labelfoto1['image']= foto1
@@ -170,7 +170,7 @@ Nombre:       Luis Felipe Marín Buitrago\n\
 Profesión:     Estudiante de Pregrado\n\
 Carrera:        Ingeniería de Sistemas e Informática\n\
 Institución:  Universidad Nacional de Colombia sede Medellín")
-        hojavida.pack()
+        hojavida.place(x=20,y=5)
 
         p6.pack_forget()
         labelfoto1['image']= foto5
