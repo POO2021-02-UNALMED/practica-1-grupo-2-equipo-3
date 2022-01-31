@@ -1,10 +1,12 @@
 from enum import Enum
+from abc import ABC, abstractmethod
 
+#CLASE ABSTRACTA
 class Estado(Enum):
     circulacion = "CIRCULACION"
     prestado = "PRESTADO"
 
-class Publicacion : 
+class Publicacion(ABC) : 
     # serialversion ?
 
     #Atributos de clase
@@ -38,13 +40,13 @@ class Publicacion :
         from Revista import Revista
         from Folleto import Folleto
         c = "Publicaciones creadas "+ "\n"
-        for x in Publicacion._lista :
+        for i,x in enumerate(Publicacion._lista) :
             if isinstance(x,Libro):
-                c=c + f'Libro {x.getNombre()} Codigo(CP) {x.getCodigo} \n'
+                c=c + str(i) + f'. Libro {x.getNombre()} Codigo(CP) {x.getCodigo()} \n'
             elif isinstance(x,Revista):
-                c=c + f'Revista {x.getNombre()} Codigo(CP) {x.getCodigo} \n'
+                c=c + str(i) + f'. Revista {x.getNombre()} Codigo(CP) {x.getCodigo()} \n'
             elif isinstance(x,Folleto):
-                c=c + f'Folleto {x.getNombre()} Codigo(CP) {x.getCodigo} \n'
+                c=c + str(i) + f'. Folleto {x.getNombre()} Codigo(CP) {x.getCodigo()} \n'
         return c
     
     def verificarPrestado(self):
@@ -54,13 +56,9 @@ class Publicacion :
             b=False
         return b
 
-    def agregarPublicacion(self,p):
-        self._publicaciones.append(p)
-
-    #def mostrarUbicacion(self): ABSTRACTO
-
-    
-
+    @abstractmethod
+    def mostrarUbicacion(self):
+        pass
     
     
     @classmethod
