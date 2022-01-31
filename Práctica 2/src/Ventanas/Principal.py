@@ -1,6 +1,9 @@
-from email import message
 from tkinter import *
 from tkinter import messagebox
+from functools import partial
+from proceso1 import Frame1
+from proceso2 import Frame2
+from proceso3 import Frame3
 
 def ingreso(start):
     window = Toplevel()
@@ -22,6 +25,35 @@ def ingreso(start):
         message="Sistema de infomración Bibliotecario:",
         detail="Por medio de esta aplicación usted podrá tener un registro del material disponible y del estado de los préstamos.")
 
+    principal = Frame(master=window,width=450,height=300) # Frame Interfaz de Inicio
+    frame1 = Frame1(window) # Frame proceso 1
+    frame2 = Frame2(window) # Frame proceso 2
+    frame3 = Frame3(window) # Frame proceso 3
+
+    def proceso1():
+        principal.pack_forget()
+        frame2.pack_forget()
+        frame3.pack_forget()
+        frame1.pack()
+
+    def proceso2():
+        principal.pack_forget()
+        frame1.pack_forget()
+        frame3.pack_forget()
+        frame2.pack()
+
+    def proceso3():
+        principal.pack_forget()
+        frame1.pack_forget()
+        frame2.pack_forget()
+        frame3.pack()
+
+    def pprincipal():
+        frame1.pack_forget()
+        frame2.pack_forget()
+        frame3.pack_forget()
+        principal.pack()
+
     #Manejo de menús
     window.option_add('*tearOff', False)
     menubar = Menu(window)
@@ -33,8 +65,10 @@ def ingreso(start):
 
     procesos = Menu(menubar)
     menubar.add_cascade(menu=procesos, label='Procesos y Consultas')
-    procesos.add_command(label="Proceso 1")
-    procesos.add_command(label="Proceso 2")
+    procesos.add_command(label="Proceso 1", command=proceso1)
+    procesos.add_command(label="Proceso 2", command=proceso2)
+    procesos.add_command(label="Proceso 3", command=proceso3)
+    procesos.add_command(label="Interfaz de Inicio", command=pprincipal)
 
     ayuda = Menu(menubar)
     menubar.add_cascade(menu=ayuda, label ="Ayuda")
@@ -44,7 +78,6 @@ def ingreso(start):
 
 
     #Frame inicial
-    principal = Frame(master=window,width=450,height=300)
     Label(master=principal,text="Sistema de Información\n Bibliotecario (SIB)",
     font=("Georgia",20)).place(x=70,y=0)
     texto = Text(principal, font=("Georgia",10),width=42,height=9,relief=GROOVE, borderwidth=4)
