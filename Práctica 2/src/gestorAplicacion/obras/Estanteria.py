@@ -38,21 +38,28 @@ class Estanteria: #serializacion ?
         return f'INFORMACION DE LA ESTANTERIA: \n Numero: {self.getNumero()} \n Limites: {self.getLimites()} \n Piso: {self.getPiso()}'
 
     def mostrarContenido(self):
+        from Libro import Libro
+        from Revista import Revista
+        from Folleto import Folleto
         c=""
-        for x in self._publicaciones:
-            c= c + f'{x.getNombre()} Codigo {x.getCodigo()} \n '
+        for i,x in enumerate(self._publicaciones):
+            c= c + str(i) + f'. {x.getNombre()} Codigo {x.getCodigo()} \n '
         if not self._publicaciones:
             c= "Estanteria vacia"
-        elif isinstance(self._publicaciones, Libro):
+        elif isinstance(self._publicaciones[0], Libro):
             c="La Estanteria contiene los siguientes libros \n " + c
-        elif isinstance(self._publicaciones, Revista):
-            c="La Estanteria contiene los siguientes libros \n " + c
-        elif isinstance(self._publicaciones, Folleto):
-            c="La Estanteria contiene los siguientes libros \n " + c 
+        elif isinstance(self._publicaciones[0], Revista):
+            c="La Estanteria contiene las siguientes Revistas \n " + c
+        elif isinstance(self._publicaciones[0], Folleto):
+            c="La Estanteria contiene los siguientes Folletos \n " + c 
         return c
     
     def agregarPublicacion(self,p):
-        self._publicaciones.append(p)
+        publicaciones = self.getPublicaciones() + p
+        self.setPublicaciones(publicaciones)
+        for x in p:
+            x.setEstanteria(self)
+        
     
     @classmethod
     def getLista(cls):
