@@ -26,7 +26,7 @@ class Libro(Publicacion):
         self.estanteria = estanteria
         self.prestamo = prestamo
         Libro._libro.append(self)
-        Publicacion.numeroPublicaciones+=1
+        
         if estanteria is not None:
             self.estanteria.getPublicaciones.append(self)
 

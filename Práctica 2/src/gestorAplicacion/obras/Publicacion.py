@@ -66,7 +66,7 @@ class Publicacion(ABC) :
         return Publicacion._lista
     @classmethod
     def getNumeroPublicaciones(cls):
-        return Publicacion._numeroEstanterias
+        return Publicacion.numeroPublicaciones
 
     def getCodigo(self):
         return self.codigo
