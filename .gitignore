@@ -20,5 +20,4 @@ Memoria Escrita - copia.docx
 Práctica 2/src/gestorAplicacion/mein.py
 
 # Ignoramos el caché de Python
-/__pycache__/
-/__pycache__/
+*pyc
