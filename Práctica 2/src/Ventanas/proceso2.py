@@ -7,7 +7,7 @@ class Frame2(Frame):
         nombre = Label(master=self,text="Mostrar Registros",
         font=("Georgia",20)).pack()
 
-        desc = Label(master=self,text="Acá se pone una corta descripción de cada proceso"+
+        desc = Label(master=self,text="Seleccione el tipo de dato que desee ingresar"+
         "\ningrese los correspondiente segín desee",
         font=("Georgia",12)).pack()
 
