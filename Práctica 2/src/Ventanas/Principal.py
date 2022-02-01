@@ -65,9 +65,9 @@ def ingreso(start):
 
     procesos = Menu(menubar)
     menubar.add_cascade(menu=procesos, label='Procesos y Consultas')
-    procesos.add_command(label="Proceso 1", command=proceso1)
-    procesos.add_command(label="Proceso 2", command=proceso2)
-    procesos.add_command(label="Proceso 3", command=proceso3)
+    procesos.add_command(label="Ingresar Registros", command=proceso1)
+    procesos.add_command(label="Mostrar Registros", command=proceso2)
+    procesos.add_command(label="Eliminar Registros", command=proceso3)
     procesos.add_command(label="Interfaz de Inicio", command=pprincipal)
 
     ayuda = Menu(menubar)
