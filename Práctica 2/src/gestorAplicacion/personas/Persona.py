@@ -3,6 +3,7 @@ from abc import ABC, abstractmethod
 #   CLASE ABSTRACTA
 class Persona(ABC):
 
+    #Atributo de Clase
     _lista = []
 
     #Constructor y atributos
@@ -15,6 +16,7 @@ class Persona(ABC):
         self.nacimiento = nacimiento
         self.pais = pais
         self.vivo = vivo
+        Persona._lista.append(self)
 
     #Metodos
     @classmethod
@@ -24,6 +26,9 @@ class Persona(ABC):
 
     @classmethod
     def mostrarRegistros(cls):
+        from Autor import Autor
+        from EstudianteProfesor import EstudianteProfesor
+        from Externo import Externo
         
         c="Personas creadas: \n"
 

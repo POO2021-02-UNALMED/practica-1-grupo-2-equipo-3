@@ -32,7 +32,7 @@ class Revista(Publicacion):
         self.estanteria = estanteria
         self.prestamo = prestamo
         Revista._revista.append(self)
-        Publicacion.numeroPublicaciones+=1
+        
         if estanteria is not None:
             self.estanteria.getPublicaciones.append(self)
 
@@ -59,5 +59,5 @@ class Revista(Publicacion):
         self._temporada=a
 
     @classmethod
-    def getFolleto(cls):
+    def getRevista(cls):
         return Revista._revista

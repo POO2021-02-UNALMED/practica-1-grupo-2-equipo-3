@@ -1,6 +1,8 @@
 from enum import Enum
 from abc import ABC, abstractmethod
 
+from Estanteria import Estanteria
+
 #CLASE ABSTRACTA
 class Estado(Enum):
     circulacion = "CIRCULACION"
@@ -26,6 +28,12 @@ class Publicacion(ABC) :
         Publicacion._lista.append(self)
 
     #Metodos
+    def asignarEstanteria(self,numEstanteria):
+        for x in Estanteria.getLista():
+            if x.getNumero() == numEstanteria:
+                self.setEstanteria(x)
+                x.getPublicaciones().append(self)
+
     def mostrarInfo(self):
         return f'INFORMACION DE LA PUBLICACION: \n Codigo: {self.getCodigo()} \n Nombre: {self.getNombre()} \n Ejemplar: {self.getEjemplar()}'
 
@@ -66,7 +74,7 @@ class Publicacion(ABC) :
         return Publicacion._lista
     @classmethod
     def getNumeroPublicaciones(cls):
-        return Publicacion._numeroEstanterias
+        return Publicacion.numeroPublicaciones
 
     def getCodigo(self):
         return self.codigo
