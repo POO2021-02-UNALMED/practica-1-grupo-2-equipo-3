@@ -1,3 +1,4 @@
+from distutils import command
 from tkinter import *
 
 class Frame3(Frame):
@@ -12,4 +13,19 @@ class Frame3(Frame):
         font=("Georgia",12)).pack()
 
         interaccion = Frame(master=self)  # Frame de la zona de interacción
+
+        # opcion = StringVar()
+        op = Entry(self,width=50)
+        op.pack()
+
+        def ejecutar():
+            label.config(text=op.get())
+
+
+        Button(interaccion,text="Ejecutar",command=ejecutar).pack()
+
+        label = Label(interaccion)
+        label.pack()
+
+
         interaccion.pack()
