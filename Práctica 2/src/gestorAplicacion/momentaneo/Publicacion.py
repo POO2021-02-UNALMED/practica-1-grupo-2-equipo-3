@@ -33,6 +33,7 @@ class Publicacion(ABC) :
             if x.getNumero() == numEstanteria:
                 self.setEstanteria(x)
                 x.getPublicaciones().append(self)
+                break
 
     def mostrarInfo(self):
         return f'INFORMACION DE LA PUBLICACION: \n Codigo: {self.getCodigo()} \n Nombre: {self.getNombre()} \n Ejemplar: {self.getEjemplar()}'
