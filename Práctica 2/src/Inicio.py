@@ -1,7 +1,7 @@
 from tkinter import *
 from functools import partial
 from tkinter import font
-from Principal import ingreso
+from Ventanas.Principal import ingreso
 
 if __name__ == "__main__":
     StartWindow = Tk()

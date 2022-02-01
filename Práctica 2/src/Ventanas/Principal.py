@@ -1,9 +1,9 @@
 from tkinter import *
 from tkinter import messagebox
 from functools import partial
-from proceso1 import Frame1
-from proceso2 import Frame2
-from proceso3 import Frame3
+from Ventanas.proceso1 import Frame1
+from Ventanas.proceso2 import Frame2
+from Ventanas.proceso3 import Frame3
 
 def ingreso(start):
     window = Toplevel()

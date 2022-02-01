@@ -1,6 +1,7 @@
 from tkinter import *
 from functools import partial
 from tkinter import ttk
+from Ventanas.FieldFrame import FieldFrame
 
 class Frame2(Frame):
     _opcion = None
@@ -89,11 +90,54 @@ class Frame2(Frame):
 
         def uno():
             Label(master=f1,text="Registrar Estantería", font=("Georgia",20)).pack()
-
             Label(master=f1,text="Llene los siguientes campos:",font=("Georgia",12)).pack()
 
 
-            interaccion = Frame(master=f1)  # Frame de la zona de interacción
+            f = Frame(master=f1)  # Frame de la zona de interacción
+
+            def lanzar(arg):
+
+                def guardar():
+                    codigo = interaccion.getValue(criterios[0])
+                    nombre = interaccion.getValue(criterios[1])
+                    descripcion = interaccion.getValue(criterios[2])
+                    ubicacion = interaccion.getValue(criterios[3])
+                    #
+                    # Objeto(codigo,nombre,descripcion,ubicacion)
+                    #
+                    lanzar(interaccion)
+
+                tituloCriterios = "CRITERIO"
+                criterios = ["Codigo", "Nombre", "Descripción", "Ubicación"]
+                tituloValores = "VALOR"
+                valores = ["Codigo", "Nombre", "Descripción", "Ubicación"]
+                valores= [51218418,"","",""]
+                habilitado = [1,3]
+                if arg is None:
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+                else:
+                    arg.destroy()
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+
+                interaccion.pack(side=TOP)
+                borrar.config(command=partial(lanzar,interaccion))
+                aceptar.config(command=guardar)
+                f.pack()
+
+
+            botones = Frame(f)
+            aceptar = Button(botones,text="Aceptar")
+            aceptar.grid(row=1,column=1)
+            borrar = Button(botones,text="Borrar")
+            borrar.grid(row=1,column=2)
+            botones.pack(side=BOTTOM)
+
+            lanzar(None)
+
+
+
+
+
 
 
             f1.pack()

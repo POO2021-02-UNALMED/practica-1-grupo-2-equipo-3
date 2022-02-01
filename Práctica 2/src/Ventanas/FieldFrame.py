@@ -35,7 +35,6 @@ class FieldFrame(Frame):
 
     def getValue(self,crit):
         i = self._criterios.index(crit)
-        valor = StringVar() 
-        self._entrys[i].config(textvariable=valor)
+        valor = self._entrys[i].get()
         return valor
 
