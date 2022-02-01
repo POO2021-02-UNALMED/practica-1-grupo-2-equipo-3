@@ -1,7 +1,13 @@
+## GUI
 from tkinter import *
 from functools import partial
-from tkinter import font
 from Ventanas.Principal import ingreso
+##
+
+## Objetos
+from gestorAplicacion.obras import Estanteria,Libro,Revista,Folleto
+from gestorAplicacion.personas import EstudianteProfesor,Externo
+##
 
 if __name__ == "__main__":
     StartWindow = Tk()
