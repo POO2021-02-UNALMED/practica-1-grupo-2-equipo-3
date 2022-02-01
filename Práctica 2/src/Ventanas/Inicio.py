@@ -123,28 +123,24 @@ Institución:  Universidad Nacional de Colombia sede Medellín")
 
     framefoto1 = Frame(master=p6)
     labelfoto1 = Label(framefoto1)
-    # foto1 = PhotoImage(file="src/Ventanas/Imagenes/foto1.png")
     labelfoto1['image'] = foto1
     labelfoto1.pack()
     framefoto1.grid(row=1,column=1)
 
     framefoto2 = Frame(master=p6)
     labelfoto2 = Label(framefoto2)
-    # foto2 = PhotoImage(file="src/Ventanas/Imagenes/foto1.png")
     labelfoto2['image'] = foto2
     labelfoto2.pack()
     framefoto2.grid(row=1,column=2)
 
     framefoto3 = Frame(master=p6)
     labelfoto3 = Label(framefoto3)
-    # foto3 = PhotoImage(file="src/Ventanas/Imagenes/foto1.png")
     labelfoto3['image'] = foto3
     labelfoto3.pack()
     framefoto3.grid(row=2,column=1)
 
     framefoto4 = Frame(master=p6)
     labelfoto4 = Label(framefoto4)
-    # foto4 = PhotoImage(file="src/Ventanas/Imagenes/foto1.png")
     labelfoto4['image'] = foto4
     labelfoto4.pack()
     framefoto4.grid(row=2,column=2)
@@ -194,14 +190,6 @@ Institución:  Universidad Nacional de Colombia sede Medellín")
 
     #Bind inicial
     hojavida.bind('<ButtonPress-1>',frameB_2)
-
-    
-
-
-
-
-
-
 
 
 
