@@ -87,5 +87,6 @@ def ingreso(start):
     "2. Proceso 2\n"+
     "3. Proceso 3\n\n"+
     "Para acceder a estas funcionalidades despliegue el menú de \n'Procesos y Consultas' y haga click en una opción")
+    texto.config(state=DISABLED)
     texto.place(x=32,y=110)
     principal.pack()
