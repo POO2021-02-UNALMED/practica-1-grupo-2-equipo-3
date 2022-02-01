@@ -39,22 +39,3 @@ class FieldFrame(Frame):
         self._entrys[i].config(textvariable=valor)
         return valor
 
-
-
-
-        ''' Formato de Frame de interacción
-        # Frame de interacción
-        tituloCriterios = "CRITERIO"
-        criterios = ["Codigo", "Nombre", "Descripción", "Ubicación"]
-        tituloValores = "VALOR"
-        valores = ["Codigo", "Nombre", "Descripción", "Ubicación"]
-        valores= []
-        habilitado = []
-        interaccion = FieldFrame(self,tituloCriterios, criterios, tituloValores)  # Frame de la zona de interacción
-        
-        interaccion.pack()
-        '''
-
-
-     
-
