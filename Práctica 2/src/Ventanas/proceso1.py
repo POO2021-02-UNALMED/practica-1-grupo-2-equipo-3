@@ -1,4 +1,6 @@
+from distutils import command
 from tkinter import *
+from functools import partial
 from FieldFrame import FieldFrame
 
 class Frame1(Frame):
@@ -16,19 +18,35 @@ class Frame1(Frame):
         # Frame de interacción
         f = Frame(self)
 
+        def lanzar(arg):
 
-        tituloCriterios = "CRITERIO"
-        criterios = ["Codigo", "Nombre", "Descripción", "Ubicación"]
-        tituloValores = "VALOR"
-        valores = ["Codigo", "Nombre", "Descripción", "Ubicación"]
-        valores= []
-        habilitado = []
-        interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores)  # Frame de la zona de interacción
-        interaccion.pack(side=TOP)
+            def guardar():
+                # Constructores para creacion del objeto
+                lanzar(interaccion)
+
+            tituloCriterios = "CRITERIO"
+            criterios = ["Codigo", "Nombre", "Descripción", "Ubicación"]
+            tituloValores = "VALOR"
+            valores = ["Codigo", "Nombre", "Descripción", "Ubicación"]
+            valores= []
+            habilitado = []
+            if arg is None:
+                interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores)  # Frame de la zona de interacción
+            else:
+                arg.destroy()
+                interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores)  # Frame de la zona de interacción
+
+            interaccion.pack(side=TOP)
+            borrar.config(command=partial(lanzar,interaccion))
+            aceptar.config(command=guardar)
+            f.pack()
+
 
         botones = Frame(f)
-        Button(botones,text="Aceptar").grid(row=1,column=1)
-        Button(botones,text="Borrar").grid(row=1,column=2)
+        aceptar = Button(botones,text="Aceptar")
+        aceptar.grid(row=1,column=1)
+        borrar = Button(botones,text="Borrar")
+        borrar.grid(row=1,column=2)
+        botones.pack(side=BOTTOM)
 
-
-        f.pack()
+        lanzar(None)
