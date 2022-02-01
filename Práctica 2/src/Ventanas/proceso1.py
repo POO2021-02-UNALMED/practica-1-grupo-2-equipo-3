@@ -5,8 +5,16 @@ from Ventanas.FieldFrame import FieldFrame
 from tkinter import ttk
 
 ## Objetos
-from gestorAplicacion.obras import Estanteria,Libro,Revista,Folleto
-from gestorAplicacion.personas import EstudianteProfesor,Externo
+from gestorAplicacion.obras.Estanteria import Estanteria
+from gestorAplicacion.obras.Publicacion import Publicacion
+from gestorAplicacion.obras.Libro import Libro
+from gestorAplicacion.obras.Revista import Revista
+from gestorAplicacion.obras.Folleto import Folleto
+from gestorAplicacion.personas.EstudianteProfesor import EstudianteProfesor
+from gestorAplicacion.personas.Externo import Externo
+from gestorAplicacion.personas.Usuario import Usuario
+from gestorAplicacion.personas.Persona import Persona
+from gestorAplicacion.personas.Autor import Autor
 ##
 
 class Frame1(Frame):
@@ -103,10 +111,10 @@ class Frame1(Frame):
                     piso = interaccion.getValue(criterios[1])
                     ls = interaccion.getValue(criterios[2])
                     li = interaccion.getValue(criterios[3])
-                    #
-                    # Estanteria(numero,piso,ls,li)
-                    # Label(master=f,text=numero).pack()   # Prueba
-                    #
+                    
+                    lim = [ls,li]
+                    Estanteria(numero,piso,lim) # creacion del objeto
+                    
                     lanzar(interaccion)
 
                 tituloCriterios = "ATRIBUTO"
@@ -149,16 +157,22 @@ class Frame1(Frame):
 
                 def guardar():
                     nombre = interaccion.getValue(criterios[0])
-                    dir = interaccion.getValue(criterios[1])
-                    ls = interaccion.getValue(criterios[2])
-                    lu = interaccion.getValue(criterios[3])
-                    #
-                    # Autor(nombre,dir,ls,lu)
+                    id = interaccion.getValue(criterios[1])
+                    nacimiento = interaccion.getValue(criterios[2])
+                    pais = interaccion.getValue(criterios[3])
+                    vivo= interaccion.getValue(criterios[4])
+                    if vivo == "si" or vivo == "Si" or vivo == "SI":
+                        vivo = True
+                    elif vivo == "no" or vivo == "NO" or vivo == "No":
+                        vivo = False
+
+                    Autor(nombre,id,nacimiento,pais,vivo)
+                    #Label(master=f,text=Autor.mostrarRegistros()).pack()
                     #
                     lanzar(interaccion)
 
                 tituloCriterios = "ATRIBUTO"
-                criterios = ["Nombre", "Dirección", "Límite Superior", "Límite Inferior"]
+                criterios = ["Nombre", "id", "Nacimiento", "Pais","¿Vivo?"]
                 tituloValores = "VALOR"
                 valores= None
                 habilitado = None
@@ -195,6 +209,55 @@ class Frame1(Frame):
             f = Frame(master=f3)  # Frame de la zona de interacción
 
             ##
+            def lanzar(arg):
+
+                def guardar():
+                    codigo = interaccion.getValue(criterios[0])
+                    nombre = interaccion.getValue(criterios[1])
+                    año = interaccion.getValue(criterios[2])
+                    ejemplar = interaccion.getValue(criterios[3])
+                    idautor = interaccion.getValue(criterios[4])
+                    tipo= interaccion.getValue(criterios[5])
+                    referencia= interaccion.getValue(criterios[6])
+                    volumen= interaccion.getValue(criterios[7])
+                    nestanteria= interaccion.getValue(criterios[8])
+
+
+                    
+                    l = Libro(codigo,nombre,año,ejemplar,None ,tipo,referencia,volumen, None)
+                    l.asignarAutor(idautor)
+                    l.asignarEstanteria(nestanteria)
+
+                    #Label(master=f,text=Publicacion.mostrarRegistros()).pack()
+                    #
+                    #
+                    lanzar(interaccion)
+
+                tituloCriterios = "ATRIBUTO"
+                criterios = ["Codigo", "Nombre", "Año",'Ejemplar' ,"Autor(ID)",'Tipo',"Referencia","Volumen","Estanteria(#)"]
+                tituloValores = "VALOR"
+                valores= None
+                habilitado = None
+                if arg is None:
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+                else:
+                    arg.destroy()
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+
+                interaccion.pack(side=TOP)
+                borrar.config(command=partial(lanzar,interaccion))
+                aceptar.config(command=guardar)
+                f.pack()
+
+
+            botones = Frame(f)
+            aceptar = Button(botones,text="Aceptar")
+            aceptar.grid(row=1,column=1)
+            borrar = Button(botones,text="Borrar")
+            borrar.grid(row=1,column=2)
+            botones.pack(side=BOTTOM)
+
+            lanzar(None)
 
             ##
 
@@ -209,6 +272,49 @@ class Frame1(Frame):
 
             f = Frame(master=f4)  # Frame de la zona de interacción
 
+             ##
+            def lanzar(arg):
+
+                def guardar():
+                    codigo = interaccion.getValue(criterios[0])
+                    nombre = interaccion.getValue(criterios[1])
+                    año = interaccion.getValue(criterios[2])
+                    ejemplar = interaccion.getValue(criterios[3])
+                    referencia= interaccion.getValue(criterios[4])
+                    nestanteria= interaccion.getValue(criterios[5])
+                    
+                    f=Folleto(codigo,nombre,año,ejemplar,referencia,None)
+                    f.asignarEstanteria(nestanteria)
+                    #
+                    #
+                    lanzar(interaccion)
+
+                tituloCriterios = "ATRIBUTO"
+                criterios = ["Codigo", "Nombre", "Año",'Ejemplar',"Referencia","Estanteria(#)"]
+                tituloValores = "VALOR"
+                valores= None
+                habilitado = None
+                if arg is None:
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+                else:
+                    arg.destroy()
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+
+                interaccion.pack(side=TOP)
+                borrar.config(command=partial(lanzar,interaccion))
+                aceptar.config(command=guardar)
+                f.pack()
+
+
+            botones = Frame(f)
+            aceptar = Button(botones,text="Aceptar")
+            aceptar.grid(row=1,column=1)
+            borrar = Button(botones,text="Borrar")
+            borrar.grid(row=1,column=2)
+            botones.pack(side=BOTTOM)
+
+            lanzar(None)
+
 
             f4.pack()
 
@@ -221,6 +327,52 @@ class Frame1(Frame):
             f = Frame(master=f5)  # Frame de la zona de interacción
 
 
+
+            def lanzar(arg):
+
+                def guardar():
+                    codigo = interaccion.getValue(criterios[0])
+                    nombre = interaccion.getValue(criterios[1])
+                    año = interaccion.getValue(criterios[2])
+                    ejemplar = interaccion.getValue(criterios[3])
+                    numero = interaccion.getValue(criterios[4])
+                    mes= interaccion.getValue(criterios[5])
+                    temporada= interaccion.getValue(criterios[6])
+                    nestanteria= interaccion.getValue(criterios[7])
+                    
+                    r = Revista(codigo, nombre,año,ejemplar,numero,mes,temporada,None)
+                    r.asignarEstanteria(nestanteria)
+                    #
+                    #
+                    lanzar(interaccion)
+
+                tituloCriterios = "ATRIBUTO"
+                criterios = ["Codigo", "Nombre", "Año",'Ejemplar' ,"Numero",'Mes',"Temporada","Estanteria(#)"]
+                tituloValores = "VALOR"
+                valores= None
+                habilitado = None
+                if arg is None:
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+                else:
+                    arg.destroy()
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+
+                interaccion.pack(side=TOP)
+                borrar.config(command=partial(lanzar,interaccion))
+                aceptar.config(command=guardar)
+                f.pack()
+
+
+            botones = Frame(f)
+            aceptar = Button(botones,text="Aceptar")
+            aceptar.grid(row=1,column=1)
+            borrar = Button(botones,text="Borrar")
+            borrar.grid(row=1,column=2)
+            botones.pack(side=BOTTOM)
+
+            lanzar(None)
+
+
             f5.pack()
 
         def seis():
@@ -230,7 +382,49 @@ class Frame1(Frame):
 
 
             f = Frame(master=f6)  # Frame de la zona de interacción
+            
+            def lanzar(arg):
 
+                def guardar():
+                    nombre= interaccion.getValue(criterios[0])
+                    id = interaccion.getValue(criterios[1])
+                    correo = interaccion.getValue(criterios[2])
+                    tel = interaccion.getValue(criterios[3])
+                    dir = interaccion.getValue(criterios[4])
+                    nac= interaccion.getValue(criterios[5])
+                    pais= interaccion.getValue(criterios[6])
+                    rol= interaccion.getValue(criterios[7])
+                    
+                    obj = EstudianteProfesor(nombre,id,correo,tel,dir,nac,pais,rol)
+                    #
+                    #
+                    lanzar(interaccion)
+
+                tituloCriterios = "ATRIBUTO"
+                criterios = ["Nombre", "Id", "Correo",'Telefono' ,"Direccion",'Nacimiento',"Pais","Rol"]
+                tituloValores = "VALOR"
+                valores= None
+                habilitado = None
+                if arg is None:
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+                else:
+                    arg.destroy()
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+
+                interaccion.pack(side=TOP)
+                borrar.config(command=partial(lanzar,interaccion))
+                aceptar.config(command=guardar)
+                f.pack()
+
+
+            botones = Frame(f)
+            aceptar = Button(botones,text="Aceptar")
+            aceptar.grid(row=1,column=1)
+            borrar = Button(botones,text="Borrar")
+            borrar.grid(row=1,column=2)
+            botones.pack(side=BOTTOM)
+
+            lanzar(None)
 
             f6.pack()
 
@@ -241,6 +435,52 @@ class Frame1(Frame):
 
 
             f = Frame(master=f7)  # Frame de la zona de interacción
+
+
+            def lanzar(arg):
+
+                def guardar():
+                    nombre= interaccion.getValue(criterios[0])
+                    id = interaccion.getValue(criterios[1])
+                    correo = interaccion.getValue(criterios[2])
+                    tel = interaccion.getValue(criterios[3])
+                    dir = interaccion.getValue(criterios[4])
+                    nac= interaccion.getValue(criterios[5])
+                    pais= interaccion.getValue(criterios[6])
+                    rol= interaccion.getValue(criterios[7])
+                    uni = interaccion.getValue(criterios[8])
+                    
+                    obj = Externo(nombre,id,correo,tel,dir,nac,pais,rol,uni)
+                    Label(master=f,text=Persona.mostrarRegistros()).pack()
+                    #
+                    #
+                    lanzar(interaccion)
+
+                tituloCriterios = "ATRIBUTO"
+                criterios = ["Nombre", "Id", "Correo",'Telefono' ,"Direccion",'Nacimiento',"Pais","Rol","Universidad"]
+                tituloValores = "VALOR"
+                valores= None
+                habilitado = None
+                if arg is None:
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+                else:
+                    arg.destroy()
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+
+                interaccion.pack(side=TOP)
+                borrar.config(command=partial(lanzar,interaccion))
+                aceptar.config(command=guardar)
+                f.pack()
+
+
+            botones = Frame(f)
+            aceptar = Button(botones,text="Aceptar")
+            aceptar.grid(row=1,column=1)
+            borrar = Button(botones,text="Borrar")
+            borrar.grid(row=1,column=2)
+            botones.pack(side=BOTTOM)
+
+            lanzar(None)
 
 
             f7.pack()

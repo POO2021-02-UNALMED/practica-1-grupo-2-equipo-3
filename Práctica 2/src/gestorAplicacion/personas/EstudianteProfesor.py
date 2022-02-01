@@ -17,7 +17,7 @@ class EstudianteProfesor(Persona,Usuario):
     def infoPersonal(self):
         return f'USUARIO INTERNO - DATOS PERSONALES: \n Nombre: {self.nombre} \n Rol: {self._rol} \n CC: {self.id} \n Universidad: {self._universidad} \n Correo: {self.correo} \n Fecha nacimiento: {self.nacimiento} \n Telefono: {self.telefono} \n Direccion residencia: {self.direccion} \n Pais: {self.pais} \n '
     
-
+    
     
     def getUniversidad(self):
         return self._universidad
