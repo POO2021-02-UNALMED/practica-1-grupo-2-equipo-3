@@ -1,8 +1,7 @@
 
 from enum import Enum
 from Publicacion import Publicacion
-from gestorAplicacion.personas import Autor
-
+from Persona import Persona
 class tipoLibro(Enum):
     cg = 'COLECCION_GENERAL'
     r = 'RESERVA'
