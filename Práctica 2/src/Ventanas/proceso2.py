@@ -1,7 +1,7 @@
 from tkinter import *
 from functools import partial
 from tkinter import ttk
-from Ventanas.FieldFrame import FieldFrame
+# from Ventanas.FieldFrame import FieldFrame
 
 ## Objetos
 from gestorAplicacion.obras.Estanteria import Estanteria
@@ -19,15 +19,12 @@ class Frame2(Frame):
         f2 = Frame(master=self)
         f3 = Frame(master=self)
         f4 = Frame(master=self)
-        f5 = Frame(master=self)
-        f6 = Frame(master=self)
-        f7 = Frame(master=self)
 
         def ini():
-            nombre = Label(master=f_ini,text="Mostrar Registros",
+            Label(master=f_ini,text="Mostrar Registros",
             font=("Georgia",20)).pack()
 
-            desc = Label(master=f_ini,text="Seleccione el tipo de dato que desee ingresar",
+            Label(master=f_ini,text="Seleccione el tipo de dato que desee ingresar",
             font=("Georgia",12)).pack()
 
 
