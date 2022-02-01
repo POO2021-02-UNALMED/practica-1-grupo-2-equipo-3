@@ -1,4 +1,4 @@
-from momentaneo.Publicacion import Publicacion,Estado
+from gestorAplicacion.Publicacion import Publicacion,Estado
 # from Publicacion import Estado
 from enum import Enum
 

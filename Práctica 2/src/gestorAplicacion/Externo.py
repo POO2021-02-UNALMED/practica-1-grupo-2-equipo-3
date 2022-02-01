@@ -1,5 +1,5 @@
-from Persona import Persona
-from Usuario import Usuario
+from gestorAplicacion.Persona import Persona
+from gestorAplicacion.Usuario import Usuario
 
 
 class Externo(Persona,Usuario):

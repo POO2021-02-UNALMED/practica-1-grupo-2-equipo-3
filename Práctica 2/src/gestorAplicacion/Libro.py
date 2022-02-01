@@ -1,8 +1,8 @@
 
 from enum import Enum
-from momentaneo.Publicacion import Publicacion
-from momentaneo.Autor import Autor
-from momentaneo.Estanteria import Estanteria
+from gestorAplicacion.Publicacion import Publicacion
+from gestorAplicacion.Autor import Autor
+from gestorAplicacion.Estanteria import Estanteria
 
 class tipoLibro(Enum):
     cg = 'COLECCION_GENERAL'

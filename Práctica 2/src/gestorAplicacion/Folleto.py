@@ -1,5 +1,4 @@
-from momentaneo.Publicacion import Publicacion,Estado
-# from Publicacion import Estado
+from gestorAplicacion.Publicacion import Publicacion,Estado
 
 class Folleto(Publicacion): 
     # serialversion ?

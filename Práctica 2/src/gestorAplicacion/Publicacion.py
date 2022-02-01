@@ -1,7 +1,7 @@
 from enum import Enum
 from abc import ABC, abstractmethod
 
-from momentaneo.Estanteria import Estanteria
+from gestorAplicacion.Estanteria import Estanteria
 
 #CLASE ABSTRACTA
 class Estado(Enum):

@@ -7,9 +7,9 @@
 
 # from Obras import Estanteria, Libro, Revista
 
-from momentaneo.Estanteria import Estanteria
-from momentaneo.Libro import Libro,tipoLibro
-from momentaneo.Revista import Revista
+from gestorAplicacion.Estanteria import Estanteria
+from gestorAplicacion.Libro import Libro,tipoLibro
+from gestorAplicacion.Revista import Revista
 
 
 if __name__ == "__main__":
