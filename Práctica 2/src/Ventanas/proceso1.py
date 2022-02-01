@@ -1,5 +1,5 @@
 from tkinter import *
-from FielFrame import FieldFrame
+from FieldFrame import FieldFrame
 
 class Frame1(Frame):
     def __init__(self,w):
@@ -12,9 +12,23 @@ class Frame1(Frame):
         "\ningrese los correspondiente segín desee",
         font=("Georgia",12)).pack()
 
-        # interaccion = Frame(master=self)  # Frame de la zona de interacción
+
+        # Frame de interacción
+        f = Frame(self)
+
+
         tituloCriterios = "CRITERIO"
         criterios = ["Codigo", "Nombre", "Descripción", "Ubicación"]
-        interaccion = FieldFrame(self,tituloCriterios, criterios, "VALOR")  # Frame de la zona de interacción
-        
-        interaccion.pack()
+        tituloValores = "VALOR"
+        valores = ["Codigo", "Nombre", "Descripción", "Ubicación"]
+        valores= []
+        habilitado = []
+        interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores)  # Frame de la zona de interacción
+        interaccion.pack(side=TOP)
+
+        botones = Frame(f)
+        Button(botones,text="Aceptar").grid(row=1,column=1)
+        Button(botones,text="Borrar").grid(row=1,column=2)
+
+
+        f.pack()
