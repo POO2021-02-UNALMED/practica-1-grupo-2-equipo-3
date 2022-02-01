@@ -1,6 +1,7 @@
 
 from enum import Enum
 from Publicacion import Publicacion
+from gestorAplicacion.personas import Autor
 
 class tipoLibro(Enum):
     cg = 'COLECCION_GENERAL'
@@ -17,7 +18,7 @@ class Libro(Publicacion):
     
 
     #Constructor
-    def __init__(self, codigo,nombre,año,ejemplar,autor='...',tipolibro='...',referencia='...',volumen=0,estanteria=None,prestamo=None) :
+    def __init__(self, codigo,nombre,año,ejemplar,autor=None,tipolibro='...',referencia='...',volumen=0,estanteria=None,prestamo=None) :
         super().__init__(codigo,nombre,año,ejemplar)
         self._autor = autor
         self._tipo = tipolibro
@@ -32,6 +33,16 @@ class Libro(Publicacion):
 
 
     #Metodos
+    
+
+    def asignarAutor(self,idAutor):
+
+        for x in Autor.getLista():
+            if x.getId() == idAutor:
+                self.setAutor(x)
+                x.getLibros().append(self)
+                break
+
     def mostrarInfo(self):
         return  f'INFORMACION DEL LIBRO: \n Nombre: {self.getNombre()} \n Autor: {self.getAutor()} \n Año: {self.getAño()} \n Tipo: {self.getTipo} \n Vol: {self.getVol} \n Codigo: {self.getCodigo} \n Ejemplar: {self.getEjemplar} \n Estado: {self.getEstado} \n Referencia: {self.getReferencia}'
         

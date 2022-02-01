@@ -54,11 +54,11 @@ class Estanteria: #serializacion ?
             c="La Estanteria contiene los siguientes Folletos \n " + c 
         return c
     
-    def agregarPublicacion(self,p):
+    '''def agregarPublicacion(self,codigoP):
         publicaciones = self.getPublicaciones() + p
         self.setPublicaciones(publicaciones)
         for x in p:
-            x.setEstanteria(self)
+            x.setEstanteria(self)'''
         
     
     @classmethod

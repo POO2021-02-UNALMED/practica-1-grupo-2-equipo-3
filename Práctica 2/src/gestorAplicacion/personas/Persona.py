@@ -26,6 +26,9 @@ class Persona(ABC):
 
     @classmethod
     def mostrarRegistros(cls):
+        from Autor import Autor
+        from EstudianteProfesor import EstudianteProfesor
+        from Externo import Externo
         
         c="Personas creadas: \n"
 

@@ -36,6 +36,8 @@ class Autor(Persona):
         elif self.isVivo() == False:
             c = f'INFORMACION DEL AUTOR: \n Nombre: {self.nombre} \n Pais de Origen: {self.pais} \n Fecha de nacimiento: {self.nacimiento} \n ¿Vivo?: NO'
         return c
+    
+    
 
     
     @classmethod
