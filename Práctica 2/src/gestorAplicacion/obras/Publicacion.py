@@ -45,9 +45,9 @@ class Publicacion(ABC) :
 
     @classmethod
     def mostrarRegistros(cls):
-        from Libro import Libro
-        from Revista import Revista
-        from Folleto import Folleto
+        from gestorAplicacion.obras.Libro import Libro
+        from gestorAplicacion.obras.Revista import Revista
+        from gestorAplicacion.obras.Folleto import Folleto
         c = "Publicaciones creadas "+ "\n"
         for i,x in enumerate(Publicacion._lista) :
             if isinstance(x,Libro):
