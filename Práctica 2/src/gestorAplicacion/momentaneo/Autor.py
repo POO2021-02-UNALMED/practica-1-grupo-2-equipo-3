@@ -1,6 +1,6 @@
 
 
-from gestorAplicacion.personas.Persona import Persona
+from Persona import Persona
 
 
 class Autor(Persona):

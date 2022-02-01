@@ -1,7 +1,9 @@
 
 from enum import Enum
 from Publicacion import Publicacion
-from Persona import Persona
+from Autor import Autor
+from Estanteria import Estanteria
+
 class tipoLibro(Enum):
     cg = 'COLECCION_GENERAL'
     r = 'RESERVA'
@@ -26,7 +28,6 @@ class Libro(Publicacion):
         self.estanteria = estanteria
         self.prestamo = prestamo
         Libro._libro.append(self)
-        
         if estanteria is not None:
             self.estanteria.getPublicaciones.append(self)
 
