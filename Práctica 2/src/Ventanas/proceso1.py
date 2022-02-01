@@ -21,11 +21,13 @@ class Frame1(Frame):
         def lanzar(arg):
 
             def guardar():
-                # Constructores para creacion del objeto
                 codigo = interaccion.getValue(criterios[0])
                 nombre = interaccion.getValue(criterios[1])
                 descripcion = interaccion.getValue(criterios[2])
                 ubicacion = interaccion.getValue(criterios[3])
+                #
+                # Objeto(codigo,nombre,descripcion,ubicacion)
+                #
                 lanzar(interaccion)
 
             tituloCriterios = "CRITERIO"
