@@ -1,3 +1,4 @@
+from re import T
 from tkinter import *
 
 class FieldFrame(Frame):
@@ -6,30 +7,29 @@ class FieldFrame(Frame):
         valores=None, habilitado=None):
         super().__init__(master,relief=GROOVE, borderwidth=4)
 
-        Label(self,text=tituloCriterios).grid(row=1,column=1)
-        Label(self,text=tituloValores).grid(row=1,column=2)
+        Label(self,text=tituloCriterios).grid(row=0,column=0)
+        Label(self,text=tituloValores).grid(row=0,column=1)
 
         for i in range(len(criterios)):
-            Label(self,text=criterios[i]).grid(row=i+2,column=1)
+            Label(self,text=criterios[i]).grid(row=i+1,column=0)
             if valores is not None:
                 if habilitado is None:
                     e = Entry(self,width=50)
-                    e.grid(row=i+2,column=2)
+                    e.grid(row=i+1,column=1)
                     e.insert(0,valores[i])
                 else:
                     estado = NORMAL
                     if i+1 in habilitado:
                         estado = DISABLED
                     e = Entry(self,width=50)
-                    e.grid(row=i+2,column=2)
+                    e.grid(row=i+1,column=1)
                     e.insert(0,valores[i])
                     e.config(state=estado)
-                    pass
             else:
-                Entry(self,width=50).grid(row=i+2,column=2)
+                Entry(self,width=50,textvariable=criterios[i]).grid(row=i+1,column=1)
 
-        # Button(self,text="Aceptar").grid(row=len(criterios)+3,column=1)
-        # Button(self,text="Borrar").grid(row=len(criterios)+3,column=2)
+        def getValue(self,crit):
+            crit.get
 
 
 
