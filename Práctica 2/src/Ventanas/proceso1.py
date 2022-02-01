@@ -22,19 +22,23 @@ class Frame1(Frame):
 
             def guardar():
                 # Constructores para creacion del objeto
+                codigo = interaccion.getValue(criterios[0])
+                nombre = interaccion.getValue(criterios[1])
+                descripcion = interaccion.getValue(criterios[2])
+                ubicacion = interaccion.getValue(criterios[3])
                 lanzar(interaccion)
 
             tituloCriterios = "CRITERIO"
             criterios = ["Codigo", "Nombre", "Descripción", "Ubicación"]
             tituloValores = "VALOR"
             valores = ["Codigo", "Nombre", "Descripción", "Ubicación"]
-            valores= []
-            habilitado = []
+            valores= [51218418,"","",""]
+            habilitado = [1,3]
             if arg is None:
-                interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores)  # Frame de la zona de interacción
+                interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
             else:
                 arg.destroy()
-                interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores)  # Frame de la zona de interacción
+                interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
 
             interaccion.pack(side=TOP)
             borrar.config(command=partial(lanzar,interaccion))
