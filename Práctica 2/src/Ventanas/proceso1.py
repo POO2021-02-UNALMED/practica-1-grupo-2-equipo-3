@@ -4,6 +4,11 @@ from functools import partial
 from Ventanas.FieldFrame import FieldFrame
 from tkinter import ttk
 
+## Objetos
+from gestorAplicacion.obras import Estanteria,Libro,Revista,Folleto
+from gestorAplicacion.personas import EstudianteProfesor,Externo
+##
+
 class Frame1(Frame):
     _opcion = None
     def __init__(self,w):
@@ -48,16 +53,9 @@ class Frame1(Frame):
                 if self._opcion == "Estantería":
                     f_ini.pack_forget()
                     uno()
-                    pass
-                    #Se guarda la op correcta
-                    # label2.config(text=opcion)
-                    # label2.pack()
                 elif self._opcion == "Autor":
                     f_ini.pack_forget()
                     dos()
-                    #Se guarda la op correcta
-                    # label2.config(text=opcion)
-                    # label2.pack()
                 elif self._opcion == "Publicación":
                     label.config(text="Tipo de Publicación:")
                     label.pack()
@@ -83,7 +81,6 @@ class Frame1(Frame):
             Button(interaccion,text="Aceptar",command=partial(ejecutar,opciones)).pack()
 
             label = Label(master=interaccion,font=("Georgia",10)) # Para desplegar otra opción
-            # label2 = Label(master=interaccion,font=("Georgia",10)) # Paras saber si se almacena la opcion correcta
 
             interaccion.pack()
 
@@ -102,21 +99,21 @@ class Frame1(Frame):
             def lanzar(arg):
 
                 def guardar():
-                    codigo = interaccion.getValue(criterios[0])
-                    nombre = interaccion.getValue(criterios[1])
-                    descripcion = interaccion.getValue(criterios[2])
-                    ubicacion = interaccion.getValue(criterios[3])
+                    numero = interaccion.getValue(criterios[0])
+                    piso = interaccion.getValue(criterios[1])
+                    ls = interaccion.getValue(criterios[2])
+                    li = interaccion.getValue(criterios[3])
                     #
-                    # Objeto(codigo,nombre,descripcion,ubicacion)
+                    # Estanteria(numero,piso,ls,li)
+                    # Label(master=f,text=numero).pack()   # Prueba
                     #
                     lanzar(interaccion)
 
-                tituloCriterios = "CRITERIO"
-                criterios = ["Codigo", "Nombre", "Descripción", "Ubicación"]
+                tituloCriterios = "ATRIBUTO"
+                criterios = ["Número", "Piso", "Límite Superior", "Límite Inferior"]
                 tituloValores = "VALOR"
-                valores = ["Codigo", "Nombre", "Descripción", "Ubicación"]
-                valores= [51218418,"","",""]
-                habilitado = [1,3]
+                valores= None
+                habilitado = None
                 if arg is None:
                     interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
                 else:
@@ -138,12 +135,6 @@ class Frame1(Frame):
 
             lanzar(None)
 
-
-
-
-
-
-
             f1.pack()
 
         def dos():
@@ -151,9 +142,47 @@ class Frame1(Frame):
 
             Label(master=f2,text="Llene los siguientes campos:",font=("Georgia",12)).pack()
 
+            f = Frame(master=f2)  # Frame de la zona de interacción
 
-            interaccion = Frame(master=f2)  # Frame de la zona de interacción
+            ##
+            def lanzar(arg):
 
+                def guardar():
+                    nombre = interaccion.getValue(criterios[0])
+                    dir = interaccion.getValue(criterios[1])
+                    ls = interaccion.getValue(criterios[2])
+                    lu = interaccion.getValue(criterios[3])
+                    #
+                    # Autor(nombre,dir,ls,lu)
+                    #
+                    lanzar(interaccion)
+
+                tituloCriterios = "ATRIBUTO"
+                criterios = ["Nombre", "Dirección", "Límite Superior", "Límite Inferior"]
+                tituloValores = "VALOR"
+                valores= None
+                habilitado = None
+                if arg is None:
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+                else:
+                    arg.destroy()
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+
+                interaccion.pack(side=TOP)
+                borrar.config(command=partial(lanzar,interaccion))
+                aceptar.config(command=guardar)
+                f.pack()
+
+
+            botones = Frame(f)
+            aceptar = Button(botones,text="Aceptar")
+            aceptar.grid(row=1,column=1)
+            borrar = Button(botones,text="Borrar")
+            borrar.grid(row=1,column=2)
+            botones.pack(side=BOTTOM)
+
+            lanzar(None)
+            ##
 
             f2.pack()
 
@@ -163,7 +192,11 @@ class Frame1(Frame):
             Label(master=f3,text="Llene los siguientes campos:",font=("Georgia",12)).pack()
 
 
-            interaccion = Frame(master=f3)  # Frame de la zona de interacción
+            f = Frame(master=f3)  # Frame de la zona de interacción
+
+            ##
+
+            ##
 
 
             f3.pack()
@@ -174,7 +207,7 @@ class Frame1(Frame):
             Label(master=f4,text="Llene los siguientes campos:",font=("Georgia",12)).pack()
 
 
-            interaccion = Frame(master=f4)  # Frame de la zona de interacción
+            f = Frame(master=f4)  # Frame de la zona de interacción
 
 
             f4.pack()
@@ -185,7 +218,7 @@ class Frame1(Frame):
             Label(master=f5,text="Llene los siguientes campos:",font=("Georgia",12)).pack()
 
 
-            interaccion = Frame(master=f5)  # Frame de la zona de interacción
+            f = Frame(master=f5)  # Frame de la zona de interacción
 
 
             f5.pack()
@@ -196,7 +229,7 @@ class Frame1(Frame):
             Label(master=f6,text="Llene los siguientes campos:",font=("Georgia",12)).pack()
 
 
-            interaccion = Frame(master=f6)  # Frame de la zona de interacción
+            f = Frame(master=f6)  # Frame de la zona de interacción
 
 
             f6.pack()
@@ -207,7 +240,7 @@ class Frame1(Frame):
             Label(master=f7,text="Llene los siguientes campos:",font=("Georgia",12)).pack()
 
 
-            interaccion = Frame(master=f7)  # Frame de la zona de interacción
+            f = Frame(master=f7)  # Frame de la zona de interacción
 
 
             f7.pack()
