@@ -1,16 +1,6 @@
-
-# from Obras.Estanteria import Estanteria
-# from gestorAplicacion.momentaneo.Publicacion import Publicacion, Estado
-# from gestorAplicacion.momentaneo.Libro import Libro, tipoLibro
-# from gestorAplicacion.momentaneo.Revista import Revista
-
-
-# from Obras import Estanteria, Libro, Revista
-
-from gestorAplicacion.Estanteria import Estanteria
-from gestorAplicacion.Libro import Libro,tipoLibro
-from gestorAplicacion.Revista import Revista
-
+from gestorAplicacion.obras.Estanteria import Estanteria
+from gestorAplicacion.obras.Libro import Libro,tipoLibro
+from gestorAplicacion.obras.Revista import Revista
 
 if __name__ == "__main__":
     r1= Revista(2342,"semana",2014,1,'sds')

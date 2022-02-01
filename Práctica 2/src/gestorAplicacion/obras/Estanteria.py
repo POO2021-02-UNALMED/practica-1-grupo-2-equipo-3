@@ -38,9 +38,9 @@ class Estanteria: #serializacion ?
         return f'INFORMACION DE LA ESTANTERIA: \n Numero: {self.getNumero()} \n Limites: {self.getLimites()} \n Piso: {self.getPiso()}'
 
     def mostrarContenido(self):
-        from gestorAplicacion.Libro import Libro
-        from gestorAplicacion.Revista import Revista
-        from gestorAplicacion.Folleto import Folleto
+        from gestorAplicacion.obras.Libro import Libro
+        from gestorAplicacion.obras.Revista import Revista
+        from gestorAplicacion.obras.Folleto import Folleto
         c=""
         for i,x in enumerate(self._publicaciones):
             c= c + str(i) + f'. {x.getNombre()} Codigo {x.getCodigo()} \n '

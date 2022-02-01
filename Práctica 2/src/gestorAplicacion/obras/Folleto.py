@@ -1,4 +1,4 @@
-from gestorAplicacion.Publicacion import Publicacion,Estado
+from gestorAplicacion.obras.Publicacion import Publicacion,Estado
 
 class Folleto(Publicacion): 
     # serialversion ?

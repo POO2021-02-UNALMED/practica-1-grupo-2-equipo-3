@@ -1,7 +1,4 @@
-
-
-from gestorAplicacion.Persona import Persona
-
+from gestorAplicacion.personas.Persona import Persona
 
 class Autor(Persona):
     #Atributo de clase

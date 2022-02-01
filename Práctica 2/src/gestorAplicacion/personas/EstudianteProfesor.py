@@ -1,5 +1,5 @@
-from gestorAplicacion.Persona import Persona
-from gestorAplicacion.Usuario import Usuario
+from gestorAplicacion.personas.Persona import Persona
+from gestorAplicacion.personas.Usuario import Usuario
 
 
 class EstudianteProfesor(Persona,Usuario):
