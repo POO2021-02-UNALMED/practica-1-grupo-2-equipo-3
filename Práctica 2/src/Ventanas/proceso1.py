@@ -28,6 +28,7 @@ class Frame1(Frame):
                 #
                 # Objeto(codigo,nombre,descripcion,ubicacion)
                 #
+                Button(self,text=codigo).pack()
                 lanzar(interaccion)
 
             tituloCriterios = "CRITERIO"
