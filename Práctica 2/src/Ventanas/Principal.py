@@ -12,10 +12,17 @@ def ingreso(start):
     window.title("Sistema de Información Bibliotecario")
     start.iconify()
 
+    # Archivos para serializar
+    picke_estanterias = open('src/baseDatos/estanterias','wb')
+    picke_autores = open('src/baseDatos/autores','wb')
+    picke_publicaciones = open('src/baseDatos/publicaciones','wb')
+    picke_personas = open('src/baseDatos/personas','wb')
+
     def inicio():
-
-        pickefile1 = open('estanterias','wb')
-
+        picke_estanterias.close()
+        picke_autores.close()
+        picke_publicaciones.close()
+        picke_personas.close()
 
         start.deiconify()
         window.destroy()
