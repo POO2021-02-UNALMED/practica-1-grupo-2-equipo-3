@@ -13,23 +13,28 @@ def ingreso(start):
     start.iconify()
 
     # Archivos para serializar
-    picke_estanterias = open('src/baseDatos/estanterias','wb')
-    bd_estanterias = open('src/baseDatos/estanterias','rb')
+    w_estanterias = open('src/baseDatos/estanterias','wb')
+    r_estanterias = open('src/baseDatos/estanterias','rb')
 
-    picke_autores = open('src/baseDatos/autores','wb')
-    bd_autores = open('src/baseDatos/autores','rb')
+    w_autores = open('src/baseDatos/autores','wb')
+    r_autores = open('src/baseDatos/autores','rb')
 
-    picke_publicaciones = open('src/baseDatos/publicaciones','wb')
-    bd_publicaciones = open('src/baseDatos/publicaciones','rb')
+    w_publicaciones = open('src/baseDatos/publicaciones','wb')
+    r_publicaciones = open('src/baseDatos/publicaciones','rb')
 
-    picke_personas = open('src/baseDatos/personas','wb')
-    bd_personas = open('src/baseDatos/personas','rb')
+    w_personas = open('src/baseDatos/personas','wb')
+    r_personas = open('src/baseDatos/personas','rb')
 
     def inicio():
-        picke_estanterias.close()
-        picke_autores.close()
-        picke_publicaciones.close()
-        picke_personas.close()
+        w_estanterias.close()
+        w_autores.close()
+        w_publicaciones.close()
+        w_personas.close()
+
+        r_estanterias.close()
+        r_autores.close()
+        r_publicaciones.close()
+        r_personas.close()
 
         start.deiconify()
         window.destroy()
