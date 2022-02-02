@@ -16,71 +16,20 @@ from gestorAplicacion.personas.Autor import Autor
 from gestorAplicacion.personas.Usuario import Usuario
 ##
 
+## Funciones
+from baseDatos.Almacenamiento import serializar,deserializar
+##
+
 def ingreso(start):
     window = Toplevel()
     # window.geometry("450x300")
     window.title("Sistema de Información Bibliotecario")
     start.iconify()
-
-    # Archivos para deserializar
-    r_estanterias = open('src/baseDatos/estanterias','rb')
-    Estanteria.setLista(pickle.load(r_estanterias))
-    r_estanterias.close()
-
-    r_autores = open('src/baseDatos/autores','rb')
-    Autor.setAutores(pickle.load(r_autores))
-    r_autores.close()
-
-    r_publicaciones = open('src/baseDatos/publicaciones','rb')
-    Publicacion.setLista(pickle.load(r_publicaciones))
-    r_publicaciones.close()
-
-    r_libros = open('src/baseDatos/libros','rb')
-    Libro.setLibro(pickle.load(r_libros))
-    r_libros.close()
-
-    r_revistas = open('src/baseDatos/revistas','rb')
-    Revista.setRevista(pickle.load(r_revistas))
-    r_revistas.close()
-    
-    r_folletos = open('src/baseDatos/folletos','rb')
-    Folleto.setFolleto(pickle.load(r_folletos))
-    r_folletos.close()
-
-    r_usuarios = open('src/baseDatos/usuarios','rb')
-    Usuario.setUsuarios(pickle.load(r_usuarios))
-    r_usuarios.close()
+    deserializar() # Cargamos todas las listas guardadas
 
 
     def inicio():
-        # Archivos para serializar
-        w_estanterias = open('src/baseDatos/estanterias','wb')
-        pickle.dump(Estanteria.getLista(),w_estanterias)
-        w_estanterias.close()
-
-        w_autores = open('src/baseDatos/autores','wb')
-        pickle.dump(Autor.getAutores(),w_autores)
-        w_autores.close()
-
-        w_publicaciones = open('src/baseDatos/publicaciones','wb')
-        pickle.dump(Publicacion.getLista(),w_publicaciones)
-        w_publicaciones.close()
-
-        w_libros = open('src/baseDatos/libros','wb')
-        pickle.dump(Libro.getLibro(),w_libros)
-        w_libros.close()
-
-        w_folletos = open('src/baseDatos/folletos','wb')
-        pickle.dump(Folleto.getFolleto(),w_folletos)
-        w_folletos.close()
-
-        w_revistas = open('src/baseDatos/revistas','wb')
-        pickle.dump(Revista.getRevista(),w_revistas)
-        w_revistas.close()
-
-        w_usuarios = open('src/baseDatos/usuarios','wb')
-        pickle.dump(Usuario.getUsuarios(),w_usuarios)
-        w_usuarios.close()
+        serializar() # Guardamos todas las listas de objetos
 
         messagebox.showinfo(title="Guardar Y Salir",
         message="INFORMACIÓN:",
