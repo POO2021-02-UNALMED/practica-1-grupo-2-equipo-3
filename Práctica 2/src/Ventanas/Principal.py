@@ -6,6 +6,13 @@ from Ventanas.proceso2 import Frame2
 from Ventanas.proceso3 import Frame3
 import pickle
 
+## Objetos
+from gestorAplicacion.obras.Estanteria import Estanteria
+from gestorAplicacion.obras.Publicacion import Publicacion
+from gestorAplicacion.personas.Autor import Autor
+from gestorAplicacion.personas.Usuario import Usuario
+##
+
 def ingreso(start):
     window = Toplevel()
     # window.geometry("450x300")
@@ -22,19 +29,23 @@ def ingreso(start):
     w_publicaciones = open('src/baseDatos/publicaciones','wb')
     r_publicaciones = open('src/baseDatos/publicaciones','rb')
 
-    w_personas = open('src/baseDatos/personas','wb')
-    r_personas = open('src/baseDatos/personas','rb')
+    w_usuarios = open('src/baseDatos/usuarios','wb')
+    r_usuarios = open('src/baseDatos/usuarios','rb')
 
     def inicio():
+        pickle.dump(Estanteria.getLista,w_estanterias)
         w_estanterias.close()
+        pickle.dump(Autor.getAutores(),w_autores)
         w_autores.close()
+        pickle.dump(Publicacion.getLista(),w_publicaciones)
         w_publicaciones.close()
-        w_personas.close()
+        pickle.dump(Usuario.getUsuarios,w_usuarios)
+        w_usuarios.close()
 
         r_estanterias.close()
         r_autores.close()
         r_publicaciones.close()
-        r_personas.close()
+        r_usuarios.close()
 
         start.deiconify()
         window.destroy()
