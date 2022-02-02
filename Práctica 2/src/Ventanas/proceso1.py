@@ -1,5 +1,6 @@
 from distutils import command
 from tkinter import *
+from tkinter import messagebox
 from functools import partial
 from Ventanas.FieldFrame import FieldFrame
 from tkinter import ttk
@@ -114,6 +115,10 @@ class Frame1(Frame):
                     
                     lim = [ls,li]
                     Estanteria(numero,piso,lim) # creacion del objeto
+
+                    messagebox.showinfo(title="Ingresar Estantería",
+                    message="INFORMACIÓN:",
+                    detail="La estantería ha sido registrada con éxito")
                     
                     lanzar(interaccion)
 
@@ -167,6 +172,9 @@ class Frame1(Frame):
                         vivo = False
 
                     Autor(nombre,id,nacimiento,pais,vivo)
+                    messagebox.showinfo(title="Ingresar Autor",
+                    message="INFORMACIÓN:",
+                    detail="El autor ha sido registrado con éxito")
                     #Label(master=f,text=Autor.mostrarRegistros()).pack()
                     #
                     lanzar(interaccion)
@@ -228,6 +236,10 @@ class Frame1(Frame):
                     l.asignarAutor(idautor)
                     l.asignarEstanteria(nestanteria)
 
+                    messagebox.showinfo(title="Ingresar Libro",
+                    message="INFORMACIÓN:",
+                    detail="El libro ha sido registrado con éxito")
+
                     #Label(master=f,text=Publicacion.mostrarRegistros()).pack()
                     #
                     #
@@ -285,6 +297,10 @@ class Frame1(Frame):
                     
                     f=Folleto(codigo,nombre,año,ejemplar,referencia,None)
                     f.asignarEstanteria(nestanteria)
+
+                    messagebox.showinfo(title="Ingresar Folleto",
+                    message="INFORMACIÓN:",
+                    detail="El folleto ha sido registrado con éxito")
                     #
                     #
                     lanzar(interaccion)
@@ -342,6 +358,10 @@ class Frame1(Frame):
                     
                     r = Revista(codigo, nombre,año,ejemplar,numero,mes,temporada,None)
                     r.asignarEstanteria(nestanteria)
+
+                    messagebox.showinfo(title="Ingresar Revista",
+                    message="INFORMACIÓN:",
+                    detail="La revista ha sido registrada con éxito")
                     #
                     #
                     lanzar(interaccion)
@@ -396,7 +416,10 @@ class Frame1(Frame):
                     rol= interaccion.getValue(criterios[7])
                     
                     obj = EstudianteProfesor(nombre,id,correo,tel,dir,nac,pais,rol)
-                    Label(master=f,text=Usuario.mostrarUsuarios()).pack()
+                    messagebox.showinfo(title="Ingresar Usuario Interno",
+                    message="INFORMACIÓN:",
+                    detail="El usuario interno ha sido registrado con éxito")
+                    # Label(master=f,text=Usuario.mostrarUsuarios()).pack()
                     #
                     #
                     lanzar(interaccion)
@@ -453,6 +476,9 @@ class Frame1(Frame):
                     
                     obj = Externo(nombre,id,correo,tel,dir,nac,pais,rol,uni)
                     Label(master=f,text=Persona.mostrarRegistros()).pack()
+                    messagebox.showinfo(title="Ingresar Usuario Externo",
+                    message="INFORMACIÓN:",
+                    detail="El usuario externo ha sido registrado con éxito")
                     #
                     #
                     lanzar(interaccion)
