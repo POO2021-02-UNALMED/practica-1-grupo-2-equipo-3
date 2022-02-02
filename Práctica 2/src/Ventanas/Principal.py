@@ -22,14 +22,11 @@ from baseDatos.Almacenamiento import serializar,deserializar
 ##
 
 class Principal():
-    f1 = False
-    f2 = False
-    f3 = False
+    frame1 = None
+    frame2 = None
+    frame3 = None
     
-    # @classmethod
-    # def eliminarEstanteria(cls,E):
     def VentanaPrincipal(self,start):
-        self.f1
         window = Toplevel()
         # window.geometry("450x300")
         window.title("Sistema de Información Bibliotecario")
@@ -62,52 +59,47 @@ class Principal():
         frame1 = Frame1(window) # Frame proceso 1
         frame2 = Frame2(window) # Frame proceso 2
         # frame3 = Frame3(window) # Frame proceso 3
-        frame3 = None
-        f3 = True
 
         def ingresar():
             principal.pack_forget()
             frame2.pack_forget()
-            frame3.pack_forget()
+            # frame3.pack_forget()
             frame1.pack()
 
         def mostrar():
             principal.pack_forget()
             frame1.pack_forget()
-            frame3.pack_forget()
+            # frame3.pack_forget()
             # frame3.destroy()
             # frame3 = Frame3(window) # Frame proceso 3
             frame2.pack()
 
         def eliminar():
-            principal.pack_forget()
-            frame1.pack_forget()
-            frame2.pack_forget()
-            frame3.pack()
-
-        
-        def eliminar(arg):
-            if arg is None:
+            if self.frame3 is None:
                 principal.pack_forget()
                 frame1.pack_forget()
                 frame2.pack_forget()
-                frame3 = Frame3(window) # Frame proceso 3
-                frame3.pack()
+                self.frame3 = Frame3(window) # Frame proceso 3
+                self.frame3.pack()
             else:
                 principal.pack_forget()
                 frame1.pack_forget()
                 frame2.pack_forget()
-                # arg.destroy()
-                frame3 = Frame3(window) # Frame proceso 3
-                # elim.config(command=partial(eliminar,frame3))
-                frame3.pack()
-            f3 = True
+                self.frame3.pack_forget()
+                self.frame3.destroy()
+                self.frame3 = Frame3(window) # Frame proceso 3
+                self.frame3.pack()
 
+    
         def pprincipal():
-            frame1.pack_forget()
-            frame2.pack_forget()
-            if frame3 is not None:
-                frame3.pack_forget()
+            # frame1.pack_forget()
+            # frame2.pack_forget()
+            if self.frame1 is not None:
+                self.frame1.destroy()
+            if self.frame2 is not None:
+                self.frame2.destroy()
+            if self.frame3 is not None:
+                self.frame3.destroy()
             principal.pack()
 
         #Manejo de menús
@@ -124,8 +116,8 @@ class Principal():
 
         procesos.add_command(label="Ingresar Registros", command=ingresar)
         procesos.add_command(label="Mostrar Registros", command=mostrar)
-        # procesos.add_command(label="Eliminar Registros", command=eliminar)
-        procesos.add_command(label="Eliminar Registros", command=partial(eliminar,frame3) )
+        procesos.add_command(label="Eliminar Registros", command=eliminar)
+        procesos.add_separator()
         procesos.add_command(label="Interfaz de Inicio", command=pprincipal)
 
         ayuda = Menu(menubar)
