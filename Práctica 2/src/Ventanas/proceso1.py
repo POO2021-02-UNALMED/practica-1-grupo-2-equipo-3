@@ -396,6 +396,7 @@ class Frame1(Frame):
                     rol= interaccion.getValue(criterios[7])
                     
                     obj = EstudianteProfesor(nombre,id,correo,tel,dir,nac,pais,rol)
+                    Label(master=f,text=Usuario.mostrarUsuarios()).pack()
                     #
                     #
                     lanzar(interaccion)
