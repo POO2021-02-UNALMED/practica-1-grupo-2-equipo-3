@@ -127,7 +127,7 @@ class Frame2(Frame):
                 windowr = Toplevel()
                 windowr.title("Registro de Usuarios")
                 t = Text(windowr,font=("consolas",10))
-                t.insert(1.0,Usuario.mostrarRegistros())
+                t.insert(1.0,Usuario.mostrarUsuarios())
                 t.config(state=DISABLED)
                 t.pack()
 
