@@ -56,44 +56,59 @@ class Principal():
             detail="Por medio de esta aplicación usted podrá tener un registro del material disponible y del estado de los préstamos.")
 
         principal = Frame(master=window,width=450,height=300) # Frame Interfaz de Inicio
-        frame1 = Frame1(window) # Frame proceso 1
-        frame2 = Frame2(window) # Frame proceso 2
-        # frame3 = Frame3(window) # Frame proceso 3
-
         def ingresar():
             principal.pack_forget()
-            frame2.pack_forget()
-            # frame3.pack_forget()
-            frame1.pack()
+            if self.frame1 is None:
+                if self.frame2 is not None:
+                    self.frame2.destroy()
+                if self.frame3 is not None:
+                    self.frame3.destroy()  
+            else:
+                if self.frame2 is not None:
+                    self.frame2.destroy()
+                if self.frame3 is not None:
+                    self.frame3.destroy()
+                self.frame1.destroy()        # destruyo lo que se haya creado para el frame1
+
+            self.frame1 = Frame1(window) # Frame proceso 2
+            self.frame1.pack()
 
         def mostrar():
             principal.pack_forget()
-            frame1.pack_forget()
-            # frame3.pack_forget()
-            # frame3.destroy()
-            # frame3 = Frame3(window) # Frame proceso 3
-            frame2.pack()
+            if self.frame2 is None:
+                if self.frame1 is not None:
+                    self.frame1.destroy()
+                if self.frame3 is not None:
+                    self.frame3.destroy()  
+            else:
+                if self.frame1 is not None:
+                    self.frame1.destroy()
+                if self.frame3 is not None:
+                    self.frame3.destroy()
+                self.frame2.destroy()        # destruyo lo que se haya creado para el frame2
+
+            self.frame2 = Frame2(window) # Frame proceso 2
+            self.frame2.pack()
 
         def eliminar():
+            principal.pack_forget()
             if self.frame3 is None:
-                principal.pack_forget()
-                frame1.pack_forget()
-                frame2.pack_forget()
-                self.frame3 = Frame3(window) # Frame proceso 3
-                self.frame3.pack()
+                if self.frame1 is not None:
+                    self.frame1.destroy()
+                if self.frame2 is not None:
+                    self.frame2.destroy()  
             else:
-                principal.pack_forget()
-                frame1.pack_forget()
-                frame2.pack_forget()
-                self.frame3.pack_forget()
-                self.frame3.destroy()
-                self.frame3 = Frame3(window) # Frame proceso 3
-                self.frame3.pack()
+                if self.frame1 is not None:
+                    self.frame1.destroy()
+                if self.frame2 is not None:
+                    self.frame2.destroy()
+                self.frame3.destroy()        # destruyo lo que se haya creado para el frame3
+
+            self.frame3 = Frame3(window) # Frame proceso 3
+            self.frame3.pack()
 
     
         def pprincipal():
-            # frame1.pack_forget()
-            # frame2.pack_forget()
             if self.frame1 is not None:
                 self.frame1.destroy()
             if self.frame2 is not None:
