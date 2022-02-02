@@ -64,7 +64,7 @@ class Frame2(Frame):
             def reg():
                 windowr = Toplevel()
                 windowr.title("Registro de Estanterías")
-                t = Text(windowr,font=("Georgia",10))
+                t = Text(windowr,font=("consolas",10))
                 t.insert(1.0,Estanteria.mostrarRegistros())
                 t.config(state=DISABLED)
                 t.pack()
@@ -84,7 +84,7 @@ class Frame2(Frame):
             def reg():
                 windowr = Toplevel()
                 windowr.title("Registro de Autores")
-                t = Text(windowr,font=("Georgia",10))
+                t = Text(windowr,font=("consolas",10))
                 t.insert(1.0,Autor.mostrarRegistros())
                 t.config(state=DISABLED)
                 t.pack()
@@ -105,7 +105,7 @@ class Frame2(Frame):
             def reg():
                 windowr = Toplevel()
                 windowr.title("Registro de Publicaciones")
-                t = Text(windowr,font=("Georgia",10))
+                t = Text(windowr,font=("consolas",10))
                 t.insert(1.0,Publicacion.mostrarRegistros())
                 t.config(state=DISABLED)
                 t.pack()
@@ -126,7 +126,7 @@ class Frame2(Frame):
             def reg():
                 windowr = Toplevel()
                 windowr.title("Registro de Usuarios")
-                t = Text(windowr,font=("Georgia",10))
+                t = Text(windowr,font=("consolas",10))
                 t.insert(1.0,Usuario.mostrarRegistros())
                 t.config(state=DISABLED)
                 t.pack()
