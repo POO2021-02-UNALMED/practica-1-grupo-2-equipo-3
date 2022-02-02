@@ -1,5 +1,6 @@
 # from distutils import command
 from tkinter import *
+from tkinter import messagebox
 from functools import partial
 from Ventanas.FieldFrame import FieldFrame
 from tkinter import ttk
@@ -8,6 +9,7 @@ from tkinter import ttk
 from gestorAplicacion.obras.Estanteria import Estanteria
 from gestorAplicacion.obras.Publicacion import Publicacion
 from gestorAplicacion.personas.Autor import Autor
+from gestorAplicacion.personas.Persona import Persona
 from gestorAplicacion.personas.Usuario import Usuario
 ##
 
@@ -71,7 +73,19 @@ class Frame3(Frame):
 
             def lanzar(arg):
                 def elim():
-                    pass
+                    numero = interaccion.getValue(criterios[0])
+                    for e in Estanteria.getLista():
+                        if e.getNumero() == numero:
+                            Estanteria.eliminarEstanteria(e)
+                            messagebox.showinfo(title="Eliminar Estantería",
+                            message="ATENCIÓN:",
+                            detail="Usted acaba de eliminar la estantería número "+numero)
+
+                    messagebox.showinfo(title="Eliminar Estantería",
+                    message="ATENCIÓN:",
+                    detail="Usted acaba de eliminar la estantería número "+numero)
+                    lanzar(interaccion)  
+
                 tituloCriterios = ""
                 criterios = ["Número"]
                 tituloValores = "ESTANTERÍA"
@@ -113,7 +127,19 @@ class Frame3(Frame):
 
             def lanzar(arg):
                 def elim():
-                    pass
+                    id = interaccion.getValue(criterios[0])
+                    for a in Autor.getAutores():
+                        if a.getId() == id:
+                            Persona.eliminarPersona(a)
+                            messagebox.showinfo(title="Eliminar Autor",
+                            message="ATENCIÓN:",
+                            detail="Usted acaba de eliminar el autor con ID "+id)
+
+                    messagebox.showinfo(title="Eliminar Autor",
+                    message="ATENCIÓN:",
+                    detail="Usted acaba de eliminar el autor con ID "+id)
+                    lanzar(interaccion) 
+
                 tituloCriterios = ""
                 criterios = ["ID"]
                 tituloValores = "AUTOR"
@@ -154,7 +180,19 @@ class Frame3(Frame):
             f = Frame(master=f3)  # Frame de la zona de interacción
             def lanzar(arg):
                 def elim():
-                    pass
+                    cod = interaccion.getValue(criterios[0])
+                    for p in Publicacion.getLista():
+                        if p.getCodigo() == cod:
+                            Publicacion.eliminarPublicacion(p)
+                            messagebox.showinfo(title="Eliminar Publicación",
+                            message="ATENCIÓN:",
+                            detail="Usted acaba de eliminar la publicación con el código "+cod)
+
+                    messagebox.showinfo(title="Eliminar Publicación",
+                    message="ATENCIÓN:",
+                    detail="Usted acaba de eliminar la publicación con el código "+cod)
+                    lanzar(interaccion) 
+
                 tituloCriterios = ""
                 criterios = ["Código"]
                 tituloValores = "PUBLICACIÓN"
@@ -195,7 +233,18 @@ class Frame3(Frame):
 
             def lanzar(arg):
                 def elim():
-                    pass
+                    id = interaccion.getValue(criterios[0])
+                    for u in Persona.getLista():
+                        if u.getId() == id:
+                            Persona.eliminarPersona(u)
+                            messagebox.showinfo(title="Eliminar Usuario",
+                            message="ATENCIÓN:",
+                            detail="Usted acaba de eliminar lel usuario con ID "+id)
+
+                    messagebox.showinfo(title="Eliminar Usuario",
+                    message="ATENCIÓN:",
+                    detail="Usted acaba de eliminar lel usuario con ID "+id)
+                    lanzar(interaccion) 
 
                 tituloCriterios = ""
                 criterios = ["ID"]
