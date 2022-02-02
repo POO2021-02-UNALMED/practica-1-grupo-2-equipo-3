@@ -26,19 +26,19 @@ class Persona(ABC):
 
     @classmethod
     def mostrarRegistros(cls):
-        from Autor import Autor
-        from EstudianteProfesor import EstudianteProfesor
-        from Externo import Externo
+        from gestorAplicacion.personas.Autor import Autor
+        from gestorAplicacion.personas.EstudianteProfesor import EstudianteProfesor
+        from gestorAplicacion.personas.Externo import Externo
         
         c="Personas creadas: \n"
 
         for i,x in enumerate(Persona._lista ):
             if isinstance(x,Autor):
-                c=c + str(i) + f'. Autor {x.getNombre()} con Identificacion {x.getId} \n'
+                c=c + str(i) + f'. Autor {x.getNombre()} con Identificacion {x.getId()} \n'
             elif isinstance(x,EstudianteProfesor):
-                c=c + str(i) + f'. Usuario de la Universidad {x.getNombre()} con Identificacion {x.getId} \n'
+                c=c + str(i) + f'. Usuario de la Universidad {x.getNombre()} con Identificacion {x.getId()} \n'
             elif isinstance(x,Externo):
-                c=c + str(i) + f'. Usuario externo {x.getNombre()} con Identifiacion {x.getId} \n'
+                c=c + str(i) + f'. Usuario externo {x.getNombre()} con Identifiacion {x.getId()} \n'
         return c
 
     @abstractmethod

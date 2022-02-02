@@ -1,10 +1,10 @@
 import datetime
-from Libro import Libro, tipoLibro
-from Persona import Persona
+from obras.Libro import Libro, tipoLibro
+from personas.Persona import Persona
 
-from Publicacion import Publicacion
-from Revista import Revista
-from Folleto import Folleto
+from obras.Publicacion import Publicacion
+from obras.Revista import Revista
+from obras.Folleto import Folleto
 
 
 class Prestamo:
