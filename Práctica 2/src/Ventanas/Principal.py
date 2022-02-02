@@ -1,20 +1,20 @@
 # from distutils import command
 from tkinter import *
 from tkinter import messagebox
-from functools import partial
+# from functools import partial
 from Ventanas.registro import Frame1
 from Ventanas.muestra import Frame2
 from Ventanas.eliminacion import Frame3
 import pickle
 
 ## Objetos
-from gestorAplicacion.obras.Estanteria import Estanteria
-from gestorAplicacion.obras.Folleto import Folleto
-from gestorAplicacion.obras.Libro import Libro
-from gestorAplicacion.obras.Publicacion import Publicacion
-from gestorAplicacion.obras.Revista import Revista
-from gestorAplicacion.personas.Autor import Autor
-from gestorAplicacion.personas.Usuario import Usuario
+# from gestorAplicacion.obras.Estanteria import Estanteria
+# from gestorAplicacion.obras.Folleto import Folleto
+# from gestorAplicacion.obras.Libro import Libro
+# from gestorAplicacion.obras.Publicacion import Publicacion
+# from gestorAplicacion.obras.Revista import Revista
+# from gestorAplicacion.personas.Autor import Autor
+# from gestorAplicacion.personas.Usuario import Usuario
 ##
 
 ## Funciones
