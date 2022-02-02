@@ -4,6 +4,7 @@ from functools import partial
 from Ventanas.proceso1 import Frame1
 from Ventanas.proceso2 import Frame2
 from Ventanas.proceso3 import Frame3
+import pickle
 
 def ingreso(start):
     window = Toplevel()
@@ -12,6 +13,10 @@ def ingreso(start):
     start.iconify()
 
     def inicio():
+
+        pickefile1 = open('estanterias','wb')
+
+
         start.deiconify()
         window.destroy()
 
@@ -61,7 +66,7 @@ def ingreso(start):
     archivo = Menu(menubar)
     menubar.add_cascade(menu=archivo, label='Archivo')
     archivo.add_command(label="Aplicación", command=aplicacion)
-    archivo.add_command(label="Salir", command=inicio)
+    archivo.add_command(label="Guardar y Salir", command=inicio)
 
     procesos = Menu(menubar)
     menubar.add_cascade(menu=procesos, label='Procesos y Consultas')
