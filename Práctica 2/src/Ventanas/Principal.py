@@ -63,7 +63,9 @@ def ingreso(start):
     def proceso2():
         principal.pack_forget()
         frame1.pack_forget()
-        frame3.pack_forget()
+        # frame3.pack_forget()
+        frame3.destroy()
+        frame3 = Frame3(window) # Frame proceso 3
         frame2.pack()
 
     def proceso3():
