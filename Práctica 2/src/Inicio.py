@@ -3,7 +3,7 @@ import pickle
 ## GUI
 from tkinter import *
 from functools import partial
-from Ventanas.Principal import ingreso
+from Ventanas.Principal import Principal
 ##
 
 ## Objetos
@@ -104,7 +104,7 @@ del cual se\npodrá tener un registro del material\ndisponible y del estado de l
     label['image'] = imagen1
     label.place(x=25,y=20)
     
-    ingresar = Button(p4,text="Ingresar al Sistema", command=partial(ingreso,StartWindow))
+    ingresar = Button(p4,text="Ingresar al Sistema", command=partial(Principal().VentanaPrincipal,StartWindow))
     ingresar.place(x=68,y=170)
     p4.pack(side=BOTTOM)  
 
