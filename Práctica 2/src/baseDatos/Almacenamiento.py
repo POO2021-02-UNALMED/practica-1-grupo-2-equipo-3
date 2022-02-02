@@ -76,7 +76,6 @@ def serializarUsuarios():
 def deserializarEstanterias():
     r = open('src/baseDatos/estanterias','rb')
     Estanteria.setLista(pickle.load(r))
-    # print(Estanteria.getLista())
     r.close()
 
 def deserializarAutores():
