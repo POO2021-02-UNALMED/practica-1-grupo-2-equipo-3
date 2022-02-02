@@ -5,6 +5,7 @@ from tkinter import messagebox
 from Ventanas.registro import Frame1
 from Ventanas.muestra import Frame2
 from Ventanas.eliminacion import Frame3
+from Ventanas.prestamo import Frame4
 import pickle
 
 ## Objetos
@@ -25,6 +26,8 @@ class Principal():
     frame1 = None
     frame2 = None
     frame3 = None
+    frame4 = None
+    frame5 = None
     
     def VentanaPrincipal(self,start):
         window = Toplevel()
@@ -62,12 +65,16 @@ class Principal():
                 if self.frame2 is not None:
                     self.frame2.destroy()
                 if self.frame3 is not None:
-                    self.frame3.destroy()  
+                    self.frame3.destroy()
+                if self.frame4 is not None:
+                    self.frame4.destroy()  
             else:
                 if self.frame2 is not None:
                     self.frame2.destroy()
                 if self.frame3 is not None:
                     self.frame3.destroy()
+                if self.frame4 is not None:
+                    self.frame4.destroy() 
                 self.frame1.destroy()        # destruyo lo que se haya creado para el frame1
 
             self.frame1 = Frame1(window) # Frame proceso 2
@@ -79,12 +86,16 @@ class Principal():
                 if self.frame1 is not None:
                     self.frame1.destroy()
                 if self.frame3 is not None:
-                    self.frame3.destroy()  
+                    self.frame3.destroy() 
+                if self.frame4 is not None:
+                    self.frame4.destroy()  
             else:
                 if self.frame1 is not None:
                     self.frame1.destroy()
                 if self.frame3 is not None:
                     self.frame3.destroy()
+                if self.frame4 is not None:
+                    self.frame4.destroy() 
                 self.frame2.destroy()        # destruyo lo que se haya creado para el frame2
 
             self.frame2 = Frame2(window) # Frame proceso 2
@@ -97,15 +108,41 @@ class Principal():
                     self.frame1.destroy()
                 if self.frame2 is not None:
                     self.frame2.destroy()  
+                if self.frame4 is not None:
+                    self.frame4.destroy() 
             else:
                 if self.frame1 is not None:
                     self.frame1.destroy()
                 if self.frame2 is not None:
                     self.frame2.destroy()
+                if self.frame4 is not None:
+                    self.frame4.destroy() 
                 self.frame3.destroy()        # destruyo lo que se haya creado para el frame3
 
             self.frame3 = Frame3(window) # Frame proceso 3
             self.frame3.pack()
+
+
+        def prestar():
+            principal.pack_forget()
+            if self.frame4 is None:
+                if self.frame1 is not None:
+                    self.frame1.destroy()
+                if self.frame2 is not None:
+                    self.frame2.destroy() 
+                if self.frame3 is not None:
+                    self.frame3.destroy()   
+            else:
+                if self.frame1 is not None:
+                    self.frame1.destroy()
+                if self.frame2 is not None:
+                    self.frame2.destroy()
+                if self.frame3 is not None:
+                    self.frame3.destroy()
+                self.frame4.destroy()        # destruyo lo que se haya creado para el frame4
+
+            self.frame4 = Frame4(window) # Frame proceso 4
+            self.frame4.pack()
 
     
         def pprincipal():
@@ -115,6 +152,8 @@ class Principal():
                 self.frame2.destroy()
             if self.frame3 is not None:
                 self.frame3.destroy()
+            if self.frame4 is not None:
+                    self.frame4.destroy() 
             principal.pack()
 
         #Manejo de menús
@@ -132,6 +171,7 @@ class Principal():
         procesos.add_command(label="Ingresar Registros", command=ingresar)
         procesos.add_command(label="Mostrar Registros", command=mostrar)
         procesos.add_command(label="Eliminar Registros", command=eliminar)
+        procesos.add_command(label="Préstamos", command=prestar)
         procesos.add_separator()
         procesos.add_command(label="Interfaz de Inicio", command=pprincipal)
 
