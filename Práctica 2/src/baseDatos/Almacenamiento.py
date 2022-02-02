@@ -11,6 +11,10 @@ from gestorAplicacion.personas.Usuario import Usuario
 ##
 
 
+def creacion():
+    w = open('src/baseDatos/estanterias','wb')
+    w.close()
+
 def serializar():
     serializarEstanterias()
     serializarAutores()
