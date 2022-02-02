@@ -1,4 +1,3 @@
-# from distutils import command
 from tkinter import *
 from tkinter import messagebox
 from functools import partial
