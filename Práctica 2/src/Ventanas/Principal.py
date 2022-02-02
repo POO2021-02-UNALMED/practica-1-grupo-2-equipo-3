@@ -14,9 +14,16 @@ def ingreso(start):
 
     # Archivos para serializar
     picke_estanterias = open('src/baseDatos/estanterias','wb')
+    bd_estanterias = open('src/baseDatos/estanterias','rb')
+
     picke_autores = open('src/baseDatos/autores','wb')
+    bd_autores = open('src/baseDatos/autores','rb')
+
     picke_publicaciones = open('src/baseDatos/publicaciones','wb')
+    bd_publicaciones = open('src/baseDatos/publicaciones','rb')
+
     picke_personas = open('src/baseDatos/personas','wb')
+    bd_personas = open('src/baseDatos/personas','rb')
 
     def inicio():
         picke_estanterias.close()
