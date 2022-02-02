@@ -73,6 +73,9 @@ class Libro(Publicacion):
     @classmethod
     def getLibro(cls):
         return Libro._libro
+    @classmethod
+    def setLibro(cls,lista):
+        Libro._libro = lista
 
     
     

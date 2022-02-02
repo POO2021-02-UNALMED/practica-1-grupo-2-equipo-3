@@ -33,3 +33,6 @@ class Folleto(Publicacion):
     @classmethod
     def getFolleto(cls):
         return Folleto._folleto
+    @classmethod
+    def setFolleto(cls,lista):
+        Folleto._folleto = lista

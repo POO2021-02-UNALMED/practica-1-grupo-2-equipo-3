@@ -24,7 +24,8 @@ class Usuario:
     @classmethod
     def getUsuarios(cls):
         return Usuario._usuarios
-
+        
+    @classmethod
     def setUsuarios(cls,lista):
         Usuario._usuarios = lista
 

@@ -52,6 +52,9 @@ class Autor(Persona):
     @classmethod
     def getAutores(cls):
         return Autor._autores
+    @classmethod
+    def setAutores(cls,lista):
+        Autor._autores = lista
     
     def getLibros(self):
         return self.libros

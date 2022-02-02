@@ -65,6 +65,10 @@ class Estanteria: #serializacion ?
     def getLista(cls):
         return Estanteria._lista
     @classmethod
+    def setLista(cls,lista):
+        Estanteria._lista = lista
+
+    @classmethod
     def getNumeroEstanterias(cls):
         return Estanteria._numeroEstanterias
 

@@ -61,3 +61,6 @@ class Revista(Publicacion):
     @classmethod
     def getRevista(cls):
         return Revista._revista
+    @classmethod
+    def setRevista(cls,lista):
+        Revista._revista = lista

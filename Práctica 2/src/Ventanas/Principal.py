@@ -8,7 +8,10 @@ import pickle
 
 ## Objetos
 from gestorAplicacion.obras.Estanteria import Estanteria
+from gestorAplicacion.obras.Folleto import Folleto
+from gestorAplicacion.obras.Libro import Libro
 from gestorAplicacion.obras.Publicacion import Publicacion
+from gestorAplicacion.obras.Revista import Revista
 from gestorAplicacion.personas.Autor import Autor
 from gestorAplicacion.personas.Usuario import Usuario
 ##
@@ -29,6 +32,15 @@ def ingreso(start):
     w_publicaciones = open('src/baseDatos/publicaciones','wb')
     r_publicaciones = open('src/baseDatos/publicaciones','rb')
 
+    w_libros = open('src/baseDatos/libros','wb')
+    r_libros = open('src/baseDatos/libros','rb')
+
+    w_revistas = open('src/baseDatos/revistas','wb')
+    r_revistas = open('src/baseDatos/revistas','rb')
+
+    w_folletos = open('src/baseDatos/folletos','wb')
+    r_folletos = open('src/baseDatos/folletos','rb')
+
     w_usuarios = open('src/baseDatos/usuarios','wb')
     r_usuarios = open('src/baseDatos/usuarios','rb')
 
@@ -39,6 +51,12 @@ def ingreso(start):
         w_autores.close()
         pickle.dump(Publicacion.getLista(),w_publicaciones)
         w_publicaciones.close()
+        pickle.dump(Libro.getLibro(),w_libros)
+        w_libros.close()
+        pickle.dump(Folleto.getFolleto(),w_folletos)
+        w_folletos.close()
+        pickle.dump(Revista.getRevista(),w_revistas)
+        w_revistas.close()
         pickle.dump(Usuario.getUsuarios(),w_usuarios)
         w_usuarios.close()
 
