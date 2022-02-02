@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 #   CLASE ABSTRACTA
 class Persona(ABC):
 
@@ -24,13 +25,15 @@ class Persona(ABC):
         Persona._lista.remove(persona)
         del persona
 
+    
+
     @classmethod
     def mostrarRegistros(cls):
         from gestorAplicacion.personas.Autor import Autor
         from gestorAplicacion.personas.EstudianteProfesor import EstudianteProfesor
         from gestorAplicacion.personas.Externo import Externo
         
-        c="Personas creadas: \n"
+        c="PERSONAS CREADAS: \n"
 
         for i,x in enumerate(Persona._lista ):
             if isinstance(x,Autor):

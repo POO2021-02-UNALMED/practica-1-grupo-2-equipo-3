@@ -39,7 +39,7 @@ class Publicacion(ABC) :
         return f'INFORMACION DE LA PUBLICACION: \n Codigo: {self.getCodigo()} \n Nombre: {self.getNombre()} \n Ejemplar: {self.getEjemplar()}'
 
     @classmethod
-    def eliminarPublicacion(cl,p):
+    def eliminarPublicacion(cls,p):
         Publicacion._lista.remove(p)
         del p
 
@@ -48,7 +48,7 @@ class Publicacion(ABC) :
         from gestorAplicacion.obras.Libro import Libro
         from gestorAplicacion.obras.Revista import Revista
         from gestorAplicacion.obras.Folleto import Folleto
-        c = "Publicaciones creadas "+ "\n"
+        c = "PUBLICACIONES CREADAS   "+ "\n"
         for i,x in enumerate(Publicacion._lista) :
             if isinstance(x,Libro):
                 c=c + str(i) + f'. Libro {x.getNombre()} Codigo(CP) {x.getCodigo()} \n'
