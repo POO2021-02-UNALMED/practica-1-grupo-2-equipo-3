@@ -1,8 +1,6 @@
 from abc import ABC, abstractmethod
-
-
-
-
+from gestorAplicacion.obras.Publicacion import Publicacion
+from gestorAplicacion.prestamo.Prestamo  import Prestamo
 
 class Usuario:
 
@@ -19,7 +17,21 @@ class Usuario:
             elif isinstance(x,Externo):
                 c=c + str(i) + f'. Usuario externo {x.getNombre()} con Identifiacion {x.getId()} \n'
         return c
+    
+    #Secuencia de metodos para prestamo
+    #
+    @classmethod
+    def buscarUsuario(cls,usuarioId):
+        for x in Usuario._usuarios:
+            if x.getId() == usuarioId:
+                usuario = x
+                break
+        return usuario
 
+    def prestar(self,id,Codigopub,Finicio):
+        pass
+               
+    
     
     @classmethod
     def getUsuarios(cls):

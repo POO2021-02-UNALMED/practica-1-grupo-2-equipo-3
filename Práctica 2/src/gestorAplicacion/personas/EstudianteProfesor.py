@@ -1,5 +1,7 @@
+from gestorAplicacion.obras.Publicacion import Estado, Publicacion
 from gestorAplicacion.personas.Persona import Persona
 from gestorAplicacion.personas.Usuario import Usuario
+from gestorAplicacion.prestamo.Prestamo import Prestamo
 
 
 class EstudianteProfesor(Persona,Usuario):
@@ -16,7 +18,18 @@ class EstudianteProfesor(Persona,Usuario):
 
     def infoPersonal(self):
         return f'USUARIO INTERNO - DATOS PERSONALES: \n Nombre: {self.nombre} \n Rol: {self._rol} \n CC: {self.id} \n Universidad: {self._universidad} \n Correo: {self.correo} \n Fecha nacimiento: {self.nacimiento} \n Telefono: {self.telefono} \n Direccion residencia: {self.direccion} \n Pais: {self.pais} \n '
+
+    def prestar(self,id,Codigopub,Finicio = Prestamo._fechaActual):
     
+        #falta considerar excepciones si esta prestado u otras verificarPrestado(), deudas, entregar
+        #mensaje al prestar?
+
+        publicacion = Publicacion.buscarPublicacion(Codigopub)
+        prestamo = Prestamo(id, Finicio, publicacion)
+        prestamo.determinarFinInterno()
+        self.getPrestamos().append(prestamo)
+        publicacion.setPrestamo(prestamo)
+        publicacion.setEstado(Estado.prestado)
     
     
     def getUniversidad(self):

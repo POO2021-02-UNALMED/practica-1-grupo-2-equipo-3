@@ -1,10 +1,10 @@
 import datetime
-from obras.Libro import Libro, tipoLibro
-from personas.Persona import Persona
+from gestorAplicacion.obras.Libro import Libro, tipoLibro
+from gestorAplicacion.personas.Persona import Persona
 
-from obras.Publicacion import Publicacion
-from obras.Revista import Revista
-from obras.Folleto import Folleto
+from gestorAplicacion.obras.Publicacion import Publicacion
+from gestorAplicacion.obras.Revista import Revista
+from gestorAplicacion.obras.Folleto import Folleto
 
 
 class Prestamo:
@@ -24,19 +24,6 @@ class Prestamo:
         
 
     #metodos
-
-    def asignacion(self,codigop,usuarioId):
-
-        for x in Publicacion._lista:
-            if x.getCodigo() == codigop:
-                self.setPublicacion(x)
-                break
-        
-        for x in Persona._lista:
-            if x.getId() == usuarioId:
-                self.setUsuario(x)
-                break
-    
 
     def determinarFinInterno(self): 
         if isinstance(self.publicacion,Libro):
