@@ -23,11 +23,11 @@ def serializar():
 def deserializar():
     deserializarEstanterias()
     deserializarAutores()
-    # deserializarPublicaciones()
-    # deserializarLibros()
-    # deserializarRevistas()
-    # deserializarFoletos()
-    # deserializarUsuarios()
+    deserializarPublicaciones()
+    deserializarLibros()
+    deserializarRevistas()
+    deserializarFolletos()
+    deserializarUsuarios()
     
 
 
@@ -57,7 +57,7 @@ def serializarFolletos():
     w.close()
 
 def serializarRevistas():
-    w = open('src/baseDatos/revista','wb')
+    w = open('src/baseDatos/revistas','wb')
     pickle.dump(Revista.getRevista(),w)
     w.close()
 
