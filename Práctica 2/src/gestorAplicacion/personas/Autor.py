@@ -1,3 +1,4 @@
+from enum import auto
 from gestorAplicacion.personas.Persona import Persona
 
 
@@ -7,6 +8,7 @@ class Autor(Persona):
 
     #Constructor
     def __init__(self,nombre='Anonimo',id=0,nacimiento='...',pais='...',vivo=True,libros=None):
+        Autor._autores.append(self)
         if libros is None:
             self.libros=[]
         else:
