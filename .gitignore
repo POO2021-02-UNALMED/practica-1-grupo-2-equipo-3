@@ -21,3 +21,10 @@ Memoria Escrita - copia.docx
 
 # Ignoramos el caché de Python
 *pyc
+
+
+# Ignoramos los archivos de bases de datos
+autores
+estanterias
+personas
+publicaciones
