@@ -1,3 +1,4 @@
+import os
 ## GUI
 from tkinter import *
 from functools import partial
@@ -5,11 +6,23 @@ from Ventanas.Principal import ingreso
 ##
 
 ## Objetos
-from gestorAplicacion.obras import Estanteria,Libro,Revista,Folleto
-from gestorAplicacion.personas import EstudianteProfesor,Externo
+from gestorAplicacion.obras.Estanteria import Estanteria
+from gestorAplicacion.obras.Folleto import Folleto
+from gestorAplicacion.obras.Libro import Libro
+from gestorAplicacion.obras.Publicacion import Publicacion
+from gestorAplicacion.obras.Revista import Revista
+from gestorAplicacion.personas.Autor import Autor
+from gestorAplicacion.personas.Usuario import Usuario
 ##
 
 if __name__ == "__main__":
+
+    if os.path.exists("src/baseDatos/estanterias"):
+        print(True)
+    else:
+        print(False)
+
+
     StartWindow = Tk()
     StartWindow.title("Ventana de Inicio")
 
