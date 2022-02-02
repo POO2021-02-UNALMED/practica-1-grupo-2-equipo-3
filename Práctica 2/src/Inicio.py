@@ -1,4 +1,5 @@
 import os
+import pickle
 ## GUI
 from tkinter import *
 from functools import partial
@@ -17,12 +18,44 @@ from gestorAplicacion.personas.Usuario import Usuario
 
 if __name__ == "__main__":
 
-    if os.path.exists("src/baseDatos/estanterias"):
-        print(True)
-    else:
-        print(False)
+    # Creación de archivos que no existan
+    if not os.path.exists("src/baseDatos/estanterias"):
+        w = open('src/baseDatos/estanterias','wb')
+        pickle.dump(Estanteria.getLista(),w)
+        w.close()
 
+    if not os.path.exists("src/baseDatos/autores"):
+        w = open('src/baseDatos/autores','wb')
+        pickle.dump(Autor.getAutores(),w)
+        w.close()
 
+    if not os.path.exists("src/baseDatos/publicaciones"):
+        w = open('src/baseDatos/publicaciones','wb')
+        pickle.dump(Publicacion.getLista(),w)
+        w.close()
+
+    if not os.path.exists("src/baseDatos/libros"):
+        w = open('src/baseDatos/libros','wb')
+        pickle.dump(Libro.getLibro(),w)
+        w.close()
+
+    if not os.path.exists("src/baseDatos/folletos"):
+        w = open('src/baseDatos/folletos','wb')
+        pickle.dump(Folleto.getFolleto(),w)
+        w.close()
+
+    if not os.path.exists("src/baseDatos/revistas"):
+        w = open('src/baseDatos/revistas','wb')
+        pickle.dump(Revista.getRevista(),w)
+        w.close()
+
+    if not os.path.exists("src/baseDatos/usuarios"):
+        w = open('src/baseDatos/usuarios','wb')
+        pickle.dump(Usuario.getUsuarios,w)
+        w.close()
+    #
+
+    
     StartWindow = Tk()
     StartWindow.title("Ventana de Inicio")
 
