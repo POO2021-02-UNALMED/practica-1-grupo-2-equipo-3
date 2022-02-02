@@ -9,7 +9,6 @@ class Estado(Enum):
     prestado = "PRESTADO"
 
 class Publicacion(ABC) : 
-    # serialversion ?
 
     #Atributos de clase
     _lista = []
@@ -42,6 +41,14 @@ class Publicacion(ABC) :
     def eliminarPublicacion(cls,p):
         Publicacion._lista.remove(p)
         del p
+
+    @classmethod
+    def buscarPublicacion(cls, Codigop):
+        for x in Publicacion.getLista:
+            if x.getCodigo() == Codigop:
+                publicacion = x
+                break
+        return publicacion
 
     @classmethod
     def mostrarRegistros(cls):

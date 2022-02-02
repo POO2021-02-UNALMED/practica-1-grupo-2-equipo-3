@@ -475,7 +475,7 @@ class Frame1(Frame):
                     uni = interaccion.getValue(criterios[8])
                     
                     obj = Externo(nombre,id,correo,tel,dir,nac,pais,rol,uni)
-                    Label(master=f,text=Persona.mostrarRegistros()).pack()
+                    #Label(master=f,text=Persona.mostrarRegistros()).pack()
                     messagebox.showinfo(title="Ingresar Usuario Externo",
                     message="INFORMACIÓN:",
                     detail="El usuario externo ha sido registrado con éxito")
