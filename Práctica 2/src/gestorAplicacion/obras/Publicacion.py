@@ -74,6 +74,10 @@ class Publicacion(ABC) :
     def getLista(cls):
         return Publicacion._lista
     @classmethod
+    def setLista(cls,lista):
+        Publicacion._lista = lista
+
+    @classmethod
     def getNumeroPublicaciones(cls):
         return Publicacion.numeroPublicaciones
 
