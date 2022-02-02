@@ -33,19 +33,23 @@ def ingreso(start):
     r_usuarios = open('src/baseDatos/usuarios','rb')
 
     def inicio():
-        pickle.dump(Estanteria.getLista,w_estanterias)
+        pickle.dump(Estanteria.getLista(),w_estanterias)
         w_estanterias.close()
         pickle.dump(Autor.getAutores(),w_autores)
         w_autores.close()
         pickle.dump(Publicacion.getLista(),w_publicaciones)
         w_publicaciones.close()
-        pickle.dump(Usuario.getUsuarios,w_usuarios)
+        pickle.dump(Usuario.getUsuarios(),w_usuarios)
         w_usuarios.close()
 
         r_estanterias.close()
         r_autores.close()
         r_publicaciones.close()
         r_usuarios.close()
+
+        messagebox.showinfo(title="Guardar Y Salir",
+        message="INFORMACIÓN:",
+        detail="Todos los datos han sido almacenados en el dispositivo")
 
         start.deiconify()
         window.destroy()
