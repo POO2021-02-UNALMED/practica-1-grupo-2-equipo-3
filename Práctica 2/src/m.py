@@ -11,14 +11,16 @@ from gestorAplicacion.personas.Usuario import Usuario
 ##
 
 ## Funciones
-from baseDatos.Almacenamiento import serializar,deserializar
+from baseDatos.Almacenamiento import serializar,deserializar,creacion
 ##
 
 
 
-serializar()
+# serializar()
 
-deserializar() 
+creacion()
+deserializar()
+serializar() 
 
 
 # # Estanteria.setLista(pickle.load(r_estanterias))
