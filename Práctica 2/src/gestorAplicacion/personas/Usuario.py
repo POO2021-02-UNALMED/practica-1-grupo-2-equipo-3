@@ -20,9 +20,13 @@ class Usuario:
                 c=c + str(i) + f'. Usuario externo {x.getNombre()} con Identifiacion {x.getId()} \n'
         return c
 
-
-    def getUsuarios(self):
+    
+    @classmethod
+    def getUsuarios(cls):
         return Usuario._usuarios
+
+    def setUsuarios(cls,lista):
+        Usuario._usuarios = lista
 
     @abstractmethod
     def prestar(self, publicacion, fechainicio):
