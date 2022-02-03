@@ -12,7 +12,8 @@ from gestorAplicacion.personas.Externo import Externo
 ##
 
 ## Funciones
-from baseDatos.Almacenamiento import serializar,deserializar,creacion
+from baseDatos.Almacenamiento import serializar,deserializar
+from gestorAplicacion.prestamo.Prestamo import Prestamo
 ##
 
 
@@ -21,18 +22,7 @@ from baseDatos.Almacenamiento import serializar,deserializar,creacion
 
 # print(len(Usuario.getUsuarios()))
 
-nombre= "fg"
-id = "g"
-correo = "g"
-tel = "g"
-dir = "g"
-nac= "g"
-pais= "g"
-rol= "g"
-uni = "hg"
-
-obj = Externo(nombre,id,correo,tel,dir,nac,pais,rol,uni)
-Externo()
+print(Prestamo.mostrarRegistros())
 
 
 # # Estanteria.setLista(pickle.load(r_estanterias))
