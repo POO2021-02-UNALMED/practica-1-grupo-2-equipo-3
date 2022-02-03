@@ -5,6 +5,7 @@ from gestorAplicacion.personas.Persona import Persona
 class Autor(Persona):
     #Atributo de clase
     _autores=[]
+    _numeroAutores = len(_autores)
 
     #Constructor
     def __init__(self,nombre='Anonimo',id=0,nacimiento='...',pais='...',vivo=True,libros=None):
