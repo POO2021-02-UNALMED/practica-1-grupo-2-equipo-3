@@ -49,7 +49,8 @@ class Frame4(Frame):
                     tituloCriterios = "PRÉSTAMO {}".format(self._i)
                     criterios = ['ID',"Fecha", "Publicación (ID)", "Usuario (ID)"]
                     tituloValores = "VALOR"
-                    valores= [len(Prestamo.getLista()) + 1,"","",""]
+                    # p = Prestamo.getLista() + 1
+                    valores= ["","","",""]
                     habilitado = [1]
                     if arg is None:
                         interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
