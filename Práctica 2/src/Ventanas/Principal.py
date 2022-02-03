@@ -240,9 +240,11 @@ class Principal():
         texto = Text(principal, font=("Georgia",10),width=42,height=9,relief=GROOVE, borderwidth=4)
         
         texto.insert(1.0,"Mediante esta aplicación usted podrá realizar los siguientes \nprocesos:\n\n"+
-        "1. Proceso 1\n"+
-        "2. Proceso 2\n"+
-        "3. Proceso 3\n\n"+
+        "1. Ingresar Registros\n"+
+        "2. Mostrar Registros\n"+
+        "3. Eliminar Registros\n"+
+        "4. Registrar Préstamos\n"+
+        "5. Resgitrar Devoluciones\n\n"+
         "Para acceder a estas funcionalidades despliegue el menú de \n'Procesos y Consultas' y haga click en una opción")
         texto.config(state=DISABLED)
         texto.place(x=32,y=110)
