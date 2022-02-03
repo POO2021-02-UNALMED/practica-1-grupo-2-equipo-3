@@ -89,6 +89,7 @@ def serializarPrestamos():
 def deserializarEstanterias():
     r = open('baseDatos/estanterias','rb')
     Estanteria.setLista(pickle.load(r))
+    Estanteria._numeroEstanterias =len (Estanteria.getLista())
     r.close()
 
 def deserializarAutores():
