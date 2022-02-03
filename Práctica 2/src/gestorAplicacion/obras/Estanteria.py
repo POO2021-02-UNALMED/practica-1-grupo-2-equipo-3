@@ -3,7 +3,7 @@ class Estanteria: #serializacion ?
 
     #atributos de clase
     _lista = []
-    _numeroEstanterias = 0
+    _numeroEstanterias = len(_lista)
 
     #Constructor
     def __init__(self, numero =0,piso=0, limites=None, publicaciones=None) :
