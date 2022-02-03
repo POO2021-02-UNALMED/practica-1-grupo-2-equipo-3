@@ -15,12 +15,14 @@ class Prestamo:
 
     #constructor
     def __init__(self, id=0,inicio='...', publicacion=None,usuario=None):
+        Prestamo._lista.append(self)
         self.id = id
         self.inicio = inicio
         self.fin = None
         self.publicacion = publicacion
         self.usuario = usuario
-        Prestamo._lista.append(self)
+        self.activo = False
+        
         
 
     #metodos
@@ -99,3 +101,8 @@ class Prestamo:
         return self.publicacion
     def setPublicacion(self,p):
         self.publicacion = p
+
+    def isActivo(self):
+        return self.activo
+    def setActivo(self,v):
+        self.activo = v

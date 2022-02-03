@@ -22,7 +22,9 @@ class Usuario:
     #
     @classmethod
     def buscarUsuario(cls,usuarioId):
-        for x in Usuario._usuarios:
+        from gestorAplicacion.personas.EstudianteProfesor  import EstudianteProfesor
+        from gestorAplicacion.personas.Externo import Externo
+        for x in EstudianteProfesor.l + Externo.l:
             if x.getId() == usuarioId:
                 usuario = x
                 break

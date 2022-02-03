@@ -58,5 +58,5 @@ class Autor(Persona):
     
     def getLibros(self):
         return self.libros
-    def getLibros(self,l):
+    def setLibros(self,l):
         self.libros = l

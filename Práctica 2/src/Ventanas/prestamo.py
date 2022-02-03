@@ -10,6 +10,7 @@ from gestorAplicacion.obras.Publicacion import Publicacion
 from gestorAplicacion.personas.Autor import Autor
 from gestorAplicacion.personas.Persona import Persona
 from gestorAplicacion.personas.Usuario import Usuario
+from gestorAplicacion.prestamo.Prestamo import Prestamo
 ##
 
 class Frame4(Frame):
@@ -45,10 +46,10 @@ class Frame4(Frame):
 
                 def lanzar(arg):
                     tituloCriterios = "PRÉSTAMO {}".format(self._i)
-                    criterios = ["Fecha", "Publicación (ID)", "Usuario (ID)"]
+                    criterios = ['ID',"Fecha", "Publicación (ID)", "Usuario (ID)"]
                     tituloValores = "VALOR"
-                    valores= None
-                    habilitado = None
+                    valores= [len(Prestamo.getLista()) + 1,"","",""]
+                    habilitado = [1]
                     if arg is None:
                         interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
                     else:
@@ -60,9 +61,14 @@ class Frame4(Frame):
                     f.pack()
 
                     def guardar():
-                        fecha = interaccion.getValue(criterios[0])
-                        publicacion = interaccion.getValue(criterios[1])
-                        usuario = interaccion.getValue(criterios[2])
+                        id = interaccion.getValue(criterios[0])
+                        fechai = interaccion.getValue(criterios[1])
+                        publicacion = interaccion.getValue(criterios[2])
+                        usuario = interaccion.getValue(criterios[3])
+
+                        us = Usuario.buscarUsuario(usuario)
+                        us.prestar(id,publicacion,fechai)
+
                         ##
                         # Prestamo(fecha,publicacion,usuario)
                         ##

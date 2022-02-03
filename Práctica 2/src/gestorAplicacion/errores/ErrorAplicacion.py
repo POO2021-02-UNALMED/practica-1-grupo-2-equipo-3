@@ -189,6 +189,8 @@ class Inexistente(BaseDatosError):
             if b == False:
                 raise Inexistente()
 
+    
+
         
 
 

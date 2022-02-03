@@ -53,7 +53,7 @@ class Publicacion(ABC) :
 
     @classmethod
     def buscarPublicacion(cls, Codigop):
-        for x in Publicacion.getLista:
+        for x in Publicacion.getLista():
             if x.getCodigo() == Codigop:
                 publicacion = x
                 break
