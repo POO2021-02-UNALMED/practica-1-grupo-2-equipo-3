@@ -13,6 +13,7 @@ from gestorAplicacion.personas.Usuario import Usuario
 from gestorAplicacion.errores.ErrorAplicacion import Inexistente
 from gestorAplicacion.personas.EstudianteProfesor import EstudianteProfesor
 from gestorAplicacion.personas.Externo import Externo
+from gestorAplicacion.prestamo.Prestamo import Prestamo
 ##
 
 class Frame2(Frame):
@@ -24,6 +25,7 @@ class Frame2(Frame):
         f2 = Frame(master=self)
         f3 = Frame(master=self)
         f4 = Frame(master=self)
+        f5 = Frame(master=self)
 
         def ini():
             Label(master=f_ini,text="Mostrar Registros",
@@ -50,9 +52,12 @@ class Frame2(Frame):
                 elif self._opcion == "Usuario":
                     f_ini.pack_forget()
                     cuatro() 
+                elif self._opcion == "Prestamo":
+                    f_ini.pack_forget()
+                    cinco() 
 
             opciones = ttk.Combobox(interaccion)
-            opciones['values']= ["Estantería","Autor","Publicación","Usuario"]
+            opciones['values']= ["Estantería","Autor","Publicación","Usuario","Prestamo"]
             opciones.pack()
 
             Button(interaccion,text="Aceptar",command=partial(ejecutar,opciones)).pack()
@@ -385,6 +390,26 @@ class Frame2(Frame):
 
             lanzar(None)
             f4.pack()
+
+        def cinco():
+            Label(master=f5,text="Mostrar Prestamos", font=("Georgia",20)).pack()
+            Label(master=f5,text="Haga click en el botón para mostrar todos los registros\nde prestamos en una ventana nueva:",font=("Georgia",12)).pack()
+
+            botones = Frame(master=f5)  # Frame de la zona de interacción
+            def reg():
+                windowr = Toplevel()
+                windowr.title("Registro de Préstamos")
+                t = Text(windowr,font=("consolas",10))
+                t.insert(1.0,Prestamo.mostrarRegistros())
+                print(Prestamo.getLista())
+                t.config(state=DISABLED)
+                t.pack()
+
+            Label(botones,text="").grid(row=0)
+            Button(botones,text="Ver registros",command=reg).grid(row=1)
+            Label(botones,text="").grid(row=2)
+            botones.pack()
+            f5.pack()
 
         ini()
 
