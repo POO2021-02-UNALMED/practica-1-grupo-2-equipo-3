@@ -8,6 +8,7 @@ from tkinter import messagebox
 from gestorAplicacion.obras.Estanteria import Estanteria
 from gestorAplicacion.obras.Publicacion import Publicacion
 from gestorAplicacion.personas.Autor import Autor
+from gestorAplicacion.personas.Persona import Persona
 from gestorAplicacion.personas.Usuario import Usuario
 ##
 
@@ -143,7 +144,7 @@ class Frame2(Frame):
 
 
             # Información detallada
-            Label(master=f2,text="Ingrese el Id del autor para ver nformación detallada de éste",font=("Georgia",12)).pack()
+            Label(master=f2,text="Ingrese el Id del autor para ver información detallada de este",font=("Georgia",12)).pack()
 
             f = Frame(master=f2)  # Frame de la zona de interacción
 
@@ -210,6 +211,53 @@ class Frame2(Frame):
             botones.pack()
 
 
+            # Información detallada
+            Label(master=f3,text="Ingrese el codigo de la publicación para ver información detallada de esta",font=("Georgia",12)).pack()
+
+            f = Frame(master=f3)  # Frame de la zona de interacción
+
+            def lanzar(arg):
+                def ver():
+                    codigo = interaccion.getValue(criterios[0])
+                    windowv = Toplevel()
+                    windowv.title("Información Detallada")
+                   
+                    p = Publicacion()
+                    for elem in Publicacion.getLista():
+                        if elem.getCodigo == codigo:
+                            p = elem
+
+                    t = Text(windowv,font=("consolas",10))
+                    t.insert(1.0,p.mostrarInfo())
+                    t.config(state=DISABLED)
+                    t.pack()
+
+                tituloCriterios = ""
+                criterios = ["Código"]
+                tituloValores = "INFORMACIÓN DETALLADA"
+                valores= None
+                habilitado = None
+                if arg is None:
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+                else:
+                    arg.destroy()
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+
+                interaccion.pack(side=TOP)
+                borrar.config(command=partial(lanzar,interaccion))
+                aceptar.config(command=ver)
+                f.pack()
+
+            botones = Frame(f)
+            aceptar = Button(botones,text="Ver")
+            aceptar.grid(row=0,column=0)
+            Label(master=botones,text="       ").grid(row=0,column=1)
+            borrar = Button(botones,text="Borrar")
+            borrar.grid(row=0,column=2)
+            Label(master=botones).grid(row=1)
+            botones.pack(side=BOTTOM)
+
+            lanzar(None)
             f3.pack()
 
         def cuatro():
@@ -230,6 +278,53 @@ class Frame2(Frame):
             Label(botones,text="").grid(row=2)
             botones.pack()
 
+            # Información detallada
+            Label(master=f4,text="Ingrese el ID del usuario para ver su información personal",font=("Georgia",12)).pack()
+
+            f = Frame(master=f4)  # Frame de la zona de interacción
+
+            def lanzar(arg):
+                def ver():
+                    id = interaccion.getValue(criterios[0])
+                    windowv = Toplevel()
+                    windowv.title("Información Personal")
+                   
+                    u = Persona()
+                    for elem in Usuario.getUsuarios():
+                        if elem.getId() == id:
+                            u = elem
+
+                    t = Text(windowv,font=("consolas",10))
+                    t.insert(1.0,u.infoPersonal())
+                    t.config(state=DISABLED)
+                    t.pack()
+
+                tituloCriterios = ""
+                criterios = ["ID"]
+                tituloValores = "INFORMACIÓN PERSONAL"
+                valores= None
+                habilitado = None
+                if arg is None:
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+                else:
+                    arg.destroy()
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+
+                interaccion.pack(side=TOP)
+                borrar.config(command=partial(lanzar,interaccion))
+                aceptar.config(command=ver)
+                f.pack()
+
+            botones = Frame(f)
+            aceptar = Button(botones,text="Ver")
+            aceptar.grid(row=0,column=0)
+            Label(master=botones,text="       ").grid(row=0,column=1)
+            borrar = Button(botones,text="Borrar")
+            borrar.grid(row=0,column=2)
+            Label(master=botones).grid(row=1)
+            botones.pack(side=BOTTOM)
+
+            lanzar(None)
             f4.pack()
 
         ini()
