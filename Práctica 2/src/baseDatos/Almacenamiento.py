@@ -8,8 +8,6 @@ from gestorAplicacion.obras.Publicacion import Publicacion
 from gestorAplicacion.obras.Revista import Revista
 from gestorAplicacion.personas.Autor import Autor
 from gestorAplicacion.personas.Usuario import Usuario
-from gestorAplicacion.personas.EstudianteProfesor import EstudianteProfesor
-from gestorAplicacion.personas.Externo import Externo
 ##
 
 
@@ -35,7 +33,7 @@ def deserializar():
     deserializarFolletos()
     deserializarUsuarios()
     
-l = EstudianteProfesor.l + Externo.l
+
 
 def serializarEstanterias():
     w = open('baseDatos/estanterias','wb')
@@ -69,7 +67,7 @@ def serializarRevistas():
 
 def serializarUsuarios():
     w = open('baseDatos/usuarios','wb')
-    pickle.dump(l,w)
+    pickle.dump(Usuario.getUsuarios(),w)
     w.close()
 
 
@@ -107,5 +105,5 @@ def deserializarFolletos():
 
 def deserializarUsuarios():
     r = open('baseDatos/usuarios','rb')
-    l.append(pickle.load(r))
+    Usuario.setUsuarios(pickle.load(r))
     r.close()
