@@ -223,7 +223,7 @@ class Principal():
         procesos.add_command(label="Mostrar Registros", command=mostrar)
         procesos.add_command(label="Eliminar Registros", command=eliminar)
         procesos.add_command(label="Préstamos", command=prestar)
-        procesos.add_command(label="Entregas", command=entregar)
+        procesos.add_command(label="Devoluciones", command=entregar)
         procesos.add_separator()
         procesos.add_command(label="Interfaz de Inicio", command=pprincipal)
 
