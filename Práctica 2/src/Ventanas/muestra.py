@@ -11,6 +11,8 @@ from gestorAplicacion.personas.Autor import Autor
 from gestorAplicacion.personas.Persona import Persona
 from gestorAplicacion.personas.Usuario import Usuario
 from gestorAplicacion.errores.ErrorAplicacion import Inexistente
+from gestorAplicacion.personas.EstudianteProfesor import EstudianteProfesor
+from gestorAplicacion.personas.Externo import Externo
 ##
 
 class Frame2(Frame):
@@ -330,13 +332,14 @@ class Frame2(Frame):
                 def ver():
                     id = interaccion.getValue(criterios[0])
                     a = True
+                    l=Externo.l + EstudianteProfesor.l
                     try:    
                         Inexistente.verUsuario(id)
                     
                     except Inexistente as i:
                         messagebox.showinfo(title="ERROR",message = i.error2 , detail= '')
                         a = False
-                    for elem in Usuario.getUsuarios():
+                    for elem in l:
                         if elem.getId() == id   :
                             e = elem
                             break

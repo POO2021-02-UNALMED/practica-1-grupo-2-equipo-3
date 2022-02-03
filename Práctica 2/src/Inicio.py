@@ -31,7 +31,7 @@ if __name__ == "__main__":
         w.close()
 
     if not os.path.exists("baseDatos/publicaciones"):
-        w = open('baseDatos/publicaciones','wb')
+        w = open('/baseDatos/publicaciones','wb')
         pickle.dump(Publicacion.getLista(),w)
         w.close()
 

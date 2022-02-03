@@ -3,6 +3,7 @@ from tkinter import messagebox
 from functools import partial
 from Ventanas.FieldFrame import FieldFrame
 from tkinter import ttk
+from gestorAplicacion.errores.ErrorAplicacion import Inexistente
 
 ## Objetos
 from gestorAplicacion.obras.Estanteria import Estanteria
@@ -10,6 +11,8 @@ from gestorAplicacion.obras.Publicacion import Publicacion
 from gestorAplicacion.personas.Autor import Autor
 from gestorAplicacion.personas.Persona import Persona
 from gestorAplicacion.personas.Usuario import Usuario
+from gestorAplicacion.personas.EstudianteProfesor import EstudianteProfesor
+from gestorAplicacion.personas.Externo import Externo
 ##
 
 class Frame3(Frame):
@@ -69,6 +72,14 @@ class Frame3(Frame):
             def lanzar(arg):
                 def elim():
                     numero = interaccion.getValue(criterios[0])
+                    a = True
+                    try:
+                        Inexistente.verEstanteria(numero)
+            
+                    except Inexistente as i:
+                        messagebox.showinfo(title="ERROR",message = i.error2 , detail= '')
+                        a = False
+                    
                     for e in Estanteria.getLista():
                         if e.getNumero() == numero:
                             Estanteria.eliminarEstanteria(e)
@@ -76,10 +87,7 @@ class Frame3(Frame):
                             message="ATENCIÓN:",
                             detail="Usted acaba de eliminar la estantería número "+numero)
 
-                    messagebox.showinfo(title="Eliminar Estantería",
-                    message="ATENCIÓN:",
-                    detail="Usted acaba de eliminar la estantería número "+numero)
-                    lanzar(interaccion)  
+            
 
                 tituloCriterios = ""
                 criterios = ["Número"]
@@ -123,6 +131,15 @@ class Frame3(Frame):
             def lanzar(arg):
                 def elim():
                     id = interaccion.getValue(criterios[0])
+                    a = True
+                    try:    
+                        Inexistente.verAutor(id)
+                    
+                    except Inexistente as i:
+                        messagebox.showinfo(title="ERROR",message = i.error2 , detail= '')
+                        a = False
+
+
                     for a in Autor.getAutores():
                         if a.getId() == id:
                             Persona.eliminarPersona(a)
@@ -130,11 +147,7 @@ class Frame3(Frame):
                             message="ATENCIÓN:",
                             detail="Usted acaba de eliminar el autor con ID "+id)
 
-                    messagebox.showinfo(title="Eliminar Autor",
-                    message="ATENCIÓN:",
-                    detail="Usted acaba de eliminar el autor con ID "+id)
-                    lanzar(interaccion) 
-
+            
                 tituloCriterios = ""
                 criterios = ["ID"]
                 tituloValores = "AUTOR"
@@ -176,6 +189,19 @@ class Frame3(Frame):
             def lanzar(arg):
                 def elim():
                     cod = interaccion.getValue(criterios[0])
+
+                    a = True
+                    try:    
+                        Inexistente.verPublicacion(cod)
+                    
+                    except Inexistente as i:
+                        messagebox.showinfo(title="ERROR",message = i.error2 , detail= '')
+                        a = False
+                    for elem in Publicacion.getLista():
+                        if elem.getCodigo() == cod   :
+                            e = elem
+                            break
+
                     for p in Publicacion.getLista():
                         if p.getCodigo() == cod:
                             Publicacion.eliminarPublicacion(p)
@@ -183,10 +209,7 @@ class Frame3(Frame):
                             message="ATENCIÓN:",
                             detail="Usted acaba de eliminar la publicación con el código "+cod)
 
-                    messagebox.showinfo(title="Eliminar Publicación",
-                    message="ATENCIÓN:",
-                    detail="Usted acaba de eliminar la publicación con el código "+cod)
-                    lanzar(interaccion) 
+                    
 
                 tituloCriterios = ""
                 criterios = ["Código"]
@@ -229,17 +252,24 @@ class Frame3(Frame):
             def lanzar(arg):
                 def elim():
                     id = interaccion.getValue(criterios[0])
-                    for u in Persona.getLista():
+
+                    a = True
+                    l=Externo.l + EstudianteProfesor.l
+                    try:    
+                        Inexistente.verUsuario(id)
+                    
+                    except Inexistente as i:
+                        messagebox.showinfo(title="ERROR",message = i.error2 , detail= '')
+                        a = False
+
+                    for u in l:
                         if u.getId() == id:
                             Persona.eliminarPersona(u)
                             messagebox.showinfo(title="Eliminar Usuario",
                             message="ATENCIÓN:",
                             detail="Usted acaba de eliminar lel usuario con ID "+id)
 
-                    messagebox.showinfo(title="Eliminar Usuario",
-                    message="ATENCIÓN:",
-                    detail="Usted acaba de eliminar lel usuario con ID "+id)
-                    lanzar(interaccion) 
+                   
 
                 tituloCriterios = ""
                 criterios = ["ID"]

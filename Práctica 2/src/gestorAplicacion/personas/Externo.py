@@ -7,14 +7,14 @@ from gestorAplicacion.obras.Publicacion import Publicacion, Estado
 
 class Externo(Persona,Usuario):
 
-    
+    l=[]
     #constructor
     def __init__(self,nombre='...',id=0, correo="...",tel="...",direccion='...',nacimiento="...",pais='...', rol='...', universidad="No especificada"):
         super().__init__(nombre,id,correo,tel,direccion,nacimiento,pais)
         self._universidad =  universidad
         self._rol = rol
         self._prestamos = []
-        Usuario.getUsuarios().append(self)
+        Externo.l.append(self)
 
     def infoPersonal(self):
         return f'USUARIO EXTERNO - DATOS PERSONALES: \n Nombre: {self.nombre} \n Rol: {self._rol} \n CC: {self.id} \n Universidad: {self._universidad} \n Correo: {self.correo} \n Fecha nacimiento: {self.nacimiento} \n Telefono: {self.telefono} \n Direccion residencia: {self.direccion} \n Pais: {self.pais} \n '

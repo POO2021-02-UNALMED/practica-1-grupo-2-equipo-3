@@ -39,6 +39,15 @@ class Publicacion(ABC) :
 
     @classmethod
     def eliminarPublicacion(cls,p):
+        from gestorAplicacion.obras.Libro import Libro
+        from gestorAplicacion.obras.Revista import Revista
+        from gestorAplicacion.obras.Folleto import Folleto
+        if isinstance(p,Libro):
+            Libro.getLibro().remove(p)
+        elif isinstance(p,Folleto):
+            Folleto.getFolleto().remove(p)
+        elif isinstance(p,Revista):
+            Revista.getRevista().remove(p)
         Publicacion._lista.remove(p)
         del p
 

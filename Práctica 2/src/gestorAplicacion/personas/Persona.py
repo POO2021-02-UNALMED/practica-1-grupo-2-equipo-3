@@ -1,6 +1,10 @@
 from abc import ABC, abstractmethod
 
 
+
+
+
+
 #   CLASE ABSTRACTA
 class Persona(ABC):
 
@@ -22,6 +26,15 @@ class Persona(ABC):
     #Metodos
     @classmethod
     def eliminarPersona(cls,persona):
+        from gestorAplicacion.personas.Autor import Autor
+        from gestorAplicacion.personas.EstudianteProfesor import EstudianteProfesor
+        from gestorAplicacion.personas.Externo import Externo   
+        if isinstance(persona,Autor):
+            Autor.getAutores().remove(persona)
+        elif isinstance(persona,EstudianteProfesor):
+            EstudianteProfesor.l.remove(persona)
+        elif isinstance(persona,Externo):   
+            Externo.l.remove(persona)
         Persona._lista.remove(persona)
         del persona
 

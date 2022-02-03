@@ -3,6 +3,10 @@ from gestorAplicacion.obras.Estanteria import Estanteria
 from gestorAplicacion.obras.Publicacion import Publicacion
 from gestorAplicacion.personas.Persona import Persona
 from gestorAplicacion.personas.Usuario import Usuario
+from gestorAplicacion.personas.EstudianteProfesor import EstudianteProfesor
+from gestorAplicacion.personas.Externo import Externo
+
+
 #Clase Abuela de Errores
 class ErrorAplicacion(Exception):
     def __init__(self, error) :
@@ -175,11 +179,11 @@ class Inexistente(BaseDatosError):
     @classmethod
     def verUsuario(cls, a):
         
-        if len(Usuario.getUsuarios()) == 0:
+        if len(Externo.l + EstudianteProfesor.l) == 0:
             raise Inexistente()
-        elif len(Usuario.getUsuarios()) != 0:
+        elif len(Externo.l + EstudianteProfesor.l) != 0:
             b = False
-            for x in Usuario.getUsuarios():
+            for x in Externo.l + EstudianteProfesor.l:
                 if x.getId() == a:
                     b=True
             if b == False:

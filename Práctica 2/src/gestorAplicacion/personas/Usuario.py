@@ -11,7 +11,7 @@ class Usuario:
         from gestorAplicacion.personas.EstudianteProfesor import EstudianteProfesor
         from gestorAplicacion.personas.Externo import Externo
         c = 'USUARIOS CREADOS \n'
-        for i,x in enumerate(Usuario._usuarios):
+        for i,x in enumerate(Externo.l + EstudianteProfesor.l):
             if isinstance(x,EstudianteProfesor):
                 c=c + str(i) + f'. Usuario de la Universidad {x.getNombre()} con Identificacion {x.getId()} \n'
             elif isinstance(x,Externo):
