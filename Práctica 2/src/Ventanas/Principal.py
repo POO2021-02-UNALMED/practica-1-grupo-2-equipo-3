@@ -6,6 +6,7 @@ from Ventanas.registro import Frame1
 from Ventanas.muestra import Frame2
 from Ventanas.eliminacion import Frame3
 from Ventanas.prestamo import Frame4
+from Ventanas.devolucion import Frame5
 import pickle
 
 ## Objetos
@@ -58,7 +59,11 @@ class Principal():
             message="Sistema de infomración Bibliotecario:",
             detail="Por medio de esta aplicación usted podrá tener un registro del material disponible y del estado de los préstamos.")
 
+        
+        
+        # Frames 
         principal = Frame(master=window,width=450,height=300) # Frame Interfaz de Inicio
+
         def ingresar():
             principal.pack_forget()
             if self.frame1 is None:
@@ -68,6 +73,8 @@ class Principal():
                     self.frame3.destroy()
                 if self.frame4 is not None:
                     self.frame4.destroy()  
+                if self.frame5 is not None:
+                    self.frame5.destroy() 
             else:
                 if self.frame2 is not None:
                     self.frame2.destroy()
@@ -75,9 +82,11 @@ class Principal():
                     self.frame3.destroy()
                 if self.frame4 is not None:
                     self.frame4.destroy() 
+                if self.frame5 is not None:
+                    self.frame5.destroy() 
                 self.frame1.destroy()        # destruyo lo que se haya creado para el frame1
 
-            self.frame1 = Frame1(window) # Frame proceso 2
+            self.frame1 = Frame1(window) # Frame proceso 1
             self.frame1.pack()
 
         def mostrar():
@@ -88,7 +97,9 @@ class Principal():
                 if self.frame3 is not None:
                     self.frame3.destroy() 
                 if self.frame4 is not None:
-                    self.frame4.destroy()  
+                    self.frame4.destroy() 
+                if self.frame5 is not None:
+                    self.frame5.destroy()  
             else:
                 if self.frame1 is not None:
                     self.frame1.destroy()
@@ -96,6 +107,8 @@ class Principal():
                     self.frame3.destroy()
                 if self.frame4 is not None:
                     self.frame4.destroy() 
+                if self.frame5 is not None:
+                    self.frame5.destroy() 
                 self.frame2.destroy()        # destruyo lo que se haya creado para el frame2
 
             self.frame2 = Frame2(window) # Frame proceso 2
@@ -109,14 +122,18 @@ class Principal():
                 if self.frame2 is not None:
                     self.frame2.destroy()  
                 if self.frame4 is not None:
-                    self.frame4.destroy() 
+                    self.frame4.destroy()
+                if self.frame5 is not None:
+                    self.frame5.destroy()  
             else:
                 if self.frame1 is not None:
                     self.frame1.destroy()
                 if self.frame2 is not None:
                     self.frame2.destroy()
                 if self.frame4 is not None:
-                    self.frame4.destroy() 
+                    self.frame4.destroy()
+                if self.frame5 is not None:
+                    self.frame5.destroy()  
                 self.frame3.destroy()        # destruyo lo que se haya creado para el frame3
 
             self.frame3 = Frame3(window) # Frame proceso 3
@@ -131,7 +148,9 @@ class Principal():
                 if self.frame2 is not None:
                     self.frame2.destroy() 
                 if self.frame3 is not None:
-                    self.frame3.destroy()   
+                    self.frame3.destroy()
+                if self.frame5 is not None:
+                    self.frame5.destroy()    
             else:
                 if self.frame1 is not None:
                     self.frame1.destroy()
@@ -139,10 +158,37 @@ class Principal():
                     self.frame2.destroy()
                 if self.frame3 is not None:
                     self.frame3.destroy()
+                if self.frame5 is not None:
+                    self.frame5.destroy() 
                 self.frame4.destroy()        # destruyo lo que se haya creado para el frame4
 
             self.frame4 = Frame4(window) # Frame proceso 4
             self.frame4.pack()
+
+        def entregar():
+            principal.pack_forget()
+            if self.frame5 is None:
+                if self.frame1 is not None:
+                    self.frame1.destroy()
+                if self.frame2 is not None:
+                    self.frame2.destroy() 
+                if self.frame3 is not None:
+                    self.frame3.destroy()
+                if self.frame4 is not None:
+                    self.frame4.destroy()    
+            else:
+                if self.frame1 is not None:
+                    self.frame1.destroy()
+                if self.frame2 is not None:
+                    self.frame2.destroy()
+                if self.frame3 is not None:
+                    self.frame3.destroy()
+                if self.frame4 is not None:
+                    self.frame4.destroy() 
+                self.frame5.destroy()        # destruyo lo que se haya creado para el frame5
+
+            self.frame5 = Frame5(window) # Frame proceso 5
+            self.frame5.pack()
 
     
         def pprincipal():
@@ -154,8 +200,13 @@ class Principal():
                 self.frame3.destroy()
             if self.frame4 is not None:
                     self.frame4.destroy() 
+            if self.frame5 is not None:
+                    self.frame5.destroy() 
             principal.pack()
 
+        
+        
+        
         #Manejo de menús
         window.option_add('*tearOff', False)
         menubar = Menu(window)
@@ -172,6 +223,7 @@ class Principal():
         procesos.add_command(label="Mostrar Registros", command=mostrar)
         procesos.add_command(label="Eliminar Registros", command=eliminar)
         procesos.add_command(label="Préstamos", command=prestar)
+        procesos.add_command(label="Entregas", command=entregar)
         procesos.add_separator()
         procesos.add_command(label="Interfaz de Inicio", command=pprincipal)
 
