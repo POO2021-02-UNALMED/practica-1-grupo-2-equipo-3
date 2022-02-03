@@ -70,9 +70,15 @@ class Prestamo:
 
     @classmethod
     def mostrarRegistros(cls):
+        from gestorAplicacion.obras.Publicacion import Publicacion
+        from gestorAplicacion.personas.Persona import Persona
         c = "PRESTAMOS REALIZADOS: \n"
-        for x in Prestamo._lista:
-            c = c + f'Prestamo con ID: {x.getId()}  Publicacion: {x.getPubliacion().getNombre()} Usuario: {x.getUsuario().getNombre()} Inicio: {x.getInicio()} Fin: {x.getFin()}\n'
+        # for x in Prestamo._lista:
+        #     if isinstance(x,Prestamo):
+        #         publicacion = x.getPublicacion()
+        #         usuario = x.getUsuario()
+        #         if isinstance(publicacion,Publicacion) and isinstance(usuario,Persona):
+        #             c = c + f'Prestamo con ID: {x.getId()}  Publicacion: {publicacion.getNombre()} Usuario: {usuario.getNombre()} Inicio: {x.getInicio()} Fin: {x.getFin()}\n'
         return c
 
 
