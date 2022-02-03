@@ -14,7 +14,10 @@ from gestorAplicacion.obras.Publicacion import Publicacion
 from gestorAplicacion.obras.Revista import Revista
 from gestorAplicacion.personas.Autor import Autor
 from gestorAplicacion.personas.Usuario import Usuario
+from gestorAplicacion.personas.EstudianteProfesor import EstudianteProfesor
+from gestorAplicacion.personas.Externo import Externo
 from gestorAplicacion.obras.Publicacion import Estado
+from gestorAplicacion.prestamo.Prestamo import Prestamo
 ##
 
 if __name__ == "__main__":
@@ -50,9 +53,19 @@ if __name__ == "__main__":
         pickle.dump(Revista.getRevista(),w)
         w.close()
 
-    if not os.path.exists("baseDatos/usuarios"):
-        w = open('baseDatos/usuarios','wb')
-        pickle.dump(Usuario.getUsuarios,w)
+    if not os.path.exists("baseDatos/usuariosI"):
+        w = open('baseDatos/usuariosI','wb')
+        pickle.dump(EstudianteProfesor.l,w)
+        w.close()
+
+    if not os.path.exists("baseDatos/usuariosE"):
+        w = open('baseDatos/usuariosE','wb')
+        pickle.dump(Externo.l,w)
+        w.close()
+
+    if not os.path.exists("baseDatos/prestamos"):
+        w = open('baseDatos/prestamos','wb')
+        pickle.dump(Prestamo.getLista,w)
         w.close()
     #
 
