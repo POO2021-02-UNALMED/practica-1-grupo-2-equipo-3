@@ -10,6 +10,7 @@ from gestorAplicacion.obras.Publicacion import Publicacion
 from gestorAplicacion.personas.Autor import Autor
 from gestorAplicacion.personas.Persona import Persona
 from gestorAplicacion.personas.Usuario import Usuario
+from gestorAplicacion.errores.ErrorAplicacion import Inexistente
 ##
 
 class Frame2(Frame):
@@ -84,16 +85,30 @@ class Frame2(Frame):
             def lanzar(arg):
                 def ver():
                     numero = interaccion.getValue(criterios[0])
-                    windowv = Toplevel()
-                    windowv.title("Publicaciones asociadas")
-                    e = Estanteria()
-                    for elem in Estanteria.getLista():
-                        if elem.getNumero == numero:
-                            e = Estanteria
-                    t = Text(windowv,font=("consolas",10))
-                    t.insert(1.0,e.mostrarContenido())
-                    t.config(state=DISABLED)
-                    t.pack()
+                    a = True
+                    try:    
+                        Inexistente.verEstanteria(numero)
+                    
+                    except Inexistente as i:
+                        messagebox.showinfo(title="ERROR",message = i.error2 , detail= '')
+                        a = False
+
+                    if a == True:
+                    
+                        windowv = Toplevel()
+                        windowv.title("Publicaciones asociadas")
+                        #print(Estanteria.getLista())
+                        for elem in Estanteria.getLista():
+                            if elem.getNumero == numero:
+                                e = elem
+                                break
+
+                        t = Text(windowv,font=("consolas",10))
+                        t.insert(1.0,e.mostrarContenido())
+                        t.config(state=DISABLED)
+                        t.pack()
+                    else:
+                        pass
 
                 tituloCriterios = ""
                 criterios = ["Número"]

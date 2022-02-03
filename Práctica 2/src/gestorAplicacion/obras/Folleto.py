@@ -9,11 +9,12 @@ class Folleto(Publicacion):
 
     #Constructor
     def __init__(self, codigo,nombre,año,ejemplar,referencia='...',estanteria=None,prestamo=None) :
+        Folleto._folleto.append(self)
         super().__init__(codigo,nombre,año,ejemplar)
         self._referencia = referencia
         self.estanteria = estanteria
         self.prestamo = prestamo
-        Folleto._folleto.append(self)
+        
         
         if estanteria is not None:
             self.estanteria.getPublicaciones.append(self)

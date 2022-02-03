@@ -5,6 +5,7 @@ from functools import partial
 from Ventanas.FieldFrame import FieldFrame
 from tkinter import ttk
 
+
 ## Objetos
 from gestorAplicacion.obras.Estanteria import Estanteria
 from gestorAplicacion.obras.Publicacion import Publicacion
@@ -16,6 +17,7 @@ from gestorAplicacion.personas.Externo import Externo
 from gestorAplicacion.personas.Usuario import Usuario
 from gestorAplicacion.personas.Persona import Persona
 from gestorAplicacion.personas.Autor import Autor
+from gestorAplicacion.errores.ErrorAplicacion import Fecha, FueradeRango, Negativo, NumeroE
 ##
 
 class Frame1(Frame):
@@ -107,26 +109,49 @@ class Frame1(Frame):
 
             def lanzar(arg):
 
+
                 def guardar():
+                
                     numero = interaccion.getValue(criterios[0])
                     piso = interaccion.getValue(criterios[1])
                     ls = interaccion.getValue(criterios[2])
                     li = interaccion.getValue(criterios[3])
-                    
-                    lim = [ls,li]
-                    Estanteria(numero,piso,lim) # creacion del objeto
 
-                    messagebox.showinfo(title="Ingresar Estantería",
-                    message="INFORMACIÓN:",
-                    detail="La estantería ha sido registrada con éxito")
+                    a = True
                     
-                    lanzar(interaccion)
+                    try:
+                        Negativo.ver(piso)
+                        NumeroE.ver(ls,li)
+                        FueradeRango.ver(piso)
+                    except Negativo as n:
+                        messagebox.showinfo(title="ERROR",message = n.error2 , detail= n.imprimir(piso))
+                        a = False
+                    except NumeroE as nu:
+                        messagebox.showinfo(title="ERROR",message = nu.error2 , detail= nu.imprimir(ls,li))
+                        a = False
+                    except FueradeRango as f:
+                        messagebox.showinfo(title="ERROR",message = f.error2 , detail= f.imprimir(piso))
+                        a = False
+
+
+                    lim = [ls,li]
+
+                    if a == True :
+                        Estanteria(numero,piso,lim) # creacion del objeto
+
+                        messagebox.showinfo(title="Ingresar Estantería",
+                        message="INFORMACIÓN:",
+                        detail="La estantería ha sido registrada con éxito")
+                        
+                        lanzar(interaccion)
+                    else:
+                        pass
 
                 tituloCriterios = "ATRIBUTO"
                 criterios = ["Número", "Piso", "Límite Superior", "Límite Inferior"]
                 tituloValores = "VALOR"
-                valores= None
-                habilitado = None
+                valores= [Estanteria.getNumeroEstanterias()+1,'','','']
+                habilitado = [1]
                 if arg is None:
                     interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
                 else:
@@ -171,19 +196,40 @@ class Frame1(Frame):
                     elif vivo == "no" or vivo == "NO" or vivo == "No":
                         vivo = False
 
-                    Autor(nombre,id,nacimiento,pais,vivo)
-                    messagebox.showinfo(title="Ingresar Autor",
-                    message="INFORMACIÓN:",
-                    detail="El autor ha sido registrado con éxito")
-                    #Label(master=f,text=Autor.mostrarRegistros()).pack()
-                    #
-                    lanzar(interaccion)
+                    a = True
+                    
+                    try:
+                        NumeroE.ver(nombre,nacimiento,pais)
+                        FueradeRango.ver2(nombre,pais,vivo,nacimiento)
+                        Fecha.ver(nacimiento)
+                        
+                    except NumeroE as nu:
+                        messagebox.showinfo(title="ERROR",message = nu.error2 , detail= nu.imprimir(nombre,nacimiento,pais))
+                        a = False
+                    except FueradeRango as f:
+                        messagebox.showinfo(title="ERROR",message = f.error2 , detail= f.imprimir2(nombre,pais,vivo,nacimiento))
+                        a = False
+                    except Fecha as fe:
+                        messagebox.showinfo(title="ERROR",message = fe.error2 , detail= fe.imprimir(nacimiento))
+                        a = False
+
+                    if a == True:
+
+                        Autor(nombre,id,nacimiento,pais,vivo)
+                        messagebox.showinfo(title="Ingresar Autor",
+                        message="INFORMACIÓN:",
+                        detail="El autor ha sido registrado con éxito")
+                        #Label(master=f,text=Autor.mostrarRegistros()).pack()
+                        #
+                        lanzar(interaccion)
+                    else:
+                        pass
 
                 tituloCriterios = "ATRIBUTO"
                 criterios = ["Nombre", "id", "Nacimiento", "Pais","¿Vivo?"]
                 tituloValores = "VALOR"
-                valores= None
-                habilitado = None
+                valores= ['','A' + str(len(Autor.getLista())+1),'','','']
+                habilitado = [2]
                 if arg is None:
                     interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
                 else:
@@ -248,8 +294,8 @@ class Frame1(Frame):
                 tituloCriterios = "ATRIBUTO"
                 criterios = ["Codigo", "Nombre", "Año",'Ejemplar' ,"Autor(ID)",'Tipo',"Referencia","Volumen","Estanteria(#)"]
                 tituloValores = "VALOR"
-                valores= None
-                habilitado = None
+                valores= ['L'+str(len(Libro.getLibro())+1),'','','','','','','','']
+                habilitado = [1]
                 if arg is None:
                     interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
                 else:
@@ -308,8 +354,8 @@ class Frame1(Frame):
                 tituloCriterios = "ATRIBUTO"
                 criterios = ["Codigo", "Nombre", "Año",'Ejemplar',"Referencia","Estanteria(#)"]
                 tituloValores = "VALOR"
-                valores= None
-                habilitado = None
+                valores= ['F'+str(len(Folleto.getFolleto())+1),'','','','','']
+                habilitado = [1]
                 if arg is None:
                     interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
                 else:
@@ -369,8 +415,8 @@ class Frame1(Frame):
                 tituloCriterios = "ATRIBUTO"
                 criterios = ["Codigo", "Nombre", "Año",'Ejemplar' ,"Numero",'Mes',"Temporada","Estanteria(#)"]
                 tituloValores = "VALOR"
-                valores= None
-                habilitado = None
+                valores= ['R'+str(len(Revista.getRevista())+1),'','','','','','','']
+                habilitado = [1]
                 if arg is None:
                     interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
                 else:
@@ -428,7 +474,7 @@ class Frame1(Frame):
                 criterios = ["Nombre", "Id", "Correo",'Telefono' ,"Direccion",'Nacimiento',"Pais","Rol"]
                 tituloValores = "VALOR"
                 valores= None
-                habilitado = None
+                habilitado = [None]
                 if arg is None:
                     interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
                 else:

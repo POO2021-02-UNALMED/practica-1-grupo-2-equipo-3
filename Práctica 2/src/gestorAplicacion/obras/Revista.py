@@ -25,13 +25,14 @@ class Revista(Publicacion):
 
     #Constructor
     def __init__(self, codigo,nombre,año,ejemplar,numero=0,mes='...', temporada=0,estanteria=None,prestamo=None) :
+        Revista._revista.append(self)
         super().__init__(codigo,nombre,año,ejemplar)
         self._numero = numero
         self._mes=mes
         self._temporada=temporada
         self.estanteria = estanteria
         self.prestamo = prestamo
-        Revista._revista.append(self)
+        
         
         if estanteria is not None:
             self.estanteria.getPublicaciones.append(self)

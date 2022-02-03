@@ -20,6 +20,7 @@ class Libro(Publicacion):
 
     #Constructor
     def __init__(self, codigo,nombre,año,ejemplar,autor=None,tipolibro='...',referencia='...',volumen=0,estanteria=None,prestamo=None) :
+        Libro._libro.append(self)
         super().__init__(codigo,nombre,año,ejemplar)
         self._autor = autor
         self._tipo = tipolibro
@@ -27,7 +28,7 @@ class Libro(Publicacion):
         self._volumen = volumen
         self.estanteria = estanteria
         self.prestamo = prestamo
-        Libro._libro.append(self)
+        
         if estanteria is not None:
             self.estanteria.getPublicaciones.append(self)
 

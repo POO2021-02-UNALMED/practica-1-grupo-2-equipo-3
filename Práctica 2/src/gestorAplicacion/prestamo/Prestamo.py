@@ -48,6 +48,7 @@ class Prestamo:
         if isinstance(self.publicacion,Libro):
             if self.publicacion.getTipo() == tipoLibro.r:
                 return "Los usuarios externos de la universidad no pueden prestar libros de reserva"
+                
             elif self.publicacion.getTipo() == tipoLibro.cg:
                 self.fin = self.inicio + datetime.timedelta(days=15)
                 self.fin = self.fin.replace(hour=12)

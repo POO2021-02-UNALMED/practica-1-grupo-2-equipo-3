@@ -6,7 +6,8 @@ class Estanteria: #serializacion ?
     _numeroEstanterias = 0
 
     #Constructor
-    def __init__(self, numero=0, piso=0, limites=None, publicaciones=None) :
+    def __init__(self, numero =0,piso=0, limites=None, publicaciones=None) :
+        Estanteria._numeroEstanterias+=1
         self.numero = numero
         self.piso = piso
         if limites is None:
@@ -17,7 +18,7 @@ class Estanteria: #serializacion ?
             self._publicaciones = [] 
         else:
             self._publicaciones = publicaciones
-        Estanteria._numeroEstanterias+=1
+        
         Estanteria._lista.append(self)
         
             
@@ -31,11 +32,11 @@ class Estanteria: #serializacion ?
     def mostrarRegistros(cls):
         c = "Estanterias creadas "+ "\n"
         for x in Estanteria._lista :
-            c= c + f'Estanteria (CP)#{x.getNumero()}, Piso#{x.getPiso()} \n'
+            c= c + f'Estanteria (CP)#{x.getNumero()}, Piso#{x.getPiso()} Limites: {x.getLimites()} \n'
         return c
 
-    def mostrarInfo(self):
-        return f'INFORMACION DE LA ESTANTERIA: \n Numero: {self.getNumero()} \n Limites: {self.getLimites()} \n Piso: {self.getPiso()}'
+    '''def mostrarInfo(self):
+        return f'INFORMACION DE LA ESTANTERIA: \n Numero: {self.getNumero()} \n Limites: {self.getLimites()} \n Piso: {self.getPiso()}'''
 
     def mostrarContenido(self):
         from gestorAplicacion.obras.Libro import Libro
