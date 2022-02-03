@@ -26,9 +26,11 @@ Memoria Escrita - copia.docx
 # Ignoramos los archivos de bases de datos
 autores
 estanterias
-usuarios
+usuariosI
+usuariosE
 personas
 publicaciones
 libros
 folletos
 revistas
+prestamos
