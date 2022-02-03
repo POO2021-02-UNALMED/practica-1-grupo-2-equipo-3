@@ -21,7 +21,7 @@ class Folleto(Publicacion):
 
     #Metodos
     def mostrarInfo(self):
-        return  f'INFORMACION DEL FOLLETO: \n Nombre: {self.getNombre()} \n Año: {self.getAño} \n Codigo: {self.getCodigo} \n Ejemplar: {self.getEjemplar} \n Estado: {self.getEstado} \n Referencia: {self.getReferencia}'
+        return  f'INFORMACION DEL FOLLETO: \n Nombre: {self.getNombre()} \n Año: {self.getAño()} \n Codigo: {self.getCodigo()} \n Ejemplar: {self.getEjemplar()} \n Estado: {self.getEstado()} \n Referencia: {self.getReferencia()}'
         
     def mostrarUbicacion(self):
         return "Localizado en: " + str(self.estanteria.mostrarInfo())

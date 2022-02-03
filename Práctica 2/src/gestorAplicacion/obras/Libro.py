@@ -45,7 +45,7 @@ class Libro(Publicacion):
                 break
 
     def mostrarInfo(self):
-        return  f'INFORMACION DEL LIBRO: \n Nombre: {self.getNombre()} \n Autor: {self.getAutor()} \n Año: {self.getAño()} \n Tipo: {self.getTipo} \n Vol: {self.getVol} \n Codigo: {self.getCodigo} \n Ejemplar: {self.getEjemplar} \n Estado: {self.getEstado} \n Referencia: {self.getReferencia}'
+        return  f'INFORMACION DEL LIBRO: \n Nombre: {self.getNombre()} \n Autor: {self.getAutor()} \n Año: {self.getAño()} \n Tipo: {self.getTipo()} \n Vol: {self.getVol()} \n Codigo: {self.getCodigo()} \n Ejemplar: {self.getEjemplar()} \n Estado: {self.getEstado()} \n Referencia: {self.getReferencia()}'
         
     def mostrarUbicacion(self):
         return "Localizado en: " + str(self.estanteria.mostrarInfo())

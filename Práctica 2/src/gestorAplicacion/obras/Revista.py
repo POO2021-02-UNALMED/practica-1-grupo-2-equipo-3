@@ -39,7 +39,7 @@ class Revista(Publicacion):
 
     #Metodos
     def mostrarInfo(self):
-        return  f'INFORMACION DE LA REVISTA: \n Nombre: {self.getNombre()} \n Año: {self.getAño} \n Mes: {self.getMes} \n Temporada: {self.getTemporada} \n Codigo: {self.getCodigo} \n Ejemplar: {self.getEjemplar} \n Estado: {self.getEstado} \n '
+        return  f'INFORMACION DE LA REVISTA: \n Nombre: {self.getNombre()} \n Año: {self.getAño()} \n Mes: {self.getMes()} \n Temporada: {self.getTemporada()} \n Codigo: {self.getCodigo()} \n Ejemplar: {self.getEjemplar()} \n Estado: {self.getEstado()} \n '
         
     def mostrarUbicacion(self):
         return "Localizada en: " + str(self.estanteria.mostrarInfo())

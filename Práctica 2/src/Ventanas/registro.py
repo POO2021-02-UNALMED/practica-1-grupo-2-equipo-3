@@ -200,18 +200,18 @@ class Frame1(Frame):
                     
                     try:
                         NumeroE.ver(nombre,nacimiento,pais)
-                        FueradeRango.ver2(nombre,pais,vivo,nacimiento)
-                        Fecha.ver(nacimiento)
+                        FueradeRango.ver2(nombre,pais,nacimiento)
+                        #Fecha.ver(nacimiento)
                         
                     except NumeroE as nu:
                         messagebox.showinfo(title="ERROR",message = nu.error2 , detail= nu.imprimir(nombre,nacimiento,pais))
                         a = False
                     except FueradeRango as f:
-                        messagebox.showinfo(title="ERROR",message = f.error2 , detail= f.imprimir2(nombre,pais,vivo,nacimiento))
+                        messagebox.showinfo(title="ERROR",message = f.error2 , detail= f.imprimir2(nombre,pais,nacimiento))
                         a = False
-                    except Fecha as fe:
-                        messagebox.showinfo(title="ERROR",message = fe.error2 , detail= fe.imprimir(nacimiento))
-                        a = False
+                    '''except Fecha as fe:
+                        messagebox.showinfo(title="ERROR",message = fe.error2 , detail= '')
+                        a = False'''
 
                     if a == True:
 

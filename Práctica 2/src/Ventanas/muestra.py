@@ -92,16 +92,17 @@ class Frame2(Frame):
                     except Inexistente as i:
                         messagebox.showinfo(title="ERROR",message = i.error2 , detail= '')
                         a = False
+                    for elem in Estanteria.getLista():
+                        if elem.getNumero() == numero:
+                            e = elem
+                            break
 
                     if a == True:
                     
                         windowv = Toplevel()
                         windowv.title("Publicaciones asociadas")
                         #print(Estanteria.getLista())
-                        for elem in Estanteria.getLista():
-                            if elem.getNumero == numero:
-                                e = elem
-                                break
+                        
 
                         t = Text(windowv,font=("consolas",10))
                         t.insert(1.0,e.mostrarContenido())
@@ -166,18 +167,32 @@ class Frame2(Frame):
             def lanzar(arg):
                 def ver():
                     id = interaccion.getValue(criterios[0])
-                    windowv = Toplevel()
-                    windowv.title("Información Personal")
-                   
-                    a = Autor()
-                    for elem in Autor.getAutores:
-                        if elem.getId == id:
-                            a = elem
+                    
+                    a = True
+                    try:    
+                        Inexistente.verAutor(id)
+                    
+                    except Inexistente as i:
+                        messagebox.showinfo(title="ERROR",message = i.error2 , detail= '')
+                        a = False
+                    for elem in Autor.getAutores():
+                        if elem.getId() == id:
+                            e = elem
+                            break
 
-                    t = Text(windowv,font=("consolas",10))
-                    t.insert(1.0,a.infoPersonal())
-                    t.config(state=DISABLED)
-                    t.pack()
+                    if a == True:
+                    
+                        windowv = Toplevel()
+                        windowv.title("Informacion personal")
+                        #print(Estanteria.getLista())
+                        
+
+                        t = Text(windowv,font=("consolas",10))
+                        t.insert(1.0,e.infoPersonal())
+                        t.config(state=DISABLED)
+                        t.pack()
+                    else:
+                        pass
 
                 tituloCriterios = ""
                 criterios = ["ID"]
@@ -234,18 +249,31 @@ class Frame2(Frame):
             def lanzar(arg):
                 def ver():
                     codigo = interaccion.getValue(criterios[0])
-                    windowv = Toplevel()
-                    windowv.title("Información Detallada")
-                   
-                    p = Publicacion()
+                    a = True
+                    try:    
+                        Inexistente.verPublicacion(codigo)
+                    
+                    except Inexistente as i:
+                        messagebox.showinfo(title="ERROR",message = i.error2 , detail= '')
+                        a = False
                     for elem in Publicacion.getLista():
-                        if elem.getCodigo == codigo:
-                            p = elem
+                        if elem.getCodigo() == codigo   :
+                            e = elem
+                            break
 
-                    t = Text(windowv,font=("consolas",10))
-                    t.insert(1.0,p.mostrarInfo())
-                    t.config(state=DISABLED)
-                    t.pack()
+                    if a == True:
+                    
+                        windowv = Toplevel()
+                        windowv.title("Informacion detallada")
+                        #print(Estanteria.getLista())
+                        
+
+                        t = Text(windowv,font=("consolas",10))
+                        t.insert(1.0,e.mostrarInfo())
+                        t.config(state=DISABLED)
+                        t.pack()
+                    else:
+                        pass
 
                 tituloCriterios = ""
                 criterios = ["Código"]
@@ -301,18 +329,31 @@ class Frame2(Frame):
             def lanzar(arg):
                 def ver():
                     id = interaccion.getValue(criterios[0])
-                    windowv = Toplevel()
-                    windowv.title("Información Personal")
-                   
-                    u = Persona()
+                    a = True
+                    try:    
+                        Inexistente.verUsuario(id)
+                    
+                    except Inexistente as i:
+                        messagebox.showinfo(title="ERROR",message = i.error2 , detail= '')
+                        a = False
                     for elem in Usuario.getUsuarios():
-                        if elem.getId() == id:
-                            u = elem
+                        if elem.getId() == id   :
+                            e = elem
+                            break
 
-                    t = Text(windowv,font=("consolas",10))
-                    t.insert(1.0,u.infoPersonal())
-                    t.config(state=DISABLED)
-                    t.pack()
+                    if a == True:
+                    
+                        windowv = Toplevel()
+                        windowv.title("Informacion personal")
+                        #print(Estanteria.getLista())
+                        
+
+                        t = Text(windowv,font=("consolas",10))
+                        t.insert(1.0,e.infoPersonal())
+                        t.config(state=DISABLED)
+                        t.pack()
+                    else:
+                        pass
 
                 tituloCriterios = ""
                 criterios = ["ID"]

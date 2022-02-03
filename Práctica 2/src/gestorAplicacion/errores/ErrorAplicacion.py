@@ -1,4 +1,8 @@
-
+from gestorAplicacion.personas.Autor import Autor
+from gestorAplicacion.obras.Estanteria import Estanteria
+from gestorAplicacion.obras.Publicacion import Publicacion
+from gestorAplicacion.personas.Persona import Persona
+from gestorAplicacion.personas.Usuario import Usuario
 #Clase Abuela de Errores
 class ErrorAplicacion(Exception):
     def __init__(self, error) :
@@ -86,7 +90,7 @@ class Fecha(ValorInvalido):
     def ver(cls, *a):
         import re
         for x in a:
-            if re.findall('^[0-3][0-1].[0-1][0-2].\d{4}', x):
+            if re.findall('^\d{2}-\d{2}-\d{4}$', x):
                 pass
             else:
                 raise Fecha()
@@ -94,7 +98,7 @@ class Fecha(ValorInvalido):
         import re
         c = ""
         for x in a:
-            if re.findall('^[0-3][0-1].[0-1][0-2].\d{4}', x):
+            if re.findall('^\d{2}-\d{2}-\d{4}$', x):
                 pass
             else:
                 c= c + x + " "
@@ -133,20 +137,56 @@ class Inexistente(BaseDatosError):
 
     @classmethod
     def verEstanteria(cls, a):
-        from gestorAplicacion.obras.Estanteria import Estanteria
-        if not Estanteria.getLista():
+        if len(Estanteria.getLista()) == 0:
             raise Inexistente()
-        else:
+        elif len(Estanteria.getLista()) != 0:
+            b = False
             for x in Estanteria.getLista():
                 if x.getNumero() == a:
-                    pass
-                else:
-                    raise Inexistente()
+                    b=True
+            if b == False:
+                raise Inexistente()
+    @classmethod
+    def verAutor(cls, a):
+        
+        if len(Autor.getAutores()) == 0:
+            raise Inexistente()
+        elif len(Autor.getAutores()) != 0:
+            b = False
+            for x in Autor.getAutores():
+                if x.getId() == a:
+                    b=True
+            if b == False:
+                raise Inexistente()
 
-    def imprimirEstanteria(self):
-        from gestorAplicacion.obras.Estanteria import Estanteria
-        for x in  Estanteria.getLista():
-            pass
+    @classmethod
+    def verPublicacion(cls, a):
+        
+        if len(Publicacion.getLista()) == 0:
+            raise Inexistente()
+        elif len(Publicacion.getLista()) != 0:
+            b = False
+            for x in Publicacion.getLista():
+                if x.getCodigo() == a:
+                    b=True
+            if b == False:
+                raise Inexistente()
+
+    @classmethod
+    def verUsuario(cls, a):
+        
+        if len(Usuario.getUsuarios()) == 0:
+            raise Inexistente()
+        elif len(Usuario.getUsuarios()) != 0:
+            b = False
+            for x in Usuario.getUsuarios():
+                if x.getId() == a:
+                    b=True
+            if b == False:
+                raise Inexistente()
+
+        
+
 
 
             
@@ -154,12 +194,12 @@ class Inexistente(BaseDatosError):
 
 
 
-
+'''
 if __name__ == "__main__":
     try:
         raise Negativo()
     except Negativo as e:
-        print(e.error2)
+        print(e.error2)'''
 
 
 

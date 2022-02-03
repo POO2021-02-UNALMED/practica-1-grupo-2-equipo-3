@@ -14,6 +14,7 @@ from gestorAplicacion.obras.Publicacion import Publicacion
 from gestorAplicacion.obras.Revista import Revista
 from gestorAplicacion.personas.Autor import Autor
 from gestorAplicacion.personas.Usuario import Usuario
+from gestorAplicacion.obras.Publicacion import Estado
 ##
 
 if __name__ == "__main__":
