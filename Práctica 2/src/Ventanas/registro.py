@@ -228,7 +228,7 @@ class Frame1(Frame):
                 tituloCriterios = "ATRIBUTO"
                 criterios = ["Nombre", "id", "Nacimiento", "Pais","¿Vivo?"]
                 tituloValores = "VALOR"
-                valores= ['','A' + str(len(Autor.getLista())+1),'','','']
+                valores= ['','A' + str(Autor._numeroAutores+1),'','','']
                 habilitado = [2]
                 if arg is None:
                     interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
@@ -294,7 +294,7 @@ class Frame1(Frame):
                 tituloCriterios = "ATRIBUTO"
                 criterios = ["Codigo", "Nombre", "Año",'Ejemplar' ,"Autor(ID)",'Tipo',"Referencia","Volumen","Estanteria(#)"]
                 tituloValores = "VALOR"
-                valores= ['L'+str(len(Libro.getLibro())+1),'','','','','','','','']
+                valores= ['L'+str(Libro._numeroLibro+1),'','','','','','','','']
                 habilitado = [1]
                 if arg is None:
                     interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción

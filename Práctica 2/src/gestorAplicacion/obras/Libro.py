@@ -16,6 +16,7 @@ class Libro(Publicacion):
 
     #Atributos de clase
     _libro = []
+    _numeroLibro = len(_libro)
     
 
     #Constructor

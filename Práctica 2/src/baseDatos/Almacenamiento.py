@@ -95,6 +95,7 @@ def deserializarEstanterias():
 def deserializarAutores():
     r = open('baseDatos/autores','rb')
     Autor.setAutores(pickle.load(r))
+    Autor._numeroAutores =len(Autor.getAutores())
     r.close()
 
 def deserializarPublicaciones():
@@ -105,6 +106,7 @@ def deserializarPublicaciones():
 def deserializarLibros():
     r = open('baseDatos/libros','rb')
     Libro.setLibro(pickle.load(r))
+    Libro._numeroLibro = len(Libro.getLibro())
     r.close()
 
 def deserializarRevistas():
