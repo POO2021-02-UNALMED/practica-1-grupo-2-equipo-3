@@ -3,6 +3,7 @@ from tkinter import messagebox
 from functools import partial
 from Ventanas.FieldFrame import FieldFrame
 from tkinter import ttk
+from gestorAplicacion.errores.ErrorAplicacion import Inexistente
 
 ## Objetos
 from gestorAplicacion.obras.Estanteria import Estanteria
@@ -66,25 +67,41 @@ class Frame4(Frame):
                         publicacion = interaccion.getValue(criterios[2])
                         usuario = interaccion.getValue(criterios[3])
 
-                        us = Usuario.buscarUsuario(usuario)
-                        us.prestar(id,publicacion,fechai)
+                        
+                        
 
-                        ##
-                        # Prestamo(fecha,publicacion,usuario)
-                        ##
-                        messagebox.showinfo(title="Préstamos",
-                        message="INFORMACIÓN:",
-                        detail="El préstamo ha sido registrado con éxito")
+                        a = True
+                        try:
+                            #Inexistente.verUsuario(us.Id)
+                            us = Usuario.buscarUsuario(usuario)
+                            Inexistente.verPublicacion(publicacion)
 
-                        f.destroy()
-                        self._i +=1
-                        if self._i <= self._n :
-                            inter(nprestamos)
+                        except Inexistente as i:
+
+                            messagebox.showinfo(title="ERROR",message = i.error2 , detail= '')
+                            a == False
+
+                        if a == True:
+                            
+                            
+
+                        
+                            us.prestar(id,publicacion,fechai)
+                            messagebox.showinfo(title="Préstamos",
+                            message="INFORMACIÓN:",
+                            detail="El préstamo ha sido registrado con éxito")
+
+                            f.destroy()
+                            self._i +=1
+                            if self._i <= self._n :
+                                inter(nprestamos)
+                            else:
+                                # Label(master=f_ini,text="Vuelva a ingresar a la pestaña para regiustrar mas").pack()
+                                presentacion.destroy()
+                                self._i = 1
+                                ini()
                         else:
-                            # Label(master=f_ini,text="Vuelva a ingresar a la pestaña para regiustrar mas").pack()
-                            presentacion.destroy()
-                            self._i = 1
-                            ini()
+                            pass
 
 
                     aceptar.config(command=guardar)

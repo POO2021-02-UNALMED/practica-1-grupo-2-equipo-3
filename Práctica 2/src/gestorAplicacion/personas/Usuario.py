@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+
 from gestorAplicacion.obras.Publicacion import Publicacion
 from gestorAplicacion.prestamo.Prestamo  import Prestamo
 
@@ -22,13 +23,21 @@ class Usuario:
     #
     @classmethod
     def buscarUsuario(cls,usuarioId):
+        from gestorAplicacion.errores.ErrorAplicacion import Inexistente
         from gestorAplicacion.personas.EstudianteProfesor  import EstudianteProfesor
         from gestorAplicacion.personas.Externo import Externo
-        for x in EstudianteProfesor.l + Externo.l:
-            if x.getId() == usuarioId:
-                usuario = x
-                break
-        return usuario
+
+        if len(EstudianteProfesor.l + Externo.l) == 0 :
+            raise Inexistente()
+        else:
+            usuario= 0
+            for x in EstudianteProfesor.l + Externo.l:
+                if x.getId() == usuarioId:
+                    usuario = x
+                    break
+            if usuario == 0:
+                raise Inexistente()
+            return usuario
 
     def prestar(self,id,Codigopub,Finicio):
         pass
