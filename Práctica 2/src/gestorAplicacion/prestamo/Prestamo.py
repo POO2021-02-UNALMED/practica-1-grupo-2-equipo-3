@@ -70,8 +70,8 @@ class Prestamo:
 
     @classmethod
     def mostrarRegistros(cls):
-        from gestorAplicacion.obras.Publicacion import Publicacion
-        from gestorAplicacion.personas.Persona import Persona
+        # from gestorAplicacion.obras.Publicacion import Publicacion
+        # from gestorAplicacion.personas.Persona import Persona
         c = "PRESTAMOS REALIZADOS: \n"
         # for x in Prestamo._lista:
         #     if isinstance(x,Prestamo):
