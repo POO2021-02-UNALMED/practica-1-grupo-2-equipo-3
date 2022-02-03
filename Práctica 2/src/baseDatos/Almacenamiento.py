@@ -7,13 +7,12 @@ from gestorAplicacion.obras.Libro import Libro
 from gestorAplicacion.obras.Publicacion import Publicacion
 from gestorAplicacion.obras.Revista import Revista
 from gestorAplicacion.personas.Autor import Autor
+from gestorAplicacion.personas.EstudianteProfesor import EstudianteProfesor
+from gestorAplicacion.personas.Externo import Externo
 from gestorAplicacion.personas.Usuario import Usuario
+from gestorAplicacion.prestamo.Prestamo import Prestamo
 ##
 
-
-def creacion():
-    w = open('baseDatos/estanterias','wb')
-    w.close()
 
 def serializar():
     serializarEstanterias()
@@ -31,7 +30,9 @@ def deserializar():
     deserializarLibros()
     deserializarRevistas()
     deserializarFolletos()
-    deserializarUsuarios()
+    deserializarUsuariosI()
+    deserializarUsuariosE()
+    deserializarPrestamos()
     
 
 
@@ -103,7 +104,17 @@ def deserializarFolletos():
     Folleto.setFolleto(pickle.load(r))
     r.close()
 
-def deserializarUsuarios():
-    r = open('baseDatos/usuarios','rb')
-    Usuario.setUsuarios(pickle.load(r))
+def deserializarUsuariosI():
+    r = open('baseDatos/usuariosI','rb')
+    EstudianteProfesor.l = pickle.load(r)
+    r.close()
+
+def deserializarUsuariosE():
+    r = open('baseDatos/usuariosE','rb')
+    Externo.l = pickle.load(r)
+    r.close()
+
+def deserializarPrestamos():
+    r = open('baseDatos/prestamos','rb')
+    Prestamo.setLista(pickle.load(r))
     r.close()
