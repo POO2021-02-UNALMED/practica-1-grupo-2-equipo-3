@@ -1,4 +1,5 @@
 import datetime
+import re
 from gestorAplicacion.obras.Libro import Libro, tipoLibro
 from gestorAplicacion.personas.Persona import Persona
 
@@ -66,6 +67,13 @@ class Prestamo:
 
     def mostrarInfo(self):
         return f'DETALLE DEL PRESTAMO: \n Material prestado: {self.publicacion.getNombre()} CP: {self.publicacion.getCodigo()} \n Usuario: {self.usuario.getNombre()} CC: {self.usuario.getId()} \n Fecha inicio: {self.inicio} \n Fecha vencimiento: {self.fin}'
+
+    @classmethod
+    def mostrarRegistros(cls):
+        c = "PRESTAMOS REALIZADOS: \n"
+        for x in Prestamo._lista:
+            c = c + f'Prestamo con ID: {x.getId()}  Publicacion: {x.getPubliacion().getNombre()} Usuario: {x.getUsuario().getNombre()} Inicio: {x.getInicio()} Fin: {x.getFin()}\n'
+        return c
 
 
 
