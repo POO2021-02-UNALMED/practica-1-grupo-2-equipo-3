@@ -21,7 +21,9 @@ def serializar():
     serializarLibros()
     serializarRevistas()
     serializarFolletos()
-    serializarUsuarios()
+    serializarUsuariosI()
+    serializarUsuariosE()
+    serializarPrestamos()
 
 def deserializar():
     deserializarEstanterias()
@@ -66,9 +68,19 @@ def serializarRevistas():
     pickle.dump(Revista.getRevista(),w)
     w.close()
 
-def serializarUsuarios():
-    w = open('baseDatos/usuarios','wb')
-    pickle.dump(Usuario.getUsuarios(),w)
+def serializarUsuariosI():
+    w = open('baseDatos/usuariosI','wb')
+    pickle.dump(EstudianteProfesor.l,w)
+    w.close()
+
+def serializarUsuariosE():
+    w = open('baseDatos/usuariosE','wb')
+    pickle.dump(Externo.l,w)
+    w.close()
+
+def serializarPrestamos():
+    w = open('baseDatos/prestamos','wb')
+    pickle.dump(Prestamo.getLista(),w)
     w.close()
 
 
