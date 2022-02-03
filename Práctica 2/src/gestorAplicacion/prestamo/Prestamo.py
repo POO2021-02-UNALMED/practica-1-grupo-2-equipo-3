@@ -72,6 +72,9 @@ class Prestamo:
     @classmethod
     def getLista(cls):
         return Prestamo._lista
+    @classmethod
+    def setLista(cls,lista):
+        Prestamo._lista = lista
 
     @classmethod
     def getFechaActual(cls):
