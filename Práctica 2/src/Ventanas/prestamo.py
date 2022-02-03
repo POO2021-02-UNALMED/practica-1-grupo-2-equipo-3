@@ -51,7 +51,7 @@ class Frame4(Frame):
                     tituloValores = "VALOR"
                     # p = Prestamo.getLista() + 1
                     valores= ["","","",""]
-                    habilitado = [1]
+                    habilitado = []
                     if arg is None:
                         interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
                     else:
