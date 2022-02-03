@@ -19,38 +19,38 @@ from gestorAplicacion.personas.Usuario import Usuario
 if __name__ == "__main__":
 
     # Creación de archivos que no existan
-    if not os.path.exists("src/baseDatos/estanterias"):
-        w = open('src/baseDatos/estanterias','wb')
+    if not os.path.exists("baseDatos/estanterias"):
+        w = open('baseDatos/estanterias','wb')
         pickle.dump(Estanteria.getLista(),w)
         w.close()
 
-    if not os.path.exists("src/baseDatos/autores"):
-        w = open('src/baseDatos/autores','wb')
+    if not os.path.exists("baseDatos/autores"):
+        w = open('/baseDatos/autores','wb')
         pickle.dump(Autor.getAutores(),w)
         w.close()
 
-    if not os.path.exists("src/baseDatos/publicaciones"):
-        w = open('src/baseDatos/publicaciones','wb')
+    if not os.path.exists("baseDatos/publicaciones"):
+        w = open('baseDatos/publicaciones','wb')
         pickle.dump(Publicacion.getLista(),w)
         w.close()
 
-    if not os.path.exists("src/baseDatos/libros"):
-        w = open('src/baseDatos/libros','wb')
+    if not os.path.exists("baseDatos/libros"):
+        w = open('baseDatos/libros','wb')
         pickle.dump(Libro.getLibro(),w)
         w.close()
 
-    if not os.path.exists("src/baseDatos/folletos"):
-        w = open('src/baseDatos/folletos','wb')
+    if not os.path.exists("baseDatos/folletos"):
+        w = open('baseDatos/folletos','wb')
         pickle.dump(Folleto.getFolleto(),w)
         w.close()
 
-    if not os.path.exists("src/baseDatos/revistas"):
-        w = open('src/baseDatos/revistas','wb')
+    if not os.path.exists("baseDatos/revistas"):
+        w = open('baseDatos/revistas','wb')
         pickle.dump(Revista.getRevista(),w)
         w.close()
 
-    if not os.path.exists("src/baseDatos/usuarios"):
-        w = open('src/baseDatos/usuarios','wb')
+    if not os.path.exists("baseDatos/usuarios"):
+        w = open('baseDatos/usuarios','wb')
         pickle.dump(Usuario.getUsuarios,w)
         w.close()
     #
@@ -92,11 +92,11 @@ del cual se\npodrá tener un registro del material\ndisponible y del estado de l
 
 
     #p4
-    imagen1 = PhotoImage(file="src/Ventanas/Imagenes/imagen1.png")
-    imagen2 = PhotoImage(file="src/Ventanas/Imagenes/imagen2.png")
-    imagen3 = PhotoImage(file="src/Ventanas/Imagenes/imagen3.png")
-    imagen4 = PhotoImage(file="src/Ventanas/Imagenes/imagen4.png")
-    imagen5 = PhotoImage(file="src/Ventanas/Imagenes/imagen5.png")
+    imagen1 = PhotoImage(file="Ventanas/Imagenes/imagen1.png")
+    imagen2 = PhotoImage(file="Ventanas/Imagenes/imagen2.png")
+    imagen3 = PhotoImage(file="Ventanas/Imagenes/imagen3.png")
+    imagen4 = PhotoImage(file="Ventanas/Imagenes/imagen4.png")
+    imagen5 = PhotoImage(file="Ventanas/Imagenes/imagen5.png")
 
     # Estado incial del frame
     p4 = Frame(frameA,width=250,height=215)   
@@ -163,14 +163,14 @@ Institución:  Universidad Nacional de Colombia sede Medellín")
     #p6
     p6 = Frame(master=frameB,width=250,height=400)
 
-    foto1 = PhotoImage(file="src/Ventanas/Imagenes/foto1.png")  
-    foto2 = PhotoImage(file="src/Ventanas/Imagenes/foto2.png")
-    foto3 = PhotoImage(file="src/Ventanas/Imagenes/foto3.png")
-    foto4 = PhotoImage(file="src/Ventanas/Imagenes/foto4.png")
-    foto5 = PhotoImage(file="src/Ventanas/Imagenes/foto5.png")
-    foto6 = PhotoImage(file="src/Ventanas/Imagenes/foto6.png")
-    foto7 = PhotoImage(file="src/Ventanas/Imagenes/foto7.png")
-    foto8 = PhotoImage(file="src/Ventanas/Imagenes/foto8.png")
+    foto1 = PhotoImage(file="Ventanas/Imagenes/foto1.png")  
+    foto2 = PhotoImage(file="Ventanas/Imagenes/foto2.png")
+    foto3 = PhotoImage(file="Ventanas/Imagenes/foto3.png")
+    foto4 = PhotoImage(file="Ventanas/Imagenes/foto4.png")
+    foto5 = PhotoImage(file="Ventanas/Imagenes/foto5.png")
+    foto6 = PhotoImage(file="Ventanas/Imagenes/foto6.png")
+    foto7 = PhotoImage(file="Ventanas/Imagenes/foto7.png")
+    foto8 = PhotoImage(file="Ventanas/Imagenes/foto8.png")
 
 
     framefoto1 = Frame(master=p6)
